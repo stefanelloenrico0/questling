@@ -1,2 +1,12 @@
 overrides:
   typescript: ~5.9.3
+
+# pnpm 11 rifiuta l'installazione (ERR_PNPM_IGNORED_BUILDS, es. su Vercel) se ci sono script di build non
+# esaminati. Qui la scelta e' esplicita: solo cio' che serve davvero; il resto (moduli nativi di
+# firebase-tools, postinstall informativi) non e' necessario alla build dell'app.
+allowBuilds:
+  esbuild: true
+  vue-demi: true
+  re2: false
+  protobufjs: false
+  '@firebase/util': false
