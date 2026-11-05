@@ -1,6 +1,6 @@
 import { defineConfig, devices } from '@playwright/test'
 
-// Test con account e sync REALI contro gli emulatori Firebase: `pnpm e2e:cloud`.
+// Test con account e sync REALI contro gli emulatori Firebase: `npm run e2e:cloud`.
 export default defineConfig({
   testDir: 'tests/e2e-cloud',
   timeout: 60_000,

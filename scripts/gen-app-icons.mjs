@@ -1,5 +1,5 @@
 // Genera icone launcher, splash e icona di stato (Android) dai placeholder pixel-art.
-// Uso: pnpm icons   (da rilanciare quando arriva l'arte vera: sostituisce solo i PNG/vector generati)
+// Uso: npm run icons   (da rilanciare quando arriva l'arte vera: sostituisce solo i PNG/vector generati)
 import { PNG } from 'pngjs'
 import { mkdirSync, readFileSync, writeFileSync, existsSync } from 'node:fs'
 import { dirname, join } from 'node:path'

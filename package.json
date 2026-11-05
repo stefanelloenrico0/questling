@@ -3,28 +3,27 @@
   "private": true,
   "version": "0.1.0",
   "type": "module",
-  "packageManager": "pnpm@11.1.3",
   "scripts": {
     "dev": "nuxt dev",
     "build": "nuxt build",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare",
-    "typecheck": "nuxt typecheck",
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
+    "typecheck": "nuxt prepare && nuxt typecheck",
+    "lint": "nuxt prepare && eslint .",
+    "lint:fix": "nuxt prepare && eslint . --fix",
     "test": "vitest run",
     "test:watch": "vitest",
     "sprites": "node scripts/gen-placeholder-sprites.mjs",
-    "cap:sync": "pnpm generate && cap sync android",
+    "cap:sync": "npm run generate && cap sync android",
     "cap:android": "cap open android",
-    "e2e": "pnpm generate && playwright test",
+    "e2e": "npm run generate:e2e && playwright test",
     "e2e:only": "playwright test",
     "icons": "node scripts/gen-app-icons.mjs",
     "test:rules": "node scripts/with-emulators.mjs vitest run -c vitest.rules.config.ts",
     "pregenerate": "node scripts/gen-privacy.mjs",
     "privacy": "node scripts/gen-privacy.mjs",
-    "e2e:cloud": "node scripts/with-emulators.mjs node scripts/e2e-cloud.mjs"
+    "e2e:cloud": "node scripts/with-emulators.mjs node scripts/e2e-cloud.mjs",
+    "generate:e2e": "node scripts/gen-privacy.mjs && nuxt generate --dotenv .env.e2e"
   },
   "devDependencies": {
     "@capacitor/cli": "^8.6.0",
@@ -35,7 +34,7 @@
     "eslint": "^10.14.0",
     "firebase-tools": "^15.34.2",
     "pngjs": "^7.0.0",
-    "typescript": "^5.9.3",
+    "typescript": "~5.9.3",
     "vitest": "^5.1.0",
     "vue-tsc": "^3.3.14"
   },
@@ -67,5 +66,11 @@
     "vue": "^3.5.44",
     "vue-router": "^5.4.0",
     "zod": "^4.6.7"
+  },
+  "overrides": {
+    "typescript": "$typescript"
+  },
+  "engines": {
+    "node": ">=22.21.0"
   }
 }

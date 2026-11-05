@@ -33,8 +33,8 @@ In **Authentication → Impostazioni → Domini autorizzati** aggiungi il domini
 ## 3. Regole di sicurezza
 
 ```bash
-pnpm exec firebase login
-pnpm exec firebase deploy --only firestore:rules --project <id-progetto>
+npx firebase login
+npx firebase deploy --only firestore:rules --project <id-progetto>
 ```
 
 Le regole sono in `firestore.rules`: ogni utente legge/scrive solo `users/{uid}/…`, ogni documento è validato campo per campo, `syncedAt` deve essere il timestamp del server, un documento non può essere sovrascritto da una versione più vecchia e gli eventi XP sono immutabili.
@@ -44,7 +44,7 @@ Le regole sono in `firestore.rules`: ogni utente legge/scrive solo `users/{uid}/
 1. In Firebase aggiungi un'**app Android** con l'ID pacchetto `com.stefanelloenrico.questling` (placeholder: **non modificabile dopo la pubblicazione**, confermalo prima).
 2. Aggiungi le impronte **SHA-1/SHA-256** (debug: `./gradlew signingReport` da `android/`; release: quella della chiave di firma / di Play App Signing).
 3. Scarica `google-services.json` in `android/app/`. È già nel `.gitignore` di `android/`; Gradle applica il plugin solo se il file esiste.
-4. Abilita il provider Google (punto 1) e riesegui `pnpm cap:sync`.
+4. Abilita il provider Google (punto 1) e riesegui `npm run cap:sync`.
 
 Il login nativo passa dal plugin `@capacitor-firebase/authentication` con `skipNativeAuth: true`: il token viene consegnato alla sessione del Firebase JS SDK, quindi c'è **una sola** sessione. Il plugin usa SDK di terze parti (Google Sign-In) che, secondo la sua documentazione, possono inizializzarsi e raccogliere dati: l'informativa lo dice. **Da verificare** per le dichiarazioni *Data safety* di Google Play.
 
@@ -55,8 +55,8 @@ Serve macOS/Xcode: aggiungi l'app iOS in Firebase, `GoogleService-Info.plist`, l
 ## 6. Test con gli emulatori (nessun account Firebase necessario)
 
 ```bash
-pnpm test:rules   # regole di sicurezza + adapter Firestore su emulatore (richiede Java)
-pnpm e2e:cloud    # app configurata sugli emulatori, due "dispositivi" che si sincronizzano
+npm run test:rules   # regole di sicurezza + adapter Firestore su emulatore (richiede Java)
+npm run e2e:cloud    # app configurata sugli emulatori, due "dispositivi" che si sincronizzano
 ```
 
 Entrambi avviano gli emulatori su porte libere e li chiudono alla fine (`scripts/with-emulators.mjs`).
@@ -67,4 +67,4 @@ Il piano gratuito di Firestore ha quote giornaliere su letture/scritture/cancell
 
 ## 8. Privacy policy
 
-`i18n/locales/it/privacy.json` è la fonte unica: la pagina in-app `/privacy` la legge direttamente e `pnpm generate` crea `public/privacy.html` (URL pubblico da indicare negli store). **Completa i segnaposto `[DA COMPLETARE: …]`** (titolare, contatto, regione dei dati, tempi di conservazione presso il fornitore, età minima) e fai verificare il testo da un professionista prima della pubblicazione.
+`i18n/locales/it/privacy.json` è la fonte unica: la pagina in-app `/privacy` la legge direttamente e `npm run generate` crea `public/privacy.html` (URL pubblico da indicare negli store). **Completa i segnaposto `[DA COMPLETARE: …]`** (titolare, contatto, regione dei dati, tempi di conservazione presso il fornitore, età minima) e fai verificare il testo da un professionista prima della pubblicazione.

@@ -1,6 +1,6 @@
 {
   "framework": null,
-  "buildCommand": "pnpm generate",
+  "buildCommand": "npm run generate",
   "outputDirectory": ".output/public",
-  "installCommand": "pnpm install --frozen-lockfile"
+  "installCommand": "npm ci"
 }

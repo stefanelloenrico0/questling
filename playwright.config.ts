@@ -1,6 +1,6 @@
 import { defineConfig, devices } from '@playwright/test'
 
-// I test girano sulla build statica REALE (.output/public): `pnpm e2e` la rigenera prima.
+// I test girano sulla build statica REALE (.output/public): `npm run e2e` la rigenera prima.
 export default defineConfig({
   testDir: 'tests/e2e',
   timeout: 30_000,

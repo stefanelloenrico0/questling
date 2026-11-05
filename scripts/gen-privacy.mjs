@@ -1,6 +1,6 @@
 // Genera public/privacy.html dalla STESSA fonte della pagina in-app (i18n/locales/it/privacy.json),
 // cosi' lo store ha un URL pubblico (es. https://<dominio>/privacy.html) sempre allineato all'app.
-// Eseguito automaticamente prima di `pnpm generate`.
+// Eseguito automaticamente prima di `npm run generate`.
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'

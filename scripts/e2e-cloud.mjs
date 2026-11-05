@@ -1,6 +1,6 @@
 // E2E "cloud": costruisce l'app CONFIGURATA sugli emulatori Firebase e fa girare Playwright con
 // due contesti browser (due dispositivi). Va lanciato dentro with-emulators:
-//   node scripts/with-emulators.mjs node scripts/e2e-cloud.mjs      (pnpm e2e:cloud)
+//   node scripts/with-emulators.mjs node scripts/e2e-cloud.mjs      (npm run e2e:cloud)
 import { spawnSync } from 'node:child_process'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -9,7 +9,7 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..')
 const fsHost = process.env.FIRESTORE_EMULATOR_HOST
 const authHost = process.env.FIREBASE_AUTH_EMULATOR_HOST
 if (!fsHost || !authHost) {
-  console.error('Mancano FIRESTORE_EMULATOR_HOST / FIREBASE_AUTH_EMULATOR_HOST: usa pnpm e2e:cloud')
+  console.error('Mancano FIRESTORE_EMULATOR_HOST / FIREBASE_AUTH_EMULATOR_HOST: usa npm run e2e:cloud')
   process.exit(2)
 }
 
@@ -29,5 +29,5 @@ const env = {
 
 const run = (cmd) => spawnSync(cmd, { cwd: ROOT, env, shell: true, stdio: 'inherit' }).status ?? 1
 
-if (run('pnpm exec nuxt generate') !== 0) process.exit(1)
-process.exit(run('pnpm exec playwright test -c playwright.cloud.config.ts'))
+if (run('npx nuxt generate --dotenv .env.e2e') !== 0) process.exit(1)
+process.exit(run('npx playwright test -c playwright.cloud.config.ts'))

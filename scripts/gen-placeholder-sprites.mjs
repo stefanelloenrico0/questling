@@ -1,5 +1,5 @@
 // Genera sprite placeholder 32x32 (spritesheet orizzontale, 4 frame) per gli 8 eroi
-// + 4 overlay tier condivisi (T2..T5). Uso: pnpm sprites
+// + 4 overlay tier condivisi (T2..T5). Uso: npm run sprites
 import { PNG } from 'pngjs'
 import { mkdirSync, writeFileSync } from 'node:fs'
 import { join, dirname } from 'node:path'

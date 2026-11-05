@@ -1,6 +1,6 @@
 import { defineConfig } from 'vitest/config'
 
-// Test contro gli EMULATORI Firebase (Firestore + Auth): `pnpm test:rules` li avvia e li spegne da solo.
+// Test contro gli EMULATORI Firebase (Firestore + Auth): `npm run test:rules` li avvia e li spegne da solo.
 export default defineConfig({
   test: {
     environment: 'node',
