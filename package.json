@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "nuxt dev",
     "build": "nuxt build",
-    "generate": "nuxt generate",
+    "generate": "node scripts/gen-privacy.mjs && nuxt generate",
     "preview": "nuxt preview",
     "typecheck": "nuxt prepare && nuxt typecheck",
     "lint": "nuxt prepare && eslint .",
@@ -20,7 +20,6 @@
     "e2e:only": "playwright test",
     "icons": "node scripts/gen-app-icons.mjs",
     "test:rules": "node scripts/with-emulators.mjs vitest run -c vitest.rules.config.ts",
-    "pregenerate": "node scripts/gen-privacy.mjs",
     "privacy": "node scripts/gen-privacy.mjs",
     "e2e:cloud": "node scripts/with-emulators.mjs node scripts/e2e-cloud.mjs",
     "generate:e2e": "node scripts/gen-privacy.mjs && nuxt generate --dotenv .env.e2e"

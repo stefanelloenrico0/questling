@@ -42,7 +42,7 @@ writeFileSync(
   }),
 )
 
-const emulators = spawn(process.execPath, [FIREBASE, 'emulators:start', '--only', 'auth,firestore', '--project', 'demo-questling', '--config', CONFIG], {
+const emulators = spawn(process.execPath, [FIREBASE, 'emulators:start', '--only', 'auth,firestore', '--project', 'Questling', '--config', CONFIG], {
   cwd: ROOT,
   stdio: 'ignore',
   windowsHide: true,
