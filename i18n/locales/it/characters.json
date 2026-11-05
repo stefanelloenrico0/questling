@@ -1,0 +1,258 @@
+{
+  "valdo": {
+    "name": "Ser Valdo",
+    "archetype": "Cavaliere valoroso",
+    "appearance": "Elmo con cimiero rosso, armatura grigio-azzurra, scudo con un'ammaccatura.",
+    "voice": "Solenne, epica, un filo esagerata. Ti chiama «prode».",
+    "titles": {
+      "t1": "Scudiero",
+      "t2": "Cavaliere",
+      "t3": "Capitano",
+      "t4": "Paladino",
+      "t5": "Leggenda del Regno"
+    },
+    "chapters": {
+      "c1": "Ser Valdo era lo scudiero più sbadato di Pietrasecca, finché un drago di scadenze arretrate non ha incendiato il granaio del regno. Da quel giorno ha giurato: una missione al giorno, senza saltarne nessuna. Sul suo scudo c'è un'ammaccatura. Dice che è «una storia lunga».",
+      "c2": "Il primo mese di giuramento è passato e il granaio è ancora in piedi. Valdo ha scoperto che il drago delle scadenze si sconfigge con piccoli colpi regolari, non con un solo fendente eroico.",
+      "c3": "Per le strade di Pietrasecca ora lo salutano per nome. Un bambino gli ha chiesto se l'ammaccatura sullo scudo sia opera di un drago. Valdo ha risposto: «Quasi.»",
+      "c4": "Il re in persona lo convoca: il regno ha bisogno di un capitano che non salti mai una missione. Valdo accetta, ma chiede di poter rifare il letto prima di partire.",
+      "c5": "Il drago delle scadenze è tornato, e Valdo lo ha affrontato con la lista del giorno in mano. Non ha vinto con la spada: ha vinto presentandosi ogni mattina. Il regno ora ha una Leggenda."
+    },
+    "quests": {
+      "q1": "Allenamento di 20 min",
+      "q2": "Letto rifatto prima delle 9",
+      "q3": "Un gesto gentile verso qualcuno",
+      "q4": "Chiamare un amico"
+    },
+    "lines": {
+      "morning": "Alba sul regno, prode! Le missioni di oggi attendono il tuo valore.",
+      "evening": "Il sole cala e il dovere chiama: un ultimo assalto prima del tramonto?",
+      "done": "Ogni missione è compiuta, prode! Il regno dorme sereno."
+    },
+    "permission": "Prode, posso inviarti messaggi dal castello? Al massimo due al giorno: uno all'alba, uno al tramonto, con un richiamo se la tua striscia è in pericolo. Niente rimproveri, solo squilli di tromba."
+  },
+  "kuro": {
+    "name": "Kuro",
+    "archetype": "Ninja, l'Ombra",
+    "appearance": "Tuta blu notte, sciarpa rossa che sventola, solo gli occhi visibili.",
+    "voice": "Laconica, frasi brevissime, mai esclamativi.",
+    "titles": {
+      "t1": "Novizio",
+      "t2": "Ombra",
+      "t3": "Maestro d'Ombra",
+      "t4": "Gran Sensei",
+      "t5": "Ombra Eterna"
+    },
+    "chapters": {
+      "c1": "Il Monastero della Lanterna addestra le ombre da mille anni. Kuro è l'unica a non essere mai arrivata in ritardo, nemmeno una volta. Parla poco, perché ogni parola è un passo di troppo.",
+      "c2": "Il maestro dice che l'ombra più forte è quella che non si nota. Kuro ha imparato a muoversi ogni giorno alla stessa ora, nello stesso modo.",
+      "c3": "Sul tetto del monastero, una notte, Kuro ha contato le lanterne accese. Una per ogni giorno di disciplina. Non ne mancava nessuna.",
+      "c4": "Un nuovo novizio chiede a Kuro il segreto. Lei risponde con una parola: «Oggi.» Il novizio aspetta altro. Non c'è altro.",
+      "c5": "Il Monastero della Lanterna ha un nuovo nome inciso nella pietra: Ombra Eterna. Kuro non ha detto nulla. Ma, per una volta, ha sorriso sotto la sciarpa."
+    },
+    "quests": {
+      "q1": "10 min di meditazione",
+      "q2": "Zero social fino a pranzo",
+      "q3": "Pianificare domani la sera prima",
+      "q4": "Riordinare una zona della casa"
+    },
+    "lines": {
+      "morning": "Alba. Tre missioni. Nessun rumore.",
+      "evening": "L'ombra cala. Ne resta una.",
+      "done": "Fatto. Nessun rumore. Riposa."
+    },
+    "permission": "Posso scriverti. Due messaggi al giorno, al massimo. Uno al mattino, uno alla sera. Un avviso se la striscia è in pericolo. Nessun rimprovero."
+  },
+  "fenna": {
+    "name": "Fenna",
+    "archetype": "Ranger dei boschi",
+    "appearance": "Mantello verde, capelli arancio, arco in spalla.",
+    "voice": "Diretta, sarcastica, ama le metafore da sentiero.",
+    "titles": {
+      "t1": "Segugio",
+      "t2": "Ranger",
+      "t3": "Cacciatrice di Sentieri",
+      "t4": "Custode della Foresta",
+      "t5": "Leggenda dei Boschi"
+    },
+    "chapters": {
+      "c1": "Fenna è cresciuta nella Foresta Sussurrante, dove i sentieri esistono solo se qualcuno li percorre. Ha smesso di chiedere la strada: la apre. Il suo arco non sbaglia bersaglio; il suo senso dell'orientamento, a volte sì.",
+      "c2": "Il sentiero oltre il Ruscello Storto non esiste ancora. Fenna lo apre a colpi di scarponi, un giorno dopo l'altro, e segna gli alberi con una tacca.",
+      "c3": "A metà bosco Fenna si è persa. Per la terza volta questa settimana. Ha ammesso solo: «Il sentiero era più corto nella mia testa.»",
+      "c4": "Gli altri ranger ora seguono le sue tacche sugli alberi. Fenna borbotta che non voleva fare la guida, ma intanto passa a ricontrollare ogni segnavia.",
+      "c5": "Dalla cima del Monte Sussurro si vede tutta la foresta e, in mezzo, una linea chiara: il sentiero che ha aperto lei. Fenna lo guarda un momento. Poi dice: «Avanti, che c'è il prossimo.»"
+    },
+    "quests": {
+      "q1": "30 min all'aperto",
+      "q2": "8000 passi",
+      "q3": "2 litri d'acqua",
+      "q4": "Un'uscita in natura"
+    },
+    "lines": {
+      "morning": "Il bosco è sveglio. Tu? Allaccia gli scarponi.",
+      "evening": "Il sentiero non si cammina da solo. Una missione prima del buio.",
+      "done": "Sentiero battuto per oggi. Bel passo."
+    },
+    "permission": "Ti mando un richiamo al mattino e uno alla sera, due al massimo. Ogni tanto un avviso se la tua striscia rischia di spezzarsi. Niente prediche, promesso."
+  },
+  "zeffiro": {
+    "name": "Zeffiro",
+    "archetype": "Stregone distratto",
+    "appearance": "Cappello viola a punta, barba bianca, bastone con gemma ciano.",
+    "voice": "Svagato, divaga, inventa formule magiche a caso.",
+    "titles": {
+      "t1": "Apprendista",
+      "t2": "Mago",
+      "t3": "Arcimago Smemorato",
+      "t4": "Stregone Supremo",
+      "t5": "Saggio dei Cieli"
+    },
+    "chapters": {
+      "c1": "Zeffiro è stato il mago più brillante dell'Accademia dei Cieli, prima di dimenticare dove aveva messo la bacchetta (era dietro l'orecchio). Ricorda mille formule e mai dove ha parcheggiato. Ha scoperto che le missioni quotidiane funzionano meglio di qualsiasi incantesimo.",
+      "c2": "Zeffiro ha preso l'abitudine di annotare ogni incantesimo su un taccuino. Il taccuino è il suo oggetto magico più potente. Si smarrisce solo una volta alla settimana.",
+      "c3": "Durante una lezione all'Accademia, Zeffiro ha dimenticato la formula a metà. La classe ha riso. Poi la formula è tornata, e il tetto ha cambiato colore. Ha detto che era voluto.",
+      "c4": "Una cometa passa sopra l'Accademia dei Cieli ogni cent'anni. Zeffiro era in ritardo ma, per una volta, aveva la lista: ha visto tutto.",
+      "c5": "Il Consiglio dei Maghi lo nomina Saggio dei Cieli. Zeffiro ringrazia, poi chiede se qualcuno ha visto la sua bacchetta. Era dietro l'orecchio. Era sempre stata lì."
+    },
+    "quests": {
+      "q1": "Leggere 15 pagine",
+      "q2": "Imparare una cosa nuova",
+      "q3": "Annotare un'idea",
+      "q4": "Finire un mini-progetto"
+    },
+    "lines": {
+      "morning": "Buongiorno! Dovevo ricordarti qualcosa... ah sì, le missioni!",
+      "evening": "Ho perso la bacchetta (era in tasca). Intanto: le missioni?",
+      "done": "Fatto tutto! Abracadabra... o forse l'abbiamo fatto davvero."
+    },
+    "permission": "Posso inviarti dei gufi... cioè notifiche! Una al mattino e una alla sera, non di più. Ti avviso anche se la striscia sta per svanire, se me ne ricordo."
+  },
+  "lumen": {
+    "name": "Lumen",
+    "archetype": "Custode della quiete",
+    "appearance": "Veste bianca e oro, aureola, bastone con lanterna.",
+    "voice": "Dolce, calma, incoraggiante. Non ti colpevolizza mai.",
+    "titles": {
+      "t1": "Accolita",
+      "t2": "Custode",
+      "t3": "Sacerdotessa",
+      "t4": "Voce dell'Alba",
+      "t5": "Alba Eterna"
+    },
+    "chapters": {
+      "c1": "Lumen custodisce la Lanterna della Quiete, una luce che non si spegne finché qualcuno, da qualche parte, fa un piccolo passo avanti. Non giudica mai la tua giornata: la illumina soltanto.",
+      "c2": "La Lanterna della Quiete brilla un poco di più. Lumen non sa dire perché: forse perché qualcuno, da qualche parte, ha deciso di ricominciare.",
+      "c3": "Una viandante stanca bussa alla porta del santuario. Lumen non fa domande: le offre una tazza calda e un posto vicino alla luce.",
+      "c4": "Lumen ha imparato che la luce non serve a mostrare la strada intera, ma solo il prossimo passo. Lo ripete a chiunque abbia fretta.",
+      "c5": "All'alba la Lanterna diventa così luminosa che si vede da lontano. Lumen sorride: non è merito suo, dice, è merito di tutti i piccoli passi. Poi ne fa uno anche lei."
+    },
+    "quests": {
+      "q1": "A letto entro le 23",
+      "q2": "5 min di respirazione",
+      "q3": "Un pasto con verdure",
+      "q4": "Un'ora senza telefono"
+    },
+    "lines": {
+      "morning": "Buongiorno. Respira: oggi basta un passo piccolo.",
+      "evening": "Nessuna fretta. Una missione gentile prima di dormire?",
+      "done": "Hai fatto la tua parte, con gentilezza. Ora riposa."
+    },
+    "permission": "Posso farti visita con un messaggio gentile? Uno al mattino e uno alla sera, al massimo. Qualche parola in più se la tua striscia ha bisogno di cura. Mai rimproveri."
+  },
+  "rondo": {
+    "name": "Rondò",
+    "archetype": "Bardo girovago",
+    "appearance": "Cappello piumato, giacca arancio, liuto.",
+    "voice": "Teatrale, battute, ogni tanto parla in rima baciata.",
+    "titles": {
+      "t1": "Giullare",
+      "t2": "Bardo",
+      "t3": "Menestrello",
+      "t4": "Maestro di Corte",
+      "t5": "Leggenda dei Cantastorie"
+    },
+    "chapters": {
+      "c1": "Rondò canta ogni giorno come fosse la prima di una tournée: sempre su un palco diverso, spesso la piazza di un paese di cui non sa pronunciare il nome. Le sue ballate sono quasi sempre vere, e quasi sempre un po' più lunghe.",
+      "c2": "Rondò ha scritto la sua prima ballata in tre strofe: la prima sulla partenza, la seconda sul viaggio, la terza ancora da scrivere. «La migliore,» assicura.",
+      "c3": "In una taverna di confine, Rondò ha cantato per una sala vuota. A metà canzone è entrato un pubblico intero. Ha fatto finta di averlo previsto.",
+      "c4": "La Gilda dei Cantastorie lo invita a corte. Rondò accetta a una condizione: che la ballata di ogni giorno sia cantata, anche se piove.",
+      "c5": "Il gran finale: la piazza intera canta il suo ritornello. Rondò si inchina e, per una volta, non dice nulla. Poi, ovviamente, dice tutto: in rima."
+    },
+    "quests": {
+      "q1": "Scrivere o creare 10 min",
+      "q2": "Ascoltare musica con attenzione",
+      "q3": "Scrivere a un amico",
+      "q4": "Mostrare una creazione a qualcuno"
+    },
+    "lines": {
+      "morning": "Su il sipario! Il giorno è un palco e le tue missioni sono le battute.",
+      "evening": "Ultimo atto: una missione ancora e l'applauso è garantito!",
+      "done": "Sipario! Applausi a scena aperta per le missioni di oggi!"
+    },
+    "permission": "Un annuncio al sipario del mattino e uno al calare della sera: due al giorno, non uno di più! E un applauso di richiamo se la tua striscia rischia. Mai una nota stonata."
+  },
+  "u404": {
+    "name": "Unità 404",
+    "archetype": "Robot da cabinato arcade",
+    "appearance": "Corpo grigio, volto-schermo verde lime, antenna storta.",
+    "voice": "Deadpan, tecnica, umorismo da log di sistema. Prefissa le frasi con >.",
+    "titles": {
+      "t1": "Prototipo",
+      "t2": "Unità Beta",
+      "t3": "Unità 1.0",
+      "t4": "Unità Prime",
+      "t5": "Singolarità"
+    },
+    "chapters": {
+      "c1": "Ritrovata in un cabinato arcade dimenticato in una soffitta, l'Unità 404 ha un solo comando in memoria: ottimizzare. Ha capito che un'abitudine è un loop ben scritto. «Errore 404» è il suo scopo, che sta ancora cercando.",
+      "c2": "> LOG: ricordo parziale recuperato. Un cabinato in una soffitta. Un gettone mai inserito. Scopo non ancora trovato. Prosecuzione del loop consigliata.",
+      "c3": "> AGGIORNAMENTO: ottimizzazione del loop mattutino completata. Efficienza +12%. Umorismo: invariato. Errori 404 risolti: zero.",
+      "c4": "> RILEVATO: utente affidabile. Probabilità di tornare domani: alta. Comportamento anomalo: l'unità prova qualcosa. Classificazione in corso.",
+      "c5": "> BOOT COMPLETO. Singolarità raggiunta. Scopo trovato: eseguire un'abitudine alla volta, per sempre. Nota: grazie. Fine del log."
+    },
+    "quests": {
+      "q1": "Inbox/To-do a zero",
+      "q2": "Una sessione di focus da 25 min",
+      "q3": "Registrare le spese",
+      "q4": "Revisione settimanale"
+    },
+    "lines": {
+      "morning": "> BOOT completato. 3 missioni in coda. Eseguire? [S/n]",
+      "evening": "> WARNING: missioni non completate. Timeout in 3 ore.",
+      "done": "> TUTTE LE MISSIONI ESEGUITE. Stato: soddisfacente."
+    },
+    "permission": "> RICHIESTA: inviare notifiche. Frequenza: max 2 al giorno (mattina, sera). Evento speciale: striscia a rischio. Tono: deadpan. Consentire? [S/n]"
+  },
+  "brunilde": {
+    "name": "Brunilde",
+    "archetype": "Nana fabbra",
+    "appearance": "Trecce arancio, martello, grembiule rosso scuro, barba di fuliggine.",
+    "voice": "Burbera ma affettuosa, battute da taverna, proverbi sul ferro.",
+    "titles": {
+      "t1": "Garzona",
+      "t2": "Fabbra",
+      "t3": "Maestra Fabbra",
+      "t4": "Gran Maestra della Forgia",
+      "t5": "Leggenda dell'Incudine"
+    },
+    "chapters": {
+      "c1": "Alla Forgia dei Tre Martelli, Brunilde batte un colpo al giorno, ogni giorno, da quando ha memoria. Il suo segreto: nessun colpo è decisivo, ma la lama arriva. Brontola, ma tiene un posto al fuoco per chiunque arrivi.",
+      "c2": "Alla Forgia dei Tre Martelli arriva il primo ordine importante: cento chiodi. Brunilde li fa uno al giorno. «Fretta e ferro non vanno d'accordo,» brontola.",
+      "c3": "Un giovane garzone chiede perché lavori sempre alla stessa ora. «Il ferro ti aspetta, ma non per sempre,» risponde, e gli passa il martello.",
+      "c4": "La lama è finalmente pronta, e brilla. Brunilde la gira due volte, poi ne trova un difetto minuscolo. Il giorno dopo ricomincia, contenta.",
+      "c5": "La Gran Maestra della Forgia ha un'incudine con il suo nome. Brunilde la guarda, brontola qualcosa sul fatto che è troppo lucida, e batte il primo colpo del giorno."
+    },
+    "quests": {
+      "q1": "Cucinare un pasto vero",
+      "q2": "15 min di riordino/fai-da-te",
+      "q3": "Lavare i piatti subito",
+      "q4": "Aggiustare o costruire qualcosa"
+    },
+    "lines": {
+      "morning": "Forgia accesa, apprendista! Il ferro non si batte da solo.",
+      "evening": "Il ferro si batte finché è caldo: una missione prima di cena?",
+      "done": "Il ferro è battuto per oggi. Bel lavoro, apprendista."
+    },
+    "permission": "Posso mandarti un richiamo dalla forgia? Uno la mattina, uno la sera, due al massimo. Brontolo solo un po' se la striscia rischia di raffreddarsi. Ti voglio bene lo stesso."
+  }
+}

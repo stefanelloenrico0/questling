@@ -1,0 +1,98 @@
+@import 'tailwindcss';
+@import '@nuxt/ui';
+
+@import '@fontsource/press-start-2p/400.css';
+@import '@fontsource/pixelify-sans/400.css';
+@import '@fontsource/pixelify-sans/700.css';
+@import '@fontsource/vt323/400.css';
+
+/* Le cifre di Pixelify Sans sono ambigue a 16 px (5 e 8 sembrano una S): le cifre usano VT323. */
+@font-face {
+  font-family: 'Questling Digits';
+  src: url('@fontsource/vt323/files/vt323-latin-400-normal.woff2') format('woff2');
+  unicode-range: U+0030-0039;
+  size-adjust: 125%;
+  font-display: swap;
+}
+
+/* Palette base: Sweetie 16 (verificare licenza su Lospec prima del rilascio) */
+:root {
+  --bg: #1a1c2c;
+  --surface: #333c57;
+  --surface-2: #566c86;
+  --text: #f4f4f4;
+  --text-soft: #94b0c2;
+  --xp: #ffcd75;
+  --ok: #a7f070;
+  --warn: #ef7d57;
+  --danger: #b13e53;
+  --accent: #41a6f6; /* sovrascritto dall'eroe attivo */
+
+  --u: 4px; /* unità base */
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-left: env(safe-area-inset-left, 0px);
+  --safe-right: env(safe-area-inset-right, 0px);
+}
+
+@theme {
+  --font-display: 'Press Start 2P', monospace;
+  --font-body: 'Questling Digits', 'Pixelify Sans', 'VT323', monospace;
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-soft: var(--text-soft);
+  --color-xp: var(--xp);
+  --color-ok: var(--ok);
+  --color-warn: var(--warn);
+  --color-danger: var(--danger);
+  --color-accent: var(--accent);
+}
+
+html,
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-synthesis: none;
+  line-height: 1.5;
+  overscroll-behavior: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.font-display {
+  font-family: var(--font-display);
+  line-height: 1.6;
+}
+
+img,
+.pixelated {
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+/* Contenitore app: safe-area ovunque */
+.app-shell {
+  min-height: 100dvh;
+  padding: var(--safe-top) var(--safe-right) var(--safe-bottom) var(--safe-left);
+  background: var(--bg);
+}
+
+/* Stato di focus visibile (accessibilità) */
+:focus-visible {
+  outline: 4px solid var(--accent);
+  outline-offset: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}

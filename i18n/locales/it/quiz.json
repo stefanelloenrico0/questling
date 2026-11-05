@@ -1,0 +1,58 @@
+{
+  "q1": {
+    "text": "Sabato mattina, zero impegni. Come parte la giornata?",
+    "a0": "Ho già una lista con gli orari",
+    "a1": "Ho un'idea di massima, poi vedo",
+    "a2": "Mi sveglio e decido al volo",
+    "a3": "Dove mi porta il vento"
+  },
+  "q2": {
+    "text": "Ti regalano un'ora libera. La usi per…",
+    "a0": "imparare qualcosa di nuovo",
+    "a1": "un puzzle o un gioco di strategia",
+    "a2": "una camminata o un giro in bici",
+    "a3": "allenarmi finché non sudo"
+  },
+  "q3": {
+    "text": "La serata perfetta è…",
+    "a0": "un casino bello con tanti amici",
+    "a1": "cena con 3–4 persone",
+    "a2": "con una persona sola",
+    "a3": "io, il divano e i miei progetti"
+  },
+  "q4": {
+    "text": "Ti propongono il bungee jumping.",
+    "a0": "Primo della fila!",
+    "a1": "Ci sto, ma urlo",
+    "a2": "Mi serve un giorno per pensarci",
+    "a3": "Ho già valutato i rischi: no grazie"
+  },
+  "q5": {
+    "text": "La tua scrivania (o il tuo zaino) è…",
+    "a0": "un posto per ogni cosa",
+    "a1": "abbastanza in ordine",
+    "a2": "caos creativo, ma so dove sta tutto",
+    "a3": "un buco nero con dentro oggetti misteriosi"
+  },
+  "q6": {
+    "text": "Davanti a un problema…",
+    "a0": "mi fermo e ragiono con calma",
+    "a1": "cerco prima informazioni e consigli",
+    "a2": "provo cose finché una funziona",
+    "a3": "lo affronto di petto, poi si vedrà"
+  },
+  "q7": {
+    "text": "Quando ti fai un obiettivo…",
+    "a0": "lo dico a tutti, così non posso mollare",
+    "a1": "lo racconto a un amico",
+    "a2": "lo tengo per me finché non va bene",
+    "a3": "nessuno lo saprà finché non è fatto"
+  },
+  "q8": {
+    "text": "Nuovo videogioco: come inizi?",
+    "a0": "Difficoltà massima, si impara morendo",
+    "a1": "Normale, niente tutorial",
+    "a2": "Leggo prima la guida",
+    "a3": "Facile: mi godo la storia"
+  }
+}

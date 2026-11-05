@@ -1,0 +1,237 @@
+import { expect, test, type Page } from '@playwright/test'
+import { readFile } from 'node:fs/promises'
+
+// Risposte che portano a Ser Valdo (O+ M- S+ A+): indici ORIGINALI delle risposte.
+const VALDO_ANSWERS = [0, 3, 0, 0, 0, 3, 0, 0]
+
+async function onboard(page: Page, name = 'Enrico', notify: 'notify-skip' | 'notify-enable' = 'notify-skip'): Promise<void> {
+  await page.goto('/')
+  await expect(page).toHaveURL(/#\/onboarding/)
+  await page.getByTestId('splash-start').click()
+  await page.getByTestId('intro-skip').click()
+  for (const a of VALDO_ANSWERS) await page.getByTestId(`quiz-answer-${a}`).click()
+  await expect(page.getByTestId('reveal-name')).toHaveText('Ser Valdo')
+  await expect(page.getByTestId('reveal-affinity')).toContainText('100%')
+  await page.getByTestId('reveal-confirm').click()
+  await page.getByTestId('name-input').fill(name)
+  await page.getByTestId('name-next').click()
+  await expect(page.getByTestId('suggested-item')).toHaveCount(4)
+  await page.getByTestId('onboarding-finish').click()
+  // permesso notifiche: contestuale, DOPO le prime missioni e nella voce dell'eroe
+  await expect(page.getByTestId('step-notify')).toBeVisible()
+  await expect(page.getByTestId('notify-voice')).toContainText('Prode')
+  await page.getByTestId(notify).click()
+  await expect(page.getByTestId('page-today')).toBeVisible()
+}
+
+const xpText = (page: Page) => page.getByTestId('xp-text')
+
+test.describe('MVP: primo avvio -> Oggi, senza account', () => {
+  test('onboarding completo con quiz, poi completa/annulla e persistenza', async ({ page }) => {
+    await onboard(page)
+
+    await expect(page.getByTestId('hero-name')).toHaveText('Ser Valdo')
+    await expect(page.getByTestId('level-line')).toContainText('Lv 1 · Scudiero')
+    await expect(page.getByTestId('quest-row')).toHaveCount(3) // 3 daily pre-selezionate, la settimanale no
+    await expect(xpText(page)).toContainText('0/50 XP')
+
+    const allenamento = page.getByRole('checkbox', { name: /Allenamento di 20 min/ })
+    await allenamento.click()
+    await expect(allenamento).toHaveAttribute('aria-checked', 'true')
+    await expect(xpText(page)).toContainText('10/50 XP')
+
+    // persiste dopo aver chiuso/riaperto l'app
+    await page.reload()
+    await expect(page.getByTestId('page-today')).toBeVisible()
+    await expect(page.getByRole('checkbox', { name: /Allenamento di 20 min/ })).toHaveAttribute('aria-checked', 'true')
+    await expect(xpText(page)).toContainText('10/50 XP')
+
+    // annulla -> XP ritirati
+    await page.getByRole('checkbox', { name: /Allenamento di 20 min/ }).click()
+    await expect(xpText(page)).toContainText('0/50 XP')
+  })
+
+  test('tutte le daily fatte -> bonus +10 e frase "fatto" dell\'eroe; l\'undo lo ritira', async ({ page }) => {
+    await onboard(page)
+    for (const re of [/Allenamento/, /Letto rifatto/, /gesto gentile/]) {
+      await page.getByRole('checkbox', { name: re }).click()
+    }
+    // 10 + 5 + 5 + bonus 10
+    await expect(xpText(page)).toContainText('30/50 XP')
+    await expect(page.getByTestId('balloon')).toContainText('Ogni missione è compiuta')
+    await page.getByRole('checkbox', { name: /gesto gentile/ }).click()
+    await expect(xpText(page)).toContainText('15/50 XP') // 10 + 5, senza bonus (-5 della missione, -10 del bonus)
+  })
+
+  test('missione mensile hard -> level-up con modale; cambiare eroe non altera XP/livello', async ({ page }) => {
+    await onboard(page)
+
+    await page.getByRole('link', { name: 'Missioni' }).click()
+    await page.getByRole('radio', { name: 'Mese' }).click()
+    await page.getByTestId('quest-add').click()
+    await page.getByTestId('quest-title').fill('Impresa epica')
+    await page.getByRole('radio', { name: 'Difficile' }).click()
+    await page.getByTestId('quest-save').click()
+    await expect(page.getByTestId('quest-item')).toHaveCount(1)
+
+    await page.getByRole('link', { name: 'Oggi' }).click()
+    await page.getByRole('button', { name: 'Aggiungi un progresso a Impresa epica' }).click()
+    // hard x12 = 240 XP -> Lv 3
+    await expect(page.getByTestId('levelup')).toBeVisible()
+    await expect(page.getByTestId('levelup-line')).not.toBeEmpty() // frase dell'eroe
+    await page.getByRole('button', { name: 'Avanti' }).click()
+    await expect(page.getByTestId('level-line')).toContainText('Lv 3')
+    const before = await xpText(page).innerText()
+
+    await page.getByRole('link', { name: 'Eroe' }).click()
+    await page.getByTestId('hero-change').click()
+    await page.getByRole('radio', { name: 'Kuro' }).click()
+    await page.getByTestId('hero-change-confirm').click()
+    await expect(page.getByRole('heading', { name: 'Kuro', level: 1 })).toBeVisible()
+
+    await page.getByRole('link', { name: 'Oggi' }).click()
+    await expect(page.getByTestId('hero-name')).toHaveText('Kuro')
+    await expect(page.getByTestId('level-line')).toContainText('Lv 3')
+    expect(await xpText(page).innerText()).toBe(before)
+  })
+
+  test('capitoli bloccati finche\' il livello non basta', async ({ page }) => {
+    await onboard(page)
+    await page.getByRole('link', { name: 'Eroe' }).click()
+    await expect(page.getByTestId('chapter-1')).toContainText('scudiero più sbadato')
+    await expect(page.getByTestId('chapter-2')).toContainText('Si sblocca al livello 5')
+  })
+
+  test('tetto missioni: dopo 3 mensili il pulsante e\' disabilitato con messaggio chiaro', async ({ page }) => {
+    await onboard(page)
+    await page.getByRole('link', { name: 'Missioni' }).click()
+    await page.getByRole('radio', { name: 'Mese' }).click()
+    for (const title of ['Uno', 'Due', 'Tre']) {
+      await page.getByTestId('quest-add').click()
+      await page.getByTestId('quest-title').fill(title)
+      await page.getByTestId('quest-save').click()
+      await expect(page.getByTestId('quest-sheet')).toBeHidden()
+    }
+    await expect(page.getByTestId('quest-add')).toBeDisabled()
+    await expect(page.getByTestId('cap-message')).toContainText('massimo di 3')
+  })
+
+  test('backup: esporta, modifica, importa e ripristina; import non valido non tocca i dati', async ({ page }) => {
+    await onboard(page)
+    await page.getByRole('checkbox', { name: /Allenamento/ }).click()
+    await expect(xpText(page)).toContainText('10/50 XP')
+
+    await page.getByRole('link', { name: 'Altro' }).click()
+    const [download] = await Promise.all([page.waitForEvent('download'), page.getByTestId('export').click()])
+    const file = await download.path()
+    expect(download.suggestedFilename()).toMatch(/^questling-backup-\d{4}-\d{2}-\d{2}\.json$/)
+    const exported = JSON.parse(await readFile(file, 'utf8'))
+    expect(exported.format).toBe('questling-backup')
+
+    // file non valido: errore chiaro, dati intatti
+    await page.getByTestId('import-file').setInputFiles({ name: 'x.json', mimeType: 'application/json', buffer: Buffer.from('{"foo":1}') })
+    await expect(page.getByTestId('import-error')).toContainText('non è un backup di Questling')
+
+    // cambia lo stato, poi importa il backup: torna a 10 XP
+    await page.getByRole('link', { name: 'Oggi' }).click()
+    await page.getByRole('checkbox', { name: /Letto rifatto/ }).click()
+    await expect(xpText(page)).toContainText('15/50 XP')
+    await page.getByRole('link', { name: 'Altro' }).click()
+    await page.getByTestId('import-file').setInputFiles(file)
+    await expect(page.getByTestId('import-summary')).toContainText('Enrico')
+    await page.getByTestId('import-confirm').click()
+    await page.getByRole('link', { name: 'Oggi' }).click()
+    await expect(xpText(page)).toContainText('10/50 XP')
+  })
+
+  test('stato corrotto: non viene perso (copia conservata) e l\'app riparte', async ({ page }) => {
+    await page.addInitScript(() => {
+      if (!localStorage.getItem('seeded')) {
+        localStorage.setItem('CapacitorStorage.questling:v1:state', '{"schemaVersion":1,"profile": rotto')
+        localStorage.setItem('seeded', '1')
+      }
+    })
+    await page.goto('/')
+    await expect(page).toHaveURL(/#\/onboarding/)
+    const keys = await page.evaluate(() => Object.keys(localStorage))
+    const corrupt = keys.find((k) => k.startsWith('CapacitorStorage.questling:v1:corrupt:'))
+    expect(corrupt).toBeTruthy()
+    expect(await page.evaluate((k) => localStorage.getItem(k!), corrupt)).toBe('{"schemaVersion":1,"profile": rotto')
+  })
+
+  test('elimina tutti i dati locali -> torna all\'onboarding', async ({ page }) => {
+    await onboard(page)
+    await page.getByRole('link', { name: 'Altro' }).click()
+    await page.getByTestId('wipe').click()
+    await page.getByTestId('wipe-confirm').click()
+    await expect(page).toHaveURL(/#\/onboarding/)
+  })
+
+
+  test('il permesso notifiche non viene chiesto al primo avvio: compare solo dopo le prime missioni', async ({ page }) => {
+    await page.goto('/')
+    await page.getByTestId('splash-start').click()
+    await page.getByTestId('intro-skip').click()
+    await expect(page.getByTestId('step-notify')).toHaveCount(0)
+    for (const a of VALDO_ANSWERS) await page.getByTestId().click()
+    await page.getByTestId('reveal-confirm').click()
+    await expect(page.getByTestId('step-notify')).toHaveCount(0)
+    await page.getByTestId('name-input').fill('Enrico')
+    await page.getByTestId('name-next').click()
+    await expect(page.getByTestId('step-notify')).toHaveCount(0)
+    await page.getByTestId('onboarding-finish').click()
+    await expect(page.getByTestId('step-notify')).toBeVisible()
+    await expect(page.getByTestId('notify-sample')).toContainText('Alba sul regno')
+  })
+
+  test('rifiutare i promemoria: l'app funziona uguale e si possono attivare dopo in Impostazioni', async ({ page }) => {
+    await onboard(page, 'Enrico', 'notify-skip')
+    await page.getByRole('checkbox', { name: /Allenamento/ }).click()
+    await expect(xpText(page)).toContainText('10/50 XP')
+    await page.getByRole('link', { name: 'Altro' }).click()
+    const enable = page.getByTestId('notif-enable')
+    await expect(enable).toHaveAttribute('aria-checked', 'false')
+    await expect(page.getByTestId('notif-web')).toBeVisible() // nel browser: nessuna notifica reale
+    await enable.click()
+    await expect(enable).toHaveAttribute('aria-checked', 'true')
+    await page.getByTestId('notif-morning').fill('07:30')
+    await page.reload()
+    await page.getByRole('link', { name: 'Altro' }).click()
+    await expect(page.getByTestId('notif-enable')).toHaveAttribute('aria-checked', 'true')
+    await expect(page.getByTestId('notif-morning')).toHaveValue('07:30')
+  })
+
+  test('attivare i promemoria in onboarding salva la preferenza', async ({ page }) => {
+    await onboard(page, 'Enrico', 'notify-enable')
+    await page.getByRole('link', { name: 'Altro' }).click()
+    await expect(page.getByTestId('notif-enable')).toHaveAttribute('aria-checked', 'true')
+  })
+
+  test('suoni: l'interruttore si salva e non rompe nulla (audio sintetizzato)', async ({ page }) => {
+    await onboard(page)
+    await page.getByRole('link', { name: 'Altro' }).click()
+    const sound = page.getByTestId('sound-switch')
+    await expect(sound).toHaveAttribute('aria-checked', 'true')
+    await sound.click()
+    await expect(sound).toHaveAttribute('aria-checked', 'false')
+    await page.reload()
+    await page.getByRole('link', { name: 'Altro' }).click()
+    await expect(page.getByTestId('sound-switch')).toHaveAttribute('aria-checked', 'false')
+  })
+
+  test('nessuna richiesta esterna (offline-first) e nessun errore in console', async ({ page }) => {
+    const external: string[] = []
+    const errors: string[] = []
+    page.on('request', (r) => {
+      if (!r.url().startsWith('http://localhost')) external.push(r.url())
+    })
+    page.on('pageerror', (e) => errors.push(e.message))
+    page.on('console', (m) => {
+      if (m.type() === 'error' || m.type() === 'warning') errors.push(m.text())
+    })
+    await onboard(page)
+    for (const link of ['Missioni', 'Eroe', 'Altro', 'Oggi']) await page.getByRole('link', { name: link }).click()
+    expect(external).toEqual([])
+    expect(errors).toEqual([])
+  })
+})
