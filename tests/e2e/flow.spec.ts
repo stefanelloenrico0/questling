@@ -244,6 +244,31 @@ test.describe('MVP: primo avvio -> Oggi, senza account', () => {
     await expect(page.getByText('Titolare del trattamento')).toBeVisible()
   })
 
+  test('statistiche: heatmap, totali e traguardi riflettono quanto completato (e l\'undo)', async ({ page }) => {
+    await onboard(page)
+    await page.getByRole('checkbox', { name: /Allenamento/ }).click()
+    await page.getByRole('link', { name: 'Eroe' }).click()
+    await page.getByTestId('hero-stats-link').click()
+    await expect(page.getByTestId('page-stats')).toBeVisible()
+
+    await expect(page.getByTestId('heat-today')).toHaveAttribute('data-count', '1')
+    await expect(page.getByTestId('heatmap-summary')).toContainText('1 daily completate in 1 giorni attivi')
+    await expect(page.getByTestId('total-7')).toContainText('1 daily · 10 XP')
+    await expect(page.getByTestId('ach-first_step')).toHaveAttribute('data-done', 'true')
+    await expect(page.getByTestId('ach-streak_7')).toHaveAttribute('data-done', 'false')
+    await expect(page.getByTestId('achievements-count')).toContainText('1 su 14')
+    expect(await page.locator('[data-testid="heatmap"] [role="img"]').count()).toBe(84) // 12 settimane x 7 giorni
+
+    // annullo il completamento: heatmap e totali tornano a zero (e il traguardo "primo passo", ricalcolato dai completamenti, si spegne)
+    await page.getByRole('link', { name: 'Oggi' }).click()
+    await page.getByRole('checkbox', { name: /Allenamento/ }).click()
+    await page.getByRole('link', { name: 'Eroe' }).click()
+    await page.getByTestId('hero-stats-link').click()
+    await expect(page.getByTestId('heat-today')).toHaveAttribute('data-count', '0')
+    await expect(page.getByTestId('total-7')).toContainText('0 daily · 0 XP')
+    await expect(page.getByTestId('ach-first_step')).toHaveAttribute('data-done', 'false')
+  })
+
   test('nessuna richiesta esterna (offline-first) e nessun errore in console', async ({ page }) => {
     const external: string[] = []
     const errors: string[] = []

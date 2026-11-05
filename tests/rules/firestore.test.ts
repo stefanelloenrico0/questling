@@ -21,7 +21,7 @@ import type { AppState } from '../../core/types'
 import { FirestoreRemoteStore, formatCursor, parseCursor } from '../../app/services/firestore-remote'
 import { at, ctxAt, daily } from '../unit/helpers'
 
-const PROJECT = 'Questling'
+const PROJECT = 'demo-questling'
 // emulators:exec esporta gli host reali negli env: niente porte scritte a mano
 const FS_HOST = process.env.FIRESTORE_EMULATOR_HOST ?? '127.0.0.1:8282'
 const AUTH_HOST = process.env.FIREBASE_AUTH_EMULATOR_HOST ?? '127.0.0.1:9299'

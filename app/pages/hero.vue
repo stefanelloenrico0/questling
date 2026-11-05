@@ -73,6 +73,7 @@ function onQuizDone(payload: { answers: number[]; characterId: CharacterId }): v
         <StatChip :label="t('hero.statBest')" :value="stats.streak.best" />
         <StatChip :label="t('hero.statDone')" :value="stats.questsCompleted" />
       </div>
+      <div><PixelButton variant="secondary" data-testid="hero-stats-link" @click="navigateTo('/stats')">{{ t('stats.link') }}</PixelButton></div>
     </section>
 
     <section class="flex flex-col gap-3">

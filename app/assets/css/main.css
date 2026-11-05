@@ -56,6 +56,9 @@ body {
   font-family: var(--font-body);
   font-size: 16px;
   font-synthesis: none;
+  /* Pixelify Sans ha legature (fi, ff...) che a 16 px si leggono male: disattivate */
+  font-variant-ligatures: none;
+  font-feature-settings: "liga" 0, "clig" 0;
   line-height: 1.5;
   overscroll-behavior: none;
   -webkit-tap-highlight-color: transparent;

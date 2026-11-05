@@ -4,7 +4,7 @@ import { expect, test, type Browser, type BrowserContext, type Page } from '@pla
 // (= contesti browser isolati: ognuno ha il proprio storage locale).
 const FS = process.env.FIRESTORE_EMULATOR_HOST as string
 const AUTH = process.env.FIREBASE_AUTH_EMULATOR_HOST as string
-const PROJECT = 'Questling'
+const PROJECT = 'demo-questling'
 const PASSWORD = 'secret123'
 const VALDO_ANSWERS = [0, 3, 0, 0, 0, 3, 0, 0]
 

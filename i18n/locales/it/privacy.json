@@ -15,8 +15,8 @@
     {
       "title": "Titolare del trattamento",
       "paragraphs": [
-        "Titolare: [DA COMPLETARE: nome e cognome o ragione sociale].",
-        "Contatto per questioni sulla privacy: [DA COMPLETARE: indirizzo email di contatto]."
+        "Titolare: Enrico Stefanello.",
+        "Contatto per questioni sulla privacy: enricostefanello0@gmail.com."
       ]
     },
     {
@@ -40,7 +40,7 @@
       "title": "Fornitori e luogo dei dati",
       "paragraphs": [
         "Per l'account e la sincronizzazione usiamo Firebase (Authentication e Cloud Firestore) di Google. Google agisce come responsabile del trattamento per nostro conto.",
-        "Regione dei dati: [DA COMPLETARE: regione scelta per Firestore, ad esempio europe-west].",
+        "Regione dei dati: Europa (il database Cloud Firestore è ospitato in una regione europea).",
         "Eventuali trasferimenti verso Paesi extra UE avvengono con le garanzie previste dalla normativa (clausole contrattuali standard): [DA COMPLETARE: verificare le condizioni correnti di Google prima della pubblicazione]."
       ]
     },

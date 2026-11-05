@@ -42,9 +42,10 @@ writeFileSync(
   }),
 )
 
-const emulators = spawn(process.execPath, [FIREBASE, 'emulators:start', '--only', 'auth,firestore', '--project', 'Questling', '--config', CONFIG], {
+const emulators = spawn(process.execPath, [FIREBASE, 'emulators:start', '--only', 'auth,firestore', '--project', 'demo-questling', '--config', CONFIG], {
   cwd: ROOT,
-  stdio: 'ignore',
+  // EMULATORS_VERBOSE=1 mostra l'output di Firebase (utile se non partono)
+  stdio: process.env.EMULATORS_VERBOSE ? 'inherit' : 'ignore',
   windowsHide: true,
 })
 

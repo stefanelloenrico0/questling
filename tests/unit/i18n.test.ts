@@ -5,6 +5,7 @@ import messages from '../../i18n/locales/it'
 import { CHARACTERS } from '../../data/characters'
 import { QUIZ } from '../../data/quiz'
 import { SUGGESTED_QUESTS } from '../../data/suggested-quests'
+import { ACHIEVEMENTS } from '../../data/achievements'
 import { CHARACTER_IDS } from '../../core/types'
 
 type Tree = { [key: string]: string | Tree }
@@ -44,6 +45,9 @@ describe('i18n: nessuna chiave mancante', () => {
       ...['not_json', 'not_backup', 'too_new', 'invalid'].map((e) => `settings.importErrors.${e}`),
       ...[1, 2, 3].flatMap((n) => [`onboarding.intro.s${n}Title`, `onboarding.intro.s${n}Body`]),
       ...['today.sectionDaily', 'today.sectionWeekly', 'today.sectionMonthly'],
+      ...[1, 2, 3, 4, 5, 6, 7].map((d) => `stats.d${d}`),
+      ...['quests', 'streak', 'level', 'special'].map((g) => `stats.group.${g}`),
+      ...ACHIEVEMENTS.flatMap((a) => [`achievements.${a.id}.title`, `achievements.${a.id}.desc`]),
       ...['password', 'google', 'apple'].map((p) => `account.providers.${p}`),
       ...['idle', 'syncing', 'offline', 'error'].map((s) => `sync.status.${s}`),
       ...[
