@@ -2,7 +2,7 @@
 // Primitivo accessibile di Nuxt UI (UModal), completamente ridisegnato in stile pixel.
 const open = defineModel<boolean>('open', { default: false })
 
-defineProps<{ title: string; description?: string }>()
+withDefaults(defineProps<{ title: string; description?: string; dismissible?: boolean }>(), { description: undefined, dismissible: true })
 </script>
 
 <template>
@@ -10,6 +10,7 @@ defineProps<{ title: string; description?: string }>()
     v-model:open="open"
     :title="title"
     :description="description"
+    :dismissible="dismissible"
     :ui="{
       overlay: 'bg-black/70',
       content:

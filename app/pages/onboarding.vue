@@ -20,6 +20,7 @@ const game = useGameStore()
 const { t } = useI18n()
 const hero = useHero()
 const accentOverride = useAccentOverride()
+const account = useAccountStore()
 const notifications = useNotifications()
 const permissionBusy = ref(false)
 
@@ -127,6 +128,7 @@ async function finish(wantNotifications: boolean): Promise<void> {
         <PixelSprite v-for="c in CHARACTERS" :key="c.id" :character="c.id" :scale="2" />
       </div>
       <PixelButton data-testid="splash-start" @click="step = 'intro'">{{ t('onboarding.intro.start') }}</PixelButton>
+      <NuxtLink v-if="account.available" to="/account" class="underline" data-testid="splash-account">{{ t('account.restoreHint') }}</NuxtLink>
     </section>
 
     <!-- Intro (3 schermate, saltabili) -->

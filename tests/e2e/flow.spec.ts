@@ -219,6 +219,31 @@ test.describe('MVP: primo avvio -> Oggi, senza account', () => {
     await expect(page.getByTestId('sound-switch')).toHaveAttribute('aria-checked', 'false')
   })
 
+  test('senza Firebase configurato: l\'app e\' solo locale e la pagina account lo dice con chiarezza', async ({ page }) => {
+    await onboard(page)
+    await page.getByRole('link', { name: 'Altro' }).click()
+    await expect(page.getByTestId('settings-account')).toContainText('non sono attivi')
+    await page.getByTestId('settings-account-link').click()
+    await expect(page.getByTestId('account-unavailable')).toBeVisible()
+    await expect(page.getByTestId('account-form')).toHaveCount(0)
+    await page.getByTestId('account-back').click()
+    await expect(page.getByTestId('page-settings')).toBeVisible()
+  })
+
+  test('l\'informativa privacy e\' pubblica: si apre anche senza profilo, con i segnaposto da completare visibili', async ({ page }) => {
+    await page.goto('/#/privacy')
+    await expect(page.getByTestId('page-privacy')).toBeVisible()
+    await expect(page.getByRole('heading', { name: 'Informativa sulla privacy', level: 1 })).toBeVisible()
+    await expect(page.getByText('Non ci sono pubblicità')).toBeVisible()
+    await expect(page.getByText('DA COMPLETARE').first()).toBeVisible()
+  })
+
+  test('la pagina statica /privacy.html esiste ed e\' generata dalla stessa fonte', async ({ page }) => {
+    await page.goto('/privacy.html')
+    await expect(page.getByRole('heading', { name: 'Informativa sulla privacy', level: 1 })).toBeVisible()
+    await expect(page.getByText('Titolare del trattamento')).toBeVisible()
+  })
+
   test('nessuna richiesta esterna (offline-first) e nessun errore in console', async ({ page }) => {
     const external: string[] = []
     const errors: string[] = []

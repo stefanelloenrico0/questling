@@ -20,7 +20,11 @@
     "cap:android": "cap open android",
     "e2e": "pnpm generate && playwright test",
     "e2e:only": "playwright test",
-    "icons": "node scripts/gen-app-icons.mjs"
+    "icons": "node scripts/gen-app-icons.mjs",
+    "test:rules": "node scripts/with-emulators.mjs vitest run -c vitest.rules.config.ts",
+    "pregenerate": "node scripts/gen-privacy.mjs",
+    "privacy": "node scripts/gen-privacy.mjs",
+    "e2e:cloud": "node scripts/with-emulators.mjs node scripts/e2e-cloud.mjs"
   },
   "devDependencies": {
     "@capacitor/cli": "^8.6.0",
@@ -29,12 +33,14 @@
     "@types/node": "^26.6.6",
     "@vitest/coverage-v8": "^5.1.0",
     "eslint": "^10.14.0",
+    "firebase-tools": "^15.34.2",
     "pngjs": "^7.0.0",
     "typescript": "^5.9.3",
     "vitest": "^5.1.0",
     "vue-tsc": "^3.3.14"
   },
   "dependencies": {
+    "@capacitor-firebase/authentication": "^8.6.0",
     "@capacitor/android": "^8.6.0",
     "@capacitor/app": "^8.1.2",
     "@capacitor/core": "^8.6.0",
@@ -54,6 +60,7 @@
     "@pinia/nuxt": "^1.0.3",
     "@vueuse/core": "^15.0.0",
     "@vueuse/nuxt": "^15.0.0",
+    "firebase": "^12.19.0",
     "nuxt": "^4.6.4",
     "pinia": "^4.1.0",
     "tailwindcss": "^4.3.4",

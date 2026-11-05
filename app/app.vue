@@ -14,5 +14,6 @@ watchEffect(() => {
       <NuxtPage />
     </NuxtLayout>
     <LevelUpModal />
+    <MergeDialog />
   </UApp>
 </template>

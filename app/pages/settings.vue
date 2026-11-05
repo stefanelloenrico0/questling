@@ -16,6 +16,7 @@ const preview = ref<{ state: AppState; summary: BackupSummary } | null>(null)
 const previewOpen = ref(false)
 const wipeOpen = ref(false)
 
+const account = useAccountStore()
 const notifications = useNotifications()
 const fx = useFeedback()
 const permission = ref<ReminderPermission>('unsupported')
@@ -157,6 +158,13 @@ const summaryRows = computed(() => {
       </form>
     </PixelCard>
 
+    <PixelCard data-testid="settings-account">
+      <h2 class="font-display mb-3 text-xs">{{ t('account.card.title') }}</h2>
+      <p v-if="account.user" class="mb-2" data-testid="settings-account-email">{{ t('account.card.signedInAs', { email: account.user.email ?? '' }) }}</p>
+      <p v-else class="mb-3 text-[var(--text-soft)]">{{ account.available ? t('account.card.body') : t('account.unavailable') }}</p>
+      <PixelButton variant="secondary" data-testid="settings-account-link" @click="navigateTo('/account')">{{ t('account.card.manage') }}</PixelButton>
+    </PixelCard>
+
     <PixelCard>
       <h2 class="font-display mb-3 text-xs">{{ t('settings.dayStart') }}</h2>
       <PixelSegmented v-model="dayStart" :label="t('settings.dayStart')" :options="dayStartOptions" />
@@ -203,7 +211,8 @@ const summaryRows = computed(() => {
 
     <PixelCard>
       <h2 class="font-display mb-3 text-xs">{{ t('settings.privacy') }}</h2>
-      <p class="text-[var(--text-soft)]">{{ t('settings.privacyBody') }}</p>
+      <p class="mb-2 text-[var(--text-soft)]">{{ t('settings.privacyBody') }}</p>
+      <NuxtLink to="/privacy" class="underline" data-testid="settings-privacy-link">{{ t('account.privacyLink') }}</NuxtLink>
     </PixelCard>
 
     <PixelCard>

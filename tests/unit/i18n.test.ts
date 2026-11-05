@@ -44,6 +44,12 @@ describe('i18n: nessuna chiave mancante', () => {
       ...['not_json', 'not_backup', 'too_new', 'invalid'].map((e) => `settings.importErrors.${e}`),
       ...[1, 2, 3].flatMap((n) => [`onboarding.intro.s${n}Title`, `onboarding.intro.s${n}Body`]),
       ...['today.sectionDaily', 'today.sectionWeekly', 'today.sectionMonthly'],
+      ...['password', 'google', 'apple'].map((p) => `account.providers.${p}`),
+      ...['idle', 'syncing', 'offline', 'error'].map((s) => `sync.status.${s}`),
+      ...[
+        'invalid-credentials', 'email-in-use', 'weak-password', 'invalid-email', 'user-disabled', 'network',
+        'too-many-requests', 'cancelled', 'requires-recent-login', 'account-exists-with-other-provider', 'unknown',
+      ].map((c) => `account.errors.${c}`),
     ]
     expect(keys.filter((k) => typeof lookup(k) !== 'string')).toEqual([])
   })

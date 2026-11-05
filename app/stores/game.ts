@@ -174,6 +174,12 @@ export const useGameStore = defineStore('game', () => {
     await flush()
   }
 
+  /** Sostituisce lo stato (usato dalla sync dopo l'unione). Non conserva copie: lo fa chi chiama se serve. */
+  function replaceState(next: AppState): void {
+    state.value = next
+    refreshNow()
+  }
+
   async function wipe(): Promise<void> {
     if (corruptKey.value) await capacitorStore.remove(corruptKey.value)
     state.value = createInitialState(new Date())
@@ -217,6 +223,7 @@ export const useGameStore = defineStore('game', () => {
     touchOpened,
     dismissLevelUp,
     importState,
+    replaceState,
     wipe,
   }
 })

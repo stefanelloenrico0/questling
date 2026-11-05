@@ -4,7 +4,7 @@ import { readFile } from 'node:fs/promises'
 import { join, extname, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
-const root = join(dirname(fileURLToPath(import.meta.url)), '..', '.output', 'public')
+const root = process.env.STATIC_ROOT ?? join(dirname(fileURLToPath(import.meta.url)), '..', '.output', 'public')
 const port = Number(process.env.PORT ?? 4173)
 
 const types = {

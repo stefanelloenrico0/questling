@@ -1,0 +1,127 @@
+rules_version = '2';
+
+// Questling: ogni utente vede e scrive SOLO sotto users/{uid}. Le scritture sono validate campo per campo.
+// Il cloud e' una replica dello stato locale (local-first): niente logica di gioco qui, solo forma e limiti.
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function signedIn() {
+      return request.auth != null;
+    }
+    function isOwner(uid) {
+      return signedIn() && request.auth.uid == uid;
+    }
+
+    // ── helper di validazione ──────────────────────────────────────────────
+    function str(v, maxLen) {
+      return v is string && v.size() > 0 && v.size() <= maxLen;
+    }
+    // ISO 8601 UTC prodotto da Date.toISOString(): 2026-11-04T10:00:00.000Z (24 caratteri)
+    function iso(v) {
+      return v is string && v.size() == 24 && v.matches('^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}\\.[0-9]{3}Z$');
+    }
+    function optIso(data, key) {
+      return !(key in data) || data[key] == null || iso(data[key]);
+    }
+    // syncedAt DEVE essere il timestamp del server: e' il cursore del pull incrementale
+    function stamped() {
+      return request.resource.data.syncedAt == request.time;
+    }
+    // un documento non puo' essere sovrascritto da una versione piu' vecchia (last-write-wins sicuro)
+    function notOlder() {
+      return resource == null || request.resource.data.updatedAt >= resource.data.updatedAt;
+    }
+    // la sola modifica ammessa su un documento immutabile e' il re-push (stesso contenuto, nuovo syncedAt)
+    function onlyResync() {
+      return request.resource.data.diff(resource.data).affectedKeys().hasOnly(['syncedAt']);
+    }
+
+    match /users/{uid} {
+
+      // ── profilo: un solo documento 'main' ────────────────────────────────
+      match /profile/{docId} {
+        allow read, delete: if isOwner(uid);
+        allow create, update: if isOwner(uid)
+          && docId == 'main'
+          && stamped()
+          && request.resource.data.keys().hasOnly(['displayName', 'characterId', 'quizAnswers', 'onboardedAt', 'updatedAt', 'syncedAt'])
+          && request.resource.data.keys().hasAll(['displayName', 'characterId', 'onboardedAt', 'updatedAt', 'syncedAt'])
+          && str(request.resource.data.displayName, 40)
+          && request.resource.data.characterId in ['valdo', 'kuro', 'fenna', 'zeffiro', 'lumen', 'rondo', 'u404', 'brunilde']
+          && (!('quizAnswers' in request.resource.data)
+              || (request.resource.data.quizAnswers is list && request.resource.data.quizAnswers.size() <= 8))
+          && iso(request.resource.data.onboardedAt)
+          && iso(request.resource.data.updatedAt)
+          && notOlder();
+      }
+
+      // ── missioni ─────────────────────────────────────────────────────────
+      match /quests/{questId} {
+        allow read, delete: if isOwner(uid);
+        allow create, update: if isOwner(uid)
+          && stamped()
+          && request.resource.data.keys().hasOnly(['id', 'title', 'icon', 'difficulty', 'period', 'target', 'order', 'createdAt', 'updatedAt', 'archivedAt', 'syncedAt'])
+          && request.resource.data.keys().hasAll(['id', 'title', 'icon', 'difficulty', 'period', 'target', 'order', 'createdAt', 'updatedAt', 'syncedAt'])
+          && request.resource.data.id == questId
+          && str(questId, 40)
+          && str(request.resource.data.title, 80)
+          && str(request.resource.data.icon, 32)
+          && request.resource.data.difficulty in ['easy', 'medium', 'hard']
+          && request.resource.data.period in ['daily', 'weekly', 'monthly']
+          && request.resource.data.target is int
+          && request.resource.data.target >= 1
+          && (request.resource.data.period != 'daily' || request.resource.data.target == 1)
+          && (request.resource.data.period != 'weekly' || request.resource.data.target <= 7)
+          && request.resource.data.target <= 31
+          && request.resource.data.order is int
+          && iso(request.resource.data.createdAt)
+          && iso(request.resource.data.updatedAt)
+          && optIso(request.resource.data, 'archivedAt')
+          && notOlder();
+      }
+
+      // ── completamenti: id deterministico `${questId}_${periodKey}` ───────
+      match /completions/{completionId} {
+        allow read, delete: if isOwner(uid);
+        allow create, update: if isOwner(uid)
+          && stamped()
+          && request.resource.data.keys().hasOnly(['id', 'questId', 'periodKey', 'count', 'completedAt', 'updatedAt', 'syncedAt'])
+          && request.resource.data.keys().hasAll(['id', 'questId', 'periodKey', 'count', 'updatedAt', 'syncedAt'])
+          && request.resource.data.id == completionId
+          && str(request.resource.data.questId, 40)
+          && request.resource.data.periodKey is string
+          && request.resource.data.periodKey.matches('^[0-9]{4}-([0-9]{2}-[0-9]{2}|W[0-9]{2}|[0-9]{2})$')
+          && completionId == request.resource.data.questId + '_' + request.resource.data.periodKey
+          && request.resource.data.count is int
+          && request.resource.data.count >= 0
+          && request.resource.data.count <= 31
+          && optIso(request.resource.data, 'completedAt')
+          && iso(request.resource.data.updatedAt)
+          && notOlder();
+      }
+
+      // ── eventi XP: log append-only ───────────────────────────────────────
+      match /xpEvents/{eventId} {
+        allow read, delete: if isOwner(uid);
+        allow create: if isOwner(uid) && validEvent(eventId);
+        allow update: if isOwner(uid) && validEvent(eventId) && onlyResync();
+      }
+    }
+
+    function validEvent(eventId) {
+      return stamped()
+        && request.resource.data.keys().hasOnly(['id', 'at', 'delta', 'reason', 'refId', 'syncedAt'])
+        && request.resource.data.keys().hasAll(['id', 'at', 'delta', 'reason', 'syncedAt'])
+        && request.resource.data.id == eventId
+        && str(eventId, 200)
+        && iso(request.resource.data.at)
+        && request.resource.data.delta is int
+        && request.resource.data.delta >= -5000
+        && request.resource.data.delta <= 5000
+        && request.resource.data.reason in ['quest', 'daily_bonus', 'streak_milestone', 'adjustment']
+        && (!('refId' in request.resource.data) || str(request.resource.data.refId, 200));
+    }
+
+    // tutto il resto e' negato
+  }
+}

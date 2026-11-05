@@ -46,9 +46,30 @@ export default defineNuxtConfig({
     },
   },
 
-  runtimeConfig: { public: { appVersion: process.env.npm_package_version ?? '0.0.0' } },
+  runtimeConfig: {
+    public: {
+      appVersion: process.env.npm_package_version ?? '0.0.0',
+      // Account e sync sono OPZIONALI: senza queste variabili (NUXT_PUBLIC_FIREBASE_*) l'app e' solo locale.
+      firebase: {
+        apiKey: '',
+        authDomain: '',
+        projectId: '',
+        appId: '',
+        messagingSenderId: '',
+        // Solo per i test: 'host:porta' degli emulatori
+        emulatorAuth: '',
+        emulatorFirestore: '',
+      },
+    },
+  },
 
   typescript: { strict: true, typeCheck: false },
 
-  nitro: { preset: 'static' },
+  // QUESTLING_OUTPUT_DIR: build alternativa (test cloud) senza toccare .output della build normale
+  nitro: {
+    preset: 'static',
+    ...(process.env.QUESTLING_OUTPUT_DIR
+      ? { output: { dir: process.env.QUESTLING_OUTPUT_DIR, publicDir: `${process.env.QUESTLING_OUTPUT_DIR}/public` } }
+      : {}),
+  },
 })

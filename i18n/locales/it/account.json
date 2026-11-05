@@ -1,0 +1,89 @@
+{
+  "account": {
+    "title": "Account",
+    "card": {
+      "title": "Account e sincronizzazione",
+      "body": "Facoltativo: accedi per avere i tuoi dati su più dispositivi e al sicuro. L'app funziona benissimo anche senza.",
+      "manage": "Gestisci account",
+      "signedInAs": "Accesso effettuato come {email}"
+    },
+    "unavailable": "Gli account non sono attivi in questa versione dell'app. Tutto funziona in locale, sul tuo dispositivo.",
+    "intro": "Accedi per ritrovare i tuoi dati su un altro dispositivo e tenerli al sicuro. Senza account tutto resta solo su questo dispositivo.",
+    "mode": "Accedi o registrati",
+    "modeSignIn": "Accedi",
+    "modeSignUp": "Registrati",
+    "email": "Email",
+    "password": "Password",
+    "passwordHint": "Almeno 6 caratteri.",
+    "submitSignIn": "Accedi",
+    "submitSignUp": "Crea account",
+    "forgot": "Password dimenticata?",
+    "resetSent": "Se esiste un account con questa email, ti abbiamo inviato un link per reimpostare la password.",
+    "resetNeedsEmail": "Scrivi prima la tua email.",
+    "orWith": "oppure",
+    "google": "Continua con Google",
+    "apple": "Continua con Apple",
+    "privacyLink": "Informativa sulla privacy",
+    "loading": "Un momento…",
+    "signedInTitle": "Sei collegato",
+    "provider": "Accesso con {provider}",
+    "providers": {
+      "password": "email e password",
+      "google": "Google",
+      "apple": "Apple"
+    },
+    "signOut": "Esci",
+    "signOutNote": "I tuoi dati restano su questo dispositivo.",
+    "dangerTitle": "Zona pericolosa",
+    "delete": {
+      "button": "Elimina account",
+      "title": "Eliminare l'account?",
+      "body": "Cancella il tuo account e tutti i dati nel cloud. Non si può annullare. I dati su questo dispositivo restano: puoi eliminarli a parte in Impostazioni.",
+      "passwordLabel": "Conferma con la tua password",
+      "socialNote": "Per sicurezza ti verrà chiesto di accedere di nuovo.",
+      "confirm": "Elimina definitivamente",
+      "done": "Account eliminato."
+    },
+    "errors": {
+      "invalid-credentials": "Email o password non corrette.",
+      "email-in-use": "Esiste già un account con questa email.",
+      "weak-password": "La password è troppo debole: usa almeno 6 caratteri.",
+      "invalid-email": "L'email non sembra valida.",
+      "user-disabled": "Questo account è stato disabilitato.",
+      "network": "Nessuna connessione. Riprova quando sei online.",
+      "too-many-requests": "Troppi tentativi. Riprova tra qualche minuto.",
+      "cancelled": "Accesso annullato.",
+      "requires-recent-login": "Per sicurezza conferma di nuovo la tua identità.",
+      "account-exists-with-other-provider": "Esiste già un account con questa email, creato con un altro metodo di accesso.",
+      "unknown": "Qualcosa non ha funzionato. Riprova."
+    },
+    "restoreHint": "Hai già un account? Accedi per ritrovare i tuoi dati."
+  },
+  "sync": {
+    "title": "Sincronizzazione",
+    "status": {
+      "idle": "Sincronizzato",
+      "syncing": "Sincronizzazione in corso…",
+      "offline": "Offline: si risincronizza appena torna la rete.",
+      "error": "Sincronizzazione non riuscita."
+    },
+    "last": "Ultima sincronizzazione: {time}",
+    "never": "Non ancora sincronizzato",
+    "now": "Sincronizza ora",
+    "merge": {
+      "title": "Unire i dati?",
+      "body": "Questo account ha già dati nel cloud e anche questo dispositivo ne ha. Li uniamo senza cancellare nulla: ecco cosa succede.",
+      "otherAccount": "Attenzione: questo dispositivo era collegato a un altro account. Unendo, i dati dei due account si mescolano.",
+      "colThis": "Solo qui",
+      "colCloud": "Solo nel cloud",
+      "colBoth": "In entrambi",
+      "quests": "Missioni",
+      "completions": "Completamenti",
+      "events": "Eventi XP",
+      "corrections": "L'XP verrà ricalcolato per {n} elementi presenti su più dispositivi, così nulla conta due volte.",
+      "backupNote": "Prima di unire conservo una copia dei dati di questo dispositivo.",
+      "confirm": "Unisci i dati",
+      "cancel": "Annulla ed esci"
+    }
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "title": "Informativa sulla privacy",
+  "app": "Questling",
+  "updated": "Ultimo aggiornamento: 5 novembre 2026",
+  "back": "Torna all'app",
+  "sections": [
+    {
+      "title": "In breve",
+      "paragraphs": [
+        "Questling funziona anche senza account: in quel caso i tuoi dati restano solo sul tuo dispositivo e non vengono inviati a nessuno.",
+        "Non ci sono pubblicità, tracciamento, analytics né profilazione.",
+        "L'account è facoltativo e serve solo a sincronizzare i tuoi dati tra più dispositivi. Puoi eliminarlo in qualsiasi momento dall'app: cancella subito i tuoi dati nel cloud."
+      ]
+    },
+    {
+      "title": "Titolare del trattamento",
+      "paragraphs": [
+        "Titolare: [DA COMPLETARE: nome e cognome o ragione sociale].",
+        "Contatto per questioni sulla privacy: [DA COMPLETARE: indirizzo email di contatto]."
+      ]
+    },
+    {
+      "title": "Senza account: dati sul tuo dispositivo",
+      "paragraphs": [
+        "L'app salva sul tuo dispositivo il tuo nome (quello che scegli tu), l'eroe, le risposte al quiz, le missioni che scrivi, i completamenti, l'esperienza (XP) e le impostazioni.",
+        "Questi dati non lasciano il dispositivo. Le notifiche sono programmate localmente dal telefono: non passano da nessun server.",
+        "Puoi esportarli in un file di backup (Impostazioni, Esporta backup) o cancellarli (Impostazioni, Elimina tutti i dati locali). Disinstallare l'app li rimuove dal dispositivo."
+      ]
+    },
+    {
+      "title": "Con account (facoltativo): dati trattati",
+      "paragraphs": [
+        "Se crei un account o accedi, trattiamo: il tuo indirizzo email e un identificativo utente (UID) generati dal servizio di accesso; il nome che hai scelto per l'eroe, l'eroe e le risposte al quiz; le missioni che hai scritto, i completamenti e gli eventi di esperienza (XP).",
+        "Se accedi con Google o Apple riceviamo da loro solo l'identificativo e l'email del tuo account, mai la tua password. Se usi email e password, la password è gestita dal servizio di autenticazione e non è visibile a noi.",
+        "Non sincronizziamo le impostazioni del dispositivo (orari delle notifiche, suoni, vibrazione).",
+        "Per accedere con Google o Apple sull'app per telefono vengono usate le librerie ufficiali di Google e di Apple, che possono trattare dati secondo le rispettive informative. Se non usi questi accessi (o non crei un account) non vengono usate."
+      ]
+    },
+    {
+      "title": "Fornitori e luogo dei dati",
+      "paragraphs": [
+        "Per l'account e la sincronizzazione usiamo Firebase (Authentication e Cloud Firestore) di Google. Google agisce come responsabile del trattamento per nostro conto.",
+        "Regione dei dati: [DA COMPLETARE: regione scelta per Firestore, ad esempio europe-west].",
+        "Eventuali trasferimenti verso Paesi extra UE avvengono con le garanzie previste dalla normativa (clausole contrattuali standard): [DA COMPLETARE: verificare le condizioni correnti di Google prima della pubblicazione]."
+      ]
+    },
+    {
+      "title": "Finalità e base giuridica",
+      "paragraphs": [
+        "Usiamo i dati dell'account solo per fornirti il servizio che hai richiesto creando l'account: accedere e sincronizzare i tuoi dati tra i tuoi dispositivi (art. 6, par. 1, lett. b del GDPR).",
+        "Non usiamo i tuoi dati per marketing, pubblicità o profilazione e non li vendiamo né li cediamo a terzi."
+      ]
+    },
+    {
+      "title": "Conservazione e cancellazione",
+      "paragraphs": [
+        "I dati nel cloud restano finché esiste il tuo account. Da Account, Elimina account, cancelliamo subito il tuo account e tutti i tuoi dati nel cloud.",
+        "I dati sul tuo dispositivo restano finché non li elimini tu o disinstalli l'app: eliminare l'account non li cancella (puoi farlo a parte in Impostazioni).",
+        "Eventuali copie tecniche residue presso il fornitore vengono rimosse secondo i suoi tempi tecnici: [DA COMPLETARE: verificare i tempi indicati da Google]."
+      ]
+    },
+    {
+      "title": "I tuoi diritti",
+      "paragraphs": [
+        "Puoi chiedere accesso, rettifica, cancellazione, limitazione, portabilità e opposizione al trattamento. Molte di queste cose le fai da solo nell'app: modifichi i tuoi dati, esporti un backup in formato JSON, elimini l'account.",
+        "Per qualsiasi richiesta scrivi al contatto indicato sopra. Hai anche il diritto di proporre reclamo al Garante per la protezione dei dati personali (garanteprivacy.it)."
+      ]
+    },
+    {
+      "title": "Minori",
+      "paragraphs": [
+        "L'app non è rivolta a bambini. Se hai meno di 14 anni usala con il consenso di un genitore o di chi esercita la responsabilità genitoriale. [DA COMPLETARE: verificare l'età minima applicabile prima della pubblicazione]."
+      ]
+    },
+    {
+      "title": "Sicurezza",
+      "paragraphs": [
+        "Le comunicazioni con il cloud sono cifrate. Le regole di accesso permettono a ogni utente di leggere e scrivere solo i propri dati.",
+        "I dati salvati sul dispositivo non sono cifrati dall'app: li protegge il blocco del tuo telefono."
+      ]
+    },
+    {
+      "title": "Modifiche a questa informativa",
+      "paragraphs": [
+        "Se cambieremo il modo in cui trattiamo i dati aggiorneremo questa pagina e la data in alto. Per cambiamenti rilevanti ti avviseremo nell'app."
+      ]
+    }
+  ]
+}

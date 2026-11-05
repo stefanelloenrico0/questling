@@ -9,7 +9,7 @@ const isoString = z.string().refine((s) => !Number.isNaN(Date.parse(s)), 'data I
 const hhmm = z.string().regex(/^([01]\d|2[0-3]):[0-5]\d$/)
 const characterId = z.enum(CHARACTER_IDS)
 
-const questSchema = z
+export const questSchema = z
   .object({
     id: z.string().min(1),
     title: z.string().min(1).max(80),
@@ -27,7 +27,7 @@ const questSchema = z
     path: ['target'],
   })
 
-const completionSchema = z.object({
+export const completionSchema = z.object({
   id: z.string().min(1),
   questId: z.string().min(1),
   periodKey: z.string().regex(/^\d{4}-(\d{2}-\d{2}|W\d{2}|\d{2})$/),
@@ -36,7 +36,7 @@ const completionSchema = z.object({
   updatedAt: isoString,
 })
 
-const xpEventSchema = z.object({
+export const xpEventSchema = z.object({
   id: z.string().min(1),
   at: isoString,
   delta: z.number().int(),
@@ -44,7 +44,7 @@ const xpEventSchema = z.object({
   refId: z.string().optional(),
 })
 
-const profileSchema = z.object({
+export const profileSchema = z.object({
   displayName: z.string().min(1).max(40),
   characterId,
   quizAnswers: z.array(z.number().int().min(0).max(3)).optional(),

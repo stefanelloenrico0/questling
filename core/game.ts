@@ -53,6 +53,16 @@ export type QuestResult = { ok: true; state: AppState; quest: Quest } | { ok: fa
 
 const iso = (d: Date): string => d.toISOString()
 
+/**
+ * updatedAt STRETTAMENTE crescente per documento: se l'orologio del dispositivo torna indietro
+ * (cambio manuale, fuso) una modifica successiva non deve risultare piu' vecchia di quella gia'
+ * pubblicata, altrimenti perderebbe il last-write-wins e le regole del cloud la rifiuterebbero.
+ */
+export function stamp(now: Date, previous?: string | null): string {
+  const prev = previous ? Date.parse(previous) : Number.NEGATIVE_INFINITY
+  return new Date(Math.max(now.getTime(), prev + 1)).toISOString()
+}
+
 function mkEvent(ctx: GameCtx, delta: number, reason: XpReason, refId: string): XpEvent {
   return { id: ctx.newId(), at: iso(ctx.now), delta, reason, refId }
 }
@@ -76,7 +86,7 @@ export function clampTarget(period: Period, target: number): number {
 }
 
 /** I capitoli, come il livello, appartengono al giocatore: si sbloccano per tutti gli eroi e non si perdono. */
-function syncChapters(state: AppState): AppState {
+export function syncChapters(state: AppState): AppState {
   const nums = unlockedChapterNumbers(levelFromXp(totalXp(state)).level)
   const unlockedChapters = { ...state.unlockedChapters }
   let changed = false
@@ -104,12 +114,17 @@ function finalize(prev: AppState, next: AppState): ActionOutcome {
 
 const unchanged = (state: AppState): ActionOutcome => ({ state, changed: false, xpDelta: 0, levelUp: null })
 
-/** Bonus "tutte fatte" per un giorno: allinea gli eventi a quanto atteso. */
-function dailyBonusEvents(state: AppState, day: string, ctx: GameCtx): XpEvent[] {
+/** Il bonus "tutte fatte" spetta per questo giorno? (>= 2 daily attive, create entro quel giorno, tutte completate) */
+export function dailyBonusEligible(state: AppState, day: string): boolean {
   const hour = state.settings.dayStartHour
   const dailies = activeQuests(state, 'daily').filter((q) => dayKey(new Date(q.createdAt), hour) <= day)
   const done = new Set(state.completions.filter((c) => c.periodKey === day && c.completedAt).map((c) => c.questId))
-  const eligible = dailies.length >= ALL_DONE_MIN_QUESTS && dailies.every((q) => done.has(q.id))
+  return dailies.length >= ALL_DONE_MIN_QUESTS && dailies.every((q) => done.has(q.id))
+}
+
+/** Bonus "tutte fatte" per un giorno: allinea gli eventi a quanto atteso. */
+function dailyBonusEvents(state: AppState, day: string, ctx: GameCtx): XpEvent[] {
+  const eligible = dailyBonusEligible(state, day)
   const diff = (eligible ? ALL_DONE_BONUS : 0) - xpByRef(state.xpEvents, 'daily_bonus', day)
   return diff === 0 ? [] : [mkEvent(ctx, diff, 'daily_bonus', day)]
 }
@@ -147,7 +162,7 @@ function setCount(state: AppState, quest: Quest, count: number, ctx: GameCtx): A
     periodKey: key,
     count,
     completedAt: done ? (prev?.completedAt ?? nowIso) : null,
-    updatedAt: nowIso,
+    updatedAt: stamp(ctx.now, prev?.updatedAt),
   }
   let next: AppState = {
     ...state,
@@ -235,7 +250,7 @@ export function updateQuest(state: AppState, questId: string, patch: QuestPatch,
     icon: patch.icon || quest.icon,
     difficulty: patch.difficulty ?? quest.difficulty,
     target: patch.target === undefined ? quest.target : clampTarget(quest.period, patch.target),
-    updatedAt: iso(ctx.now),
+    updatedAt: stamp(ctx.now, quest.updatedAt),
   }
   let next: AppState = { ...state, quests: state.quests.map((q) => (q.id === questId ? updated : q)) }
   // Se il target cambia, il progresso del periodo corrente va riallineato (con XP coerente).
@@ -253,17 +268,16 @@ export function archiveQuest(state: AppState, questId: string, ctx: GameCtx): Ac
   const nowIso = iso(ctx.now)
   return finalize(state, {
     ...state,
-    quests: state.quests.map((q) => (q.id === questId ? { ...q, archivedAt: nowIso, updatedAt: nowIso } : q)),
+    quests: state.quests.map((q) => (q.id === questId ? { ...q, archivedAt: nowIso, updatedAt: stamp(ctx.now, q.updatedAt) } : q)),
   })
 }
 
 export function reorderQuests(state: AppState, period: Period, orderedIds: readonly string[], ctx: GameCtx): AppState {
-  const nowIso = iso(ctx.now)
   return {
     ...state,
     quests: state.quests.map((q) => {
       const idx = orderedIds.indexOf(q.id)
-      return q.period === period && !q.archivedAt && idx >= 0 ? { ...q, order: idx, updatedAt: nowIso } : q
+      return q.period === period && !q.archivedAt && idx >= 0 ? { ...q, order: idx, updatedAt: stamp(ctx.now, q.updatedAt) } : q
     }),
   }
 }
@@ -273,19 +287,19 @@ export function setCharacter(state: AppState, characterId: CharacterId, ctx: Gam
   if (!state.profile) return state
   return syncChapters({
     ...state,
-    profile: { ...state.profile, characterId, updatedAt: iso(ctx.now) },
+    profile: { ...state.profile, characterId, updatedAt: stamp(ctx.now, state.profile.updatedAt) },
   })
 }
 
 export function setQuizAnswers(state: AppState, answers: readonly number[], ctx: GameCtx): AppState {
   if (!state.profile) return state
-  return { ...state, profile: { ...state.profile, quizAnswers: [...answers], updatedAt: iso(ctx.now) } }
+  return { ...state, profile: { ...state.profile, quizAnswers: [...answers], updatedAt: stamp(ctx.now, state.profile.updatedAt) } }
 }
 
 export function renameProfile(state: AppState, displayName: string, ctx: GameCtx): AppState {
   const name = displayName.trim().replace(/\s+/g, ' ').slice(0, MAX_NAME_LENGTH)
   if (!state.profile || !name) return state
-  return { ...state, profile: { ...state.profile, displayName: name, updatedAt: iso(ctx.now) } }
+  return { ...state, profile: { ...state.profile, displayName: name, updatedAt: stamp(ctx.now, state.profile.updatedAt) } }
 }
 
 export interface OnboardingInput {
