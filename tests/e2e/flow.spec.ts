@@ -173,7 +173,7 @@ test.describe('MVP: primo avvio -> Oggi, senza account', () => {
     await page.getByTestId('splash-start').click()
     await page.getByTestId('intro-skip').click()
     await expect(page.getByTestId('step-notify')).toHaveCount(0)
-    for (const a of VALDO_ANSWERS) await page.getByTestId().click()
+    for (const a of VALDO_ANSWERS) await page.getByTestId(`quiz-answer-${a}`).click()
     await page.getByTestId('reveal-confirm').click()
     await expect(page.getByTestId('step-notify')).toHaveCount(0)
     await page.getByTestId('name-input').fill('Enrico')
@@ -184,7 +184,7 @@ test.describe('MVP: primo avvio -> Oggi, senza account', () => {
     await expect(page.getByTestId('notify-sample')).toContainText('Alba sul regno')
   })
 
-  test('rifiutare i promemoria: l'app funziona uguale e si possono attivare dopo in Impostazioni', async ({ page }) => {
+  test('rifiutare i promemoria: l\'app funziona uguale e si possono attivare dopo in Impostazioni', async ({ page }) => {
     await onboard(page, 'Enrico', 'notify-skip')
     await page.getByRole('checkbox', { name: /Allenamento/ }).click()
     await expect(xpText(page)).toContainText('10/50 XP')
@@ -207,7 +207,7 @@ test.describe('MVP: primo avvio -> Oggi, senza account', () => {
     await expect(page.getByTestId('notif-enable')).toHaveAttribute('aria-checked', 'true')
   })
 
-  test('suoni: l'interruttore si salva e non rompe nulla (audio sintetizzato)', async ({ page }) => {
+  test('suoni: l\'interruttore si salva e non rompe nulla (audio sintetizzato)', async ({ page }) => {
     await onboard(page)
     await page.getByRole('link', { name: 'Altro' }).click()
     const sound = page.getByTestId('sound-switch')

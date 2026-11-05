@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { exportBackup, parseBackup, type BackupSummary } from '../../core/backup'
 import type { AppState } from '../../core/types'
+import type { ReminderPermission } from '../composables/useNotifications'
 
 const game = useGameStore()
 const { t } = useI18n()
@@ -17,7 +18,7 @@ const wipeOpen = ref(false)
 
 const notifications = useNotifications()
 const fx = useFeedback()
-const permission = ref<NotificationPermission>('unsupported')
+const permission = ref<ReminderPermission>('unsupported')
 onMounted(async () => {
   permission.value = await notifications.permission()
 })

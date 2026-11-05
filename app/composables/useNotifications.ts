@@ -3,12 +3,12 @@ import { LocalNotifications, type PermissionStatus } from '@capacitor/local-noti
 import { notificationChannel, notificationTexts } from '../../data/notification-texts'
 import { planNotifications, type PlannedNotification } from '../../core/notifications-plan'
 
-export type NotificationPermission = 'granted' | 'denied' | 'prompt' | 'unsupported'
+export type ReminderPermission = 'granted' | 'denied' | 'prompt' | 'unsupported'
 
 const CHANNEL_ID = 'reminders'
 const isNative = (): boolean => Capacitor.isNativePlatform()
 
-function mapPermission(display: PermissionStatus['display']): NotificationPermission {
+function mapPermission(display: PermissionStatus['display']): ReminderPermission {
   if (display === 'granted') return 'granted'
   if (display === 'denied') return 'denied'
   return 'prompt'
@@ -27,12 +27,12 @@ let listenerReady = false
 export function useNotifications() {
   const game = useGameStore()
 
-  async function permission(): Promise<NotificationPermission> {
+  async function permission(): Promise<ReminderPermission> {
     if (!isNative()) return 'unsupported'
     return mapPermission((await LocalNotifications.checkPermissions()).display)
   }
 
-  async function requestPermission(): Promise<NotificationPermission> {
+  async function requestPermission(): Promise<ReminderPermission> {
     if (!isNative()) return 'unsupported'
     return mapPermission((await LocalNotifications.requestPermissions()).display)
   }
