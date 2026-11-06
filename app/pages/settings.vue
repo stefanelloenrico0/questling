@@ -6,7 +6,7 @@ import type { ReminderPermission } from '../composables/useNotifications'
 const game = useGameStore()
 const { t } = useI18n()
 const hero = useHero()
-const toast = usePixelToast()
+const toast = useUiToast()
 const config = useRuntimeConfig()
 
 const name = ref(game.profile?.displayName ?? '')
@@ -145,41 +145,41 @@ const summaryRows = computed(() => {
   <div class="flex flex-col gap-6" data-testid="page-settings">
     <h1 class="font-display text-sm">{{ t('settings.title') }}</h1>
 
-    <PixelCard v-if="game.loadStatus === 'recovered'" tone="accent" data-testid="recovered-notice">
+    <UiCard v-if="game.loadStatus === 'recovered'" tone="accent" data-testid="recovered-notice">
       <h2 class="font-display mb-2 text-xs">{{ t('settings.recoveredTitle') }}</h2>
       <p>{{ t('settings.recoveredBody') }}</p>
-    </PixelCard>
+    </UiCard>
 
-    <PixelCard>
+    <UiCard>
       <h2 class="font-display mb-3 text-xs">{{ t('settings.profile') }}</h2>
       <form class="flex flex-col gap-3" @submit.prevent="saveName">
-        <PixelInput v-model="name" :label="t('settings.name')" maxlength="24" data-testid="settings-name" />
-        <div><PixelButton type="submit" variant="secondary">{{ t('settings.nameSave') }}</PixelButton></div>
+        <UiInput v-model="name" :label="t('settings.name')" maxlength="24" data-testid="settings-name" />
+        <div><UiButton type="submit" variant="secondary">{{ t('settings.nameSave') }}</UiButton></div>
       </form>
-    </PixelCard>
+    </UiCard>
 
-    <PixelCard data-testid="settings-account">
+    <UiCard data-testid="settings-account">
       <h2 class="font-display mb-3 text-xs">{{ t('account.card.title') }}</h2>
       <p v-if="account.user" class="mb-2" data-testid="settings-account-email">{{ t('account.card.signedInAs', { email: account.user.email ?? '' }) }}</p>
       <p v-else class="mb-3 text-[var(--text-soft)]">{{ account.available ? t('account.card.body') : t('account.unavailable') }}</p>
-      <PixelButton variant="secondary" data-testid="settings-account-link" @click="navigateTo('/account')">{{ t('account.card.manage') }}</PixelButton>
-    </PixelCard>
+      <UiButton variant="secondary" data-testid="settings-account-link" @click="navigateTo('/account')">{{ t('account.card.manage') }}</UiButton>
+    </UiCard>
 
-    <PixelCard>
+    <UiCard>
       <h2 class="font-display mb-3 text-xs">{{ t('settings.dayStart') }}</h2>
-      <PixelSegmented v-model="dayStart" :label="t('settings.dayStart')" :options="dayStartOptions" />
+      <UiSegmented v-model="dayStart" :label="t('settings.dayStart')" :options="dayStartOptions" />
       <p class="mt-3 text-[var(--text-soft)]">{{ t('settings.dayStartHint') }}</p>
-    </PixelCard>
+    </UiCard>
 
-    <PixelCard data-testid="settings-notifications">
+    <UiCard data-testid="settings-notifications">
       <h2 class="font-display mb-3 text-xs">{{ t('settings.notifications') }}</h2>
-      <PixelSwitch v-model="enabled" :label="t('settings.notificationsEnable')" :hint="t('settings.notificationsEnableHint')" data-testid="notif-enable" />
+      <UiSwitch v-model="enabled" :label="t('settings.notificationsEnable')" :hint="t('settings.notificationsEnableHint')" data-testid="notif-enable" />
       <div v-if="cfg.enabled" class="mt-3 flex flex-col gap-3">
-        <PixelInput v-model="morningTime" type="time" :label="t('settings.morningTime')" data-testid="notif-morning" />
-        <PixelInput v-model="eveningTime" type="time" :label="t('settings.eveningTime')" data-testid="notif-evening" />
-        <PixelSwitch v-model="streakRisk" :label="t('settings.streakRisk')" />
-        <PixelSwitch v-model="weeklyMonthly" :label="t('settings.weeklyMonthly')" />
-        <PixelSwitch v-model="comeback" :label="t('settings.comeback')" />
+        <UiInput v-model="morningTime" type="time" :label="t('settings.morningTime')" data-testid="notif-morning" />
+        <UiInput v-model="eveningTime" type="time" :label="t('settings.eveningTime')" data-testid="notif-evening" />
+        <UiSwitch v-model="streakRisk" :label="t('settings.streakRisk')" />
+        <UiSwitch v-model="weeklyMonthly" :label="t('settings.weeklyMonthly')" />
+        <UiSwitch v-model="comeback" :label="t('settings.comeback')" />
         <p class="text-[var(--text-soft)]">{{ t('settings.quietHours') }}</p>
       </div>
       <p v-if="permission === 'unsupported'" class="mt-3 text-[var(--text-soft)]" data-testid="notif-web">{{ t('settings.permissionWeb') }}</p>
@@ -188,41 +188,41 @@ const summaryRows = computed(() => {
       </div>
       <div v-else-if="permission === 'prompt'" class="mt-3 flex flex-col gap-2">
         <p class="text-[var(--text-soft)]">{{ t('settings.permissionPrompt') }}</p>
-        <div><PixelButton variant="secondary" data-testid="notif-ask" @click="askPermission">{{ t('settings.permissionAsk') }}</PixelButton></div>
+        <div><UiButton variant="secondary" data-testid="notif-ask" @click="askPermission">{{ t('settings.permissionAsk') }}</UiButton></div>
       </div>
-    </PixelCard>
+    </UiCard>
 
-    <PixelCard data-testid="settings-feedback">
+    <UiCard data-testid="settings-feedback">
       <h2 class="font-display mb-3 text-xs">{{ t('settings.feedback') }}</h2>
-      <PixelSwitch v-model="sound" :label="t('settings.sound')" :hint="t('settings.soundHint')" data-testid="sound-switch" />
-      <PixelSwitch v-model="haptics" :label="t('settings.haptics')" :hint="t('settings.hapticsHint')" />
-    </PixelCard>
+      <UiSwitch v-model="sound" :label="t('settings.sound')" :hint="t('settings.soundHint')" data-testid="sound-switch" />
+      <UiSwitch v-model="haptics" :label="t('settings.haptics')" :hint="t('settings.hapticsHint')" />
+    </UiCard>
 
-    <PixelCard>
+    <UiCard>
       <h2 class="font-display mb-3 text-xs">{{ t('settings.data') }}</h2>
       <p class="mb-3 text-[var(--text-soft)]">{{ t('settings.dataHint') }}</p>
       <div class="flex flex-wrap">
-        <PixelButton data-testid="export" @click="doExport">{{ t('settings.export') }}</PixelButton>
-        <PixelButton variant="secondary" data-testid="import" @click="fileInput?.click()">{{ t('settings.import') }}</PixelButton>
+        <UiButton data-testid="export" @click="doExport">{{ t('settings.export') }}</UiButton>
+        <UiButton variant="secondary" data-testid="import" @click="fileInput?.click()">{{ t('settings.import') }}</UiButton>
       </div>
       <input ref="fileInput" type="file" accept="application/json,.json" class="hidden" data-testid="import-file" @change="onFile" />
       <p v-if="importError" class="mt-3 text-[var(--warn)]" role="alert" data-testid="import-error">{{ importError }}</p>
-    </PixelCard>
+    </UiCard>
 
-    <PixelCard>
+    <UiCard>
       <h2 class="font-display mb-3 text-xs">{{ t('settings.privacy') }}</h2>
       <p class="mb-2 text-[var(--text-soft)]">{{ t('settings.privacyBody') }}</p>
       <NuxtLink to="/privacy" class="underline" data-testid="settings-privacy-link">{{ t('account.privacyLink') }}</NuxtLink>
-    </PixelCard>
+    </UiCard>
 
-    <PixelCard>
+    <UiCard>
       <h2 class="font-display mb-3 text-xs">{{ t('settings.danger') }}</h2>
-      <PixelButton variant="secondary" data-testid="wipe" @click="wipeOpen = true">{{ t('settings.wipe') }}</PixelButton>
-    </PixelCard>
+      <UiButton variant="secondary" data-testid="wipe" @click="wipeOpen = true">{{ t('settings.wipe') }}</UiButton>
+    </UiCard>
 
     <p class="text-center text-[var(--text-soft)]">{{ t('settings.version', { v: config.public.appVersion }) }}</p>
 
-    <PixelDialog v-model:open="previewOpen" :title="t('settings.importPreviewTitle')" :description="t('settings.importPreviewBody')">
+    <UiDialog v-model:open="previewOpen" :title="t('settings.importPreviewTitle')" :description="t('settings.importPreviewBody')">
       <dl class="grid grid-cols-[auto_1fr] gap-x-4 gap-y-1" data-testid="import-summary">
         <template v-for="[k, v] in summaryRows" :key="k">
           <dt class="text-[var(--text-soft)]">{{ k }}</dt>
@@ -231,19 +231,19 @@ const summaryRows = computed(() => {
       </dl>
       <template #actions>
         <div class="flex gap-2">
-          <PixelButton variant="secondary" @click="previewOpen = false">{{ t('common.cancel') }}</PixelButton>
-          <PixelButton data-testid="import-confirm" @click="confirmImport">{{ t('settings.importConfirm') }}</PixelButton>
+          <UiButton variant="secondary" @click="previewOpen = false">{{ t('common.cancel') }}</UiButton>
+          <UiButton data-testid="import-confirm" @click="confirmImport">{{ t('settings.importConfirm') }}</UiButton>
         </div>
       </template>
-    </PixelDialog>
+    </UiDialog>
 
-    <PixelDialog v-model:open="wipeOpen" :title="t('settings.wipeTitle')" :description="t('settings.wipeBody')">
+    <UiDialog v-model:open="wipeOpen" :title="t('settings.wipeTitle')" :description="t('settings.wipeBody')">
       <template #actions>
         <div class="flex gap-2">
-          <PixelButton variant="secondary" @click="wipeOpen = false">{{ t('common.cancel') }}</PixelButton>
-          <PixelButton data-testid="wipe-confirm" @click="confirmWipe">{{ t('settings.wipeConfirm') }}</PixelButton>
+          <UiButton variant="secondary" @click="wipeOpen = false">{{ t('common.cancel') }}</UiButton>
+          <UiButton data-testid="wipe-confirm" @click="confirmWipe">{{ t('settings.wipeConfirm') }}</UiButton>
         </div>
       </template>
-    </PixelDialog>
+    </UiDialog>
   </div>
 </template>

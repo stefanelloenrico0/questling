@@ -73,12 +73,12 @@ function confirm(): void {
 <template>
   <section v-if="step === 'quiz'" class="flex flex-col gap-4" data-testid="quiz">
     <p class="font-display text-xs" data-testid="quiz-progress">{{ t('quiz.progress', { n: index + 1, total: QUIZ.length }) }}</p>
-    <PixelBar :value="index + 1" :max="QUIZ.length" :blocks="QUIZ.length" :label="t('quiz.progressLabel')" />
+    <UiBar :value="index + 1" :max="QUIZ.length" :blocks="QUIZ.length" :label="t('quiz.progressLabel')" />
 
-    <PixelCard>
+    <UiCard>
       <h2 class="mb-4" style="font-size: 20px" data-testid="quiz-question">{{ t(`quiz.q${question.id}.text`) }}</h2>
       <div class="flex flex-col gap-2" role="group" :aria-label="t('quiz.answers')">
-        <PixelButton
+        <UiButton
           v-for="orig in displayOrder"
           :key="`${question.id}-${orig}`"
           :variant="answers[index] === orig ? 'primary' : 'secondary'"
@@ -87,22 +87,22 @@ function confirm(): void {
           @click="pick(orig)"
         >
           {{ t(`quiz.q${question.id}.a${orig}`) }}
-        </PixelButton>
+        </UiButton>
       </div>
-    </PixelCard>
+    </UiCard>
 
     <div v-if="index > 0">
-      <PixelButton variant="secondary" @click="back">{{ t('quiz.back') }}</PixelButton>
+      <UiButton variant="secondary" @click="back">{{ t('quiz.back') }}</UiButton>
     </div>
   </section>
 
   <section v-else class="flex flex-col gap-4" data-testid="reveal">
     <h2 class="font-display text-sm">{{ t('quiz.revealTitle') }}</h2>
 
-    <PixelCard tone="accent">
+    <UiCard tone="accent">
       <div class="flex flex-col items-center gap-2 py-2">
         <div v-if="selected" class="reveal-sprite" :class="{ 'reveal-sprite--hidden': !revealed }">
-          <PixelSprite :character="selected" :scale="6" :alt="hero.name(selected)" />
+          <HeroArt :character="selected" :size="176" :alt="hero.name(selected)" />
         </div>
         <div v-else class="font-display text-center" style="font-size: 48px; line-height: 1.4" aria-hidden="true">?</div>
         <p v-if="selected" class="font-display text-sm" data-testid="reveal-name">{{ hero.name(selected) }}</p>
@@ -112,7 +112,7 @@ function confirm(): void {
           {{ t('quiz.affinity', { pct: affinities[selected] }) }}
         </p>
       </div>
-    </PixelCard>
+    </UiCard>
 
     <p v-if="outcome?.kind === 'tie'" data-testid="reveal-tie">{{ t('quiz.tie', { names: tieNames }) }}</p>
     <p v-else-if="outcome?.kind === 'zero'" data-testid="reveal-zero">{{ t('quiz.zero') }}</p>
@@ -121,14 +121,14 @@ function confirm(): void {
     <HeroGrid v-model="selected" :ids="candidates" :label="t('quiz.candidates')" :affinities="affinities" />
 
     <div>
-      <PixelButton variant="secondary" @click="showAll = !showAll">
+      <UiButton variant="secondary" @click="showAll = !showAll">
         {{ showAll ? t('quiz.hideAll') : t('quiz.showAll') }}
-      </PixelButton>
+      </UiButton>
     </div>
     <HeroGrid v-if="showAll" v-model="selected" :ids="others" :label="t('quiz.showAll')" />
 
     <div class="flex flex-col gap-2">
-      <PixelButton :disabled="!selected" data-testid="reveal-confirm" @click="confirm">{{ t('quiz.confirm') }}</PixelButton>
+      <UiButton :disabled="!selected" data-testid="reveal-confirm" @click="confirm">{{ t('quiz.confirm') }}</UiButton>
       <p v-if="!selected" class="text-[var(--text-soft)]">{{ t('quiz.pickFirst') }}</p>
     </div>
   </section>

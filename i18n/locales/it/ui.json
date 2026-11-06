@@ -1,7 +1,7 @@
 {
   "app": {
     "name": "Questling",
-    "tagline": "Il tuo compagno di viaggio pixel-art."
+    "tagline": "Il tuo compagno di viaggio."
   },
   "common": {
     "save": "Salva",
@@ -161,7 +161,7 @@
   },
   "onboarding": {
     "splashTitle": "Questling",
-    "splashSub": "Obiettivi con un compagno pixel-art.",
+    "splashSub": "Obiettivi con un compagno di viaggio.",
     "intro": {
       "s1Title": "Un compagno, non una to-do list",
       "s1Body": "Il tuo eroe ha una voce, una storia e una personalità. Cresce con te, missione dopo missione.",
@@ -258,35 +258,6 @@
     "soundHint": "Effetti sintetizzati, nessun file audio.",
     "haptics": "Vibrazione",
     "hapticsHint": "Solo sul telefono."
-  },
-  "kit": {
-    "title": "Kit componenti",
-    "buttons": "Bottoni",
-    "cards": "Card",
-    "bars": "Barre",
-    "checks": "Check",
-    "sprites": "Eroi (placeholder)",
-    "tiers": "Overlay tier",
-    "chips": "Statistiche",
-    "dialog": "Dialogo",
-    "toast": "Toast",
-    "palette": "Palette",
-    "primary": "Primario",
-    "secondary": "Secondario",
-    "disabled": "Disabilitato",
-    "openDialog": "Apri dialogo",
-    "showToast": "Mostra toast",
-    "dialogTitle": "Titolo dialogo",
-    "dialogBody": "Il tuo livello resta tuo.",
-    "close": "Chiudi",
-    "toastText": "+10 XP",
-    "cardTitle": "Missione di prova",
-    "cardBody": "Una card con bordo a gradini, senza border-radius.",
-    "xpLabel": "XP",
-    "checkLabel": "Allenamento di 20 minuti",
-    "streak": "Streak",
-    "shields": "Scudi",
-    "level": "Livello"
   },
   "a11y": {
     "done": "Completata",

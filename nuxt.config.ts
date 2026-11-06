@@ -1,3 +1,5 @@
+import { BUNDLED_ICONS } from './data/icons'
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: '2026-11-01',
@@ -20,14 +22,13 @@ export default defineNuxtConfig({
   },
 
   // Icone incluse nel bundle client: niente chiamate ad api.iconify.design (app offline)
-  icon: { provider: 'none', clientBundle: { scan: true, includeCustomCollections: true } },
+  icon: { provider: 'none', clientBundle: { scan: true, icons: BUNDLED_ICONS, includeCustomCollections: true } },
 
   // Font self-hosted via @fontsource (CSS in main.css): vietato scaricarli da CDN a build-time
   fonts: {
     families: [
-      { name: 'Press Start 2P', provider: 'none' },
-      { name: 'Pixelify Sans', provider: 'none' },
-      { name: 'VT323', provider: 'none' },
+      { name: 'Fredoka', provider: 'none' },
+      { name: 'Nunito', provider: 'none' },
     ],
     providers: { google: false, googleicons: false, bunny: false, fontshare: false, fontsource: false },
   },
@@ -39,9 +40,10 @@ export default defineNuxtConfig({
     head: {
       htmlAttrs: { lang: 'it' },
       title: 'Questling',
+      link: [{ rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' }],
       meta: [
         { name: 'viewport', content: 'width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no' },
-        { name: 'theme-color', content: '#1a1c2c' },
+        { name: 'theme-color', content: '#14162a' },
       ],
     },
   },

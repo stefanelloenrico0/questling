@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-4 -24 262 304" role="img" aria-label="Brunilde, la Nana Fabbra">
+  <defs>
+    <linearGradient id="apron" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#c8485f"/><stop offset="1" stop-color="#7a2d4d"/></linearGradient>
+    <linearGradient id="shirt" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff0d6"/><stop offset="1" stop-color="#d9b88a"/></linearGradient>
+    <linearGradient id="hair" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffa86b"/><stop offset="1" stop-color="#d9552f"/></linearGradient>
+    <linearGradient id="beard" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#9aa6b8"/><stop offset="1" stop-color="#4a566e"/></linearGradient>
+    <linearGradient id="iron" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#b9cbd8"/><stop offset="1" stop-color="#566c86"/></linearGradient>
+    <linearGradient id="wood" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#d9a066"/><stop offset="1" stop-color="#8f5a3c"/></linearGradient>
+    <linearGradient id="skin" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f6c9a2"/><stop offset="1" stop-color="#e0a27c"/></linearGradient>
+  </defs>
+  <ellipse class="shadow" cx="120" cy="256" rx="72" ry="9" fill="#1a1c2c" opacity=".32"/>
+  <g class="char">
+    <!-- martello sulla spalla -->
+    <g transform="translate(-26 6) rotate(18 190 150)">
+      <rect x="186" y="62" width="11" height="132" rx="5" fill="url(#wood)"/>
+      <rect x="164" y="40" width="56" height="34" rx="9" fill="url(#iron)"/>
+      <rect x="164" y="40" width="56" height="9" rx="4.5" fill="#e4eef4" opacity=".6"/>
+      <rect x="158" y="46" width="10" height="22" rx="4" fill="#3f4f6a"/><rect x="216" y="46" width="10" height="22" rx="4" fill="#3f4f6a"/>
+    </g>
+    <!-- gambe corte -->
+    <rect x="90" y="226" width="30" height="26" rx="12" fill="#5c3a2e"/>
+    <rect x="124" y="226" width="30" height="26" rx="12" fill="#5c3a2e"/>
+    <rect x="82" y="240" width="42" height="16" rx="8" fill="#2e1c1f"/>
+    <rect x="118" y="240" width="42" height="16" rx="8" fill="#2e1c1f"/>
+    <!-- corpo tarchiato -->
+    <path d="M66 160 Q120 148 174 160 Q186 206 172 232 Q120 244 68 232 Q54 206 66 160 Z" fill="url(#shirt)"/>
+    <path d="M82 164 Q120 156 158 164 L166 234 Q120 246 74 234 Z" fill="url(#apron)"/>
+    <path d="M96 164 L96 150 M144 164 L144 150" stroke="#7a2d4d" stroke-width="7" stroke-linecap="round"/>
+    <rect x="102" y="194" width="36" height="22" rx="7" fill="#5d1f3c" opacity=".55"/>
+    <path d="M86 196 Q120 206 154 196" stroke="#ffcd75" stroke-width="3" fill="none" stroke-linecap="round" opacity=".7"/>
+    <circle cx="100" cy="176" r="2.6" fill="#ffcd75"/><circle cx="140" cy="176" r="2.6" fill="#ffcd75"/>
+    <!-- fuliggine -->
+    <path d="M92 222 l5 -3 3 5 z M140 226 l5 -2 2 5 z" fill="#2a3248" opacity=".4"/>
+    <!-- braccia forti con maniche arrotolate -->
+    <path d="M64 166 Q40 178 42 210 Q44 222 56 220 Q68 218 68 204 Q70 188 84 178 Z" fill="url(#shirt)"/>
+    <rect x="40" y="188" width="26" height="9" rx="4.5" fill="#c9a06a"/>
+    <ellipse cx="52" cy="222" rx="11" ry="10" fill="url(#skin)"/>
+    <path d="M176 166 Q202 178 200 210 Q198 222 186 220 Q174 218 174 204 Q172 188 158 178 Z" fill="url(#shirt)"/>
+    <rect x="174" y="188" width="26" height="9" rx="4.5" fill="#c9a06a"/>
+    <ellipse cx="188" cy="222" rx="11" ry="10" fill="url(#skin)"/>
+    <!-- trecce -->
+    <path d="M78 110 Q60 150 72 188" stroke="url(#hair)" stroke-width="20" fill="none" stroke-linecap="round"/>
+    <path d="M162 110 Q180 150 168 188" stroke="url(#hair)" stroke-width="20" fill="none" stroke-linecap="round"/>
+    <path d="M70 136 L84 142 M68 154 L82 160 M70 172 L82 176" stroke="#b3503f" stroke-width="3" opacity=".55" stroke-linecap="round"/>
+    <path d="M170 136 L156 142 M172 154 L158 160 M170 172 L158 176" stroke="#b3503f" stroke-width="3" opacity=".55" stroke-linecap="round"/>
+    <circle cx="72" cy="194" r="7" fill="#7a2d4d"/><circle cx="168" cy="194" r="7" fill="#7a2d4d"/>
+    <!-- testa larga -->
+    <ellipse cx="120" cy="104" rx="46" ry="40" fill="url(#skin)"/>
+    <path d="M74 92 Q76 54 120 50 Q164 54 166 92 Q150 70 120 70 Q90 70 74 92 Z" fill="url(#hair)"/>
+    <path d="M86 62 Q100 54 118 54" stroke="#fff0d6" stroke-width="3.4" fill="none" stroke-linecap="round" opacity=".55"/>
+    <!-- fuliggine sulle guance, naso rosso -->
+    <ellipse cx="90" cy="122" rx="11" ry="6.5" fill="#f08f86" opacity=".5"/><ellipse cx="150" cy="122" rx="11" ry="6.5" fill="#f08f86" opacity=".5"/>
+    <ellipse cx="82" cy="108" rx="5" ry="3" fill="#2a3248" opacity=".3"/>
+    <ellipse cx="120" cy="112" rx="9" ry="7" fill="#e98a74"/>
+    <g class="eye">
+      <ellipse cx="100" cy="98" rx="5.8" ry="6.8" fill="#1a1c2c"/><ellipse cx="140" cy="98" rx="5.8" ry="6.8" fill="#1a1c2c"/>
+      <circle cx="102" cy="95.6" r="2.1" fill="#fff"/><circle cx="142" cy="95.6" r="2.1" fill="#fff"/>
+    </g>
+    <path d="M88 84 Q100 78 112 86" stroke="#8a3a22" stroke-width="4" fill="none" stroke-linecap="round"/>
+    <path d="M128 84 Q142 74 152 82" stroke="#8a3a22" stroke-width="4" fill="none" stroke-linecap="round"/>
+    <!-- barba di fuliggine corta -->
+    <path d="M92 126 Q120 160 148 126 Q146 140 132 148 Q120 154 108 148 Q94 140 92 126 Z" fill="url(#beard)"/>
+    <path d="M104 130 Q120 138 136 130" stroke="#d9e2f2" stroke-width="2.2" fill="none" stroke-linecap="round" opacity=".45"/>
+    <path d="M106 132 Q120 144 134 132 Q120 136 106 132 Z" fill="url(#skin)"/>
+    <path d="M110 133 Q120 138 130 133" stroke="#9a5a56" stroke-width="2.8" fill="none" stroke-linecap="round"/>
+  </g>
+</svg>

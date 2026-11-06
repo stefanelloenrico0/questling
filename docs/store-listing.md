@@ -6,7 +6,7 @@
 **Questling**
 
 ## Descrizione breve (≤ 80)
-Obiettivi di ogni giorno con un eroe pixel-art che ti scrive nella sua voce.
+Obiettivi di ogni giorno con un eroe che ti scrive nella sua voce.
 
 ## Sottotitolo App Store (≤ 30)
 Missioni quotidiane con un eroe
@@ -15,7 +15,7 @@ Missioni quotidiane con un eroe
 
 Questling non è una to-do list con i punti: è un compagno di viaggio retrò.
 
-Fai un breve quiz (otto domande leggere, niente test serio) e ti viene assegnato uno degli otto eroi pixel-art, ognuno con una voce, una storia e una personalità. Puoi cambiarlo quando vuoi: il tuo livello resta tuo.
+Fai un breve quiz (otto domande leggere, niente test serio) e ti viene assegnato uno degli otto eroi, ognuno con una voce, una storia e una personalità. Puoi cambiarlo quando vuoi: il tuo livello resta tuo.
 
 • **Missioni a misura tua**: obiettivi giornalieri, settimanali e mensili. Ogni missione completata dà esperienza e ti fa salire di livello.
 • **Un eroe con carattere**: dal cavaliere solenne alla chierica gentile, dal bardo teatrale al robot da cabinato arcade. I promemoria arrivano nella sua voce, con battute, mai come rimproveri.
@@ -28,7 +28,7 @@ Fai un breve quiz (otto domande leggere, niente test serio) e ti viene assegnato
 Le notifiche sono promemoria programmati sul telefono (al massimo due al giorno, mai di notte) e li gestisci come vuoi dalle impostazioni.
 
 ## Parole chiave (App Store, ≤ 100)
-abitudini,obiettivi,quest,RPG,pixel art,streak,routine,produttività,motivazione,eroe
+abitudini,obiettivi,quest,RPG,streak,routine,produttività,motivazione,eroe
 
 ## Screenshot da preparare (con l'arte vera)
 1. Oggi con un eroe e le missioni completate

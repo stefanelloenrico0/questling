@@ -21,9 +21,9 @@ const sections = computed(() =>
 
     <QuestSection v-for="s in sections" :key="s.period" :title="t(sectionTitle[s.period])" :rows="s.rows" />
 
-    <PixelCard v-if="sections.length === 0" data-testid="today-empty">
+    <UiCard v-if="sections.length === 0" data-testid="today-empty">
       <p class="mb-4">{{ t('today.empty') }}</p>
-      <PixelButton @click="navigateTo('/quests')">{{ t('today.emptyCta') }}</PixelButton>
-    </PixelCard>
+      <UiButton @click="navigateTo('/quests')">{{ t('today.emptyCta') }}</UiButton>
+    </UiCard>
   </div>
 </template>

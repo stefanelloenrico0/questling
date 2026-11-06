@@ -89,13 +89,13 @@ const difficultyOptions = computed(() =>
     }"
   >
     <template #content>
-      <PixelCard tone="accent" class="sheet" data-testid="quest-sheet">
+      <UiCard tone="accent" class="sheet" data-testid="quest-sheet">
         <h2 class="font-display mb-4 text-sm">
           {{ editing ? t('quests.sheet.titleEdit') : t('quests.sheet.titleNew') }}
         </h2>
 
         <form class="flex flex-col gap-4" @submit.prevent="save">
-          <PixelInput
+          <UiInput
             v-model="title"
             :label="t('quests.sheet.name')"
             :placeholder="t('quests.sheet.namePlaceholder')"
@@ -117,25 +117,25 @@ const difficultyOptions = computed(() =>
                 :aria-label="t('quests.sheet.iconPick', { name: id })"
                 @click="icon = id"
               >
-                <PixelIcon :name="id" :scale="4" />
+                <UiIcon :name="id" :size="28" />
               </button>
             </div>
           </div>
 
           <div class="flex flex-col gap-2">
             <span class="text-[var(--text-soft)]">{{ t('difficulty.label') }}</span>
-            <PixelSegmented v-model="difficulty" :label="t('difficulty.label')" :options="difficultyOptions" />
+            <UiSegmented v-model="difficulty" :label="t('difficulty.label')" :options="difficultyOptions" />
           </div>
 
           <div class="flex flex-col gap-2">
             <span class="text-[var(--text-soft)]">{{ t('quests.sheet.period') }}</span>
-            <PixelSegmented v-model="period" :label="t('quests.sheet.period')" :options="periodOptions" />
+            <UiSegmented v-model="period" :label="t('quests.sheet.period')" :options="periodOptions" />
             <p v-if="editing" class="text-[var(--text-soft)]">{{ t('quests.sheet.periodLocked') }}</p>
           </div>
 
           <div v-if="limits.max > 1" class="flex flex-col gap-2">
             <span class="text-[var(--text-soft)]">{{ t('quests.sheet.target') }}</span>
-            <PixelStepper
+            <UiStepper
               v-model="target"
               :min="limits.min"
               :max="limits.max"
@@ -150,23 +150,23 @@ const difficultyOptions = computed(() =>
           <p v-if="error" class="text-[var(--warn)]" role="alert" data-testid="quest-error">{{ error }}</p>
 
           <div class="flex flex-wrap justify-end gap-2">
-            <PixelButton v-if="editing" variant="secondary" @click="confirmArchive = true">{{ t('common.archive') }}</PixelButton>
-            <PixelButton variant="secondary" @click="open = false">{{ t('common.cancel') }}</PixelButton>
-            <PixelButton type="submit" data-testid="quest-save">{{ t('common.save') }}</PixelButton>
+            <UiButton v-if="editing" variant="secondary" @click="confirmArchive = true">{{ t('common.archive') }}</UiButton>
+            <UiButton variant="secondary" @click="open = false">{{ t('common.cancel') }}</UiButton>
+            <UiButton type="submit" data-testid="quest-save">{{ t('common.save') }}</UiButton>
           </div>
         </form>
-      </PixelCard>
+      </UiCard>
     </template>
   </USlideover>
 
-  <PixelDialog v-model:open="confirmArchive" :title="t('quests.archiveTitle')" :description="t('quests.archiveBody')">
+  <UiDialog v-model:open="confirmArchive" :title="t('quests.archiveTitle')" :description="t('quests.archiveBody')">
     <template #actions>
       <div class="flex gap-2">
-        <PixelButton variant="secondary" @click="confirmArchive = false">{{ t('common.cancel') }}</PixelButton>
-        <PixelButton data-testid="archive-confirm" @click="archive">{{ t('quests.archiveConfirm') }}</PixelButton>
+        <UiButton variant="secondary" @click="confirmArchive = false">{{ t('common.cancel') }}</UiButton>
+        <UiButton data-testid="archive-confirm" @click="archive">{{ t('quests.archiveConfirm') }}</UiButton>
       </div>
     </template>
-  </PixelDialog>
+  </UiDialog>
 </template>
 
 <style scoped>
@@ -186,22 +186,14 @@ const difficultyOptions = computed(() =>
   min-width: 48px;
   min-height: 48px;
   color: var(--text);
-  background: var(--surface);
-  border: 0;
+  background: var(--bg-2);
+  border: 1.5px solid var(--edge);
+  border-radius: 14px;
   cursor: pointer;
-  box-shadow:
-    0 -4px 0 0 var(--surface-2),
-    0 4px 0 0 var(--surface-2),
-    -4px 0 0 0 var(--surface-2),
-    4px 0 0 0 var(--surface-2);
 }
 .icon-btn--on {
-  color: #1a1c2c;
+  color: #14162a;
   background: var(--accent);
-  box-shadow:
-    0 -4px 0 0 var(--accent),
-    0 4px 0 0 var(--accent),
-    -4px 0 0 0 var(--accent),
-    4px 0 0 0 var(--accent);
+  border-color: var(--accent);
 }
 </style>

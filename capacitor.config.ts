@@ -5,10 +5,10 @@ const config: CapacitorConfig = {
   appId: 'com.stefanelloenrico.questling',
   appName: 'Questling',
   webDir: '.output/public',
-  backgroundColor: '#1a1c2c',
-  android: { backgroundColor: '#1a1c2c' },
+  backgroundColor: '#14162a',
+  android: { backgroundColor: '#14162a' },
   plugins: {
-    SplashScreen: { launchShowDuration: 0, backgroundColor: '#1a1c2c' },
+    SplashScreen: { launchShowDuration: 0, backgroundColor: '#14162a' },
     // Icona di stato monocromatica (android/app/src/main/res/drawable/ic_stat_questling.xml)
     LocalNotifications: { smallIcon: 'ic_stat_questling', iconColor: '#41A6F6' },
     // Login social NATIVO (Google/Apple) consegnato alla sessione del SDK web (skipNativeAuth): una sola sessione, quella di Firebase JS

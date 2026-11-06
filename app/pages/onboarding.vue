@@ -125,22 +125,22 @@ async function finish(wantNotifications: boolean): Promise<void> {
       <h1 class="font-display text-lg">{{ t('onboarding.splashTitle') }}</h1>
       <p class="text-[var(--text-soft)]">{{ t('onboarding.splashSub') }}</p>
       <div class="grid grid-cols-4 gap-2" aria-hidden="true">
-        <PixelSprite v-for="c in CHARACTERS" :key="c.id" :character="c.id" :scale="2" />
+        <HeroArt v-for="c in CHARACTERS" :key="c.id" :character="c.id" :size="64" />
       </div>
-      <PixelButton data-testid="splash-start" @click="step = 'intro'">{{ t('onboarding.intro.start') }}</PixelButton>
+      <UiButton data-testid="splash-start" @click="step = 'intro'">{{ t('onboarding.intro.start') }}</UiButton>
       <NuxtLink v-if="account.available" to="/account" class="underline" data-testid="splash-account">{{ t('account.restoreHint') }}</NuxtLink>
     </section>
 
     <!-- Intro (3 schermate, saltabili) -->
     <section v-else-if="step === 'intro'" class="flex flex-col gap-6 pt-8" data-testid="step-intro">
-      <PixelCard tone="accent">
+      <UiCard tone="accent">
         <h2 class="font-display mb-4 text-sm">{{ t(`onboarding.intro.s${slide + 1}Title`) }}</h2>
         <p>{{ t(`onboarding.intro.s${slide + 1}Body`) }}</p>
-      </PixelCard>
+      </UiCard>
       <p class="text-center text-[var(--text-soft)]">{{ t('onboarding.intro.dots', { n: slide + 1, total: SLIDES }) }}</p>
       <div class="flex justify-between">
-        <PixelButton variant="secondary" data-testid="intro-skip" @click="step = 'quiz'">{{ t('onboarding.intro.skip') }}</PixelButton>
-        <PixelButton data-testid="intro-next" @click="nextSlide">{{ t('onboarding.intro.next') }}</PixelButton>
+        <UiButton variant="secondary" data-testid="intro-skip" @click="step = 'quiz'">{{ t('onboarding.intro.skip') }}</UiButton>
+        <UiButton data-testid="intro-next" @click="nextSlide">{{ t('onboarding.intro.next') }}</UiButton>
       </div>
     </section>
 
@@ -152,10 +152,10 @@ async function finish(wantNotifications: boolean): Promise<void> {
 
     <!-- Nome -->
     <section v-else-if="step === 'name' && characterId" class="flex flex-col gap-4" data-testid="step-name">
-      <div class="flex justify-center"><PixelSprite :character="characterId" :scale="6" :alt="heroName" /></div>
+      <div class="flex justify-center"><HeroArt :character="characterId" :size="176" :alt="heroName" /></div>
       <h2 class="font-display text-center text-sm">{{ t('onboarding.name.title', { hero: heroName }) }}</h2>
       <form class="flex flex-col gap-4" @submit.prevent="displayName.trim() && (step = 'quests')">
-        <PixelInput
+        <UiInput
           v-model="displayName"
           :label="t('onboarding.name.label')"
           :placeholder="t('onboarding.name.placeholder')"
@@ -163,7 +163,7 @@ async function finish(wantNotifications: boolean): Promise<void> {
           data-testid="name-input"
         />
         <p class="text-[var(--text-soft)]">{{ t('onboarding.name.hint') }}</p>
-        <PixelButton type="submit" :disabled="!displayName.trim()" data-testid="name-next">{{ t('common.continue') }}</PixelButton>
+        <UiButton type="submit" :disabled="!displayName.trim()" data-testid="name-next">{{ t('common.continue') }}</UiButton>
       </form>
     </section>
 
@@ -172,28 +172,28 @@ async function finish(wantNotifications: boolean): Promise<void> {
       <h2 class="font-display text-sm">{{ t('onboarding.quests.title') }}</h2>
       <p class="text-[var(--text-soft)]">{{ t('onboarding.quests.subtitle', { hero: heroName }) }}</p>
 
-      <PixelCard>
+      <UiCard>
         <h3 class="font-display mb-2 text-xs">{{ t('onboarding.quests.suggested', { hero: heroName }) }}</h3>
         <div v-for="item in items.filter((i) => !i.custom)" :key="item.id" class="flex items-center gap-2">
-          <PixelCheck :model-value="item.checked" :label="item.title" data-testid="suggested-item" @update:model-value="toggle(item, $event)">
+          <UiCheck :model-value="item.checked" :label="item.title" data-testid="suggested-item" @update:model-value="toggle(item, $event)">
             <span class="flex items-center gap-3">
-              <PixelIcon :name="item.icon" :scale="3" />
+              <UiIcon :name="item.icon" :size="24" />
               <span>{{ item.title }}</span>
               <span class="text-[var(--text-soft)]">· {{ t(`period.${item.period}Short`) }}</span>
             </span>
-          </PixelCheck>
+          </UiCheck>
         </div>
-      </PixelCard>
+      </UiCard>
 
-      <PixelCard>
+      <UiCard>
         <h3 class="font-display mb-2 text-xs">{{ t('onboarding.quests.custom') }}</h3>
         <div v-for="item in items.filter((i) => i.custom)" :key="item.id" class="flex items-center gap-2">
-          <PixelCheck :model-value="item.checked" :label="item.title" @update:model-value="toggle(item, $event)" />
-          <PixelButton variant="secondary" compact :aria-label="t('onboarding.quests.remove', { title: item.title })" @click="removeItem(item.id)">×</PixelButton>
+          <UiCheck :model-value="item.checked" :label="item.title" @update:model-value="toggle(item, $event)" />
+          <UiButton variant="secondary" compact :aria-label="t('onboarding.quests.remove', { title: item.title })" @click="removeItem(item.id)">×</UiButton>
         </div>
         <form class="mt-2 flex items-end gap-2" @submit.prevent="addCustom">
           <div class="flex-1">
-            <PixelInput
+            <UiInput
               v-model="customTitle"
               :label="t('onboarding.quests.addLabel')"
               :placeholder="t('onboarding.quests.addPlaceholder')"
@@ -201,23 +201,23 @@ async function finish(wantNotifications: boolean): Promise<void> {
               data-testid="custom-input"
             />
           </div>
-          <PixelButton type="submit" variant="secondary" :disabled="!customTitle.trim() || dailyFull" data-testid="custom-add">{{ t('onboarding.quests.addButton') }}</PixelButton>
+          <UiButton type="submit" variant="secondary" :disabled="!customTitle.trim() || dailyFull" data-testid="custom-add">{{ t('onboarding.quests.addButton') }}</UiButton>
         </form>
         <p v-if="dailyFull" class="mt-2 text-[var(--warn)]">{{ t('onboarding.quests.capNote', { max: QUEST_CAPS.daily }) }}</p>
-      </PixelCard>
+      </UiCard>
 
       <p v-if="!items.some((i) => i.checked)" class="text-[var(--text-soft)]">{{ t('onboarding.quests.none') }}</p>
-      <PixelButton data-testid="onboarding-finish" @click="step = 'notify'">{{ t('common.continue') }}</PixelButton>
+      <UiButton data-testid="onboarding-finish" @click="step = 'notify'">{{ t('common.continue') }}</UiButton>
     </section>
 
     <!-- Permesso notifiche (contestuale, nella voce dell'eroe) -->
     <section v-else-if="step === 'notify' && characterId" class="flex flex-col gap-4" data-testid="step-notify">
-      <div class="flex justify-center"><PixelSprite :character="characterId" :scale="6" :alt="heroName" /></div>
+      <div class="flex justify-center"><HeroArt :character="characterId" :size="176" :alt="heroName" /></div>
       <h2 class="font-display text-center text-sm">{{ t('notify.title', { hero: heroName }) }}</h2>
-      <PixelCard tone="accent">
+      <UiCard tone="accent">
         <p data-testid="notify-voice">{{ hero.permission(characterId) }}</p>
-      </PixelCard>
-      <PixelCard>
+      </UiCard>
+      <UiCard>
         <h3 class="font-display mb-2 text-xs">{{ t('notify.preview') }}</h3>
         <p class="notify-sample" data-testid="notify-sample">{{ notificationTexts.variants(characterId, 'morning')[0] }}</p>
         <h3 class="font-display mt-4 mb-2 text-xs">{{ t('notify.what') }}</h3>
@@ -226,11 +226,11 @@ async function finish(wantNotifications: boolean): Promise<void> {
           <li>{{ t('notify.list2') }}</li>
           <li>{{ t('notify.list3') }}</li>
         </ul>
-      </PixelCard>
+      </UiCard>
       <p v-if="!notifications.isNative()" class="text-[var(--text-soft)]">{{ t('notify.webNote') }}</p>
       <div class="flex flex-col gap-2">
-        <PixelButton :disabled="permissionBusy" data-testid="notify-enable" @click="finish(true)">{{ t('notify.enable') }}</PixelButton>
-        <PixelButton variant="secondary" :disabled="permissionBusy" data-testid="notify-skip" @click="finish(false)">{{ t('notify.skip') }}</PixelButton>
+        <UiButton :disabled="permissionBusy" data-testid="notify-enable" @click="finish(true)">{{ t('notify.enable') }}</UiButton>
+        <UiButton variant="secondary" :disabled="permissionBusy" data-testid="notify-skip" @click="finish(false)">{{ t('notify.skip') }}</UiButton>
         <p class="text-[var(--text-soft)]">{{ t('notify.skipNote') }}</p>
       </div>
     </section>
@@ -239,12 +239,9 @@ async function finish(wantNotifications: boolean): Promise<void> {
 
 <style scoped>
 .notify-sample {
-  padding: 8px 12px;
-  background: var(--bg);
-  box-shadow:
-    0 -4px 0 0 var(--surface-2),
-    0 4px 0 0 var(--surface-2),
-    -4px 0 0 0 var(--surface-2),
-    4px 0 0 0 var(--surface-2);
+  padding: 10px 14px;
+  background: var(--bg-2);
+  border: 1px solid var(--edge);
+  border-radius: 18px 18px 18px 6px;
 }
 </style>

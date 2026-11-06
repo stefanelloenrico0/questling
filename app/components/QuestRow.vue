@@ -31,16 +31,16 @@ const checked = computed({
 
 <template>
   <div class="qrow" :class="{ 'qrow--done': row.done }" data-testid="quest-row">
-    <PixelCheck v-if="isDaily" v-model="checked" :label="row.quest.title">
+    <UiCheck v-if="isDaily" v-model="checked" :label="row.quest.title">
       <span class="qrow__text">
-        <PixelIcon :name="row.quest.icon" :scale="3" />
+        <UiIcon :name="row.quest.icon" :size="26" />
         <span class="qrow__title">{{ row.quest.title }}</span>
         <span class="qrow__xp">{{ t('today.xpGain', { xp: row.xp }) }}</span>
       </span>
-    </PixelCheck>
+    </UiCheck>
 
     <div v-else class="qrow__multi">
-      <PixelIcon :name="row.quest.icon" :scale="3" />
+      <UiIcon :name="row.quest.icon" :size="26" />
       <div class="qrow__grow">
         <div class="qrow__title" :class="{ 'qrow__title--done': row.done }">{{ row.quest.title }}</div>
         <div class="qrow__meta">
@@ -48,19 +48,19 @@ const checked = computed({
           <span class="qrow__xp">{{ t('today.xpGain', { xp: row.xp }) }}</span>
         </div>
       </div>
-      <PixelButton
+      <UiButton
         variant="secondary"
         compact
         :disabled="row.count <= 0"
         :aria-label="t('today.removeProgress', { title: row.quest.title })"
         @click="bump(-1)"
-      >−</PixelButton>
-      <PixelButton
+      >−</UiButton>
+      <UiButton
         compact
         :disabled="row.done"
         :aria-label="t('today.addProgress', { title: row.quest.title })"
         @click="bump(1)"
-      >+</PixelButton>
+      >+</UiButton>
     </div>
 
     <span v-for="p in pops" :key="p.id" class="xp-pop font-display" aria-hidden="true">{{ t('today.xpGain', { xp: p.xp }) }}</span>

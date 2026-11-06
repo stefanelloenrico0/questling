@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-4 -24 262 304" role="img" aria-label="Lumen, la Custode della Quiete">
+  <defs>
+    <linearGradient id="robe" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#cfdcec"/></linearGradient>
+    <linearGradient id="robeD" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e9f0f8"/><stop offset="1" stop-color="#aebfd6"/></linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff1a8"/><stop offset="1" stop-color="#e0933f"/></linearGradient>
+    <linearGradient id="hair" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffe0a0"/><stop offset="1" stop-color="#e0a850"/></linearGradient>
+    <radialGradient id="glow" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#ffe08a" stop-opacity=".7"/><stop offset="1" stop-color="#ffe08a" stop-opacity="0"/></radialGradient>
+    <radialGradient id="halo" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#fff6c8" stop-opacity=".55"/><stop offset="1" stop-color="#fff6c8" stop-opacity="0"/></radialGradient>
+  </defs>
+  <ellipse class="shadow" cx="120" cy="256" rx="66" ry="9" fill="#1a1c2c" opacity=".32"/>
+  <g class="char">
+    <!-- bastone con lanterna -->
+    <g transform="translate(26 0)">
+      <rect x="186" y="72" width="8" height="182" rx="4" fill="#c9a064"/>
+      <rect x="186" y="72" width="3" height="182" rx="1.5" fill="#e6c88c"/>
+      <path d="M190 70 Q190 52 176 48" stroke="#c9a064" stroke-width="6" fill="none" stroke-linecap="round"/>
+      <circle class="glow" cx="176" cy="80" r="40" fill="url(#glow)"/>
+      <path d="M176 52 L176 58" stroke="#c9a064" stroke-width="3.4"/>
+      <path d="M162 66 Q176 54 190 66 L186 100 Q176 106 166 100 Z" fill="url(#gold)"/>
+      <path d="M166 70 Q176 62 186 70 L183 96 Q176 100 169 96 Z" fill="#fff3c2"/>
+      <ellipse cx="176" cy="84" rx="6" ry="9" fill="#ffd45e"/>
+      <rect x="164" y="98" width="24" height="7" rx="3.5" fill="url(#gold)"/>
+    </g>
+    <!-- veste -->
+    <path d="M68 150 Q56 214 44 252 Q120 270 196 252 Q184 214 172 150 Z" fill="url(#robe)"/>
+    <path d="M150 150 Q168 214 176 250 Q184 214 172 150 Z" fill="#9fb4cf" opacity=".3"/>
+    <path d="M120 150 L120 266" stroke="#aebfd6" stroke-width="3" opacity=".6"/>
+    <path d="M52 238 Q120 258 188 238 L194 252 Q120 270 46 252 Z" fill="url(#gold)"/>
+    <path d="M70 156 Q120 172 170 156 L172 168 Q120 184 68 168 Z" fill="url(#gold)"/>
+    <path d="M120 178 l4.4 10 10.4 1 -7.8 6.8 2.4 10.2 -9.4 -5.6 -9.4 5.6 2.4 -10.2 -7.8 -6.8 10.4 -1z" fill="url(#gold)" opacity=".95"/>
+    <!-- maniche larghe -->
+    <path d="M70 152 Q44 156 38 190 Q38 206 56 204 Q68 202 74 188 Q78 170 92 164 Z" fill="url(#robeD)"/>
+    <path d="M38 190 Q38 206 56 204 Q48 196 44 186 Z" fill="url(#gold)"/>
+    <path d="M170 152 Q196 156 202 190 Q202 206 184 204 Q172 202 166 188 Q162 170 148 164 Z" fill="url(#robeD)"/>
+    <path d="M202 190 Q202 206 184 204 Q192 196 196 186 Z" fill="url(#gold)"/>
+    <ellipse cx="46" cy="208" rx="10" ry="9" fill="#f6c9a2"/>
+    <ellipse cx="214" cy="190" rx="10" ry="9.5" fill="#f6c9a2"/>
+    <!-- capelli dietro -->
+    <path d="M72 104 Q66 56 120 50 Q174 56 168 104 Q170 150 150 168 L90 168 Q70 150 72 104 Z" fill="url(#hair)"/>
+    <!-- testa -->
+    <ellipse cx="120" cy="100" rx="37" ry="35" fill="#f6c9a2"/>
+    <!-- frangia -->
+    <path d="M82 98 Q82 60 120 56 Q158 60 158 98 Q148 76 128 72 Q116 82 100 78 Q88 84 82 98 Z" fill="url(#hair)"/>
+    <path d="M82 98 Q82 60 120 56" stroke="#fff3c8" stroke-width="3" fill="none" stroke-linecap="round" opacity=".6"/>
+    <ellipse cx="96" cy="116" rx="9" ry="6" fill="#f08f86" opacity=".42"/><ellipse cx="144" cy="116" rx="9" ry="6" fill="#f08f86" opacity=".42"/>
+    <!-- occhi chiusi, sereni -->
+    <g class="eye">
+      <path d="M94 102 Q103 110 112 102" stroke="#1a1c2c" stroke-width="3.6" fill="none" stroke-linecap="round"/>
+      <path d="M128 102 Q137 110 146 102" stroke="#1a1c2c" stroke-width="3.6" fill="none" stroke-linecap="round"/>
+    </g>
+    <path d="M110 122 Q120 130 130 122" stroke="#b86a66" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <!-- aureola -->
+    <g class="sway">
+      <ellipse cx="120" cy="34" rx="46" ry="16" fill="url(#halo)"/>
+      <ellipse cx="120" cy="34" rx="30" ry="8.5" fill="none" stroke="url(#gold)" stroke-width="5"/>
+    </g>
+  </g>
+</svg>

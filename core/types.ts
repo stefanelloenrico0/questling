@@ -25,7 +25,7 @@ export type AxisSigns = Record<Axis, Sign>
 export interface Quest {
   id: string // ULID
   title: string
-  icon: string // id da un set fisso di icone pixel
+  icon: string // id da un set fisso di icone
   difficulty: Difficulty
   period: Period
   target: number // daily=1, weekly 1..7, monthly 1..31

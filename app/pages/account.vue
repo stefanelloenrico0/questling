@@ -8,7 +8,7 @@ definePageMeta({ layout: 'blank' })
 const account = useAccountStore()
 const game = useGameStore()
 const { t } = useI18n()
-const toast = usePixelToast()
+const toast = useUiToast()
 
 const mode = ref<'signin' | 'signup'>('signin')
 const email = ref('')
@@ -80,47 +80,47 @@ const back = (): void => void navigateTo(game.profile ? '/settings' : '/onboardi
     <h1 class="font-display text-sm">{{ t('account.title') }}</h1>
 
     <!-- Non configurato -->
-    <PixelCard v-if="!account.available" data-testid="account-unavailable">
+    <UiCard v-if="!account.available" data-testid="account-unavailable">
       <p>{{ t('account.unavailable') }}</p>
-    </PixelCard>
+    </UiCard>
 
     <p v-else-if="!account.ready" class="text-[var(--text-soft)]">{{ t('account.loading') }}</p>
 
     <!-- Collegato -->
     <template v-else-if="account.user">
-      <PixelCard tone="accent" data-testid="account-signed-in">
+      <UiCard tone="accent" data-testid="account-signed-in">
         <h2 class="font-display mb-2 text-xs">{{ t('account.signedInTitle') }}</h2>
         <p data-testid="account-email">{{ account.user.email }}</p>
         <p class="text-[var(--text-soft)]">{{ t('account.provider', { provider: providers }) }}</p>
-      </PixelCard>
+      </UiCard>
 
-      <PixelCard>
+      <UiCard>
         <h2 class="font-display mb-2 text-xs">{{ t('sync.title') }}</h2>
         <p data-testid="sync-status" :data-status="account.syncStatus" :data-count="account.syncCount">{{ statusText }}</p>
         <p v-if="syncErrorText" class="text-[var(--warn)]" role="alert">{{ syncErrorText }}</p>
         <p class="mb-3 text-[var(--text-soft)]" data-testid="sync-last">{{ lastSync }}</p>
-        <PixelButton :disabled="account.syncStatus === 'syncing'" data-testid="sync-now" @click="account.syncNow()">{{ t('sync.now') }}</PixelButton>
-      </PixelCard>
+        <UiButton :disabled="account.syncStatus === 'syncing'" data-testid="sync-now" @click="account.syncNow()">{{ t('sync.now') }}</UiButton>
+      </UiCard>
 
-      <PixelCard>
-        <PixelButton variant="secondary" data-testid="account-signout" @click="account.signOut()">{{ t('account.signOut') }}</PixelButton>
+      <UiCard>
+        <UiButton variant="secondary" data-testid="account-signout" @click="account.signOut()">{{ t('account.signOut') }}</UiButton>
         <p class="mt-2 text-[var(--text-soft)]">{{ t('account.signOutNote') }}</p>
-      </PixelCard>
+      </UiCard>
 
-      <PixelCard>
+      <UiCard>
         <h2 class="font-display mb-2 text-xs">{{ t('account.dangerTitle') }}</h2>
-        <PixelButton variant="secondary" data-testid="account-delete" @click="deleteOpen = true">{{ t('account.delete.button') }}</PixelButton>
-      </PixelCard>
+        <UiButton variant="secondary" data-testid="account-delete" @click="deleteOpen = true">{{ t('account.delete.button') }}</UiButton>
+      </UiCard>
     </template>
 
     <!-- Scollegato -->
     <template v-else>
       <p class="text-[var(--text-soft)]">{{ t('account.intro') }}</p>
-      <PixelCard data-testid="account-form">
-        <PixelSegmented v-model="modeModel" :label="t('account.mode')" :options="modeOptions" />
+      <UiCard data-testid="account-form">
+        <UiSegmented v-model="modeModel" :label="t('account.mode')" :options="modeOptions" />
         <form class="mt-3 flex flex-col gap-3" @submit.prevent="submit">
-          <PixelInput v-model="email" type="email" inputmode="email" autocapitalize="none" :label="t('account.email')" data-testid="account-email-input" />
-          <PixelInput
+          <UiInput v-model="email" type="email" inputmode="email" autocapitalize="none" :label="t('account.email')" data-testid="account-email-input" />
+          <UiInput
             v-model="password"
             type="password"
             :autocomplete="mode === 'signin' ? 'current-password' : 'new-password'"
@@ -130,30 +130,30 @@ const back = (): void => void navigateTo(game.profile ? '/settings' : '/onboardi
           <p v-if="mode === 'signup'" class="text-[var(--text-soft)]">{{ t('account.passwordHint') }}</p>
           <p v-if="errorText" class="text-[var(--warn)]" role="alert" data-testid="account-error">{{ errorText }}</p>
           <p v-if="resetMessage" class="text-[var(--text-soft)]" data-testid="account-reset">{{ resetMessage }}</p>
-          <PixelButton type="submit" :disabled="account.busy || !email || !password" data-testid="account-submit">
+          <UiButton type="submit" :disabled="account.busy || !email || !password" data-testid="account-submit">
             {{ mode === 'signin' ? t('account.submitSignIn') : t('account.submitSignUp') }}
-          </PixelButton>
+          </UiButton>
           <div v-if="mode === 'signin'">
-            <PixelButton variant="secondary" :disabled="account.busy" data-testid="account-forgot" @click="forgot">{{ t('account.forgot') }}</PixelButton>
+            <UiButton variant="secondary" :disabled="account.busy" data-testid="account-forgot" @click="forgot">{{ t('account.forgot') }}</UiButton>
           </div>
         </form>
-      </PixelCard>
+      </UiCard>
 
       <p class="text-center text-[var(--text-soft)]">{{ t('account.orWith') }}</p>
       <div class="flex flex-col gap-2">
-        <PixelButton variant="secondary" :disabled="account.busy" data-testid="account-google" @click="account.signInWith('google')">{{ t('account.google') }}</PixelButton>
-        <PixelButton v-if="showApple" variant="secondary" :disabled="account.busy" data-testid="account-apple" @click="account.signInWith('apple')">{{ t('account.apple') }}</PixelButton>
+        <UiButton variant="secondary" :disabled="account.busy" data-testid="account-google" @click="account.signInWith('google')">{{ t('account.google') }}</UiButton>
+        <UiButton v-if="showApple" variant="secondary" :disabled="account.busy" data-testid="account-apple" @click="account.signInWith('apple')">{{ t('account.apple') }}</UiButton>
       </div>
     </template>
 
     <div class="mt-2 flex flex-wrap items-center gap-2">
-      <PixelButton variant="secondary" data-testid="account-back" @click="back">{{ t('common.back') }}</PixelButton>
+      <UiButton variant="secondary" data-testid="account-back" @click="back">{{ t('common.back') }}</UiButton>
       <NuxtLink to="/privacy" class="underline" data-testid="privacy-link">{{ t('account.privacyLink') }}</NuxtLink>
     </div>
 
-    <PixelDialog v-model:open="deleteOpen" :title="t('account.delete.title')" :description="t('account.delete.body')">
+    <UiDialog v-model:open="deleteOpen" :title="t('account.delete.title')" :description="t('account.delete.body')">
       <div class="flex flex-col gap-3">
-        <PixelInput
+        <UiInput
           v-if="usesPassword"
           v-model="deletePassword"
           type="password"
@@ -166,12 +166,12 @@ const back = (): void => void navigateTo(game.profile ? '/settings' : '/onboardi
       </div>
       <template #actions>
         <div class="flex gap-2">
-          <PixelButton variant="secondary" @click="deleteOpen = false">{{ t('common.cancel') }}</PixelButton>
-          <PixelButton :disabled="account.busy || (usesPassword && !deletePassword)" data-testid="delete-confirm" @click="confirmDelete">
+          <UiButton variant="secondary" @click="deleteOpen = false">{{ t('common.cancel') }}</UiButton>
+          <UiButton :disabled="account.busy || (usesPassword && !deletePassword)" data-testid="delete-confirm" @click="confirmDelete">
             {{ t('account.delete.confirm') }}
-          </PixelButton>
+          </UiButton>
         </div>
       </template>
-    </PixelDialog>
+    </UiDialog>
   </div>
 </template>

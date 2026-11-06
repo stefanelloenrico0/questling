@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-4 -24 262 304" role="img" aria-label="Rondò, il Bardo">
+  <defs>
+    <linearGradient id="jacket" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff9a5c"/><stop offset="1" stop-color="#d8552f"/></linearGradient>
+    <linearGradient id="jacketD" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f28349"/><stop offset="1" stop-color="#b8402a"/></linearGradient>
+    <linearGradient id="hat" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7a4fa8"/><stop offset="1" stop-color="#4a2878"/></linearGradient>
+    <linearGradient id="feather" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#2fbf8f"/><stop offset="1" stop-color="#9af5c8"/></linearGradient>
+    <linearGradient id="wood" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e0a468"/><stop offset="1" stop-color="#9a5e3a"/></linearGradient>
+    <linearGradient id="hair" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8f5a3c"/><stop offset="1" stop-color="#4a2c24"/></linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff1a8"/><stop offset="1" stop-color="#e0933f"/></linearGradient>
+  </defs>
+  <ellipse class="shadow" cx="120" cy="256" rx="64" ry="9" fill="#1a1c2c" opacity=".32"/>
+  <g class="char">
+    <!-- gambe -->
+    <rect x="92" y="214" width="26" height="36" rx="11" fill="#5c3a2e"/>
+    <rect x="124" y="214" width="26" height="36" rx="11" fill="#5c3a2e"/>
+    <rect x="86" y="236" width="38" height="18" rx="9" fill="#8f5a3c"/>
+    <rect x="118" y="236" width="38" height="18" rx="9" fill="#8f5a3c"/>
+    <rect x="86" y="236" width="38" height="6" rx="3" fill="#c98b5a"/><rect x="118" y="236" width="38" height="6" rx="3" fill="#c98b5a"/>
+    <!-- giacca -->
+    <path d="M80 150 Q120 140 160 150 L170 222 Q120 236 70 222 Z" fill="url(#jacket)"/>
+    <path d="M120 152 L120 226" stroke="#a33a28" stroke-width="3" opacity=".5"/>
+    <path d="M96 150 L120 182 L144 150 L136 148 L120 168 L104 148 Z" fill="#fff7e8"/>
+    <circle cx="120" cy="190" r="4.2" fill="url(#gold)"/><circle cx="120" cy="206" r="4.2" fill="url(#gold)"/>
+    <path d="M70 214 Q120 232 170 214 L170 222 Q120 238 70 222 Z" fill="#8f3a24" opacity=".55"/>
+    <!-- braccio destro (pizzica le corde) -->
+    <path d="M160 156 Q186 168 184 200 Q184 212 172 210 Q162 206 162 196 Q160 180 144 170 Z" fill="url(#jacketD)"/>
+    <ellipse cx="172" cy="214" rx="9.5" ry="9" fill="#f6c9a2"/>
+    <!-- liuto -->
+    <g transform="rotate(-22 70 196)">
+      <path d="M72 100 L84 100 L82 168 L74 168 Z" fill="url(#wood)"/>
+      <rect x="66" y="88" width="24" height="18" rx="6" fill="#6e4129"/>
+      <circle cx="70" cy="94" r="3" fill="#ffcd75"/><circle cx="86" cy="94" r="3" fill="#ffcd75"/><circle cx="70" cy="102" r="3" fill="#ffcd75"/><circle cx="86" cy="102" r="3" fill="#ffcd75"/>
+      <ellipse cx="78" cy="198" rx="36" ry="38" fill="url(#wood)"/>
+      <ellipse cx="78" cy="198" rx="11" ry="11" fill="#4a2c24"/>
+      <ellipse cx="78" cy="198" rx="14" ry="14" fill="none" stroke="#ffcd75" stroke-width="2.4"/>
+      <path d="M76 168 L76 220 M80 168 L80 220" stroke="#fff7e8" stroke-width="1.4" opacity=".85"/>
+      <ellipse cx="62" cy="184" rx="8" ry="16" fill="#ffffff" opacity=".18"/>
+    </g>
+    <!-- braccio sinistro regge il liuto -->
+    <path d="M80 156 Q54 170 54 200 Q54 212 66 210 Q76 206 78 196 Q80 180 96 170 Z" fill="url(#jacketD)"/>
+    <ellipse cx="62" cy="186" rx="9" ry="8.5" fill="#f6c9a2"/>
+    <!-- testa -->
+    <path d="M72 100 Q70 130 82 142 Q96 126 96 104 Z" fill="url(#hair)"/>
+    <path d="M168 100 Q170 130 158 142 Q144 126 144 104 Z" fill="url(#hair)"/>
+    <ellipse cx="120" cy="100" rx="38" ry="36" fill="#f6c9a2"/>
+    <ellipse cx="94" cy="116" rx="9" ry="6" fill="#f08f86" opacity=".5"/><ellipse cx="146" cy="116" rx="9" ry="6" fill="#f08f86" opacity=".5"/>
+    <g class="eye">
+      <ellipse cx="103" cy="100" rx="5.8" ry="7" fill="#1a1c2c"/><ellipse cx="137" cy="100" rx="5.8" ry="7" fill="#1a1c2c"/>
+      <circle cx="105" cy="97.4" r="2.2" fill="#fff"/><circle cx="139" cy="97.4" r="2.2" fill="#fff"/>
+    </g>
+    <path d="M94 86 Q104 80 114 86" stroke="#4a2c24" stroke-width="3.4" fill="none" stroke-linecap="round"/>
+    <path d="M126 84 Q137 76 148 86" stroke="#4a2c24" stroke-width="3.4" fill="none" stroke-linecap="round"/>
+    <!-- sorriso con denti, baffetti -->
+    <path d="M104 117 Q120 134 136 117 Q120 122 104 117 Z" fill="#7a2d3a"/>
+    <path d="M108 119 Q120 124 132 119 L131 123 Q120 128 109 123 Z" fill="#fff"/>
+    <path d="M100 114 Q108 110 118 114 Q108 118 100 114 Z M122 114 Q132 110 140 114 Q132 118 122 114 Z" fill="url(#hair)"/>
+    <!-- cappello con piuma -->
+    <path d="M52 76 Q120 104 188 76 Q190 64 160 58 Q120 52 80 58 Q50 64 52 76 Z" fill="url(#hat)"/>
+    <path d="M52 76 Q120 104 188 76 Q184 86 120 96 Q60 88 52 76 Z" fill="#2a1450" opacity=".4"/>
+    <path d="M82 62 Q88 30 120 26 Q152 30 158 62 Q120 54 82 62 Z" fill="url(#hat)"/>
+    <path d="M84 60 Q120 52 156 60 L156 68 Q120 60 84 68 Z" fill="#ffcd75"/>
+    <g class="sway">
+      <path d="M148 42 Q182 8 224 14 Q206 22 200 40 Q190 62 156 56 Z" fill="url(#feather)"/>
+      <path d="M150 48 Q184 22 220 18" stroke="#e8fff4" stroke-width="2.6" fill="none" stroke-linecap="round" opacity=".7"/>
+    </g>
+  </g>
+</svg>

@@ -13,23 +13,21 @@ defineProps<{ label: string; value: string | number }>()
 .stat-chip {
   display: inline-flex;
   flex-direction: column;
-  gap: 4px;
-  min-width: 80px;
-  padding: 8px 12px;
+  gap: 2px;
+  min-width: 84px;
+  padding: 10px 14px;
   margin: 4px;
-  background: var(--bg);
-  box-shadow:
-    0 -4px 0 0 var(--surface-2),
-    0 4px 0 0 var(--surface-2),
-    -4px 0 0 0 var(--surface-2),
-    4px 0 0 0 var(--surface-2);
+  background: var(--bg-2);
+  border: 1px solid var(--edge);
+  border-radius: var(--radius-m);
 }
 .stat-chip__label {
-  font-size: 16px;
+  font-size: 14px;
+  font-weight: 600;
   color: var(--text-soft);
 }
 .stat-chip__value {
-  font-size: 12px;
+  font-size: 20px;
   color: var(--xp);
 }
 </style>

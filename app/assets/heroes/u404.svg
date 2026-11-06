@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-4 -24 262 304" role="img" aria-label="Unità 404, il Robot">
+  <defs>
+    <linearGradient id="metal" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#eef3f7"/><stop offset="1" stop-color="#8aa3b9"/></linearGradient>
+    <linearGradient id="metalD" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#b9cbd8"/><stop offset="1" stop-color="#566c86"/></linearGradient>
+    <linearGradient id="screen" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1d4a4e"/><stop offset="1" stop-color="#0f2a33"/></linearGradient>
+    <radialGradient id="glow" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#a7f070" stop-opacity=".5"/><stop offset="1" stop-color="#a7f070" stop-opacity="0"/></radialGradient>
+  </defs>
+  <ellipse class="shadow" cx="120" cy="256" rx="62" ry="9" fill="#1a1c2c" opacity=".32"/>
+  <g class="char">
+    <!-- gambe e piedi -->
+    <rect x="94" y="216" width="22" height="28" rx="8" fill="url(#metalD)"/>
+    <rect x="124" y="216" width="22" height="28" rx="8" fill="url(#metalD)"/>
+    <rect x="86" y="238" width="38" height="17" rx="8.5" fill="#566c86"/>
+    <rect x="116" y="238" width="38" height="17" rx="8.5" fill="#566c86"/>
+    <rect x="90" y="244" width="30" height="4" rx="2" fill="#a7f070" opacity=".9"/><rect x="120" y="244" width="30" height="4" rx="2" fill="#a7f070" opacity=".9"/>
+    <!-- corpo cabinato -->
+    <rect x="78" y="150" width="84" height="72" rx="16" fill="url(#metal)"/>
+    <rect x="78" y="150" width="84" height="72" rx="16" fill="none" stroke="#8aa3b9" stroke-width="2.4"/>
+    <rect x="88" y="160" width="64" height="26" rx="8" fill="url(#screen)"/>
+    <path d="M94 176 L104 168 L112 174 L124 164 L136 172 L146 166" stroke="#a7f070" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="100" cy="204" r="6.4" fill="#ff6b6b"/><circle cx="100" cy="202" r="2.4" fill="#ffd1d1" opacity=".8"/>
+    <circle cx="118" cy="204" r="6.4" fill="#ffcd75"/><circle cx="118" cy="202" r="2.4" fill="#fff3c2" opacity=".8"/>
+    <circle cx="136" cy="204" r="6.4" fill="#63c2ff"/><circle cx="136" cy="202" r="2.4" fill="#d1efff" opacity=".8"/>
+    <rect x="144" y="196" width="10" height="14" rx="3" fill="#566c86"/><circle cx="149" cy="194" r="4" fill="#1a1c2c"/>
+    <!-- braccia -->
+    <rect x="58" y="158" width="18" height="46" rx="9" fill="url(#metalD)"/>
+    <rect x="164" y="158" width="18" height="46" rx="9" fill="url(#metalD)"/>
+    <path d="M56 204 Q67 196 78 204 L78 222 Q67 230 56 222 Z" fill="#566c86"/>
+    <path d="M162 204 Q173 196 184 204 L184 222 Q173 230 162 222 Z" fill="#566c86"/>
+    <path d="M66 206 L66 222 M72 206 L72 222 M170 206 L170 222 M176 206 L176 222" stroke="#2a3248" stroke-width="2" opacity=".6"/>
+    <!-- antenna piegata -->
+    <g class="sway">
+      <path d="M120 58 Q118 38 136 30 Q148 26 150 14" stroke="#566c86" stroke-width="5" fill="none" stroke-linecap="round"/>
+      <circle cx="150" cy="12" r="8" fill="#ff6b6b"/><circle cx="147" cy="9" r="2.8" fill="#ffd1d1"/>
+    </g>
+    <!-- testa -->
+    <rect x="68" y="58" width="104" height="92" rx="26" fill="url(#metal)"/>
+    <rect x="68" y="58" width="104" height="92" rx="26" fill="none" stroke="#8aa3b9" stroke-width="2.4"/>
+    <circle cx="68" cy="104" r="10" fill="url(#metalD)"/><circle cx="172" cy="104" r="10" fill="url(#metalD)"/>
+    <circle cx="68" cy="104" r="3.4" fill="#2a3248"/><circle cx="172" cy="104" r="3.4" fill="#2a3248"/>
+    <!-- schermo -->
+    <rect x="82" y="72" width="76" height="64" rx="16" fill="url(#screen)"/>
+    <circle cx="120" cy="104" r="46" fill="url(#glow)"/>
+    <g class="eye">
+      <rect x="95" y="88" width="16" height="22" rx="5" fill="#a7f070"/><rect x="129" y="88" width="16" height="22" rx="5" fill="#a7f070"/>
+      <rect x="98" y="91" width="5" height="7" rx="2" fill="#e6ffc2"/><rect x="132" y="91" width="5" height="7" rx="2" fill="#e6ffc2"/>
+    </g>
+    <path d="M104 122 L136 122" stroke="#a7f070" stroke-width="4.4" stroke-linecap="round"/>
+    <path d="M88 80 L152 80 M88 90 L152 90 M88 100 L152 100 M88 110 L152 110 M88 120 L152 120 M88 130 L152 130" stroke="#0f2a33" stroke-width="1.4" opacity=".35"/>
+    <path d="M86 78 Q96 74 110 74" stroke="#ffffff" stroke-width="3.4" fill="none" stroke-linecap="round" opacity=".35"/>
+  </g>
+</svg>

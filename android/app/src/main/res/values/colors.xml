@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#1A1C2C</color>
-    <color name="colorPrimaryDark">#1A1C2C</color>
+    <color name="colorPrimary">#14162A</color>
+    <color name="colorPrimaryDark">#14162A</color>
     <color name="colorAccent">#41A6F6</color>
-    <color name="questlingBackground">#1A1C2C</color>
+    <color name="questlingBackground">#14162A</color>
 </resources>

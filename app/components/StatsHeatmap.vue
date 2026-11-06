@@ -45,11 +45,12 @@ function label(cell: HeatCell): string {
 }
 .hm__days {
   display: grid;
-  grid-template-rows: repeat(7, 16px);
+  grid-template-rows: repeat(7, 18px);
   gap: 4px;
   color: var(--text-soft);
-  font-size: 16px;
-  line-height: 16px;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 18px;
 }
 .hm__grid {
   display: flex;
@@ -57,18 +58,19 @@ function label(cell: HeatCell): string {
 }
 .hm__col {
   display: grid;
-  grid-template-rows: repeat(7, 16px);
+  grid-template-rows: repeat(7, 18px);
   gap: 4px;
 }
 .hm__cell {
-  width: 16px;
-  height: 16px;
+  width: 18px;
+  height: 18px;
   /* piu' scuro della card (--surface): altrimenti i giorni senza attivita' sparirebbero */
   background: var(--bg);
+  border-radius: 5px;
 }
 .hm__cell--future {
   background: transparent;
-  box-shadow: inset 0 0 0 4px var(--bg);
+  box-shadow: inset 0 0 0 1.5px var(--bg);
 }
 .hm__cell--l1 {
   background: color-mix(in srgb, var(--accent) 35%, var(--bg));
@@ -83,7 +85,7 @@ function label(cell: HeatCell): string {
   background: var(--accent);
 }
 .hm__cell--today {
-  box-shadow: 0 0 0 4px var(--text);
+  box-shadow: 0 0 0 2.5px var(--text);
   position: relative;
   z-index: 1;
 }

@@ -1,0 +1,116 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-4 -24 262 304" role="img" aria-label="Zeffiro, lo stregone distratto">
+  <defs>
+    <linearGradient id="robe" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#8e6bdc"/>
+      <stop offset="1" stop-color="#5a3aa8"/>
+    </linearGradient>
+    <linearGradient id="hat" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#9a78e6"/>
+      <stop offset="1" stop-color="#5a3aa8"/>
+    </linearGradient>
+    <linearGradient id="beard" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#d9e2f2"/>
+    </linearGradient>
+    <radialGradient id="gem" cx=".35" cy=".3" r=".8">
+      <stop offset="0" stop-color="#e8ffff"/>
+      <stop offset=".45" stop-color="#73eff7"/>
+      <stop offset="1" stop-color="#2aa6d6"/>
+    </radialGradient>
+    <radialGradient id="glow" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#73eff7" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#73eff7" stop-opacity="0"/>
+    </radialGradient>
+    <clipPath id="robeClip"><path d="M70 150 Q60 215 48 250 Q120 266 192 250 Q180 215 170 150 Z"/></clipPath>
+  </defs>
+
+  <!-- ombra a terra -->
+  <ellipse class="shadow" cx="120" cy="256" rx="70" ry="9" fill="#1a1c2c" opacity=".32"/>
+  <g class="char">
+
+  <!-- bastone (dietro la mano destra) -->
+  <g transform="translate(24 0)">
+    <rect x="186" y="62" width="9" height="192" rx="4.5" fill="#a6683f"/>
+    <rect x="186" y="62" width="3.5" height="192" rx="1.7" fill="#c98b5a"/>
+    <circle class="glow" cx="190.5" cy="52" r="34" fill="url(#glow)"/>
+    <path d="M190.5 28 L204 46 L190.5 70 L177 46 Z" fill="url(#gem)" stroke="#2aa6d6" stroke-width="2" stroke-linejoin="round"/>
+    <path d="M190.5 28 L177 46 L190.5 49 Z" fill="#ffffff" opacity=".55"/>
+    <path d="M190.5 49 L204 46 L190.5 70 Z" fill="#2aa6d6" opacity=".35"/>
+  </g>
+
+  <!-- tunica -->
+  <path d="M70 150 Q60 215 48 250 Q120 266 192 250 Q180 215 170 150 Z" fill="url(#robe)"/>
+  <g clip-path="url(#robeClip)">
+    <path d="M120 150 L120 270" stroke="#4a2e96" stroke-width="3" opacity=".35"/>
+    <path d="M170 150 Q180 215 192 250 L230 250 L230 150 Z" fill="#3a2478" opacity=".28"/>
+    <!-- stelline sulla tunica -->
+    <g fill="#ffcd75">
+      <path d="M88 210 l2.5 6 6 .5 -4.6 4 1.5 6 -5.4 -3.4 -5.4 3.4 1.5 -6 -4.6 -4 6 -.5z"/>
+      <path d="M150 226 l2 4.8 4.8 .4 -3.7 3.2 1.2 4.8 -4.3 -2.7 -4.3 2.7 1.2 -4.8 -3.7 -3.2 4.8 -.4z" transform="translate(0 0) scale(.9)" />
+      <circle cx="142" cy="196" r="3"/>
+      <circle cx="100" cy="238" r="2.4"/>
+    </g>
+  </g>
+  <!-- cintura -->
+  <path d="M71 156 Q120 170 169 156 L170 170 Q120 184 70 170 Z" fill="#ffcd75"/>
+  <path d="M71 156 Q120 170 169 156 L169.4 160 Q120 174 70.6 160 Z" fill="#fff1a8" opacity=".7"/>
+  <rect x="112" y="160" width="16" height="16" rx="4" fill="#e0933f"/>
+  <rect x="115" y="163" width="10" height="10" rx="2.5" fill="#ffcd75"/>
+
+  <!-- manica sinistra (braccio alzato che saluta) -->
+  <g>
+    <path d="M72 150 Q44 150 36 120 Q34 108 46 106 Q58 105 62 118 Q66 132 82 136 Z" fill="url(#robe)"/>
+    <path d="M36 120 Q34 108 46 106 L46 118 Z" fill="#3a2478" opacity=".25"/>
+    <ellipse cx="42" cy="102" rx="11.5" ry="12.5" fill="#f6c9a2"/>
+    <ellipse cx="31" cy="98" rx="4.6" ry="7" fill="#f6c9a2" transform="rotate(-22 31 98)"/>
+    <ellipse cx="38" cy="96" rx="3.6" ry="4.8" fill="#ffe6cf" opacity=".8"/>
+  </g>
+  <!-- manica destra (regge il bastone) -->
+  <g>
+    <path d="M168 150 Q216 150 218 176 Q218 188 206 186 Q196 184 194 172 Q190 160 154 156 Z" fill="url(#robe)"/>
+    <path d="M218 176 Q218 188 206 186 L206 174 Z" fill="#3a2478" opacity=".25"/>
+    <ellipse cx="214.5" cy="178" rx="10" ry="9" fill="#f6c9a2"/>
+    <rect x="186" y="170" width="9" height="16" rx="4.5" fill="#a6683f" opacity=".0"/>
+  </g>
+
+  <!-- barba -->
+  <path d="M82 104 Q70 150 108 176 Q120 184 132 176 Q170 150 158 104 Q120 130 82 104 Z" fill="url(#beard)"/>
+  <path d="M120 130 Q112 150 120 176" stroke="#c4d2ea" stroke-width="3" fill="none" stroke-linecap="round" opacity=".7"/>
+  <path d="M96 128 Q96 152 112 168" stroke="#c4d2ea" stroke-width="2.4" fill="none" stroke-linecap="round" opacity=".55"/>
+  <path d="M144 128 Q144 152 128 168" stroke="#c4d2ea" stroke-width="2.4" fill="none" stroke-linecap="round" opacity=".55"/>
+
+  <!-- testa -->
+  <ellipse cx="120" cy="96" rx="40" ry="38" fill="#f6c9a2"/>
+  <ellipse cx="104" cy="82" rx="14" ry="10" fill="#ffe6cf" opacity=".55"/>
+  <circle cx="80" cy="100" r="8" fill="#f6c9a2"/>
+  <circle cx="160" cy="100" r="8" fill="#f6c9a2"/>
+  <!-- guance -->
+  <ellipse cx="92" cy="114" rx="9" ry="6" fill="#f08f86" opacity=".45"/>
+  <ellipse cx="148" cy="114" rx="9" ry="6" fill="#f08f86" opacity=".45"/>
+  <!-- naso -->
+  <path d="M120 104 Q134 110 128 122 Q120 128 112 122 Q106 110 120 104 Z" fill="#eaa985"/>
+  <path d="M114 106 Q120 102 126 106" stroke="#fff1e4" stroke-width="2" fill="none" stroke-linecap="round" opacity=".7"/>
+  <!-- baffi -->
+  <path d="M84 116 Q104 130 120 118 Q136 130 156 116 Q150 140 128 134 Q120 130 112 134 Q90 140 84 116 Z" fill="url(#beard)"/>
+  <!-- occhi -->
+  <g class="eye">
+    <ellipse cx="102" cy="98" rx="6" ry="7.2" fill="#1a1c2c"/>
+    <ellipse cx="138" cy="98" rx="6" ry="7.2" fill="#1a1c2c"/>
+    <circle cx="104" cy="95.4" r="2.2" fill="#fff"/>
+    <circle cx="140" cy="95.4" r="2.2" fill="#fff"/>
+  </g>
+  <!-- sopracciglia cespugliose -->
+  <path d="M90 86 Q102 78 114 86 Q104 84 90 86 Z" fill="#f4f7ff" stroke="#c4d2ea" stroke-width="1.6" stroke-linejoin="round"/>
+  <path d="M126 86 Q138 78 150 86 Q136 84 126 86 Z" fill="#f4f7ff" stroke="#c4d2ea" stroke-width="1.6" stroke-linejoin="round"/>
+
+  <!-- cappello -->
+  <g transform="translate(0 -16)">
+    <path d="M40 80 Q120 108 200 80 Q200 66 170 60 Q120 52 70 60 Q40 66 40 80 Z" fill="#6b45c2"/>
+    <path d="M40 80 Q120 108 200 80 Q196 90 120 100 Q52 92 40 80 Z" fill="#4a2e96" opacity=".55"/>
+    <path d="M70 66 Q82 26 126 12 Q154 4 180 10 Q194 14 196 30 Q168 22 150 38 Q142 54 172 66 Q120 56 70 66 Z" fill="url(#hat)"/>
+    <path d="M70 66 Q120 56 172 66 L174 76 Q120 66 68 76 Z" fill="#ffcd75"/>
+    <path d="M70 66 Q120 56 172 66 L172.6 69.4 Q120 59.6 69.4 69.4 Z" fill="#fff1a8" opacity=".7"/>
+    <path d="M110 34 l3 7.4 7.8 .6 -6 5 1.9 7.6 -6.7 -4.2 -6.7 4.2 1.9 -7.6 -6 -5 7.8 -.6z" fill="#ffcd75"/>
+  </g>
+  </g>
+</svg>

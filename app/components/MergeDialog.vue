@@ -21,7 +21,7 @@ const rows = computed(() => {
 </script>
 
 <template>
-  <PixelDialog
+  <UiDialog
     v-if="pending"
     v-model:open="open"
     :dismissible="false"
@@ -55,9 +55,9 @@ const rows = computed(() => {
     </div>
     <template #actions>
       <div class="flex flex-wrap justify-end gap-2">
-        <PixelButton variant="secondary" data-testid="merge-cancel" @click="account.cancelMerge()">{{ t('sync.merge.cancel') }}</PixelButton>
-        <PixelButton data-testid="merge-confirm" @click="account.confirmMerge()">{{ t('sync.merge.confirm') }}</PixelButton>
+        <UiButton variant="secondary" data-testid="merge-cancel" @click="account.cancelMerge()">{{ t('sync.merge.cancel') }}</UiButton>
+        <UiButton data-testid="merge-confirm" @click="account.confirmMerge()">{{ t('sync.merge.confirm') }}</UiButton>
       </div>
     </template>
-  </PixelDialog>
+  </UiDialog>
 </template>

@@ -33,11 +33,11 @@ function openEdit(id: string): void {
   <div class="flex flex-col gap-4" data-testid="page-quests">
     <h1 class="font-display text-sm">{{ t('quests.title') }}</h1>
 
-    <PixelSegmented v-model="periodModel" :label="t('quests.title')" :options="periodOptions" />
+    <UiSegmented v-model="periodModel" :label="t('quests.title')" :options="periodOptions" />
 
     <div class="flex items-center justify-between">
       <span class="font-display text-xs" data-testid="quest-slots">{{ t('quests.slots', { used: rows.length, max }) }}</span>
-      <PixelButton :disabled="capReached" data-testid="quest-add" @click="openNew">{{ t('quests.add') }}</PixelButton>
+      <UiButton :disabled="capReached" data-testid="quest-add" @click="openNew">{{ t('quests.add') }}</UiButton>
     </div>
 
     <p v-if="capReached" class="text-[var(--warn)]" data-testid="cap-message">
@@ -48,9 +48,9 @@ function openEdit(id: string): void {
       {{ t('quests.empty', { period: t(`period.${period}Plural`) }) }}
     </p>
 
-    <PixelCard v-for="(row, i) in rows" :key="row.quest.id" data-testid="quest-item">
+    <UiCard v-for="(row, i) in rows" :key="row.quest.id" data-testid="quest-item">
       <div class="flex items-center gap-3">
-        <PixelIcon :name="row.quest.icon" :scale="4" />
+        <UiIcon :name="row.quest.icon" :size="30" />
         <div class="min-w-0 flex-1">
           <div class="break-words">{{ row.quest.title }}</div>
           <div class="text-[var(--text-soft)]">
@@ -60,11 +60,11 @@ function openEdit(id: string): void {
         </div>
       </div>
       <div class="mt-2 flex justify-end">
-        <PixelButton variant="secondary" compact :disabled="i === 0" :aria-label="t('quests.moveUp', { title: row.quest.title })" @click="game.moveQuest(period, row.quest.id, -1)">▲</PixelButton>
-        <PixelButton variant="secondary" compact :disabled="i === rows.length - 1" :aria-label="t('quests.moveDown', { title: row.quest.title })" @click="game.moveQuest(period, row.quest.id, 1)">▼</PixelButton>
-        <PixelButton variant="secondary" :aria-label="t('quests.editQuest', { title: row.quest.title })" data-testid="quest-edit" @click="openEdit(row.quest.id)">{{ t('common.edit') }}</PixelButton>
+        <UiButton variant="secondary" compact :disabled="i === 0" :aria-label="t('quests.moveUp', { title: row.quest.title })" @click="game.moveQuest(period, row.quest.id, -1)">▲</UiButton>
+        <UiButton variant="secondary" compact :disabled="i === rows.length - 1" :aria-label="t('quests.moveDown', { title: row.quest.title })" @click="game.moveQuest(period, row.quest.id, 1)">▼</UiButton>
+        <UiButton variant="secondary" :aria-label="t('quests.editQuest', { title: row.quest.title })" data-testid="quest-edit" @click="openEdit(row.quest.id)">{{ t('common.edit') }}</UiButton>
       </div>
-    </PixelCard>
+    </UiCard>
 
     <QuestSheet v-model:open="sheetOpen" :quest-id="editingId" :default-period="period" />
   </div>

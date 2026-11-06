@@ -6,7 +6,7 @@ import type { CharacterId } from '../../core/types'
 const game = useGameStore()
 const { t } = useI18n()
 const hero = useHero()
-const toast = usePixelToast()
+const toast = useUiToast()
 
 const character = computed(() => game.character!)
 const stats = computed(() => game.stats)
@@ -41,14 +41,14 @@ function onQuizDone(payload: { answers: number[]; characterId: CharacterId }): v
     <p class="text-[var(--text-soft)]">{{ t('hero.retakeNote') }}</p>
     <HeroQuiz @done="onQuizDone" />
     <div>
-      <PixelButton variant="secondary" @click="mode = 'view'">{{ t('hero.cancelQuiz') }}</PixelButton>
+      <UiButton variant="secondary" @click="mode = 'view'">{{ t('hero.cancelQuiz') }}</UiButton>
     </div>
   </div>
 
   <div v-else class="flex flex-col gap-6" data-testid="page-hero">
-    <PixelCard tone="accent">
+    <UiCard tone="accent">
       <div class="flex items-center gap-4">
-        <PixelSprite :character="character.id" :tier="stats.tier" :scale="6" :alt="hero.name(character.id)" />
+        <HeroArt :character="character.id" :tier="stats.tier" :size="176" :alt="hero.name(character.id)" />
         <div class="min-w-0">
           <h1 class="font-display text-sm">{{ hero.name(character.id) }}</h1>
           <p class="text-[var(--text-soft)]">{{ hero.archetype(character.id) }}</p>
@@ -60,10 +60,10 @@ function onQuizDone(payload: { answers: number[]; characterId: CharacterId }): v
       <p class="mt-4"><span class="text-[var(--text-soft)]">{{ t('hero.voice') }}:</span> {{ hero.voice(character.id) }}</p>
       <p class="mt-2"><span class="text-[var(--text-soft)]">{{ t('hero.appearance') }}:</span> {{ hero.appearance(character.id) }}</p>
       <div class="mt-4 flex flex-wrap">
-        <PixelButton data-testid="hero-change" @click="openChange">{{ t('hero.change') }}</PixelButton>
-        <PixelButton variant="secondary" data-testid="hero-retake" @click="mode = 'quiz'">{{ t('hero.retake') }}</PixelButton>
+        <UiButton data-testid="hero-change" @click="openChange">{{ t('hero.change') }}</UiButton>
+        <UiButton variant="secondary" data-testid="hero-retake" @click="mode = 'quiz'">{{ t('hero.retake') }}</UiButton>
       </div>
-    </PixelCard>
+    </UiCard>
 
     <section class="flex flex-col gap-3">
       <h2 class="font-display text-xs">{{ t('hero.stats') }}</h2>
@@ -73,24 +73,24 @@ function onQuizDone(payload: { answers: number[]; characterId: CharacterId }): v
         <StatChip :label="t('hero.statBest')" :value="stats.streak.best" />
         <StatChip :label="t('hero.statDone')" :value="stats.questsCompleted" />
       </div>
-      <div><PixelButton variant="secondary" data-testid="hero-stats-link" @click="navigateTo('/stats')">{{ t('stats.link') }}</PixelButton></div>
+      <div><UiButton variant="secondary" data-testid="hero-stats-link" @click="navigateTo('/stats')">{{ t('stats.link') }}</UiButton></div>
     </section>
 
     <section class="flex flex-col gap-3">
       <h2 class="font-display text-xs">{{ t('hero.story') }}</h2>
-      <PixelCard v-for="n in 5" :key="n" :data-testid="`chapter-${n}`">
+      <UiCard v-for="n in 5" :key="n" :data-testid="`chapter-${n}`">
         <h3 class="font-display mb-2 text-xs">{{ t('common.chapter', { n }) }}</h3>
         <p v-if="unlocked.includes(n)">{{ hero.chapter(character.id, n) }}</p>
         <p v-else class="flex items-center gap-2 text-[var(--text-soft)]">
-          <PixelIcon name="key" :scale="3" />
+          <UiIcon name="lock" :size="22" />
           <span>{{ t('a11y.locked') }} · {{ t('hero.locked', { level: TIER_LEVELS[n - 1] }) }}</span>
         </p>
-      </PixelCard>
+      </UiCard>
     </section>
 
     <section class="flex flex-col gap-3">
       <h2 class="font-display text-xs">{{ t('hero.titlesTimeline') }}</h2>
-      <PixelCard>
+      <UiCard>
         <ol class="flex flex-col gap-2">
           <li v-for="tier in 5" :key="tier" class="flex items-center justify-between gap-2" :class="{ 'text-[var(--text-soft)]': tier > stats.tier }">
             <span>{{ t('hero.tierLabel', { n: tier }) }} · {{ hero.tierTitle(character.id, tier) }}</span>
@@ -99,19 +99,19 @@ function onQuizDone(payload: { answers: number[]; characterId: CharacterId }): v
             </span>
           </li>
         </ol>
-      </PixelCard>
+      </UiCard>
     </section>
 
-    <PixelDialog v-model:open="changeOpen" :title="t('hero.changeTitle')" :description="t('hero.changeNote')">
+    <UiDialog v-model:open="changeOpen" :title="t('hero.changeTitle')" :description="t('hero.changeNote')">
       <HeroGrid v-model="draft" :ids="allIds" :label="t('hero.changeTitle')" />
       <template #actions>
         <div class="flex gap-2">
-          <PixelButton variant="secondary" @click="changeOpen = false">{{ t('common.cancel') }}</PixelButton>
-          <PixelButton :disabled="!draft" data-testid="hero-change-confirm" @click="confirmChange">
+          <UiButton variant="secondary" @click="changeOpen = false">{{ t('common.cancel') }}</UiButton>
+          <UiButton :disabled="!draft" data-testid="hero-change-confirm" @click="confirmChange">
             {{ draft ? t('hero.changeConfirm', { name: hero.name(draft) }) : t('common.confirm') }}
-          </PixelButton>
+          </UiButton>
         </div>
       </template>
-    </PixelDialog>
+    </UiDialog>
   </div>
 </template>

@@ -30,17 +30,17 @@ const stats = computed(() => game.stats)
 
     <section class="flex flex-col gap-3">
       <h2 class="font-display text-xs">{{ t('stats.heatmapTitle') }}</h2>
-      <PixelCard>
+      <UiCard>
         <StatsHeatmap :heatmap="heatmap" />
         <p class="mt-3 text-[var(--text-soft)]">{{ t('stats.heatmapNote') }}</p>
         <p class="mt-1" data-testid="heatmap-summary">{{ t('stats.heatmapSummary', { total: heatmap.total, days: heatmap.activeDays }) }}</p>
         <p class="mt-1 text-[var(--text-soft)]">{{ t('stats.legendLess') }} {{ t('stats.legendValues') }} {{ t('stats.legendMore') }}</p>
-      </PixelCard>
+      </UiCard>
     </section>
 
     <section class="flex flex-col gap-3">
       <h2 class="font-display text-xs">{{ t('stats.totalsTitle') }}</h2>
-      <PixelCard>
+      <UiCard>
         <dl class="grid grid-cols-[1fr_auto] gap-x-4 gap-y-2" data-testid="totals">
           <dt>{{ t('stats.last7') }}</dt>
           <dd data-testid="total-7">{{ t('stats.windowValue', { count: totals.last7, xp: totals.xpLast7 }) }}</dd>
@@ -53,7 +53,7 @@ const stats = computed(() => game.stats)
           <dt class="text-[var(--text-soft)]">{{ t('stats.completedMonthly') }}</dt>
           <dd>{{ totals.completedMonthly }}</dd>
         </dl>
-      </PixelCard>
+      </UiCard>
     </section>
 
     <section class="flex flex-col gap-3">
@@ -61,7 +61,7 @@ const stats = computed(() => game.stats)
       <p class="text-[var(--text-soft)]" data-testid="achievements-count">
         {{ t('stats.achievementsCount', { done: doneCount, total: ACHIEVEMENTS.length }) }}
       </p>
-      <PixelCard v-for="g in groups" :key="g">
+      <UiCard v-for="g in groups" :key="g">
         <h3 class="font-display mb-3 text-xs">{{ t(`stats.group.${g}`) }}</h3>
         <ul class="flex flex-col gap-4">
           <li v-for="a in inGroup(g)" :key="a.def.id" :data-testid="`ach-${a.def.id}`" :data-done="a.done">
@@ -72,7 +72,7 @@ const stats = computed(() => game.stats)
               </span>
             </div>
             <p class="mb-2 text-[var(--text-soft)]">{{ t(`achievements.${a.def.id}.desc`) }}</p>
-            <PixelBar
+            <UiBar
               :value="a.current"
               :max="a.def.target"
               :blocks="10"
@@ -81,9 +81,9 @@ const stats = computed(() => game.stats)
             />
           </li>
         </ul>
-      </PixelCard>
+      </UiCard>
     </section>
 
-    <div><PixelButton variant="secondary" data-testid="stats-back" @click="navigateTo('/hero')">{{ t('stats.back') }}</PixelButton></div>
+    <div><UiButton variant="secondary" data-testid="stats-back" @click="navigateTo('/hero')">{{ t('stats.back') }}</UiButton></div>
   </div>
 </template>

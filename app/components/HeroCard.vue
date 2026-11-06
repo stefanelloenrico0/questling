@@ -19,7 +19,7 @@ const accent = computed(() => CHARACTER_BY_ID[props.id].accent)
     :style="{ '--hc': accent }"
     :data-testid="`hero-card-${id}`"
   >
-    <PixelSprite :character="id" :scale="3" :alt="hero.name(id)" />
+    <HeroArt :character="id" :size="96" :alt="hero.name(id)" />
     <span class="font-display hcard__name">{{ hero.name(id) }}</span>
     <span class="hcard__arch">{{ hero.archetype(id) }}</span>
     <span v-if="affinity != null" class="hcard__aff">{{ t('quiz.affinity', { pct: affinity }) }}</span>
@@ -35,37 +35,38 @@ const accent = computed(() => CHARACTER_BY_ID[props.id].accent)
   gap: 4px;
   min-height: 48px;
   padding: 12px 8px;
-  margin: 4px;
   color: var(--text);
   text-align: center;
   background: var(--surface);
-  border: 0;
+  border: 1.5px solid var(--edge);
+  border-radius: var(--radius-l);
   cursor: pointer;
-  box-shadow:
-    0 -4px 0 0 var(--surface-2),
-    0 4px 0 0 var(--surface-2),
-    -4px 0 0 0 var(--surface-2),
-    4px 0 0 0 var(--surface-2);
+  transition:
+    border-color 0.15s ease,
+    transform 0.1s ease;
+}
+.hcard:active {
+  transform: scale(0.98);
 }
 .hcard--on {
-  box-shadow:
-    0 -4px 0 0 var(--hc),
-    0 4px 0 0 var(--hc),
-    -4px 0 0 0 var(--hc),
-    4px 0 0 0 var(--hc);
+  border-color: var(--hc);
+  background: linear-gradient(170deg, color-mix(in srgb, var(--hc) 22%, var(--surface)), var(--surface) 75%);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--hc) 35%, transparent);
 }
 .hcard__name {
-  font-size: 10px;
+  font-size: 17px;
   color: var(--hc);
 }
 .hcard__arch {
-  font-size: 16px;
+  font-size: 14px;
   color: var(--text-soft);
 }
 .hcard__aff {
+  font-weight: 700;
   color: var(--xp);
 }
 .hcard__sel {
+  font-weight: 700;
   color: var(--hc);
 }
 </style>

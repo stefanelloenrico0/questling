@@ -40,7 +40,7 @@ Aggiungere una domanda sull'**arte** (voto 1–5 e "cosa cambieresti"): serve a 
 
 ## 4. Come decidere
 
-- **Va bene** → si investe nell'arte (rifare gli 8 sprite + 4 overlay), poi closed testing Play/TestFlight.
+- **Va bene** → si investe nell'arte (rifinire l'arte degli 8 eroi e degli overlay dei tier), poi closed testing Play/TestFlight.
 - **Si ferma presto** → capire *dove*: onboarding (giorno 0–1), carico di missioni (archiviazioni), ricompensa (livelli troppo lenti), assenza di notifiche. Correggere **prima** dell'arte.
 - Annotare i risultati qui sotto, con data.
 
