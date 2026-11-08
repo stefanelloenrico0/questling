@@ -15,12 +15,16 @@ async function onboard(page: Page, name = 'Enrico', notify: 'notify-skip' | 'not
   await page.getByTestId('reveal-confirm').click()
   await page.getByTestId('name-input').fill(name)
   await page.getByTestId('name-next').click()
+  await page.getByTestId('focus-next').click()
   await expect(page.getByTestId('suggested-item')).toHaveCount(4)
   await page.getByTestId('onboarding-finish').click()
+  await page.getByTestId('rhythm-next').click()
   // permesso notifiche: contestuale, DOPO le prime missioni e nella voce dell'eroe
   await expect(page.getByTestId('step-notify')).toBeVisible()
   await expect(page.getByTestId('notify-voice')).toContainText('Prode')
   await page.getByTestId(notify).click()
+  await expect(page.getByTestId('step-ready')).toBeVisible()
+  await page.getByTestId('ready-start').click()
   await expect(page.getByTestId('page-today')).toBeVisible()
 }
 
@@ -161,6 +165,90 @@ test.describe('MVP: primo avvio -> Oggi, senza account', () => {
     await expect(page.getByTestId('hero-unlock')).toBeHidden()
   })
 
+  test('onboarding: l\'intro ha una mini-prova, e si puo\' scegliere l\'eroe senza quiz e tornare indietro', async ({ page }) => {
+    await page.goto('/')
+    await page.getByTestId('splash-start').click()
+    // mini-prova: toccando la missione di esempio compare l'XP
+    await page.getByTestId('intro-next').click()
+    await expect(page.getByTestId('intro-demo')).toBeVisible()
+    await page.getByTestId('intro-demo').click()
+    await expect(page.getByText('+10 XP! Così si cresce')).toBeVisible()
+    await page.getByTestId('intro-next').click()
+    await page.getByTestId('intro-next').click()
+    await expect(page.getByTestId('onb-step')).toHaveText('Passo 2 di 7')
+
+    await page.getByTestId('quiz-choose').click()
+    await expect(page.getByTestId('choose-confirm')).toBeDisabled()
+    await page.getByTestId('hero-card-fenna').click()
+    await expect(page.getByTestId('choose-name')).toHaveText('Fenna')
+    await expect(page.getByTestId('choose-sample')).not.toBeEmpty()
+    await page.getByTestId('choose-confirm').click()
+    await expect(page.getByTestId('step-name')).toBeVisible()
+    await expect(page.getByTestId('onb-step')).toHaveText('Passo 3 di 7')
+
+    // indietro: si torna alla scelta con Fenna gia' selezionata, e la si puo' cambiare
+    await page.getByTestId('onb-back').click()
+    await expect(page.getByTestId('choose-name')).toHaveText('Fenna')
+    await page.getByTestId('hero-card-kuro').click()
+    await page.getByTestId('choose-confirm').click()
+    await page.getByTestId('name-input').fill('Giulia')
+    await page.getByTestId('name-next').click()
+    await page.getByTestId('focus-next').click()
+    await expect(page.getByTestId('suggested-item')).toHaveCount(4)
+    await expect(page.getByText('Suggerite da Kuro')).toBeVisible()
+  })
+
+  test('onboarding: aree di interesse, orari e fine giornata finiscono nell\'app', async ({ page }) => {
+    await page.goto('/')
+    await page.getByTestId('splash-start').click()
+    await page.getByTestId('intro-skip').click()
+    for (const a of VALDO_ANSWERS) await page.getByTestId(`quiz-answer-${a}`).click()
+    await page.getByTestId('reveal-confirm').click()
+    await page.getByTestId('name-input').fill('Enrico')
+    await page.getByTestId('name-next').click()
+
+    // massimo 3 aree: la quarta si disattiva
+    for (const id of ['move', 'money', 'home']) await page.getByTestId(`focus-area-${id}`).click()
+    await expect(page.getByTestId('focus-area-mind')).toBeDisabled()
+    await page.getByTestId('focus-area-home').click() // ne tolgo una
+    await expect(page.getByTestId('focus-area-mind')).toBeEnabled()
+    await page.getByTestId('focus-next').click()
+
+    await expect(page.getByTestId('area-group')).toHaveCount(2)
+    await expect(page.getByTestId('area-item')).toHaveCount(4)
+    // giornaliere spuntate: 3 dell'eroe + 1 per area; le settimanali delle aree no
+    await page.getByTestId('onboarding-finish').click()
+
+    await page.getByTestId('rhythm-morning').fill('07:30')
+    await page.getByTestId('rhythm-evening').fill('21:15')
+    await page.getByRole('radio', { name: 'Alle 3:00' }).click()
+    await page.getByTestId('rhythm-next').click()
+    await page.getByTestId('notify-enable').click()
+
+    await expect(page.getByTestId('ready-title')).toHaveText('Tutto pronto, Enrico!')
+    await expect(page.getByTestId('ready-line')).not.toBeEmpty()
+    const summary = page.getByTestId('ready-summary')
+    await expect(summary).toContainText('Missioni: 5 al giorno')
+    await expect(summary).not.toContainText('0 a settimana')
+    await expect(summary).toContainText('Promemoria alle 07:30 e alle 21:15')
+    await expect(summary).toContainText('La giornata finisce alle 3:00')
+    await page.getByTestId('ready-start').click()
+    await expect(page.getByTestId('page-today')).toBeVisible()
+    await expect(page.getByTestId('quest-row')).toHaveCount(5)
+
+    await page.getByRole('link', { name: 'Altro' }).click()
+    await expect(page.getByTestId('notif-morning')).toHaveValue('07:30')
+    await expect(page.getByTestId('notif-evening')).toHaveValue('21:15')
+    await expect(page.getByRole('radio', { name: 'Alle 3:00' })).toHaveAttribute('aria-checked', 'true')
+  })
+
+  test('Oggi: il suggerimento di primo avvio sparisce dopo la prima missione', async ({ page }) => {
+    await onboard(page)
+    await expect(page.getByTestId('first-hint')).toContainText('tocca una missione')
+    await page.getByRole('checkbox', { name: /Allenamento/ }).click()
+    await expect(page.getByTestId('first-hint')).toBeHidden()
+  })
+
   test('tetto missioni: dopo 3 mensili il pulsante e\' disabilitato con messaggio chiaro', async ({ page }) => {
     await onboard(page)
     await page.getByRole('link', { name: 'Missioni' }).click()
@@ -238,7 +326,10 @@ test.describe('MVP: primo avvio -> Oggi, senza account', () => {
     await page.getByTestId('name-input').fill('Enrico')
     await page.getByTestId('name-next').click()
     await expect(page.getByTestId('step-notify')).toHaveCount(0)
+    await page.getByTestId('focus-next').click()
     await page.getByTestId('onboarding-finish').click()
+    await expect(page.getByTestId('step-notify')).toHaveCount(0)
+    await page.getByTestId('rhythm-next').click()
     await expect(page.getByTestId('step-notify')).toBeVisible()
     await expect(page.getByTestId('notify-sample')).toContainText('Alba sul regno')
   })

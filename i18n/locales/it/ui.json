@@ -66,7 +66,8 @@
     "count": "{count}/{target}",
     "addProgress": "Aggiungi un progresso a {title}",
     "removeProgress": "Togli un progresso a {title}",
-    "heroSays": "{name} dice"
+    "heroSays": "{name} dice",
+    "firstHint": "{hero}: tocca una missione per completarla. Ogni completamento dà XP e fa crescere il tuo eroe."
   },
   "levelUp": {
     "title": "Livello {level}!",
@@ -175,7 +176,14 @@
       "start": "Cominciamo",
       "next": "Avanti",
       "skip": "Salta",
-      "dots": "Schermata {n} di {total}"
+      "dots": "Schermata {n} di {total}",
+      "s2Demo": "Bere un bicchiere d'acqua",
+      "s2Hint": "Provaci: tocca la missione.",
+      "s2Done": "+10 XP! Così si cresce, un passo alla volta.",
+      "s3Note": "Se salti un giorno, uno scudo protegge la tua streak. Nessun rimprovero.",
+      "s3Streak": "12 giorni",
+      "s3Shields": "1",
+      "swipeHint": "Scorri o usa i pulsanti"
     },
     "quizIntro": "Otto domande leggere per trovare l'eroe che ti somiglia. Non è un test serio!",
     "name": {
@@ -195,7 +203,55 @@
       "remove": "Rimuovi {title}",
       "none": "Puoi anche iniziare senza missioni e crearle dopo.",
       "capNote": "Massimo {max} missioni giornaliere.",
-      "finish": "Inizia l'avventura"
+      "finish": "Inizia l'avventura",
+      "fromAreas": "Dalle tue aree",
+      "areaItem": "{area}: {title}",
+      "capNoteWeekly": "Massimo {max} missioni settimanali."
+    },
+    "step": "Passo {n} di {total}",
+    "progressLabel": "Avanzamento della configurazione",
+    "back": "Torna al passo precedente",
+    "quizChoose": "Preferisco scegliere io",
+    "choose": {
+      "title": "Scegli il tuo eroe",
+      "subtitle": "Ognuno ha una voce, una storia e uno stile. Puoi cambiarlo quando vuoi: il tuo livello resta tuo.",
+      "voice": "Come parla",
+      "sample": "Un suo messaggio",
+      "confirm": "Scegli {name}",
+      "pickFirst": "Tocca un eroe per conoscerlo",
+      "quiz": "Preferisco fare il quiz",
+      "grid": "Eroi tra cui scegliere"
+    },
+    "focus": {
+      "title": "Su cosa vuoi lavorare?",
+      "subtitle": "Scegli fino a {max} aree e ti propongo missioni adatte. Puoi saltare e cambiare tutto più tardi.",
+      "count": "{n} di {max} scelte",
+      "skip": "Salta per ora",
+      "group": "Aree di interesse"
+    },
+    "rhythm": {
+      "title": "Il tuo ritmo",
+      "subtitle": "Quando vuoi sentire {hero} e quando finisce, per te, la giornata.",
+      "morning": "Mattina",
+      "evening": "Sera",
+      "dayEnd": "La tua giornata finisce alle",
+      "dayEndHint": "Fino a quell'ora le missioni contano ancora per il giorno prima: chi fa tardi non perde la streak a mezzanotte.",
+      "timesHint": "Al massimo due messaggi al giorno, mai di notte. Gli orari valgono solo se attivi i promemoria al passo dopo."
+    },
+    "ready": {
+      "title": "Tutto pronto, {name}!",
+      "subtitle": "{hero} ti aspetta.",
+      "hero": "Il tuo eroe: {hero}",
+      "quests": "Missioni: {list}",
+      "notifOn": "Promemoria alle {morning} e alle {evening}",
+      "notifOff": "Promemoria spenti: puoi attivarli dalle Impostazioni",
+      "dayEnd": "La giornata finisce alle {h}:00",
+      "start": "Inizia l'avventura",
+      "says": "{hero} dice",
+      "questsNone": "Nessuna missione per ora: le crei quando vuoi",
+      "perDay": "{n} al giorno",
+      "perWeek": "{n} a settimana",
+      "perMonth": "{n} al mese"
     }
   },
   "settings": {
@@ -286,5 +342,45 @@
     "body": "{name} si è unito a te. Puoi sceglierlo adesso o più tardi dalla pagina Eroe.",
     "choose": "Scegli {name}",
     "later": "Più tardi"
+  },
+  "focus": {
+    "areas": {
+      "move": {
+        "title": "Movimento",
+        "desc": "Muoversi di più",
+        "q1": "Camminare o allungarsi 15 minuti",
+        "q2": "Un vero allenamento"
+      },
+      "mind": {
+        "title": "Mente",
+        "desc": "Leggere e imparare",
+        "q1": "10 minuti di lettura",
+        "q2": "Imparare qualcosa di nuovo"
+      },
+      "home": {
+        "title": "Casa",
+        "desc": "Ordine senza fatica",
+        "q1": "Cinque minuti di riordino",
+        "q2": "Una faccenda grossa"
+      },
+      "craft": {
+        "title": "Creatività",
+        "desc": "Studio e progetti",
+        "q1": "Mezz'ora su un progetto",
+        "q2": "Finire una piccola cosa"
+      },
+      "calm": {
+        "title": "Benessere",
+        "desc": "Dormire e staccare",
+        "q1": "Andare a letto all'ora giusta",
+        "q2": "Una serata senza schermi"
+      },
+      "money": {
+        "title": "Soldi",
+        "desc": "Tenerli sotto controllo",
+        "q1": "Segnare le spese di oggi",
+        "q2": "Rivedere il budget"
+      }
+    }
   }
 }

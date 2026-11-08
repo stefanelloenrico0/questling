@@ -34,7 +34,7 @@ export const isIconId = (id: string): id is IconId => id in ICONS
 
 /** Icone dell'interfaccia (barra, frecce, lucchetti...) oltre a quelle delle missioni. */
 export const UI_ICONS = [
-  'lock', 'calendar-check', 'list-checks', 'settings', 'chevron-up', 'chevron-down', 'x', 'check', 'plus', 'minus',
+  'lock', 'calendar-check', 'list-checks', 'settings', 'chevron-up', 'chevron-down', 'x', 'check', 'plus', 'minus', 'bell', 'chevron-left',
 ] as const
 
 /** Elenco per il bundle (nuxt.config): le icone dinamiche non si trovano con la scansione del codice. */

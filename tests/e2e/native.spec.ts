@@ -16,8 +16,11 @@ async function onboard(page: Page, notify: 'notify-enable' | 'notify-skip'): Pro
   await page.getByTestId('reveal-confirm').click()
   await page.getByTestId('name-input').fill('Enrico')
   await page.getByTestId('name-next').click()
+  await page.getByTestId('focus-next').click()
   await page.getByTestId('onboarding-finish').click()
+  await page.getByTestId('rhythm-next').click()
   await page.getByTestId(notify).click()
+  await page.getByTestId('ready-start').click()
   await expect(page.getByTestId('page-today')).toBeVisible()
 }
 
