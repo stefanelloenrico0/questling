@@ -2,6 +2,7 @@ import { defineStore } from 'pinia'
 import { CHARACTER_BY_ID } from '../../data/characters'
 import {
   archiveQuest,
+  heroProgress,
   completeOnboarding,
   createQuest,
   progressQuest,
@@ -25,6 +26,7 @@ import type { LevelUpInfo } from '../../core/levels'
 import { dayKey } from '../../core/periods'
 import { STATE_KEY, loadState, saveState, type LoadResult } from '../../core/persistence'
 import { createInitialState } from '../../core/schema'
+import { newlyUnlockedHeroes, unlockedHeroIds, type HeroProgress } from '../../core/unlocks'
 import { computeStats, questRows, type QuestRowView } from '../../core/selectors'
 import type { AppState, CharacterId, Period } from '../../core/types'
 import { QUEST_CAPS } from '../../core/xp'
@@ -39,12 +41,16 @@ export const useGameStore = defineStore('game', () => {
   const loadStatus = ref<LoadResult['status']>('fresh')
   const corruptKey = ref<string | null>(null)
   const pendingLevelUp = shallowRef<LevelUpInfo | null>(null)
+  // Eroi appena sbloccati da un'azione di gioco (non da sync/import): li annuncia HeroUnlockModal
+  const pendingHeroUnlock = shallowRef<CharacterId[]>([])
 
   const profile = computed(() => state.value.profile)
   const character = computed(() => (profile.value ? CHARACTER_BY_ID[profile.value.characterId] : null))
   const settings = computed(() => state.value.settings)
   const stats = computed(() => computeStats(state.value, now.value))
   const today = computed(() => dayKey(now.value, state.value.settings.dayStartHour))
+  const heroProgressNow = computed<HeroProgress>(() => ({ level: stats.value.level.level, bestStreak: stats.value.streak.best }))
+  const availableHeroes = computed(() => unlockedHeroIds(heroProgressNow.value))
 
   function rows(period: Period): QuestRowView[] {
     return questRows(state.value, period, now.value)
@@ -97,8 +103,11 @@ export const useGameStore = defineStore('game', () => {
   // ── azioni di gioco ────────────────────────────────────────────────────────
   function apply(out: ActionOutcome): ActionOutcome {
     if (out.changed) {
+      const before = heroProgress(state.value, now.value)
       state.value = out.state
       if (out.levelUp) pendingLevelUp.value = out.levelUp
+      const fresh = newlyUnlockedHeroes(before, heroProgress(out.state, now.value))
+      if (fresh.length) pendingHeroUnlock.value = fresh
     }
     return out
   }
@@ -164,12 +173,17 @@ export const useGameStore = defineStore('game', () => {
   const dismissLevelUp = (): void => {
     pendingLevelUp.value = null
   }
+  // Toglie il primo della fila (di solito ce n'e' uno solo)
+  const dismissHeroUnlock = (): void => {
+    pendingHeroUnlock.value = pendingHeroUnlock.value.slice(1)
+  }
 
   /** Sostituisce lo stato con uno importato, dopo aver conservato una copia di sicurezza di quello attuale. */
   async function importState(next: AppState): Promise<void> {
     await capacitorStore.set(`questling:v1:pre-import:${Date.now()}`, JSON.stringify(state.value))
     state.value = { ...next, lastOpenAt: new Date().toISOString() }
     pendingLevelUp.value = null
+    pendingHeroUnlock.value = []
     refreshNow()
     await flush()
   }
@@ -186,6 +200,7 @@ export const useGameStore = defineStore('game', () => {
     corruptKey.value = null
     loadStatus.value = 'fresh'
     pendingLevelUp.value = null
+    pendingHeroUnlock.value = []
     refreshNow()
     dirty = true
     await flush()
@@ -198,6 +213,9 @@ export const useGameStore = defineStore('game', () => {
     loadStatus,
     corruptKey,
     pendingLevelUp,
+    pendingHeroUnlock,
+    heroProgressNow,
+    availableHeroes,
     profile,
     character,
     settings,
@@ -222,6 +240,7 @@ export const useGameStore = defineStore('game', () => {
     setDayStartHour,
     touchOpened,
     dismissLevelUp,
+    dismissHeroUnlock,
     importState,
     replaceState,
     wipe,

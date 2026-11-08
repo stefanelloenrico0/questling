@@ -15,7 +15,7 @@ Missioni quotidiane con un eroe
 
 Questling non è una to-do list con i punti: è un compagno di viaggio retrò.
 
-Fai un breve quiz (otto domande leggere, niente test serio) e ti viene assegnato uno degli otto eroi, ognuno con una voce, una storia e una personalità. Puoi cambiarlo quando vuoi: il tuo livello resta tuo.
+Fai un breve quiz (otto domande leggere, niente test serio) e ti viene assegnato uno degli otto eroi (e altri tre si sbloccano crescendo: un pirata, una slime filosofa e un draghetto), ognuno con una voce, una storia e una personalità. Puoi cambiarlo quando vuoi: il tuo livello resta tuo.
 
 • **Missioni a misura tua**: obiettivi giornalieri, settimanali e mensili. Ogni missione completata dà esperienza e ti fa salire di livello.
 • **Un eroe con carattere**: dal cavaliere solenne alla chierica gentile, dal bardo teatrale al robot da cabinato arcade. I promemoria arrivano nella sua voce, con battute, mai come rimproveri.

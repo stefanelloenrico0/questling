@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { CHARACTER_BY_ID, CHARACTERS } from '../../data/characters'
+import { CHARACTER_BY_ID, QUIZ_CHARACTERS } from '../../data/characters'
 import { QUIZ } from '../../data/quiz'
 import { quizOutcome, scoreQuiz, shuffle, type QuizOutcome } from '../../core/quiz'
 import type { CharacterId } from '../../core/types'
@@ -46,7 +46,7 @@ const candidates = computed<CharacterId[]>(() => {
   if (!o) return []
   return o.kind === 'winner' ? [...o.finalists, ...o.neighbors].map((r) => r.id) : o.finalists.map((r) => r.id)
 })
-const others = computed(() => CHARACTERS.map((c) => c.id).filter((id) => !candidates.value.includes(id)))
+const others = computed(() => QUIZ_CHARACTERS.map((c) => c.id).filter((id) => !candidates.value.includes(id)))
 const affinities = computed(() => {
   const map: Partial<Record<CharacterId, number | null>> = {}
   for (const r of outcome.value?.ranked ?? []) map[r.id] = r.affinity

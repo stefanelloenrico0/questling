@@ -4,16 +4,19 @@
 // Per sostituire l'arte basta cambiare il file SVG dell'eroe (mantenendo quei nomi di classe).
 import { CHARACTER_BY_ID } from '../../data/characters'
 import type { CharacterId } from '../../core/types'
+import brace from '../assets/heroes/brace.svg?raw'
 import brunilde from '../assets/heroes/brunilde.svg?raw'
 import fenna from '../assets/heroes/fenna.svg?raw'
 import kuro from '../assets/heroes/kuro.svg?raw'
 import lumen from '../assets/heroes/lumen.svg?raw'
+import plin from '../assets/heroes/plin.svg?raw'
 import rondo from '../assets/heroes/rondo.svg?raw'
+import salmastro from '../assets/heroes/salmastro.svg?raw'
 import u404 from '../assets/heroes/u404.svg?raw'
 import valdo from '../assets/heroes/valdo.svg?raw'
 import zeffiro from '../assets/heroes/zeffiro.svg?raw'
 
-const ART: Record<CharacterId, string> = { valdo, kuro, fenna, zeffiro, lumen, rondo, u404, brunilde }
+const ART: Record<CharacterId, string> = { valdo, kuro, fenna, zeffiro, lumen, rondo, u404, brunilde, salmastro, plin, brace }
 const VIEW = '-4 -24 262 304'
 const RATIO = 262 / 304
 

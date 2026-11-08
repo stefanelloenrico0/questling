@@ -51,6 +51,8 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       appVersion: process.env.npm_package_version ?? '0.0.0',
+      // Pulsante "Continua con Apple": spento finche' non e' configurato (NUXT_PUBLIC_APPLE_SIGN_IN=true per accenderlo)
+      appleSignIn: false,
       // Account e sync sono OPZIONALI: senza queste variabili (NUXT_PUBLIC_FIREBASE_*) l'app e' solo locale.
       firebase: {
         apiKey: '',

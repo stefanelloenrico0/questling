@@ -2,11 +2,17 @@
 import type { CharacterId } from '../../core/types'
 
 const model = defineModel<CharacterId | null>({ default: null })
-defineProps<{
+const props = defineProps<{
   ids: readonly CharacterId[]
   label: string
   affinities?: Partial<Record<CharacterId, number | null>>
+  /** id -> come sbloccarlo, per gli eroi ancora bloccati */
+  locked?: Partial<Record<CharacterId, string>>
 }>()
+
+function pick(id: CharacterId): void {
+  if (!props.locked?.[id]) model.value = id
+}
 </script>
 
 <template>
@@ -17,7 +23,8 @@ defineProps<{
       :key="id"
       :selected="model === id"
       :affinity="affinities?.[id]"
-      @click="model = id"
+      :locked-hint="locked?.[id]"
+      @click="pick(id)"
     />
   </div>
 </template>

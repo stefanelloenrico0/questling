@@ -14,6 +14,10 @@ export const CHARACTER_IDS = [
   'rondo',
   'u404',
   'brunilde',
+  // Sbloccabili: non escono dal quiz, si guadagnano (vedi data/characters.ts)
+  'salmastro',
+  'plin',
+  'brace',
 ] as const
 
 export type CharacterId = (typeof CHARACTER_IDS)[number]
@@ -84,7 +88,7 @@ export interface AppState {
   quests: Quest[]
   completions: Completion[]
   xpEvents: XpEvent[]
-  unlockedChapters: Record<CharacterId, number[]>
+  unlockedChapters: Partial<Record<CharacterId, number[]>>
   settings: Settings
   lastOpenAt: string
 }

@@ -13,6 +13,19 @@ const stats = computed(() => game.stats)
 const unlocked = computed(() => game.state.unlockedChapters[character.value.id] ?? [1])
 const allIds = CHARACTERS.map((c) => c.id)
 
+// Eroi ancora bloccati -> come sbloccarli (con i progressi di oggi)
+const locked = computed(() => {
+  const out: Partial<Record<CharacterId, string>> = {}
+  for (const c of CHARACTERS) {
+    if (!c.unlock || c.id === character.value.id || game.availableHeroes.includes(c.id)) continue
+    out[c.id] =
+      c.unlock.kind === 'level'
+        ? t('hero.unlockLevel', { n: c.unlock.value, now: game.heroProgressNow.level })
+        : t('hero.unlockStreak', { n: c.unlock.value, now: game.heroProgressNow.bestStreak })
+  }
+  return out
+})
+
 const mode = ref<'view' | 'quiz'>('view')
 const changeOpen = ref(false)
 const draft = ref<CharacterId | null>(null)
@@ -103,7 +116,7 @@ function onQuizDone(payload: { answers: number[]; characterId: CharacterId }): v
     </section>
 
     <UiDialog v-model:open="changeOpen" :title="t('hero.changeTitle')" :description="t('hero.changeNote')">
-      <HeroGrid v-model="draft" :ids="allIds" :label="t('hero.changeTitle')" />
+      <HeroGrid v-model="draft" :ids="allIds" :locked="locked" :label="t('hero.changeTitle')" />
       <template #actions>
         <div class="flex gap-2">
           <UiButton variant="secondary" @click="changeOpen = false">{{ t('common.cancel') }}</UiButton>

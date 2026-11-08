@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-4 -24 262 304" role="img" aria-label="Capitan Salmastro, il pirata">
+  <defs>
+    <linearGradient id="coat" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2f6f8f"/><stop offset="1" stop-color="#173a5c"/></linearGradient>
+    <linearGradient id="hatg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#34466e"/><stop offset="1" stop-color="#18233f"/></linearGradient>
+    <linearGradient id="beard" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9a6540"/><stop offset="1" stop-color="#5a3822"/></linearGradient>
+    <linearGradient id="sash" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#ff6b6b"/><stop offset="1" stop-color="#b13e53"/></linearGradient>
+    <linearGradient id="brass" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#ffe08a"/><stop offset="1" stop-color="#c98a3a"/></linearGradient>
+    <linearGradient id="plume" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#1f8f86"/><stop offset="1" stop-color="#7bf0dc"/></linearGradient>
+  </defs>
+  <ellipse class="shadow" cx="120" cy="256" rx="68" ry="9" fill="#1a1c2c" opacity=".32"/>
+  <g class="char">
+    <!-- stivali -->
+    <rect x="90" y="214" width="30" height="36" rx="11" fill="#2a1f2e"/>
+    <rect x="124" y="214" width="30" height="36" rx="11" fill="#2a1f2e"/>
+    <path d="M86 214 L124 214 L122 232 Q104 238 88 232 Z" fill="#7a4a2e"/>
+    <path d="M120 214 L158 214 L156 232 Q138 238 122 232 Z" fill="#7a4a2e"/>
+    <rect x="84" y="244" width="42" height="11" rx="5.5" fill="#1a1c2c"/>
+    <rect x="118" y="244" width="42" height="11" rx="5.5" fill="#1a1c2c"/>
+    <!-- giacca -->
+    <path d="M80 150 Q120 140 160 150 L170 226 Q120 238 70 226 Z" fill="url(#coat)"/>
+    <path d="M104 148 L120 192 L136 148 Z" fill="#f4f7ff"/>
+    <path d="M104 148 L120 192 L108 196 L96 154 Z" fill="#1d4466"/>
+    <path d="M136 148 L120 192 L132 196 L144 154 Z" fill="#1d4466"/>
+    <path d="M96 154 L108 196 M144 154 L132 196" stroke="#ffcd75" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="108" cy="208" r="3.2" fill="#ffcd75"/><circle cx="132" cy="208" r="3.2" fill="#ffcd75"/>
+    <!-- fascia in vita -->
+    <path d="M72 208 Q120 222 168 208 L171 228 Q120 242 69 228 Z" fill="url(#sash)"/>
+    <path d="M72 208 Q120 222 168 208 L168.6 213 Q120 227 71.4 213 Z" fill="#ffb3b3" opacity=".5"/>
+    <rect x="108" y="212" width="24" height="18" rx="5" fill="#ffcd75"/>
+    <rect x="113" y="216" width="14" height="10" rx="3" fill="#7a4a2e"/>
+    <!-- braccio sinistro: mano sul fianco -->
+    <path d="M82 156 Q54 168 54 200 Q54 214 68 212 Q78 210 80 198 Q82 184 96 174 Z" fill="url(#coat)"/>
+    <rect x="52" y="192" width="26" height="10" rx="5" fill="#ffcd75"/>
+    <ellipse cx="66" cy="216" rx="10" ry="9" fill="#f6c9a2"/>
+    <!-- braccio destro: cannocchiale -->
+    <g transform="translate(-18 8)">
+    <g transform="rotate(24 214 112)">
+      <rect x="203" y="22" width="22" height="62" rx="6" fill="url(#brass)" stroke="#8a5a1e" stroke-width="2"/>
+      <rect x="199" y="64" width="30" height="50" rx="7" fill="#c98a3a" stroke="#8a5a1e" stroke-width="2"/>
+      <rect x="199" y="76" width="30" height="5" fill="#8a5a1e" opacity=".55"/>
+      <ellipse cx="214" cy="22" rx="11" ry="4.5" fill="#73eff7" stroke="#8a5a1e" stroke-width="2"/>
+    </g>
+    <path d="M158 156 Q190 156 200 134 Q205 122 215 126 Q224 130 218 144 Q208 172 164 180 Z" fill="url(#coat)"/>
+    <rect x="196" y="124" width="26" height="10" rx="5" fill="#ffcd75" transform="rotate(-24 209 129)"/>
+    <ellipse cx="222" cy="118" rx="10" ry="9.5" fill="#f6c9a2"/>
+    </g>
+    <!-- pappagallo sulla spalla -->
+    <g class="sway">
+      <path d="M62 142 Q44 168 40 200 Q54 192 62 168 Z" fill="#2f9bd6"/>
+      <path d="M66 146 Q52 176 52 196 Q64 186 70 160 Z" fill="#7bf0dc"/>
+      <ellipse cx="68" cy="136" rx="13" ry="18" fill="#ff6b6b" transform="rotate(14 68 136)"/>
+      <path d="M62 128 Q50 140 58 156 Q72 150 74 132 Z" fill="#2f9bd6"/>
+      <circle cx="72" cy="114" r="11" fill="#ff6b6b"/>
+      <path d="M80 112 Q92 114 90 124 Q82 122 78 118 Z" fill="#ffcd75"/>
+      <circle cx="74" cy="111" r="3" fill="#fff"/><circle cx="75" cy="111" r="1.5" fill="#1a1c2c"/>
+    </g>
+    <!-- barba -->
+    <path d="M82 104 Q70 152 104 170 Q120 178 136 170 Q170 152 158 104 Q120 130 82 104 Z" fill="url(#beard)"/>
+    <path d="M104 150 Q102 168 106 178" stroke="#3a2218" stroke-width="2.5" fill="none" stroke-linecap="round" opacity=".45"/>
+    <path d="M136 150 Q138 168 134 178" stroke="#3a2218" stroke-width="2.5" fill="none" stroke-linecap="round" opacity=".45"/>
+    <circle cx="105" cy="180" r="4" fill="#ffcd75"/><circle cx="135" cy="180" r="4" fill="#ffcd75"/>
+    <!-- testa -->
+    <ellipse cx="120" cy="96" rx="40" ry="38" fill="#f6c9a2"/>
+    <ellipse cx="104" cy="82" rx="14" ry="10" fill="#ffe6cf" opacity=".5"/>
+    <circle cx="80" cy="100" r="8" fill="#f6c9a2"/><circle cx="160" cy="100" r="8" fill="#f6c9a2"/>
+    <circle cx="80" cy="102" r="3" fill="#ffcd75"/>
+    <ellipse cx="94" cy="114" rx="9" ry="6" fill="#f08f86" opacity=".45"/><ellipse cx="146" cy="114" rx="9" ry="6" fill="#f08f86" opacity=".45"/>
+    <path d="M120 104 Q134 110 128 122 Q120 128 112 122 Q106 110 120 104 Z" fill="#eaa985"/>
+    <!-- baffi -->
+    <path d="M82 118 Q104 134 120 120 Q136 134 158 118 Q150 144 128 136 Q120 132 112 136 Q90 144 82 118 Z" fill="url(#beard)"/>
+    <path d="M82 118 Q72 116 70 106 Q80 108 88 114 Z M158 118 Q168 116 170 106 Q160 108 152 114 Z" fill="#5a3822"/>
+    <!-- benda sull'occhio -->
+    <path d="M82 80 L158 98" stroke="#1a1c2c" stroke-width="3.5" stroke-linecap="round"/>
+    <ellipse cx="138" cy="98" rx="13" ry="12" fill="#1a1c2c"/>
+    <ellipse cx="134" cy="93" rx="4" ry="2.4" fill="#4a5278" opacity=".7"/>
+    <g class="eye">
+      <ellipse cx="102" cy="98" rx="6.5" ry="7.6" fill="#1a1c2c"/>
+      <circle cx="104" cy="95.4" r="2.4" fill="#fff"/>
+    </g>
+    <path d="M90 85 Q102 79 114 86" stroke="#5a3822" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+    <path d="M110 148 Q120 156 132 148" stroke="#3a2218" stroke-width="3" fill="none" stroke-linecap="round" opacity=".7"/>
+    <!-- tricorno -->
+    <g transform="translate(0 -8)">
+      <path d="M68 74 Q72 24 120 22 Q168 24 172 74 Q120 60 68 74 Z" fill="url(#hatg)"/>
+      <path d="M36 84 Q120 22 204 84 Q198 98 168 90 Q120 66 72 90 Q42 98 36 84 Z" fill="#101a33" stroke="#ffcd75" stroke-width="3.5" stroke-linejoin="round"/>
+      <path d="M52 78 Q120 34 188 78" stroke="#34466e" stroke-width="3" fill="none" opacity=".6"/>
+      <path d="M104 66 L136 50 M104 50 L136 66" stroke="#f4f7ff" stroke-width="4" stroke-linecap="round"/>
+      <circle cx="120" cy="56" r="11" fill="#f4f7ff"/>
+      <rect x="113" y="62" width="14" height="9" rx="3" fill="#f4f7ff"/>
+      <ellipse cx="115.5" cy="56" rx="3" ry="3.6" fill="#101a33"/><ellipse cx="124.5" cy="56" rx="3" ry="3.6" fill="#101a33"/>
+      <path d="M120 60 L118.4 63.6 L121.6 63.6 Z" fill="#101a33"/>
+      <g class="sway">
+        <path d="M168 58 Q212 38 228 0 Q196 12 164 46 Z" fill="url(#plume)"/>
+        <path d="M168 58 Q204 40 224 6" stroke="#d6fff6" stroke-width="2.4" fill="none" stroke-linecap="round" opacity=".7"/>
+      </g>
+    </g>
+  </g>
+</svg>

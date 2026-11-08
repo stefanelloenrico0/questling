@@ -10,7 +10,7 @@ Gli account sono **facoltativi**. Senza le variabili qui sotto l'app funziona so
 2. **Build → Authentication → Inizia**, poi abilita i provider:
    - **Email/Password**
    - **Google** (imposta l'email di supporto)
-   - **Apple** (serve un account Apple Developer; obbligatorio su iOS se offri Google, linea guida 4.8 — da verificare)
+   - **Apple**: **DA FARE PIÙ AVANTI**, per ora spento (vedi §5). Serve un account Apple Developer; obbligatorio su iOS se offri Google (linea guida 4.8, da verificare).
 3. **Build → Firestore Database → Crea database**, in **modalità produzione**. Scegli la regione **europea** più vicina e annotala: va scritta nell'informativa privacy (`i18n/locales/it/privacy.json`).
 4. **Impostazioni progetto → Le tue app → Aggiungi app Web** e copia la configurazione.
 
@@ -48,7 +48,18 @@ Le regole sono in `firestore.rules`: ogni utente legge/scrive solo `users/{uid}/
 
 Il login nativo passa dal plugin `@capacitor-firebase/authentication` con `skipNativeAuth: true`: il token viene consegnato alla sessione del Firebase JS SDK, quindi c'è **una sola** sessione. Il plugin usa SDK di terze parti (Google Sign-In) che, secondo la sua documentazione, possono inizializzarsi e raccogliere dati: l'informativa lo dice. **Da verificare** per le dichiarazioni *Data safety* di Google Play.
 
-## 5. iOS (Fase 4)
+## 5. Accesso con Apple (DA ATTIVARE PIÙ AVANTI) e iOS
+
+**Stato: spento.** Il pulsante «Continua con Apple» è nascosto finché non imposti `NUXT_PUBLIC_APPLE_SIGN_IN=true` (in `.env` e su Vercel, poi nuova build). Va acceso **prima** della pubblicazione su iOS (linea guida 4.8, da verificare).
+
+Per accenderlo (account Apple Developer Program, valori per questo progetto):
+1. **App ID** `com.stefanelloenrico.questling` con la capability *Sign in with Apple*.
+2. **Services ID** `com.stefanelloenrico.questling.web` → *Sign in with Apple* → Configure: Primary App ID = quello sopra; Domains `questling-bcae7.firebaseapp.com`; Return URL `https://questling-bcae7.firebaseapp.com/__/auth/handler`.
+3. **Key** con *Sign in with Apple* collegata all'App ID: scarica il `.p8` (una sola volta, **mai nel repository**), annota Key ID; annota anche il Team ID.
+4. Firebase Console → Authentication → Sign-in method → **Apple**: abilita e inserisci Services ID, Team ID, Key ID e il contenuto del `.p8`.
+5. Imposta `NUXT_PUBLIC_APPLE_SIGN_IN=true` e ripubblica.
+
+### iOS
 
 Serve macOS/Xcode: aggiungi l'app iOS in Firebase, `GoogleService-Info.plist`, la capability *Sign in with Apple* e segui la guida del plugin (`setup-apple.md`, `setup-google.md`).
 

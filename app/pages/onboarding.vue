@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { CHARACTERS, CHARACTER_BY_ID } from '../../data/characters'
+import { CHARACTER_BY_ID, QUIZ_CHARACTERS } from '../../data/characters'
 import { SUGGESTED_QUESTS } from '../../data/suggested-quests'
 import { DEFAULT_ICON } from '../../data/icons'
 import { MAX_NAME_LENGTH, MAX_TITLE_LENGTH, type QuestInput } from '../../core/game'
@@ -125,7 +125,7 @@ async function finish(wantNotifications: boolean): Promise<void> {
       <h1 class="font-display text-lg">{{ t('onboarding.splashTitle') }}</h1>
       <p class="text-[var(--text-soft)]">{{ t('onboarding.splashSub') }}</p>
       <div class="grid grid-cols-4 gap-2" aria-hidden="true">
-        <HeroArt v-for="c in CHARACTERS" :key="c.id" :character="c.id" :size="64" />
+        <HeroArt v-for="c in QUIZ_CHARACTERS" :key="c.id" :character="c.id" :size="64" />
       </div>
       <UiButton data-testid="splash-start" @click="step = 'intro'">{{ t('onboarding.intro.start') }}</UiButton>
       <NuxtLink v-if="account.available" to="/account" class="underline" data-testid="splash-account">{{ t('account.restoreHint') }}</NuxtLink>

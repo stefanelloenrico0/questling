@@ -137,7 +137,10 @@
     "retake": "Rifai il quiz",
     "retakeTitle": "Rifai il quiz",
     "retakeNote": "Il risultato non blocca nulla: puoi sempre cambiare eroe a mano.",
-    "cancelQuiz": "Annulla"
+    "cancelQuiz": "Annulla",
+    "lockedName": "Eroe misterioso",
+    "unlockLevel": "Raggiungi il livello {n} (ora {now})",
+    "unlockStreak": "Streak record di {n} giorni (ora {now})"
   },
   "quiz": {
     "progress": "Domanda {n} di {total}",
@@ -277,5 +280,11 @@
     "skip": "Non ora",
     "skipNote": "Nessun problema: l'app funziona uguale e puoi attivarli quando vuoi in Impostazioni.",
     "webNote": "Nel browser i promemoria non possono essere inviati: funzioneranno nell'app installata."
+  },
+  "heroUnlock": {
+    "title": "Nuovo eroe sbloccato!",
+    "body": "{name} si è unito a te. Puoi sceglierlo adesso o più tardi dalla pagina Eroe.",
+    "choose": "Scegli {name}",
+    "later": "Più tardi"
   }
 }

@@ -73,7 +73,7 @@ export const appStateSchema = z.object({
   quests: z.array(questSchema),
   completions: z.array(completionSchema),
   xpEvents: z.array(xpEventSchema),
-  unlockedChapters: z.record(characterId, z.array(z.number().int().min(1).max(5))),
+  unlockedChapters: z.partialRecord(characterId, z.array(z.number().int().min(1).max(5))),
   settings: settingsSchema,
   lastOpenAt: isoString,
 })

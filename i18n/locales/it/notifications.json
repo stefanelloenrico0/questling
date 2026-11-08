@@ -691,6 +691,264 @@
         "Il fuoco della forgia brilla per te: livello nuovo.",
         "Livello raggiunto! Lascia che ti dia una pacca sulla spalla, ma non troppo forte."
       ]
+    },
+    "salmastro": {
+      "morning": [
+        "Su la bandiera, mozzo! Il ponte non si lucida da solo.",
+        "Buongiorno, marinaio! Il mare è calmo e le missioni di oggi ti aspettano.",
+        "Sveglia, ciurma di uno! Si salpa con le missioni del mattino.",
+        "Vento in poppa, mozzo. Quale missione apre la giornata?",
+        "Il sole è già sopra l'albero maestro. Che rotta prendiamo oggi?",
+        "Per tutti i fiordi, è mattina! Una missione e poi la colazione, parola di capitano.",
+        "Il pappagallo ha già letto la lista delle missioni. Due volte. Tocca a te.",
+        "Alba sul molo! Le missioni di oggi non si trovano con la bussola: sono nell'app.",
+        "Ehi, mozzo, il tesoro di oggi è una giornata ben spesa. Si comincia?",
+        "Ancora in branda? Su, si alza l'ancora e si tocca la prima missione."
+      ],
+      "evening": [
+        "Cala la sera, mozzo. Una missione prima di buttare l'ancora?",
+        "Il sole tramonta sul mare: le missioni di oggi aspettano ancora a bordo.",
+        "Ultima guardia della giornata. Ti va di chiudere con una missione?",
+        "La luna sale. Un'ultima fatica e dormi come una balena.",
+        "Il pappagallo dice che manca ancora qualcosa nella lista. Ha ragione, purtroppo.",
+        "Sera di mare calmo: momento perfetto per una missione tranquilla.",
+        "Prima della cena, mozzo, controlla la lista. Il rum può aspettare.",
+        "Tramonto rosso, ciurma stanca. Ma una missione la sai ancora fare.",
+        "Le lanterne sono accese sul ponte. Che ne dici di sistemare l'ultima missione?",
+        "Chiudiamo la giornata come un buon capitano: con le missioni fatte."
+      ],
+      "streak": [
+        "Attenzione, mozzo: la tua striscia di {n} giorni rischia di affondare. Una missione e la salvi.",
+        "{n} giorni di fila! Non farli finire in fondo al mare stasera.",
+        "La striscia di {n} giorni è il vento in poppa. Non lasciarla calare proprio ora.",
+        "Per tutti i fiordi, {n} giorni di striscia! Una missione e il tesoro resta al sicuro.",
+        "Il pappagallo ha contato {n} giorni di fila. Non fargli perdere il conto.",
+        "{n} giorni senza mai mollare la rotta. Oggi manca solo una missione.",
+        "Ehi, capitano di {n} giorni: la striscia fa acqua. Tappa la falla con una missione.",
+        "{n} giorni di striscia valgono più di un forziere. Proteggili stasera.",
+        "Una tempesta minaccia la tua striscia di {n} giorni. Una missione e passa.",
+        "Non ammainare la bandiera ora: sono {n} giorni di striscia!"
+      ],
+      "comeback": [
+        "Mozzo, la ciurma ti aspetta: la nave è ancora ormeggiata e le missioni pure.",
+        "Quanto tempo! Il pappagallo ha imparato un'altra parolaccia. Torna a bordo.",
+        "Il mare non ti ha dimenticato. Ci vuole una sola missione per riprendere la rotta.",
+        "Ho tenuto il tuo posto al timone. Nessun rimprovero: sali a bordo quando vuoi.",
+        "Anche i capitani più bravi gettano l'ancora ogni tanto. Si riparte quando sei pronto.",
+        "Il molo è silenzioso senza di te. Torna: una missione piccola va benissimo.",
+        "La bussola indica ancora te, mozzo. Quando ti va, si salpa di nuovo.",
+        "Le onde ti salutano e la lista ti aspetta. Nessuna fretta, ma torna.",
+        "Niente prediche: ho lucidato il tuo posto sul ponte. Vieni a prenderlo.",
+        "Una missione piccola e siamo di nuovo in rotta. Ti aspetto sul ponte."
+      ],
+      "weekly": [
+        "Una nuova settimana di mare: le missioni settimanali sono la tua rotta.",
+        "Sette giorni davanti, mozzo! Le missioni settimanali aspettano nella cambusa.",
+        "La settimana è una traversata: guarda le missioni settimanali prima di salpare.",
+        "Capitano, controlla la mappa della settimana: ci sono missioni da portare in porto.",
+        "Le missioni settimanali sono i porti d'approdo: scegli quale toccare per primo.",
+        "Ancora qualche giorno e la settimana attracca. Le missioni settimanali ti aspettano.",
+        "Il pappagallo ha segnato la settimana sulla mappa. Tu hai segnato le missioni?",
+        "Una settimana si vince con una missione al giorno. Controlla quelle settimanali.",
+        "Vento di settimana nuova! Le missioni settimanali sono pronte sul ponte.",
+        "Segna la rotta della settimana, mozzo. Le missioni settimanali indicano i porti."
+      ],
+      "monthly": [
+        "Un mese intero di mare: le missioni mensili sono la traversata lunga.",
+        "Il mese è una grande rotta, mozzo. Dai un'occhiata alle missioni mensili.",
+        "Le missioni mensili sono il vero tesoro: non aspettare l'ultimo giorno per cercarle.",
+        "La mappa del mese è srotolata sul tavolo. Le missioni mensili aspettano.",
+        "Mese di bonaccia o di tempesta? Le missioni mensili valgono in entrambi i casi.",
+        "Capitano, il mese avanza! Le missioni mensili vanno portate in porto.",
+        "Il pappagallo ricorda che le missioni mensili esistono. Tu te ne eri scordato, vero?",
+        "Un mese passa come una marea: controlla le missioni mensili prima che si ritiri.",
+        "Le missioni mensili sono le isole del tesoro. Quale raggiungi per prima?",
+        "Un bel mese di rotta richiede una buona mappa: guarda le missioni mensili."
+      ],
+      "levelup": [
+        "Livello nuovo, mozzo! Il mare ti riconosce un po' di più.",
+        "Per tutti i fiordi, hai guadagnato un livello! Il pappagallo è commosso.",
+        "Sali di grado, capitano! La ciurma applaude.",
+        "Un livello in più sulla tua bandiera. Si festeggia con acqua fresca.",
+        "Hai scalato un altro albero maestro: livello nuovo!",
+        "La nave naviga più forte: nuovo livello, bravo mozzo.",
+        "Un livello in più! Ho già detto al pappagallo di non esagerare con i complimenti.",
+        "Livello su! Il tuo nome si legge meglio sulle mappe dei porti.",
+        "Nuova stella sul cappello: hai raggiunto un altro livello.",
+        "Questo sì che è un livello! Il mare si inchina, almeno un po'."
+      ]
+    },
+    "plin": {
+      "morning": [
+        "Plin. Buongiorno. Cosa ti sembra giusto fare oggi? Le missioni, magari.",
+        "Una domanda per il mattino: da quale missione vuoi cominciare?",
+        "Nuovo giorno, nuova goccia. Le missioni di oggi ti aspettano, senza fretta.",
+        "Mi chiedevo: se fai una missione adesso, come ti senti dopo? Provaci.",
+        "Plin. La mattina è un foglio bianco. Le missioni sono il primo segno.",
+        "Che cos'è un giorno? Una lista di piccole scelte. Le tue missioni sono pronte.",
+        "Respira. Poi guarda le missioni di oggi. Una alla volta basta.",
+        "Plin plin. Il sole sale e anch'io: le missioni aspettano un tuo gesto.",
+        "Forse la domanda non è se farle, ma da dove cominciare. Io direi da una piccola.",
+        "Buongiorno. Il tempo scorre come l'acqua: meglio dargli una direzione. Missioni?"
+      ],
+      "evening": [
+        "Plin. La sera è una buona domanda: hai fatto le tue missioni?",
+        "Il giorno si ritira come una marea. C'è ancora tempo per una missione.",
+        "Mi chiedo cosa porterai con te stanotte. Una missione fatta pesa pochissimo.",
+        "Plin. Una missione prima di dormire è come un pensiero gentile.",
+        "Il cielo si scurisce e le missioni sono ancora lì. Nessuna fretta, ma guardale.",
+        "A fine giornata, che cosa ti sembra importante? Magari una missione in sospeso.",
+        "Siediti un momento. Poi, se ti va, ne facciamo una insieme.",
+        "La sera ha un suo silenzio. Riempilo con una missione piccola.",
+        "Plin plin. Il giorno non è finito finché non lo decidi tu. Missioni?",
+        "Prima di chiudere gli occhi: c'è una missione che ti chiama piano piano?"
+      ],
+      "streak": [
+        "Plin. Una striscia di {n} giorni è un fiume: non lasciarlo seccare stasera.",
+        "{n} giorni di fila. Che cosa ti ha tenuto qui? Continua, forse lo scopri.",
+        "La tua striscia di {n} giorni rischia di evaporare. Una missione la salva.",
+        "{n} giorni sono una piccola eternità. Meritano una missione oggi.",
+        "Mi chiedo se saprai proteggere {n} giorni di striscia. Io credo di sì.",
+        "Plin. {n} giorni di costanza sono una goccia che scava la pietra. Continua.",
+        "Se la striscia di {n} giorni finisse stasera, che cosa resterebbe? Meglio non scoprirlo.",
+        "{n} giorni di fila: una bella risposta a una domanda difficile. Non interromperla.",
+        "Il fiume dei tuoi {n} giorni vuole arrivare al mare. Una missione e prosegue.",
+        "La striscia di {n} giorni è fragile come una bolla. Con una missione diventa solida."
+      ],
+      "comeback": [
+        "Plin. Sono passati dei giorni. Non è un rimprovero: è solo una domanda sul tuo ritorno.",
+        "Anche l'acqua si ferma, ogni tanto. Quando vuoi, ricominciamo da una missione.",
+        "Non c'è fretta nel ritorno. Le tue missioni aspettano, come uno stagno paziente.",
+        "Mi sono chiesta dove fossi. Ora mi chiedo quando torni. Una missione piccola basta.",
+        "Plin plin. La porta è aperta, la pozzanghera è calda.",
+        "Ricominciare è la parte più bella di ogni storia. Quando ti va, io ci sono.",
+        "Niente colpe. Solo una domanda gentile: ti va di tornare, anche solo per un minuto?",
+        "Il tempo passa e l'acqua scorre, ma io sono ancora qui con le tue missioni.",
+        "Se sei stanco, va bene. Se vuoi ripartire, comincia da una cosa minuscola.",
+        "Plin. Ti ho aspettato come una goccia aspetta la foglia. Torna quando vuoi."
+      ],
+      "weekly": [
+        "Una nuova settimana si apre. Le missioni settimanali sono le sue domande grandi.",
+        "Plin. Sette giorni davanti a te: quali missioni settimanali vuoi onorare?",
+        "Una settimana è una piccola vita. Dai un'occhiata alle missioni settimanali.",
+        "Mi chiedo come passerai questa settimana. Le missioni settimanali ti danno una traccia.",
+        "Le missioni settimanali sono come i sassi in un fiume: ti fanno attraversare.",
+        "Plin plin. È tempo di guardare le missioni settimanali, con calma.",
+        "La settimana scorre. Hai già pensato alle missioni settimanali?",
+        "Sette giorni, un solo respiro alla volta. Le missioni settimanali ti aspettano.",
+        "Che cosa vuoi costruire questa settimana? Le missioni settimanali sono un buon inizio.",
+        "Una settimana è lunga abbastanza per cambiare qualcosa. Controlla le missioni settimanali."
+      ],
+      "monthly": [
+        "Un mese è un lago intero. Le missioni mensili ti aspettano sulla riva.",
+        "Plin. Il mese passa lento e veloce insieme: guarda le missioni mensili.",
+        "Che cosa vuoi che sia vero alla fine del mese? Le missioni mensili lo dicono.",
+        "Le missioni mensili sono le domande più grandi, e anche le più belle.",
+        "Mi chiedo se hai già pensato alle missioni mensili. Io ci penso molto.",
+        "Il mese è una stagione piccola. Le missioni mensili la rendono tua.",
+        "Plin plin. Un mese di goccia in goccia: le missioni mensili aspettano.",
+        "A volte basta guardare lontano per capire dove andare. Missioni mensili?",
+        "Il mese avanza come un fiume tranquillo. Dai un'occhiata alle missioni mensili.",
+        "Un mese è un viaggio in barca a remi. Le missioni mensili sono i tuoi remi."
+      ],
+      "levelup": [
+        "Plin. Hai raggiunto un nuovo livello. Che cosa significa? Forse che stai crescendo.",
+        "Un livello in più: ottima risposta a una domanda che nemmeno avevo fatto.",
+        "Sei salito di livello. Io, intanto, mi sono commossa un po'. Plin.",
+        "Nuovo livello! L'acqua sale e tu con lei.",
+        "Un livello nuovo ti cambia, o forse ti rivela. Bel lavoro.",
+        "Plin plin! Un livello in più: festeggio come sa fare una slime, cioè tremando.",
+        "Hai guadagnato un livello. Ora la domanda è: che cosa farai con questa luce?",
+        "Livello nuovo. Non so spiegare perché sia bello, ma lo è.",
+        "Sei salito ancora. Il lago dentro di me ondeggia di gioia.",
+        "Un livello in più: la tua storia ha un capitolo nuovo, e l'hai scritto tu."
+      ]
+    },
+    "brace": {
+      "morning": [
+        "Sbuff! Buongiorno! Le missioni di oggi sono un tesoro da conquistare.",
+        "Sveglia, tesoro mio! Il sole è alto e la tana è pronta per le missioni.",
+        "Ho acceso la prima fiammella del giorno! Tu accendi la prima missione?",
+        "Ali al vento! Le missioni di oggi non si faranno da sole, ma si fanno bene.",
+        "Mattino di fuoco! Una missione e il tuo tesoro cresce subito.",
+        "Sbuffo di buongiorno! Dai, scegli la prima missione, io faccio il tifo.",
+        "Il tè è pronto (era una fiamma, ma ci siamo capiti). Missioni di oggi?",
+        "Ehi! Oggi collezioniamo monete: ogni missione fatta ne vale una.",
+        "La tana è già scaldata e la lista ti aspetta. Si comincia?",
+        "Buongiorno, compagno di volo! Che missione apre le ali oggi?"
+      ],
+      "evening": [
+        "Ho il fuoco acceso e le missioni ancora da fare. Ci pensiamo insieme?",
+        "Sera! Le stelle si accendono e il tuo tesoro aspetta ancora una moneta.",
+        "Sbuff, che giornata! Manca una missione prima di accoccolarci nella tana.",
+        "Fiammella della sera: una missione ancora e dormiamo contenti.",
+        "Il sole va a dormire ma io no: ti aspetto con le missioni rimaste.",
+        "Nella tana fa caldo. Fuori ci sono ancora missioni da portare a casa.",
+        "Ultimo giro di volo! Una missione e poi si riposa.",
+        "La luna sale e il tesoro brilla. Aggiungi un'ultima moneta?",
+        "Ho quasi finito di lucidare la lista. Tu hai finito le missioni?",
+        "Sera di draghi: una missione piccola vale una grande dormita."
+      ],
+      "streak": [
+        "Sbuff! La tua striscia di {n} giorni sta per spegnersi! Una missione e la riaccendi.",
+        "{n} giorni di fuoco! Non lasciare spegnere la fiamma stasera.",
+        "La striscia di {n} giorni è il mio tesoro preferito. Proteggila con una missione.",
+        "{n} giorni di fila! Se si interrompe, sbuffo tristezza per un mese.",
+        "Allarme fiamma: {n} giorni di striscia a rischio! Una missione e si salva tutto.",
+        "Che tesoro: {n} giorni di striscia. Non permettere che si raffreddi.",
+        "{n} giorni di fila fanno una montagna d'oro. Aggiungi una moneta stasera.",
+        "La fiammella dei tuoi {n} giorni trema. Una missione e torna forte.",
+        "Hai accumulato {n} giorni di striscia! Siamo quasi leggendari, non fermarti.",
+        "Stasera il fuoco dei tuoi {n} giorni vuole una missione. Dagli un po' di legna."
+      ],
+      "comeback": [
+        "Sbuff, ti aspetto! La tana è calda e le missioni sono ancora qui.",
+        "Mi mancavi! Ho lucidato il tuo tesoro mentre non c'eri.",
+        "Niente rimproveri, solo fiammelle di gioia quando torni. Una missione piccola e via.",
+        "La lista ti aspetta, io pure. Anche un dragone ogni tanto dorme troppo.",
+        "Ho guardato il cielo per tre giorni sperando di vederti tornare. Eccomi.",
+        "Il fuoco non si è spento: aspetta solo te. Torna quando vuoi.",
+        "Ehi, compagno! Una missione piccola e si riaccende tutto.",
+        "Ho tenuto in caldo il tuo posto. Non c'è fretta, ma ti aspetto.",
+        "Anche i draghi si prendono delle pause. Quando vuoi, riprendiamo il volo.",
+        "Sbuffo di nostalgia! Torna, bastano due minuti e un po' di coraggio."
+      ],
+      "weekly": [
+        "Nuova settimana! Le missioni settimanali sono tesori da cacciare.",
+        "Sbuff! Sette giorni di avventura: le missioni settimanali ti aspettano.",
+        "La settimana è un lungo volo. Guarda le missioni settimanali prima di decollare.",
+        "Ali spiegate: le missioni settimanali sono la rotta della settimana.",
+        "Una settimana intera da riempire di monete! Controlla le missioni settimanali.",
+        "Ho già segnato le missioni settimanali nella tana. Tu le hai viste?",
+        "Ehi, la settimana corre! Le missioni settimanali non si fanno da sole, ma si fanno bene.",
+        "Fiamme alte per la settimana: le missioni settimanali aspettano un tuo sì.",
+        "Una settimana si vince una moneta alla volta. Le missioni settimanali sono il bottino.",
+        "Il sole è alto e la settimana è lunga: dai un'occhiata alle missioni settimanali."
+      ],
+      "monthly": [
+        "Un mese intero! Le missioni mensili sono il tesoro grosso della tana.",
+        "Sbuff! Il mese passa in fretta: le missioni mensili meritano un'occhiata.",
+        "Le missioni mensili sono montagne d'oro da scalare. Pronto a volare?",
+        "Ho in serbo un posto per ogni missione mensile. Quali riempiamo?",
+        "Il mese è un volo lungo: guarda le missioni mensili prima di planare.",
+        "Fuoco e fiamme per il mese! Le missioni mensili ti aspettano.",
+        "Il tesoro del mese è lì che brilla: sono le missioni mensili.",
+        "Un mese a volte sembra un'eternità. Poi passa, e restano le missioni mensili fatte.",
+        "Le missioni mensili sono come le uova: ci vuole tempo, ma poi schiudono.",
+        "Sbuffo di mese nuovo! Dai un'occhiata alle missioni mensili, compagno."
+      ],
+      "levelup": [
+        "Sbuff! Livello nuovo! Sto facendo fiammelle di gioia.",
+        "Hai guadagnato un livello! Il tesoro brilla un po' di più.",
+        "Livello su! Ho dovuto spegnere una tenda, ma ne è valsa la pena.",
+        "Wow, nuovo livello! Le mie ali fremono dall'emozione.",
+        "Hai raggiunto un altro livello! Ti meriti una moneta d'oro, la prima della pila.",
+        "Un livello in più! Sbuffo di orgoglio in tutta la tana.",
+        "Livello nuovo! Se avessi le mani, ti farei l'applauso più rumoroso.",
+        "Che bel livello! Il fuoco della tua avventura ruggisce ancora più forte.",
+        "Sei salito di livello! Il drago più fiero della valle sono io, e tu il mio compagno.",
+        "Livello su, ali giù: oggi si festeggia!"
+      ]
     }
   }
 }

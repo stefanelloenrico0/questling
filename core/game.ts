@@ -24,6 +24,7 @@ import type {
   XpReason,
 } from './types'
 import { CHARACTER_IDS } from './types'
+import { canChooseHero, type HeroProgress } from './unlocks'
 
 export interface GameCtx {
   now: Date
@@ -283,8 +284,16 @@ export function reorderQuests(state: AppState, period: Period, orderedIds: reado
 }
 
 /** Cambiare eroe NON tocca XP, livello, streak o completamenti (D5). */
+/** Livello e record di streak, derivati dallo storico: servono agli sblocchi degli eroi. */
+export function heroProgress(state: AppState, now: Date): HeroProgress {
+  const today = dayKey(now, state.settings.dayStartHour)
+  return { level: levelFromXp(totalXp(state)).level, bestStreak: computeStreak(activeDays(state), today).best }
+}
+
 export function setCharacter(state: AppState, characterId: CharacterId, ctx: GameCtx): AppState {
   if (!state.profile) return state
+  // Un eroe ancora bloccato non si puo' scegliere (a meno che non sia gia' quello in uso).
+  if (!canChooseHero(characterId, state.profile.characterId, heroProgress(state, ctx.now))) return state
   return syncChapters({
     ...state,
     profile: { ...state.profile, characterId, updatedAt: stamp(ctx.now, state.profile.updatedAt) },

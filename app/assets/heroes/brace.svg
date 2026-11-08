@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-4 -24 262 304" role="img" aria-label="Brace, il draghetto">
+  <defs>
+    <linearGradient id="scale" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f2625a"/><stop offset="1" stop-color="#b22f42"/></linearGradient>
+    <linearGradient id="snout" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ff8a78"/><stop offset="1" stop-color="#e0504f"/></linearGradient>
+    <linearGradient id="belly" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffe3b0"/><stop offset="1" stop-color="#ffb066"/></linearGradient>
+    <linearGradient id="wing" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#a23d86"/><stop offset="1" stop-color="#5e2468"/></linearGradient>
+    <linearGradient id="flame" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#ff7a3a"/><stop offset="1" stop-color="#ffe08a"/></linearGradient>
+    <radialGradient id="fglow" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#ffb066" stop-opacity=".65"/><stop offset="1" stop-color="#ffb066" stop-opacity="0"/></radialGradient>
+  </defs>
+  <ellipse class="shadow" cx="120" cy="256" rx="76" ry="9" fill="#1a1c2c" opacity=".32"/>
+  <g class="char">
+    <!-- ali -->
+    <g class="sway">
+      <path d="M84 168 Q34 120 22 158 Q40 152 46 172 Q56 158 66 178 Q74 168 90 190 Z" fill="url(#wing)"/>
+      <path d="M84 168 Q40 128 28 156" stroke="#d98ad2" stroke-width="3" fill="none" stroke-linecap="round" opacity=".6"/>
+    </g>
+    <g class="sway">
+      <path d="M156 168 Q206 120 218 158 Q200 152 194 172 Q184 158 174 178 Q166 168 150 190 Z" fill="url(#wing)"/>
+      <path d="M156 168 Q200 128 212 156" stroke="#d98ad2" stroke-width="3" fill="none" stroke-linecap="round" opacity=".6"/>
+    </g>
+    <!-- coda con fiamma -->
+    <path d="M150 226 Q204 250 216 208 Q222 184 204 172 Q198 168 194 176 Q204 194 190 208 Q172 218 148 208 Z" fill="url(#scale)"/>
+    <path d="M196 212 L206 226 L186 224 Z M206 192 L220 198 L206 206 Z" fill="#ffcd75"/>
+    <circle class="glow" cx="204" cy="150" r="30" fill="url(#fglow)"/>
+    <g class="sway">
+      <path d="M204 176 Q186 154 204 124 Q208 148 226 156 Q230 172 204 176 Z" fill="url(#flame)"/>
+      <path d="M204 172 Q196 160 206 144 Q208 156 216 160 Q216 170 204 172 Z" fill="#fff1a8"/>
+    </g>
+    <!-- corpo -->
+    <ellipse cx="120" cy="204" rx="54" ry="56" fill="url(#scale)"/>
+    <ellipse cx="120" cy="212" rx="35" ry="45" fill="url(#belly)"/>
+    <path d="M90 196 Q120 206 150 196 M88 214 Q120 224 152 214 M92 232 Q120 241 148 232" stroke="#e8934f" stroke-width="3" fill="none" stroke-linecap="round" opacity=".7"/>
+    <!-- zampe -->
+    <ellipse cx="90" cy="250" rx="23" ry="12" fill="url(#scale)"/><ellipse cx="150" cy="250" rx="23" ry="12" fill="url(#scale)"/>
+    <circle cx="76" cy="254" r="3.6" fill="#ffe3b0"/><circle cx="88" cy="258" r="3.6" fill="#ffe3b0"/><circle cx="100" cy="257" r="3.6" fill="#ffe3b0"/>
+    <circle cx="140" cy="257" r="3.6" fill="#ffe3b0"/><circle cx="152" cy="258" r="3.6" fill="#ffe3b0"/><circle cx="164" cy="254" r="3.6" fill="#ffe3b0"/>
+    <!-- braccine -->
+    <ellipse cx="72" cy="202" rx="12" ry="19" fill="url(#scale)" transform="rotate(18 72 202)"/>
+    <ellipse cx="168" cy="202" rx="12" ry="19" fill="url(#scale)" transform="rotate(-18 168 202)"/>
+    <circle cx="66" cy="218" r="3.2" fill="#ffe3b0"/><circle cx="74" cy="221" r="3.2" fill="#ffe3b0"/>
+    <circle cx="174" cy="218" r="3.2" fill="#ffe3b0"/><circle cx="166" cy="221" r="3.2" fill="#ffe3b0"/>
+    <!-- corna e cresta -->
+    <path d="M88 78 Q72 48 60 36 Q92 46 108 72 Z" fill="#ffe3b0"/><path d="M88 78 Q76 56 66 42 Q84 52 96 72 Z" fill="#ffb066" opacity=".55"/>
+    <path d="M152 78 Q168 48 180 36 Q148 46 132 72 Z" fill="#ffe3b0"/><path d="M152 78 Q164 56 174 42 Q156 52 144 72 Z" fill="#ffb066" opacity=".55"/>
+    <path d="M106 68 L112 46 L120 66 L128 46 L134 68 Z" fill="#ffcd75"/>
+    <!-- testa -->
+    <ellipse cx="120" cy="114" rx="56" ry="48" fill="url(#scale)"/>
+    <ellipse cx="102" cy="90" rx="16" ry="9" fill="#fff" opacity=".22"/>
+    <ellipse cx="120" cy="136" rx="32" ry="21" fill="url(#snout)"/>
+    <ellipse cx="108" cy="130" rx="3.4" ry="4.4" fill="#7a1c2a"/><ellipse cx="132" cy="130" rx="3.4" ry="4.4" fill="#7a1c2a"/>
+    <ellipse cx="82" cy="130" rx="9" ry="6" fill="#ff9fb0" opacity=".55"/><ellipse cx="158" cy="130" rx="9" ry="6" fill="#ff9fb0" opacity=".55"/>
+    <g class="eye">
+      <ellipse cx="94" cy="108" rx="10" ry="12" fill="#1a1c2c"/><ellipse cx="146" cy="108" rx="10" ry="12" fill="#1a1c2c"/>
+      <circle cx="97" cy="103.6" r="3.6" fill="#fff"/><circle cx="149" cy="103.6" r="3.6" fill="#fff"/>
+      <circle cx="91" cy="113" r="1.7" fill="#fff" opacity=".8"/><circle cx="143" cy="113" r="1.7" fill="#fff" opacity=".8"/>
+    </g>
+    <path d="M82 92 Q94 86 106 92" stroke="#7a1c2a" stroke-width="3.6" fill="none" stroke-linecap="round"/>
+    <path d="M134 92 Q146 86 158 92" stroke="#7a1c2a" stroke-width="3.6" fill="none" stroke-linecap="round"/>
+    <path d="M106 146 Q120 156 134 146" stroke="#7a1c2a" stroke-width="3.4" fill="none" stroke-linecap="round"/>
+    <path d="M128 149 L131 156 L135 148 Z" fill="#fff"/>
+  </g>
+</svg>

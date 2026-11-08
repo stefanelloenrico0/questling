@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-4 -24 262 304" role="img" aria-label="Plin, la slime filosofa">
+  <defs>
+    <linearGradient id="slime" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#d2b4ff"/><stop offset=".55" stop-color="#9a6ef0"/><stop offset="1" stop-color="#6a42c8"/></linearGradient>
+    <linearGradient id="slimeD" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7d55d6" stop-opacity="0"/><stop offset="1" stop-color="#4a2e96" stop-opacity=".55"/></linearGradient>
+    <radialGradient id="idea" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#ffe08a" stop-opacity=".7"/><stop offset="1" stop-color="#ffe08a" stop-opacity="0"/></radialGradient>
+    <linearGradient id="paper" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff6d8"/><stop offset="1" stop-color="#e8cf98"/></linearGradient>
+  </defs>
+  <ellipse class="shadow" cx="120" cy="256" rx="82" ry="9" fill="#1a1c2c" opacity=".32"/>
+  <g class="char">
+    <!-- idea che brilla -->
+    <circle class="glow" cx="212" cy="62" r="30" fill="url(#idea)"/>
+    <circle cx="212" cy="60" r="11" fill="#ffe08a" stroke="#e0933f" stroke-width="2"/>
+    <rect x="206" y="69" width="12" height="8" rx="2.5" fill="#c9a064"/>
+    <path d="M208 56 Q212 52 216 56" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" opacity=".8"/>
+    <circle cx="190" cy="92" r="5" fill="#f4f0ff" opacity=".9"/><circle cx="176" cy="108" r="3" fill="#f4f0ff" opacity=".8"/>
+    <!-- corpo -->
+    <path d="M42 250 Q26 230 36 188 Q48 128 100 98 Q120 88 140 98 Q192 128 204 188 Q214 230 198 250 Q120 268 42 250 Z" fill="url(#slime)"/>
+    <path d="M42 250 Q26 230 36 188 Q48 128 100 98 Q120 88 140 98 Q192 128 204 188 Q214 230 198 250 Q120 268 42 250 Z" fill="url(#slimeD)"/>
+    <path d="M120 92 Q112 66 134 56 Q126 72 134 94 Z" fill="#9a6ef0"/>
+    <path d="M120 92 Q112 66 134 56 Q124 70 124 90 Z" fill="#d2b4ff" opacity=".7"/>
+    <!-- riflessi -->
+    <ellipse cx="82" cy="136" rx="20" ry="30" fill="#fff" opacity=".38" transform="rotate(28 82 136)"/>
+    <ellipse cx="62" cy="182" rx="5" ry="10" fill="#fff" opacity=".4" transform="rotate(14 62 182)"/>
+    <circle cx="170" cy="214" r="9" fill="#fff" opacity=".28"/><circle cx="76" cy="228" r="5" fill="#fff" opacity=".3"/><circle cx="152" cy="232" r="4" fill="#fff" opacity=".3"/>
+    <!-- braccino con pergamena -->
+    <path d="M196 196 Q214 196 214 214 Q214 228 200 224 Q192 220 190 208 Z" fill="#9a6ef0"/>
+    <g transform="rotate(14 206 214)">
+      <rect x="192" y="186" width="26" height="42" rx="5" fill="url(#paper)" stroke="#c9a064" stroke-width="2"/>
+      <path d="M197 196 L213 196 M197 204 L213 204 M197 212 L208 212" stroke="#a6683f" stroke-width="2.2" stroke-linecap="round" opacity=".7"/>
+      <rect x="189" y="184" width="32" height="7" rx="3.5" fill="#c9a064"/><rect x="189" y="223" width="32" height="7" rx="3.5" fill="#c9a064"/>
+    </g>
+    <path d="M42 200 Q26 204 28 220 Q30 232 44 226 Q52 222 52 210 Z" fill="#9a6ef0"/>
+    <!-- occhiali tondi -->
+    <circle cx="94" cy="160" r="21" fill="#fff" opacity=".16"/><circle cx="146" cy="160" r="21" fill="#fff" opacity=".16"/>
+    <circle cx="94" cy="160" r="21" fill="none" stroke="#ffcd75" stroke-width="4"/><circle cx="146" cy="160" r="21" fill="none" stroke="#ffcd75" stroke-width="4"/>
+    <path d="M115 158 Q120 154 125 158" stroke="#ffcd75" stroke-width="4" fill="none" stroke-linecap="round"/>
+    <path d="M73 156 L58 150 M167 156 L182 150" stroke="#ffcd75" stroke-width="4" stroke-linecap="round"/>
+    <g class="eye">
+      <ellipse cx="96" cy="162" rx="9.5" ry="11.5" fill="#1a1c2c"/><ellipse cx="144" cy="162" rx="9.5" ry="11.5" fill="#1a1c2c"/>
+      <circle cx="99" cy="157.6" r="3.4" fill="#fff"/><circle cx="147" cy="157.6" r="3.4" fill="#fff"/>
+      <circle cx="93" cy="167" r="1.6" fill="#fff" opacity=".8"/><circle cx="141" cy="167" r="1.6" fill="#fff" opacity=".8"/>
+    </g>
+    <!-- sopracciglia pensose -->
+    <path d="M78 132 Q94 124 110 132" stroke="#4a2e96" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+    <path d="M130 124 Q146 114 162 126" stroke="#4a2e96" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+    <ellipse cx="72" cy="188" rx="9" ry="6" fill="#ff9fc2" opacity=".5"/><ellipse cx="168" cy="188" rx="9" ry="6" fill="#ff9fc2" opacity=".5"/>
+    <path d="M108 190 Q120 200 132 190" stroke="#3a2478" stroke-width="3.6" fill="none" stroke-linecap="round"/>
+  </g>
+</svg>

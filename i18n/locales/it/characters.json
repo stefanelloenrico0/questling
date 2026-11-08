@@ -254,5 +254,101 @@
       "done": "Il ferro è battuto per oggi. Bel lavoro, apprendista."
     },
     "permission": "Posso mandarti un richiamo dalla forgia? Uno la mattina, uno la sera, due al massimo. Brontolo solo un po' se la striscia rischia di raffreddarsi. Ti voglio bene lo stesso."
+  },
+  "salmastro": {
+    "name": "Capitan Salmastro",
+    "archetype": "Pirata dal cuore tenero",
+    "appearance": "Tricorno con teschio e piuma, benda sull'occhio, barba castana, pappagallo sulla spalla e cannocchiale d'ottone.",
+    "voice": "Burbero e marinaresco, scherza con il mare. Ti chiama «mozzo» e giura per tutti i fiordi.",
+    "titles": {
+      "t1": "Mozzo",
+      "t2": "Marinaio",
+      "t3": "Nostromo",
+      "t4": "Capitano",
+      "t5": "Leggenda dei Sette Mari"
+    },
+    "chapters": {
+      "c1": "Capitan Salmastro ha solcato i Sette Mari con una nave, una ciurma e un pappagallo che conosceva tutte le sue bugie. Poi ha scoperto che il tesoro più difficile da trovare è una giornata ben spesa. Ha messo la mappa in tasca e ha iniziato dal ponte: una missione alla volta.",
+      "c2": "Il pappagallo ha imparato a ripetere la lista delle missioni. Salmastro finge di offendersi, ma la tiene appesa all'albero maestro. Dice che la bussola indica il nord, ma la lista indica la rotta.",
+      "c3": "Una tempesta ha spazzato il ponte per tre notti. Salmastro non ha perso la rotta: ha tenuto il timone e ogni sera ha fatto la sua piccola missione. All'alba il mare era piatto e la ciurma applaudiva.",
+      "c4": "In una baia dimenticata ha trovato un forziere. Dentro, una sola moneta e un biglietto: bravo, ora torna a bordo. Salmastro ha riso per un'ora. Poi ha lucidato la moneta e l'ha fissata sul cappello.",
+      "c5": "I porti dei Sette Mari raccontano che esiste un capitano che non ha mai saltato una marea. Salmastro nega, poi sorride. La leggenda dice che il tesoro vero sei tu, mozzo. Lui aggiunge: e una cambusa piena."
+    },
+    "quests": {
+      "q1": "Lucidare il ponte (riordinare 10 min)",
+      "q2": "Bere un bicchiere d'acqua",
+      "q3": "Leggere la mappa del giorno",
+      "q4": "Riempire la cambusa (spesa)"
+    },
+    "lines": {
+      "morning": "Su la bandiera, mozzo! Il ponte non si lucida da solo.",
+      "evening": "Cala la sera. Una missione prima di buttare l'ancora?",
+      "done": "Tutto fatto! Il ponte brilla più della mia moneta."
+    },
+    "permission": "Posso mandarti un messaggio in bottiglia? Uno la mattina, uno la sera, non di più. Ti avviso anche se la tua striscia rischia di affondare. Parola di capitano."
+  },
+  "plin": {
+    "name": "Plin",
+    "archetype": "Slime filosofa",
+    "appearance": "Gelatina lilla lucida, occhialini tondi dorati, una lampadina di idee e una pergamena sottobraccio.",
+    "voice": "Calma, fa domande invece di dare ordini e filosofeggia su tutto. Ogni tanto dice «plin».",
+    "titles": {
+      "t1": "Gocciolina",
+      "t2": "Pozzanghera",
+      "t3": "Stagno Pensante",
+      "t4": "Lago Saggio",
+      "t5": "Oceano di Saggezza"
+    },
+    "chapters": {
+      "c1": "Plin era una goccia caduta da una foglia, e ha impiegato tre giorni a chiedersi perché. Poi ha scoperto che le domande sono belle, ma le missioni di ogni giorno portano le risposte. Ha messo gli occhiali e ha cominciato a rotolare.",
+      "c2": "Plin ha imparato a restare ferma in una pozzanghera per un'ora intera. Dice che è un esercizio di pazienza. Una rana le ha detto che stava solo riposando. Plin ci sta ancora pensando.",
+      "c3": "Un filosofo di passaggio ha chiesto a Plin quale fosse il senso della vita. Plin ha risposto: «Oggi, almeno, la lista». Il filosofo ha preso appunti. Plin ha preso un altro po' di sole.",
+      "c4": "Dopo la grande pioggia Plin è diventata uno stagno, poi un piccolo lago. È rimasta la stessa: curiosa, lucida, un po' appiccicosa. Le persone vengono a farle domande e se ne vanno con una missione.",
+      "c5": "Il lago di Plin è diventato un oceano di saggezza. Lei, a dire il vero, dubita ancora di tutto. Ma ha scoperto che si può dubitare e fare le cose, allo stesso tempo."
+    },
+    "quests": {
+      "q1": "Dieci minuti di silenzio",
+      "q2": "Scrivere un pensiero",
+      "q3": "Una camminata lenta",
+      "q4": "Fare una domanda grande"
+    },
+    "lines": {
+      "morning": "Plin. Buongiorno. Cosa vale la pena fare oggi? Magari le missioni.",
+      "evening": "Plin. La sera è una buona domanda: hai fatto le tue missioni?",
+      "done": "Fatto tutto. Plin. Forse è questo il senso, o quasi."
+    },
+    "permission": "Posso mandarti un pensiero ogni tanto? Uno la mattina e uno la sera, non di più. Ti avviso anche se la striscia rischia di evaporare. Plin."
+  },
+  "brace": {
+    "name": "Brace",
+    "archetype": "Draghetto fiammeggiante",
+    "appearance": "Scaglie rosse, pancia color miele, piccole ali e una fiammella sulla punta della coda.",
+    "voice": "Entusiasta ed esagerato, sbuffa fiammelle quando si emoziona. Ama i tesori e le cose luccicanti, anche i tuoi progressi.",
+    "titles": {
+      "t1": "Cucciolo di Drago",
+      "t2": "Draghetto",
+      "t3": "Drago Giovane",
+      "t4": "Drago Maestoso",
+      "t5": "Drago Antico"
+    },
+    "chapters": {
+      "c1": "Brace è uscito dall'uovo con un solo desiderio: fare un tesoro. Ha scoperto che i tesori veri si costruiscono con piccole cose ripetute, e che ogni missione è una moneta. Ora ha una tana e una lista, e non sa quale delle due sia più preziosa.",
+      "c2": "Brace ha imparato a sputare fiammelle quasi dritte. Ha bruciato soltanto due tende, una sedia e il suo orgoglio. La lista delle missioni, per fortuna, è ignifuga. Gliel'ha detto un fabbro.",
+      "c3": "Un cavaliere è arrivato alla tana per sfidarlo. Brace gli ha offerto del tè e gli ha mostrato la lista. Il cavaliere se n'è andato con una missione nuova e un amico.",
+      "c4": "Le ali di Brace sono diventate abbastanza grandi per planare. Ha sorvolato la valle e ha visto, per la prima volta, la sua tana da lontano. Era piccola, ma dentro c'era tutto. Ha pianto una fiammella.",
+      "c5": "Gli anziani dei draghi lo chiamano Drago Antico, anche se è ancora giovane. Brace sbuffa, brucia un angolo del tappeto e promette di non farlo più. Il tesoro più grande è sempre la lista, ben lucidata."
+    },
+    "quests": {
+      "q1": "Riordinare la tana (10 min)",
+      "q2": "Allenare le ali (movimento)",
+      "q3": "Accendere un'idea nuova",
+      "q4": "Aggiungere una moneta al tesoro"
+    },
+    "lines": {
+      "morning": "Sbuff! Buongiorno! Le missioni di oggi sono un tesoro da conquistare!",
+      "evening": "Ho il fuoco acceso e le missioni ancora da fare. Ci pensiamo insieme?",
+      "done": "Tutte fatte! Sbuffo di gioia, ma stavolta niente tende bruciate."
+    },
+    "permission": "Posso mandarti un messaggio fumante? Uno al mattino e uno alla sera, non di più. Ti avviso anche se la striscia rischia di spegnersi. Prometto di non bruciare niente."
   }
 }

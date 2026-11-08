@@ -60,4 +60,22 @@ export const SUGGESTED_QUESTS: Record<CharacterId, readonly SuggestedQuest[]> = 
     { key: 'q3', icon: 'drop', period: 'daily', difficulty: 'easy', target: 1 },
     { key: 'q4', icon: 'dumbbell', period: 'weekly', difficulty: 'medium', target: 1 },
   ],
+  salmastro: [
+    { key: 'q1', icon: 'home', period: 'daily', difficulty: 'easy', target: 1 },
+    { key: 'q2', icon: 'drop', period: 'daily', difficulty: 'easy', target: 1 },
+    { key: 'q3', icon: 'book', period: 'daily', difficulty: 'medium', target: 1 },
+    { key: 'q4', icon: 'coin', period: 'weekly', difficulty: 'medium', target: 1 },
+  ],
+  plin: [
+    { key: 'q1', icon: 'moon', period: 'daily', difficulty: 'medium', target: 1 },
+    { key: 'q2', icon: 'pencil', period: 'daily', difficulty: 'easy', target: 1 },
+    { key: 'q3', icon: 'shoe', period: 'daily', difficulty: 'easy', target: 1 },
+    { key: 'q4', icon: 'brain', period: 'weekly', difficulty: 'medium', target: 1 },
+  ],
+  brace: [
+    { key: 'q1', icon: 'home', period: 'daily', difficulty: 'easy', target: 1 },
+    { key: 'q2', icon: 'dumbbell', period: 'daily', difficulty: 'medium', target: 1 },
+    { key: 'q3', icon: 'star', period: 'daily', difficulty: 'easy', target: 1 },
+    { key: 'q4', icon: 'coin', period: 'weekly', difficulty: 'medium', target: 1 },
+  ],
 }

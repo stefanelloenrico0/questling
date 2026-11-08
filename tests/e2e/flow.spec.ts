@@ -26,6 +26,29 @@ async function onboard(page: Page, name = 'Enrico', notify: 'notify-skip' | 'not
 
 const xpText = (page: Page) => page.getByTestId('xp-text')
 
+/** XP totali minimi per un livello (stessa curva di core/levels.ts). */
+const xpForLevel = (level: number): number => {
+  let sum = 0
+  for (let l = 1; l < level; l++) sum += Math.round(50 * l ** 1.1)
+  return sum
+}
+
+/** Aggiunge XP allo stato salvato PRIMA che l'app lo carichi, poi ricarica. */
+async function boostXp(page: Page, xp: number): Promise<void> {
+  await page.addInitScript((delta) => {
+    const key = 'CapacitorStorage.questling:v1:state'
+    const raw = localStorage.getItem(key)
+    if (!raw || localStorage.getItem('boosted')) return
+    const state = JSON.parse(raw)
+    state.xpEvents.push({ id: 'E2EBOOST', at: new Date().toISOString(), delta, reason: 'adjustment' })
+    localStorage.setItem(key, JSON.stringify(state))
+    localStorage.setItem('boosted', '1')
+  }, xp)
+  await page.reload()
+  await page.getByRole('link', { name: 'Oggi' }).click()
+  await expect(page.getByTestId('page-today')).toBeVisible()
+}
+
 test.describe('MVP: primo avvio -> Oggi, senza account', () => {
   test('onboarding completo con quiz, poi completa/annulla e persistenza', async ({ page }) => {
     await onboard(page)
@@ -100,6 +123,42 @@ test.describe('MVP: primo avvio -> Oggi, senza account', () => {
     await page.getByRole('link', { name: 'Eroe' }).click()
     await expect(page.getByTestId('chapter-1')).toContainText('scudiero più sbadato')
     await expect(page.getByTestId('chapter-2')).toContainText('Si sblocca al livello 5')
+  })
+
+  test('eroi sbloccabili: misteriosi all\'inizio, scegliibili dal livello 10', async ({ page }) => {
+    await onboard(page)
+    await page.getByRole('link', { name: 'Eroe' }).click()
+    await page.getByTestId('hero-change').click()
+    const salmastro = page.getByTestId('hero-card-salmastro')
+    await expect(salmastro).toBeDisabled()
+    await expect(salmastro).toContainText('Eroe misterioso')
+    await expect(salmastro).toContainText('livello 10 (ora 1)')
+    await expect(page.getByTestId('hero-card-plin')).toContainText('Streak record di 30 giorni')
+    await expect(page.getByTestId('hero-card-brace')).toContainText('livello 20')
+    await page.getByRole('button', { name: 'Annulla' }).click()
+
+    await boostXp(page, xpForLevel(10))
+    await page.getByRole('link', { name: 'Eroe' }).click()
+    await page.getByTestId('hero-change').click()
+    await expect(page.getByTestId('hero-card-salmastro')).toBeEnabled()
+    await expect(page.getByTestId('hero-card-brace')).toBeDisabled()
+    await page.getByTestId('hero-card-salmastro').click()
+    await page.getByTestId('hero-change-confirm').click()
+    await expect(page.getByRole('heading', { name: 'Capitan Salmastro', level: 1 })).toBeVisible()
+  })
+
+  test('raggiungere il livello 10 annuncia il nuovo eroe dopo il level-up e permette di sceglierlo', async ({ page }) => {
+    await onboard(page)
+    await boostXp(page, xpForLevel(10) - 5) // a 5 XP dal livello 10
+    await page.getByRole('checkbox', { name: /Allenamento/ }).click() // +10 XP
+    await expect(page.getByTestId('levelup')).toBeVisible()
+    await expect(page.getByTestId('hero-unlock')).toBeHidden() // prima il level-up
+    await page.getByRole('button', { name: 'Avanti' }).click()
+    await expect(page.getByTestId('hero-unlock')).toBeVisible()
+    await expect(page.getByTestId('hero-unlock')).toContainText('Capitan Salmastro')
+    await page.getByTestId('hero-unlock-choose').click()
+    await expect(page.getByTestId('hero-name')).toHaveText('Capitan Salmastro')
+    await expect(page.getByTestId('hero-unlock')).toBeHidden()
   })
 
   test('tetto missioni: dopo 3 mensili il pulsante e\' disabilitato con messaggio chiaro', async ({ page }) => {

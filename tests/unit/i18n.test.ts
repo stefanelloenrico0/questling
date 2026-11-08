@@ -70,7 +70,7 @@ describe('i18n: nessuna chiave mancante', () => {
       for (const k of keys) if (typeof lookup(k) !== 'string' || (lookup(k) as string).length < 3) missing.push(k)
     }
     expect(missing).toEqual([])
-    expect(CHARACTERS).toHaveLength(8)
+    expect(CHARACTERS).toHaveLength(CHARACTER_IDS.length)
   })
 
   it('il quiz ha testo e 4 risposte per ognuna delle 8 domande, e i testi si fondono con quelli di ui', () => {

@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { quizOutcome, rankCharacters, scoreQuiz, shuffle, type Axes } from '../../core/quiz'
-import { CHARACTERS } from '../../data/characters'
+import { QUIZ_CHARACTERS as CHARACTERS } from '../../data/characters'
 import { QUIZ } from '../../data/quiz'
 import type { Axis, CharacterId } from '../../core/types'
 

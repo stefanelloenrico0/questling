@@ -17,8 +17,9 @@ const resetMessage = ref<string | null>(null)
 const deleteOpen = ref(false)
 const deletePassword = ref('')
 
-// Apple e' obbligatorio su iOS se si offre Google (linea guida 4.8); su Android non serve e richiederebbe il flusso web.
-const showApple = Capacitor.getPlatform() !== 'android'
+// Accesso con Apple: SPENTO finche' non e' configurato (Apple Developer + provider in Firebase, vedi docs/firebase-setup.md §5).
+// Si accende con NUXT_PUBLIC_APPLE_SIGN_IN=true. Obbligatorio su iOS se si offre Google (linea guida 4.8); su Android non serve.
+const showApple = String(useRuntimeConfig().public.appleSignIn) === 'true' && Capacitor.getPlatform() !== 'android'
 
 const modeOptions = computed(() => [
   { value: 'signin', label: t('account.modeSignIn') },

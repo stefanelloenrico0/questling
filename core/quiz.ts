@@ -1,4 +1,4 @@
-import { CHARACTERS, type CharacterData } from '../data/characters'
+import { QUIZ_CHARACTERS, type QuizCharacter } from '../data/characters'
 import { QUIZ, type QuizQuestion } from '../data/quiz'
 import type { Axis, CharacterId } from './types'
 
@@ -38,7 +38,7 @@ export function scoreQuiz(answers: readonly number[], quiz: readonly QuizQuestio
   return axes
 }
 
-export function rankCharacters(axes: Axes, characters: readonly CharacterData[] = CHARACTERS): RankedCharacter[] {
+export function rankCharacters(axes: Axes, characters: readonly QuizCharacter[] = QUIZ_CHARACTERS): RankedCharacter[] {
   const total = Math.abs(axes.O) + Math.abs(axes.M) + Math.abs(axes.S) + Math.abs(axes.A)
   return characters
     .map((c, index) => {
