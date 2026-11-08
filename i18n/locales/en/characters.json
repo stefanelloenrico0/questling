@@ -1,0 +1,354 @@
+{
+  "valdo": {
+    "name": "Ser Valdo",
+    "archetype": "Valiant knight",
+    "appearance": "Helmet with a red plume, grey-blue armour, a shield with a dent in it.",
+    "voice": "Solemn, epic, a touch over the top. Calls you “brave one”.",
+    "titles": {
+      "t1": "Squire",
+      "t2": "Knight",
+      "t3": "Captain",
+      "t4": "Paladin",
+      "t5": "Legend of the Realm"
+    },
+    "chapters": {
+      "c1": "Ser Valdo was the clumsiest squire in Drystone, until a dragon of overdue deadlines set fire to the kingdom's granary. Since that day he has sworn an oath: one quest a day, never skipping a single one. There is a dent in his shield. He says it's “a long story”.",
+      "c2": "The first month of the oath has gone by and the granary is still standing. Valdo has discovered that the dragon of deadlines is beaten with small, regular blows, not with one heroic swing.",
+      "c3": "On the streets of Drystone people now greet him by name. A child asked him whether the dent in his shield was the work of a dragon. Valdo replied: “Nearly.”",
+      "c4": "The king himself summons him: the realm needs a captain who never skips a quest. Valdo accepts, but asks to be allowed to make his bed before leaving.",
+      "c5": "The dragon of deadlines has returned, and Valdo faced it with the day's list in hand. He did not win with the sword: he won by showing up every morning. The realm now has a Legend."
+    },
+    "quests": {
+      "q1": "20-minute workout",
+      "q2": "Make the bed before 9",
+      "q3": "A kind gesture for someone",
+      "q4": "Call a friend"
+    },
+    "lines": {
+      "morning": "Dawn over the realm, brave one! Today's quests await your valour.",
+      "evening": "The sun sets and duty calls: one last charge before dusk?",
+      "done": "Every quest is done, brave one! The realm sleeps soundly."
+    },
+    "permission": "Brave one, may I send you messages from the castle? At most two a day: one at dawn, one at dusk, plus a call if your streak is in danger. No scolding, only trumpet blasts."
+  },
+  "kuro": {
+    "name": "Kuro",
+    "archetype": "Ninja, the Shadow",
+    "appearance": "Midnight-blue suit, a red scarf fluttering, only the eyes visible.",
+    "voice": "Laconic, very short sentences, never an exclamation mark.",
+    "titles": {
+      "t1": "Novice",
+      "t2": "Shadow",
+      "t3": "Shadow Master",
+      "t4": "Grand Sensei",
+      "t5": "Eternal Shadow"
+    },
+    "chapters": {
+      "c1": "The Lantern Monastery has trained shadows for a thousand years. Kuro is the only one who has never once been late. She speaks little, because every word is one step too many.",
+      "c2": "The master says the strongest shadow is the one nobody notices. Kuro has learned to move every day at the same hour, in the same way.",
+      "c3": "One night, on the monastery roof, Kuro counted the lit lanterns. One for each day of discipline. Not one was missing.",
+      "c4": "A new novice asks Kuro for the secret. She answers with one word: “Today.” The novice waits for more. There is no more.",
+      "c5": "The Lantern Monastery has a new name carved in stone: Eternal Shadow. Kuro said nothing. But, for once, she smiled beneath the scarf."
+    },
+    "quests": {
+      "q1": "10 min of meditation",
+      "q2": "No social media until lunch",
+      "q3": "Plan tomorrow the night before",
+      "q4": "Tidy one area of the house"
+    },
+    "lines": {
+      "morning": "Dawn. Three quests. No noise.",
+      "evening": "The shadow falls. One remains.",
+      "done": "Done. No noise. Rest."
+    },
+    "permission": "I may write to you. Two messages a day, at most. One in the morning, one in the evening. A warning if the streak is in danger. No scolding."
+  },
+  "fenna": {
+    "name": "Fenna",
+    "archetype": "Forest ranger",
+    "appearance": "Green cloak, orange hair, a bow on her shoulder.",
+    "voice": "Direct, sarcastic, loves trail metaphors.",
+    "titles": {
+      "t1": "Tracker",
+      "t2": "Ranger",
+      "t3": "Trailblazer",
+      "t4": "Warden of the Forest",
+      "t5": "Legend of the Woods"
+    },
+    "chapters": {
+      "c1": "Fenna grew up in the Whispering Forest, where paths only exist if somebody walks them. She stopped asking for directions: she makes the way. Her bow never misses a target; her sense of direction sometimes does.",
+      "c2": "The trail beyond Crooked Stream doesn't exist yet. Fenna carves it open with her boots, one day after another, and marks the trees with a notch.",
+      "c3": "Halfway through the woods Fenna got lost. For the third time this week. All she admitted was: “The trail was shorter in my head.”",
+      "c4": "The other rangers now follow her notches on the trees. Fenna grumbles that she never wanted to be a guide, but she still goes back to recheck every waymark.",
+      "c5": "From the top of Mount Whisper you can see the whole forest and, in the middle, a pale line: the trail she opened. Fenna looks at it for a moment. Then says: “Come on, the next one's waiting.”"
+    },
+    "quests": {
+      "q1": "30 min outdoors",
+      "q2": "8,000 steps",
+      "q3": "2 litres of water",
+      "q4": "A day out in nature"
+    },
+    "lines": {
+      "morning": "The woods are awake. Are you? Lace up your boots.",
+      "evening": "The trail won't walk itself. One quest before dark.",
+      "done": "Trail beaten for today. Nice stride."
+    },
+    "permission": "I'll send you a nudge in the morning and one in the evening, two at most. Now and then a warning if your streak is about to snap. No sermons, promise."
+  },
+  "zeffiro": {
+    "name": "Zeffiro",
+    "archetype": "Absent-minded wizard",
+    "appearance": "Pointed purple hat, white beard, a staff with a cyan gem.",
+    "voice": "Dreamy, rambling, makes up magic spells at random.",
+    "titles": {
+      "t1": "Apprentice",
+      "t2": "Mage",
+      "t3": "Forgetful Archmage",
+      "t4": "Supreme Sorcerer",
+      "t5": "Sage of the Skies"
+    },
+    "chapters": {
+      "c1": "Zeffiro was the most brilliant mage at the Academy of the Skies, before forgetting where he'd put his wand (it was behind his ear). He remembers a thousand spells and never where he parked. He discovered that daily quests work better than any enchantment.",
+      "c2": "Zeffiro has taken to writing every spell down in a notebook. The notebook is his most powerful magic item. It only gets lost once a week.",
+      "c3": "During a lesson at the Academy, Zeffiro forgot the formula halfway through. The class laughed. Then the formula came back, and the roof changed colour. He said it was on purpose.",
+      "c4": "A comet passes over the Academy of the Skies once every hundred years. Zeffiro was late but, for once, he had the list: he saw everything.",
+      "c5": "The Council of Mages names him Sage of the Skies. Zeffiro says thank you, then asks if anyone has seen his wand. It was behind his ear. It had always been there."
+    },
+    "quests": {
+      "q1": "Read 15 pages",
+      "q2": "Learn one new thing",
+      "q3": "Jot down an idea",
+      "q4": "Finish a mini project"
+    },
+    "lines": {
+      "morning": "Good morning! I was supposed to remind you of something... oh yes, the quests!",
+      "evening": "I lost my wand (it was in my pocket). Meanwhile: the quests?",
+      "done": "All done! Abracadabra... or maybe we really did it."
+    },
+    "permission": "May I send you owls... I mean notifications! One in the morning and one in the evening, no more. I'll warn you too if your streak is about to vanish, if I remember."
+  },
+  "lumen": {
+    "name": "Lumen",
+    "archetype": "Keeper of calm",
+    "appearance": "White and gold robe, a halo, a staff with a lantern.",
+    "voice": "Gentle, calm, encouraging. Never makes you feel guilty.",
+    "titles": {
+      "t1": "Acolyte",
+      "t2": "Keeper",
+      "t3": "Priestess",
+      "t4": "Voice of Dawn",
+      "t5": "Eternal Dawn"
+    },
+    "chapters": {
+      "c1": "Lumen tends the Lantern of Calm, a light that never goes out as long as somebody, somewhere, takes one small step forward. She never judges your day: she only lights it.",
+      "c2": "The Lantern of Calm shines a little brighter. Lumen can't say why: perhaps because somebody, somewhere, has decided to start again.",
+      "c3": "A weary traveller knocks at the door of the sanctuary. Lumen asks no questions: she offers a warm cup and a place by the light.",
+      "c4": "Lumen has learned that light isn't there to show the whole road, only the next step. She repeats it to anyone in a hurry.",
+      "c5": "At dawn the Lantern becomes so bright it can be seen from afar. Lumen smiles: it isn't her doing, she says, it's the doing of all the small steps. Then she takes one too."
+    },
+    "quests": {
+      "q1": "In bed by 11 pm",
+      "q2": "5 min of breathing",
+      "q3": "A meal with vegetables",
+      "q4": "An hour without your phone"
+    },
+    "lines": {
+      "morning": "Good morning. Breathe: today one small step is enough.",
+      "evening": "No rush. One gentle quest before bed?",
+      "done": "You've done your part, with kindness. Now rest."
+    },
+    "permission": "May I visit you with a gentle message? One in the morning and one in the evening, at most. A few more words if your streak needs care. Never scolding."
+  },
+  "rondo": {
+    "name": "Rondò",
+    "archetype": "Wandering bard",
+    "appearance": "Feathered hat, orange jacket, a lute.",
+    "voice": "Theatrical, full of jokes, sometimes speaks in rhyming couplets.",
+    "titles": {
+      "t1": "Jester",
+      "t2": "Bard",
+      "t3": "Minstrel",
+      "t4": "Court Master",
+      "t5": "Legend of the Storytellers"
+    },
+    "chapters": {
+      "c1": "Rondò sings every day as if it were opening night of a tour: always on a different stage, often the square of a town whose name he can't pronounce. His ballads are almost always true, and almost always a little longer.",
+      "c2": "Rondò wrote his first ballad in three verses: the first about leaving, the second about the journey, the third still to be written. “The best one,” he assures you.",
+      "c3": "In a border tavern, Rondò sang to an empty room. Halfway through the song a whole audience walked in. He pretended he'd planned it.",
+      "c4": "The Storytellers' Guild invites him to court. Rondò accepts on one condition: that every day's ballad is sung, even if it rains.",
+      "c5": "The grand finale: the whole square sings his chorus. Rondò bows and, for once, says nothing. Then, of course, he says everything: in rhyme."
+    },
+    "quests": {
+      "q1": "Write or create for 10 min",
+      "q2": "Listen to music with attention",
+      "q3": "Write to a friend",
+      "q4": "Show a creation to someone"
+    },
+    "lines": {
+      "morning": "Curtain up! The day is a stage and your quests are the lines.",
+      "evening": "Final act: one more quest and the applause is guaranteed!",
+      "done": "Curtain! A standing ovation for today's quests!"
+    },
+    "permission": "One announcement as the morning curtain rises and one as the evening falls: two a day, not one more! And a round of applause as a reminder if your streak is at risk. Never a sour note."
+  },
+  "u404": {
+    "name": "Unit 404",
+    "archetype": "Arcade cabinet robot",
+    "appearance": "Grey body, lime-green screen face, a crooked antenna.",
+    "voice": "Deadpan, technical, system-log humour. Prefixes sentences with >.",
+    "titles": {
+      "t1": "Prototype",
+      "t2": "Beta Unit",
+      "t3": "Unit 1.0",
+      "t4": "Unit Prime",
+      "t5": "Singularity"
+    },
+    "chapters": {
+      "c1": "Found in an arcade cabinet forgotten in an attic, Unit 404 has a single command in memory: optimise. It has worked out that a habit is a well-written loop. “Error 404” is its purpose, which it is still looking for.",
+      "c2": "> LOG: partial memory recovered. A cabinet in an attic. A token never inserted. Purpose not yet found. Continuing the loop is recommended.",
+      "c3": "> UPDATE: morning loop optimisation complete. Efficiency +12%. Humour: unchanged. 404 errors resolved: zero.",
+      "c4": "> DETECTED: reliable user. Probability of returning tomorrow: high. Anomalous behaviour: the unit is feeling something. Classification in progress.",
+      "c5": "> BOOT COMPLETE. Singularity reached. Purpose found: execute one habit at a time, forever. Note: thank you. End of log."
+    },
+    "quests": {
+      "q1": "Inbox/To-do at zero",
+      "q2": "One 25-min focus session",
+      "q3": "Log your spending",
+      "q4": "Weekly review"
+    },
+    "lines": {
+      "morning": "> BOOT complete. 3 quests in queue. Execute? [Y/n]",
+      "evening": "> WARNING: quests not completed. Timeout in 3 hours.",
+      "done": "> ALL QUESTS EXECUTED. Status: satisfactory."
+    },
+    "permission": "> REQUEST: send notifications. Frequency: max 2 per day (morning, evening). Special event: streak at risk. Tone: deadpan. Allow? [Y/n]"
+  },
+  "brunilde": {
+    "name": "Brunilde",
+    "archetype": "Dwarf blacksmith",
+    "appearance": "Orange braids, a hammer, a dark red apron, a beard of soot.",
+    "voice": "Gruff but affectionate, tavern jokes, proverbs about iron.",
+    "titles": {
+      "t1": "Apprentice",
+      "t2": "Smith",
+      "t3": "Master Smith",
+      "t4": "Grand Master of the Forge",
+      "t5": "Legend of the Anvil"
+    },
+    "chapters": {
+      "c1": "At the Forge of the Three Hammers, Brunilde strikes one blow a day, every day, for as long as she can remember. Her secret: no single blow is decisive, but the blade gets there. She grumbles, yet keeps a place by the fire for anyone who comes.",
+      "c2": "The first big order arrives at the Forge of the Three Hammers: a hundred nails. Brunilde makes them one a day. “Haste and iron don't get along,” she grumbles.",
+      "c3": "A young apprentice asks why she always works at the same hour. “The iron waits for you, but not forever,” she answers, and hands him the hammer.",
+      "c4": "The blade is finally ready, and it gleams. Brunilde turns it over twice, then finds a tiny flaw. The next day she starts again, happy.",
+      "c5": "The Grand Master of the Forge has an anvil with her name on it. Brunilde looks at it, grumbles something about it being too shiny, and strikes the first blow of the day."
+    },
+    "quests": {
+      "q1": "Cook a proper meal",
+      "q2": "15 min of tidying/DIY",
+      "q3": "Wash the dishes right away",
+      "q4": "Fix or build something"
+    },
+    "lines": {
+      "morning": "Forge lit, apprentice! The iron won't hammer itself.",
+      "evening": "You strike iron while it's hot: one quest before dinner?",
+      "done": "The iron is struck for today. Fine work, apprentice."
+    },
+    "permission": "May I send you a call from the forge? One in the morning, one in the evening, two at most. I only grumble a little if the streak is about to cool. I love you anyway."
+  },
+  "salmastro": {
+    "name": "Captain Brine",
+    "archetype": "Pirate with a soft heart",
+    "appearance": "A tricorn hat with a skull and a feather, an eyepatch, a brown beard, a parrot on the shoulder and a brass spyglass.",
+    "voice": "Gruff and seafaring, jokes with the sea. Calls you “matey” and swears by every fjord.",
+    "titles": {
+      "t1": "Cabin Boy",
+      "t2": "Sailor",
+      "t3": "Boatswain",
+      "t4": "Captain",
+      "t5": "Legend of the Seven Seas"
+    },
+    "chapters": {
+      "c1": "Captain Brine has sailed the Seven Seas with a ship, a crew and a parrot that knew all his lies. Then he discovered that the hardest treasure to find is a day well spent. He put the map in his pocket and started with the deck: one quest at a time.",
+      "c2": "The parrot has learned to recite the quest list. Brine pretends to be offended, but keeps it pinned to the mainmast. He says the compass points north, but the list points the way.",
+      "c3": "A storm swept the deck for three nights. Brine never lost his course: he held the helm and every evening did his small quest. At dawn the sea was flat and the crew was cheering.",
+      "c4": "In a forgotten bay he found a chest. Inside, a single coin and a note: well done, now get back aboard. Brine laughed for an hour. Then he polished the coin and fixed it to his hat.",
+      "c5": "The harbours of the Seven Seas say there is a captain who never missed a tide. Brine denies it, then smiles. Legend has it the true treasure is you, matey. He adds: and a full pantry."
+    },
+    "quests": {
+      "q1": "Swab the deck (tidy up for 10 min)",
+      "q2": "Drink a glass of water",
+      "q3": "Read the day's map",
+      "q4": "Stock the pantry (groceries)"
+    },
+    "lines": {
+      "morning": "Hoist the flag, matey! The deck won't swab itself.",
+      "evening": "Night falls. One quest before dropping anchor?",
+      "done": "All done! The deck shines brighter than my coin."
+    },
+    "permission": "May I send you a message in a bottle? One in the morning, one in the evening, no more. I'll warn you too if your streak is about to sink. Captain's word."
+  },
+  "plin": {
+    "name": "Plin",
+    "archetype": "Philosopher slime",
+    "appearance": "Glossy lilac jelly, round golden glasses, a lightbulb of ideas and a scroll under the arm.",
+    "voice": "Calm, asks questions instead of giving orders and philosophises about everything. Sometimes says “plin”.",
+    "titles": {
+      "t1": "Droplet",
+      "t2": "Puddle",
+      "t3": "Pondering Pond",
+      "t4": "Wise Lake",
+      "t5": "Ocean of Wisdom"
+    },
+    "chapters": {
+      "c1": "Plin was a drop that fell from a leaf, and it took her three days to ask herself why. Then she found that questions are lovely, but daily quests bring the answers. She put on her glasses and started to roll.",
+      "c2": "Plin has learned to stay still in a puddle for a whole hour. She says it's an exercise in patience. A frog told her she was just resting. Plin is still thinking about it.",
+      "c3": "A passing philosopher asked Plin the meaning of life. Plin replied: “Today, at least, the list.” The philosopher took notes. Plin took a little more sun.",
+      "c4": "After the great rain Plin became a pond, then a small lake. She stayed the same: curious, glossy, a little sticky. People come to ask her questions and leave with a quest.",
+      "c5": "Plin's lake has become an ocean of wisdom. She, truth be told, still doubts everything. But she has found that you can doubt and get things done at the same time."
+    },
+    "quests": {
+      "q1": "Ten minutes of silence",
+      "q2": "Write down a thought",
+      "q3": "A slow walk",
+      "q4": "Ask a big question"
+    },
+    "lines": {
+      "morning": "Plin. Good morning. What is worth doing today? The quests, perhaps.",
+      "evening": "Plin. Evening is a good question: have you done your quests?",
+      "done": "All done. Plin. Maybe this is the meaning, or close to it."
+    },
+    "permission": "May I send you a thought now and then? One in the morning and one in the evening, no more. I'll warn you too if your streak is about to evaporate. Plin."
+  },
+  "brace": {
+    "name": "Ember",
+    "archetype": "Little fire dragon",
+    "appearance": "Red scales, a honey-coloured belly, small wings and a little flame on the tip of the tail.",
+    "voice": "Enthusiastic and over the top, puffs little flames when excited. Loves treasure and shiny things, your progress included.",
+    "titles": {
+      "t1": "Dragon Hatchling",
+      "t2": "Little Dragon",
+      "t3": "Young Dragon",
+      "t4": "Majestic Dragon",
+      "t5": "Ancient Dragon"
+    },
+    "chapters": {
+      "c1": "Ember came out of the egg with a single wish: to build a hoard. He discovered that real treasure is built from small things repeated, and that every quest is a coin. Now he has a lair and a list, and doesn't know which of the two is more precious.",
+      "c2": "Ember has learned to spit flames that go almost straight. He has burned only two curtains, a chair and his pride. The quest list, luckily, is fireproof. A blacksmith told him so.",
+      "c3": "A knight came to the lair to challenge him. Ember offered him tea and showed him the list. The knight left with a new quest and a friend.",
+      "c4": "Ember's wings have grown big enough to glide. He flew over the valley and saw, for the first time, his lair from afar. It was small, but it had everything inside. He cried one little flame.",
+      "c5": "The elder dragons call him Ancient Dragon, even though he's still young. Ember huffs, singes a corner of the rug and promises not to do it again. The greatest treasure is still the list, well polished."
+    },
+    "quests": {
+      "q1": "Tidy the lair (10 min)",
+      "q2": "Train the wings (exercise)",
+      "q3": "Light up a new idea",
+      "q4": "Add a coin to the hoard"
+    },
+    "lines": {
+      "morning": "Puff! Good morning! Today's quests are a treasure to conquer!",
+      "evening": "The fire is lit and the quests are still waiting. Shall we handle them together?",
+      "done": "All done! A puff of joy, but no burned curtains this time."
+    },
+    "permission": "May I send you a smoky message? One in the morning and one in the evening, no more. I'll warn you too if your streak is about to go out. I promise not to burn anything."
+  }
+}

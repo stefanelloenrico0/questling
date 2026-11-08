@@ -1,7 +1,11 @@
 <script setup lang="ts">
-import policy from '../../i18n/locales/it/privacy.json'
+import privacyIt from '../../i18n/locales/it/privacy.json'
+import privacyEn from '../../i18n/locales/en/privacy.json'
 
 definePageMeta({ layout: 'blank' })
+
+const { locale } = useI18n()
+const policy = computed(() => (locale.value === 'en' ? privacyEn : privacyIt))
 </script>
 
 <template>

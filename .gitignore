@@ -17,6 +17,7 @@ playwright-report
 test-results
 coverage
 public/privacy.html
+public/privacy-en.html
 .firebase-emulators-*.json
 .firebase
 firebase-debug.log

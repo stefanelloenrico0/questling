@@ -6,7 +6,7 @@ import { DEFAULT_ICON } from '../../data/icons'
 import { MAX_NAME_LENGTH, MAX_TITLE_LENGTH, type QuestInput } from '../../core/game'
 import type { CharacterId, Period } from '../../core/types'
 import { QUEST_CAPS } from '../../core/xp'
-import { notificationTexts } from '../../data/notification-texts'
+import { textsFor } from '../../data/notification-texts'
 
 definePageMeta({ layout: 'blank' })
 
@@ -219,6 +219,7 @@ async function finish(): Promise<void> {
         <HeroArt v-for="c in QUIZ_CHARACTERS" :key="c.id" :character="c.id" :size="64" />
       </div>
       <UiButton data-testid="splash-start" @click="step = 'intro'">{{ t('onboarding.intro.start') }}</UiButton>
+      <LanguageSwitch />
       <NuxtLink v-if="account.available" to="/account" class="underline" data-testid="splash-account">{{ t('account.restoreHint') }}</NuxtLink>
     </section>
 
@@ -335,7 +336,7 @@ async function finish(): Promise<void> {
       </UiCard>
       <UiCard>
         <h3 class="font-display mb-2 text-xs">{{ t('notify.preview') }}</h3>
-        <p class="notify-sample" data-testid="notify-sample">{{ notificationTexts.variants(characterId, 'morning')[0] }}</p>
+        <p class="notify-sample" data-testid="notify-sample">{{ textsFor(game.settings.locale).variants(characterId, 'morning')[0] }}</p>
         <h3 class="font-display mt-4 mb-2 text-xs">{{ t('notify.what') }}</h3>
         <ul class="flex list-disc flex-col gap-1 pl-5">
           <li>{{ t('notify.list1') }}</li>

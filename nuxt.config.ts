@@ -17,7 +17,10 @@ export default defineNuxtConfig({
     defaultLocale: 'it',
     strategy: 'no_prefix',
     detectBrowserLanguage: false,
-    locales: [{ code: 'it', language: 'it-IT', name: 'Italiano', file: 'it.ts' }],
+    locales: [
+      { code: 'it', language: 'it-IT', name: 'Italiano', file: 'it.ts' },
+      { code: 'en', language: 'en-GB', name: 'English', file: 'en.ts' },
+    ],
     langDir: 'locales',
   },
 

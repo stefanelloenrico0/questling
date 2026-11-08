@@ -6,10 +6,15 @@ import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..')
-const policy = JSON.parse(readFileSync(join(ROOT, 'i18n', 'locales', 'it', 'privacy.json'), 'utf8'))
+// Un file per lingua: privacy.html (italiano) e privacy-en.html (inglese)
+const TARGETS = [
+  { lang: 'it', file: 'privacy.html' },
+  { lang: 'en', file: 'privacy-en.html' },
+]
 
 const esc = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')
 
+function render(policy, lang) {
 const sections = policy.sections
   .map(
     (s) =>
@@ -18,7 +23,7 @@ const sections = policy.sections
   .join('\n')
 
 const html = `<!doctype html>
-<html lang="it">
+<html lang="${lang}">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -44,6 +49,12 @@ ${sections}
 </html>
 `
 
+return html
+}
+
 mkdirSync(join(ROOT, 'public'), { recursive: true })
-writeFileSync(join(ROOT, 'public', 'privacy.html'), html)
-console.log('public/privacy.html generato')
+for (const { lang, file } of TARGETS) {
+  const policy = JSON.parse(readFileSync(join(ROOT, 'i18n', 'locales', lang, 'privacy.json'), 'utf8'))
+  writeFileSync(join(ROOT, 'public', file), render(policy, lang))
+  console.log(`public/${file} generato`)
+}

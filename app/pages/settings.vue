@@ -8,6 +8,7 @@ const { t } = useI18n()
 const hero = useHero()
 const toast = useUiToast()
 const config = useRuntimeConfig()
+const localeTag = useLocaleTag()
 
 const name = ref(game.profile?.displayName ?? '')
 const fileInput = ref<HTMLInputElement | null>(null)
@@ -136,7 +137,7 @@ const summaryRows = computed(() => {
     [t('settings.importSummary.quests'), s.activeQuests],
     [t('settings.importSummary.completions'), s.completions],
   ]
-  if (s.exportedAt) rows.push([t('settings.importSummary.exportedAt'), new Date(s.exportedAt).toLocaleString('it-IT')])
+  if (s.exportedAt) rows.push([t('settings.importSummary.exportedAt'), new Date(s.exportedAt).toLocaleString(localeTag.value)])
   return rows
 })
 </script>
@@ -163,6 +164,12 @@ const summaryRows = computed(() => {
       <p v-if="account.user" class="mb-2" data-testid="settings-account-email">{{ t('account.card.signedInAs', { email: account.user.email ?? '' }) }}</p>
       <p v-else class="mb-3 text-[var(--text-soft)]">{{ account.available ? t('account.card.body') : t('account.unavailable') }}</p>
       <UiButton variant="secondary" data-testid="settings-account-link" @click="navigateTo('/account')">{{ t('account.card.manage') }}</UiButton>
+    </UiCard>
+
+    <UiCard data-testid="settings-language">
+      <h2 class="font-display mb-3 text-xs">{{ t('settings.language') }}</h2>
+      <LanguageSwitch />
+      <p class="mt-3 text-[var(--text-soft)]">{{ t('settings.languageHint') }}</p>
     </UiCard>
 
     <UiCard>

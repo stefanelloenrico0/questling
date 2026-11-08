@@ -435,3 +435,72 @@ test.describe('MVP: primo avvio -> Oggi, senza account', () => {
     expect(errors).toEqual([])
   })
 })
+
+test.describe('Inglese', () => {
+  test.use({ locale: 'en-US' })
+
+  test('il primo avvio segue la lingua del dispositivo: onboarding e Oggi in inglese; il cambio lingua resta salvato', async ({ page }) => {
+    await page.goto('/')
+    await expect(page.getByTestId('splash-start')).toHaveText('Let\'s begin')
+    await expect(page.locator('html')).toHaveAttribute('lang', 'en')
+    await page.getByTestId('splash-start').click()
+    await page.getByTestId('intro-skip').click()
+    await expect(page.getByTestId('quiz-progress')).toHaveText('Question 1 of 8')
+    for (const a of VALDO_ANSWERS) await page.getByTestId(`quiz-answer-${a}`).click()
+    await expect(page.getByTestId('reveal-name')).toHaveText('Ser Valdo')
+    await expect(page.getByTestId('reveal-affinity')).toHaveText('100% match')
+    await page.getByTestId('reveal-confirm').click()
+    await page.getByTestId('name-input').fill('Alex')
+    await page.getByTestId('name-next').click()
+    await page.getByTestId('focus-next').click()
+    await expect(page.getByTestId('suggested-item')).toHaveCount(4)
+    await expect(page.getByText('Suggested by Ser Valdo')).toBeVisible()
+    await page.getByTestId('onboarding-finish').click()
+    await page.getByTestId('rhythm-next').click()
+    await expect(page.getByTestId('notify-voice')).toContainText('Brave one')
+    await expect(page.getByTestId('notify-sample')).toContainText('Dawn over the realm')
+    await page.getByTestId('notify-skip').click()
+    await expect(page.getByTestId('ready-title')).toHaveText('All set, Alex!')
+    await page.getByTestId('ready-start').click()
+
+    await expect(page.getByTestId('hero-name')).toHaveText('Ser Valdo')
+    await expect(page.getByTestId('level-line')).toContainText('Lv 1 · Squire')
+    await expect(page.getByRole('checkbox', { name: /Make the bed before 9/ })).toBeVisible()
+    await expect(page.getByRole('link', { name: 'Today' })).toBeVisible()
+
+    // cambio lingua dalle impostazioni: tutto passa all'italiano e resta cosi' dopo il ricaricamento
+    await page.getByRole('link', { name: 'More' }).click()
+    await expect(page.getByRole('radio', { name: 'English' })).toHaveAttribute('aria-checked', 'true')
+    await page.getByRole('radio', { name: 'Italiano' }).click()
+    await expect(page.getByRole('link', { name: 'Oggi' })).toBeVisible()
+    await expect(page.locator('html')).toHaveAttribute('lang', 'it')
+    await page.reload()
+    await expect(page.getByRole('link', { name: 'Oggi' })).toBeVisible()
+    await page.getByRole('link', { name: 'Oggi' }).click()
+    // l'eroe parla italiano; le missioni gia' create sono dati dell'utente e non si traducono
+    await expect(page.getByTestId('level-line')).toContainText('Lv 1 · Scudiero')
+    await expect(page.getByRole('checkbox', { name: /Make the bed before 9/ })).toBeVisible()
+
+    // ... e di nuovo in inglese
+    await page.getByRole('link', { name: 'Altro' }).click()
+    await page.getByRole('radio', { name: 'English' }).click()
+    await expect(page.getByRole('link', { name: 'Today' })).toBeVisible()
+  })
+
+  test('privacy in inglese: pagina in-app e pagina statica generata', async ({ page, request }) => {
+    await page.goto('/#/privacy')
+    await expect(page.getByRole('heading', { name: 'Privacy policy', level: 1 })).toBeVisible()
+    const res = await request.get('/privacy-en.html')
+    expect(res.ok()).toBe(true)
+    expect(await res.text()).toContain('<html lang="en">')
+  })
+})
+
+test('lingua sconosciuta del dispositivo: si parte in italiano', async ({ browser }) => {
+  const ctx = await browser.newContext({ locale: 'fr-FR' })
+  const page = await ctx.newPage()
+  await page.goto('/')
+  await expect(page.getByTestId('splash-start')).toHaveText('Cominciamo')
+  await expect(page.locator('html')).toHaveAttribute('lang', 'it')
+  await ctx.close()
+})

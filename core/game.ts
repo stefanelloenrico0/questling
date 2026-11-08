@@ -24,6 +24,7 @@ import type {
   XpReason,
 } from './types'
 import { CHARACTER_IDS } from './types'
+import { isLocale, type Locale } from './locale'
 import { canChooseHero, type HeroProgress } from './unlocks'
 
 export interface GameCtx {
@@ -341,6 +342,7 @@ export function completeOnboarding(state: AppState, input: OnboardingInput, ctx:
 }
 
 export interface SettingsPatch {
+  locale?: Locale
   dayStartHour?: number
   sound?: boolean
   haptics?: boolean
@@ -350,14 +352,17 @@ export interface SettingsPatch {
 const HHMM = /^([01]\d|2[0-3]):[0-5]\d$/
 
 export function updateSettings(state: AppState, patch: SettingsPatch): AppState {
-  const { notifications, ...rest } = patch
+  const { notifications, locale, ...rest } = patch
   const dayStartHour =
     rest.dayStartHour === undefined ? state.settings.dayStartHour : Math.min(6, Math.max(0, Math.round(rest.dayStartHour)))
   const next = { ...state.settings.notifications, ...notifications }
   // Orari non validi vengono ignorati (restano quelli precedenti).
   if (!HHMM.test(next.morningTime)) next.morningTime = state.settings.notifications.morningTime
   if (!HHMM.test(next.eveningTime)) next.eveningTime = state.settings.notifications.eveningTime
-  return { ...state, settings: { ...state.settings, ...rest, dayStartHour, notifications: next } }
+  return {
+    ...state,
+    settings: { ...state.settings, ...rest, locale: locale !== undefined && isLocale(locale) ? locale : state.settings.locale, dayStartHour, notifications: next },
+  }
 }
 
 /** Segna l'apertura/ritorno in primo piano (serve ai promemoria di "ritorno"). */

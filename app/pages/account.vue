@@ -8,6 +8,7 @@ definePageMeta({ layout: 'blank' })
 const account = useAccountStore()
 const game = useGameStore()
 const { t } = useI18n()
+const localeTag = useLocaleTag()
 const toast = useUiToast()
 
 const mode = ref<'signin' | 'signup'>('signin')
@@ -36,7 +37,7 @@ const usesPassword = computed(() => account.user?.providers[0] === 'password')
 const statusText = computed(() => t(`sync.status.${account.syncStatus}`))
 const lastSync = computed(() =>
   account.lastSyncAt
-    ? t('sync.last', { time: new Date(account.lastSyncAt).toLocaleString('it-IT', { dateStyle: 'short', timeStyle: 'short' }) })
+    ? t('sync.last', { time: new Date(account.lastSyncAt).toLocaleString(localeTag.value, { dateStyle: 'short', timeStyle: 'short' }) })
     : t('sync.never'),
 )
 const errorText = computed(() => (account.authError ? t(`account.errors.${account.authError}`) : null))

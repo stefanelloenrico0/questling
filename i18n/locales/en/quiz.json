@@ -1,0 +1,58 @@
+{
+  "q1": {
+    "text": "Saturday morning, nothing planned. How does your day start?",
+    "a0": "I already have a list with times",
+    "a1": "I have a rough idea, then I'll see",
+    "a2": "I wake up and decide on the spot",
+    "a3": "Wherever the wind takes me"
+  },
+  "q2": {
+    "text": "You're given a free hour. You use it to…",
+    "a0": "learn something new",
+    "a1": "do a puzzle or play a strategy game",
+    "a2": "go for a walk or a bike ride",
+    "a3": "work out until I sweat"
+  },
+  "q3": {
+    "text": "The perfect evening is…",
+    "a0": "a big, joyful mess with lots of friends",
+    "a1": "dinner with 3–4 people",
+    "a2": "with just one person",
+    "a3": "me, the couch and my projects"
+  },
+  "q4": {
+    "text": "Someone suggests bungee jumping.",
+    "a0": "First in line!",
+    "a1": "I'm in, but I'll scream",
+    "a2": "I need a day to think about it",
+    "a3": "I've already weighed the risks: no thanks"
+  },
+  "q5": {
+    "text": "Your desk (or your backpack) is…",
+    "a0": "a place for everything",
+    "a1": "pretty tidy",
+    "a2": "creative chaos, but I know where everything is",
+    "a3": "a black hole full of mysterious objects"
+  },
+  "q6": {
+    "text": "Faced with a problem…",
+    "a0": "I stop and think it through calmly",
+    "a1": "I look for information and advice first",
+    "a2": "I try things until one works",
+    "a3": "I tackle it head-on and figure it out later"
+  },
+  "q7": {
+    "text": "When you set yourself a goal…",
+    "a0": "I tell everyone, so I can't give up",
+    "a1": "I tell one friend",
+    "a2": "I keep it to myself until it's going well",
+    "a3": "nobody will know until it's done"
+  },
+  "q8": {
+    "text": "New video game: how do you start?",
+    "a0": "Hardest difficulty, you learn by dying",
+    "a1": "Normal, no tutorial",
+    "a2": "I read the guide first",
+    "a3": "Easy: I'm here for the story"
+  }
+}

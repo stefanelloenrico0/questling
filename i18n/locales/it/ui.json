@@ -316,7 +316,9 @@
     "sound": "Suoni",
     "soundHint": "Effetti sintetizzati, nessun file audio.",
     "haptics": "Vibrazione",
-    "hapticsHint": "Solo sul telefono."
+    "hapticsHint": "Solo sul telefono.",
+    "language": "Lingua",
+    "languageHint": "Cambia anche la lingua dell'eroe e dei suoi messaggi."
   },
   "a11y": {
     "done": "Completata",

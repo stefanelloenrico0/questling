@@ -3,12 +3,13 @@ import type { Heatmap, HeatCell } from '../../core/history'
 
 defineProps<{ heatmap: Heatmap }>()
 const { t } = useI18n()
+const localeTag = useLocaleTag()
 
 const dayLabels = [1, 2, 3, 4, 5, 6, 7]
 
 function label(cell: HeatCell): string {
   const [y, m, d] = cell.day.split('-').map(Number) as [number, number, number]
-  const date = new Date(y, m - 1, d).toLocaleDateString('it-IT', { day: 'numeric', month: 'long' })
+  const date = new Date(y, m - 1, d).toLocaleDateString(localeTag.value, { day: 'numeric', month: 'long' })
   const text = t('stats.cellLabel', { date, count: cell.count })
   return cell.today ? `${text} (${t('stats.today')})` : text
 }

@@ -1,6 +1,6 @@
 import { Capacitor } from '@capacitor/core'
 import { LocalNotifications, type PermissionStatus } from '@capacitor/local-notifications'
-import { notificationChannel, notificationTexts } from '../../data/notification-texts'
+import { channelFor, textsFor } from '../../data/notification-texts'
 import { planNotifications, type PlannedNotification } from '../../core/notifications-plan'
 
 export type ReminderPermission = 'granted' | 'denied' | 'prompt' | 'unsupported'
@@ -17,7 +17,7 @@ function mapPermission(display: PermissionStatus['display']): ReminderPermission
 // Stato di modulo: l'adapter e' un singleton (una sola coda di riprogrammazioni per app).
 let queue: Promise<unknown> = Promise.resolve()
 let lastSignature: string | null = null
-let channelReady = false
+let channelLocale: string | null = null
 let listenerReady = false
 
 /**
@@ -38,15 +38,17 @@ export function useNotifications() {
   }
 
   async function ensureChannel(): Promise<void> {
-    if (channelReady || Capacitor.getPlatform() !== 'android') return
+    const locale = game.settings.locale
+    if (channelLocale === locale || Capacitor.getPlatform() !== 'android') return
+    // stesso id: se cambia la lingua Android aggiorna nome e descrizione del canale
     await LocalNotifications.createChannel({
       id: CHANNEL_ID,
-      name: notificationChannel.name,
-      description: notificationChannel.description,
+      name: channelFor(locale).name,
+      description: channelFor(locale).description,
       importance: 3, // default: suono, nessun pop-up invadente
       visibility: 1,
     })
-    channelReady = true
+    channelLocale = locale
   }
 
   async function cancelAll(): Promise<void> {
@@ -55,7 +57,7 @@ export function useNotifications() {
   }
 
   async function run(force: boolean): Promise<PlannedNotification[]> {
-    const plan = planNotifications({ state: game.state, now: new Date(), texts: notificationTexts })
+    const plan = planNotifications({ state: game.state, now: new Date(), texts: textsFor(game.settings.locale) })
     if (!isNative()) {
       console.info(`[notifiche] no-op sul web: ${plan.length} notifiche pianificate (non programmate)`)
       return plan

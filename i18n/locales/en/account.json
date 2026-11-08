@@ -1,0 +1,89 @@
+{
+  "account": {
+    "title": "Account",
+    "card": {
+      "title": "Account and sync",
+      "body": "Optional: sign in to have your data on several devices and kept safe. The app works great without one too.",
+      "manage": "Manage account",
+      "signedInAs": "Signed in as {email}"
+    },
+    "unavailable": "Accounts are not enabled in this version of the app. Everything works locally, on your device.",
+    "intro": "Sign in to find your data on another device and keep it safe. Without an account everything stays on this device only.",
+    "mode": "Sign in or sign up",
+    "modeSignIn": "Sign in",
+    "modeSignUp": "Sign up",
+    "email": "Email",
+    "password": "Password",
+    "passwordHint": "At least 6 characters.",
+    "submitSignIn": "Sign in",
+    "submitSignUp": "Create account",
+    "forgot": "Forgot your password?",
+    "resetSent": "If an account exists with this email, we've sent you a link to reset the password.",
+    "resetNeedsEmail": "Enter your email first.",
+    "orWith": "or",
+    "google": "Continue with Google",
+    "apple": "Continue with Apple",
+    "privacyLink": "Privacy policy",
+    "loading": "One moment…",
+    "signedInTitle": "You're signed in",
+    "provider": "Signed in with {provider}",
+    "providers": {
+      "password": "email and password",
+      "google": "Google",
+      "apple": "Apple"
+    },
+    "signOut": "Sign out",
+    "signOutNote": "Your data stays on this device.",
+    "dangerTitle": "Danger zone",
+    "delete": {
+      "button": "Delete account",
+      "title": "Delete the account?",
+      "body": "This deletes your account and all your cloud data. It cannot be undone. Data on this device stays: you can delete it separately in Settings.",
+      "passwordLabel": "Confirm with your password",
+      "socialNote": "For security you'll be asked to sign in again.",
+      "confirm": "Delete permanently",
+      "done": "Account deleted."
+    },
+    "errors": {
+      "invalid-credentials": "Incorrect email or password.",
+      "email-in-use": "An account with this email already exists.",
+      "weak-password": "The password is too weak: use at least 6 characters.",
+      "invalid-email": "The email doesn't look valid.",
+      "user-disabled": "This account has been disabled.",
+      "network": "No connection. Try again when you're online.",
+      "too-many-requests": "Too many attempts. Try again in a few minutes.",
+      "cancelled": "Sign-in cancelled.",
+      "requires-recent-login": "For security, please confirm your identity again.",
+      "account-exists-with-other-provider": "An account with this email already exists, created with a different sign-in method.",
+      "unknown": "Something went wrong. Try again."
+    },
+    "restoreHint": "Already have an account? Sign in to get your data back."
+  },
+  "sync": {
+    "title": "Sync",
+    "status": {
+      "idle": "Synced",
+      "syncing": "Syncing…",
+      "offline": "Offline: it will sync again as soon as the network is back.",
+      "error": "Sync failed."
+    },
+    "last": "Last sync: {time}",
+    "never": "Not synced yet",
+    "now": "Sync now",
+    "merge": {
+      "title": "Merge the data?",
+      "body": "This account already has cloud data and so does this device. We merge them without deleting anything: here is what happens.",
+      "otherAccount": "Careful: this device was linked to another account. By merging, the data of the two accounts will be mixed.",
+      "colThis": "Only here",
+      "colCloud": "Only in the cloud",
+      "colBoth": "In both",
+      "quests": "Quests",
+      "completions": "Completions",
+      "events": "XP events",
+      "corrections": "XP will be recalculated for {n} items present on several devices, so nothing counts twice.",
+      "backupNote": "Before merging I keep a copy of this device's data.",
+      "confirm": "Merge the data",
+      "cancel": "Cancel and leave"
+    }
+  }
+}

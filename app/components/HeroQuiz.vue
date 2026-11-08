@@ -7,6 +7,7 @@ import type { CharacterId } from '../../core/types'
 const emit = defineEmits<{ done: [payload: { answers: number[]; characterId: CharacterId }] }>()
 const { t } = useI18n()
 const hero = useHero()
+const localeTag = useLocaleTag()
 const accentOverride = useAccentOverride()
 
 const step = ref<'quiz' | 'reveal'>('quiz')
@@ -53,7 +54,7 @@ const affinities = computed(() => {
   return map
 })
 const tieNames = computed(() =>
-  new Intl.ListFormat('it', { style: 'long', type: 'conjunction' }).format(
+  new Intl.ListFormat(localeTag.value, { style: 'long', type: 'conjunction' }).format(
     (outcome.value?.finalists ?? []).map((r) => hero.name(r.id)),
   ),
 )

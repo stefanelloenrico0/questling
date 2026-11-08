@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import { levelUpLine } from '../../data/notification-texts'
+import type { Locale } from '../../core/locale'
 
 const game = useGameStore()
-const { t } = useI18n()
+const { t, locale } = useI18n()
 const hero = useHero()
 const fx = useFeedback()
 
@@ -38,7 +39,7 @@ watch(
         {{ t('levelUp.newTitle', { title: hero.tierTitle(character.id, info.tier) }) }}
       </p>
       <p v-if="info.chapter" class="text-center">{{ t('levelUp.chapterUnlocked', { n: info.chapter }) }}</p>
-      <p class="levelup-line" data-testid="levelup-line">{{ levelUpLine(character.id, info.to) }}</p>
+      <p class="levelup-line" data-testid="levelup-line">{{ levelUpLine(character.id, info.to, locale as Locale) }}</p>
     </div>
     <template #actions>
       <UiButton @click="game.dismissLevelUp()">{{ t('levelUp.cta') }}</UiButton>
