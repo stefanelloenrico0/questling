@@ -23,3 +23,8 @@ public/privacy-en.html
 firebase-debug.log
 firestore-debug.log
 .output-cloud
+
+# Skill installate dagli strumenti (Higgsfield ecc.): locali, non fanno parte dell app
+.agents/
+.claude/skills/
+skills-lock.json
