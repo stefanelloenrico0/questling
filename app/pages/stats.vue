@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { PALETTE } from '../../data/icons'
 import { ACHIEVEMENTS } from '../../data/achievements'
 import { achievementsProgress, buildHeatmap, periodTotals } from '../../core/history'
 
@@ -16,16 +17,13 @@ const stats = computed(() => game.stats)
 
 <template>
   <div class="flex flex-col gap-6" data-testid="page-stats">
-    <h1 class="font-display text-sm">{{ t('stats.title') }}</h1>
+    <PageHeader :title="t('stats.title')" :sub="t('stats.summary')" />
 
-    <section class="flex flex-col gap-3">
-      <h2 class="font-display text-xs">{{ t('stats.summary') }}</h2>
-      <div class="flex flex-wrap">
-        <StatChip :label="t('stats.streak')" :value="stats.streak.current" />
-        <StatChip :label="t('stats.bestStreak')" :value="stats.streak.best" />
-        <StatChip :label="t('stats.level')" :value="stats.level.level" />
-        <StatChip :label="t('stats.totalXp')" :value="stats.totalXp" />
-      </div>
+    <section class="grid grid-cols-2 gap-2.5">
+      <StatChip icon="flame" :color="PALETTE.orange" :label="t('stats.streak')" :value="stats.streak.current" />
+      <StatChip icon="trophy" :color="PALETTE.gold" :label="t('stats.bestStreak')" :value="stats.streak.best" />
+      <StatChip icon="crown" :color="PALETTE.violet" :label="t('stats.level')" :value="stats.level.level" />
+      <StatChip icon="sparkles" :color="PALETTE.cyan" :label="t('stats.totalXp')" :value="stats.totalXp" />
     </section>
 
     <section class="flex flex-col gap-3">
@@ -65,13 +63,19 @@ const stats = computed(() => game.stats)
         <h3 class="font-display mb-3 text-xs">{{ t(`stats.group.${g}`) }}</h3>
         <ul class="flex flex-col gap-4">
           <li v-for="a in inGroup(g)" :key="a.def.id" :data-testid="`ach-${a.def.id}`" :data-done="a.done">
-            <div class="flex items-center justify-between gap-2">
-              <span>{{ t(`achievements.${a.def.id}.title`) }}</span>
-              <span class="font-display text-[10px]" :class="a.done ? 'text-[var(--ok)]' : 'text-[var(--text-soft)]'">
-                {{ a.done ? '✓ ' + t('stats.done') : t('stats.progress', { current: a.current, target: a.def.target }) }}
-              </span>
+            <div class="flex items-center gap-3">
+              <UiIconTile :name="a.done ? 'medal' : 'lock'" :size="40" :color="a.done ? PALETTE.gold : '#8996ac'" />
+              <div class="min-w-0 flex-1">
+                <div class="flex items-center justify-between gap-2">
+                  <span style="font-weight: 700">{{ t(`achievements.${a.def.id}.title`) }}</span>
+                  <span class="num text-[14px]" :class="a.done ? 'text-[var(--ok)]' : 'text-[var(--text-soft)]'">
+                    {{ a.done ? '✓ ' + t('stats.done') : t('stats.progress', { current: a.current, target: a.def.target }) }}
+                  </span>
+                </div>
+                <p class="text-[var(--text-soft)]" style="font-size: 15px; line-height: 20px">{{ t(`achievements.${a.def.id}.desc`) }}</p>
+              </div>
             </div>
-            <p class="mb-2 text-[var(--text-soft)]">{{ t(`achievements.${a.def.id}.desc`) }}</p>
+            <div class="mt-2"></div>
             <UiBar
               :value="a.current"
               :max="a.def.target"

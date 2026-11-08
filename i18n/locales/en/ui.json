@@ -28,7 +28,8 @@
     "today": "Today",
     "quests": "Quests",
     "hero": "Hero",
-    "settings": "More"
+    "settings": "Settings",
+    "stats": "Stats"
   },
   "period": {
     "daily": "Daily",
@@ -48,6 +49,7 @@
     "hard": "Hard"
   },
   "today": {
+    "pageTitle": "Your adventure today",
     "title": "Today",
     "sectionDaily": "Today",
     "sectionWeekly": "This week",
@@ -58,7 +60,7 @@
     "streak": "Streak",
     "shields": "Shields",
     "streakDays": "{n} days",
-    "streakAtRisk": "Complete a daily today to keep your streak alive.",
+    "streakAtRisk": "One small quest today keeps your trail going.",
     "levelTitle": "Lv {level} · {title}",
     "xpProgress": "{current}/{next} XP",
     "xpGain": "+{xp} XP",
@@ -82,6 +84,7 @@
     "empty": "No {period} quests. Create one!",
     "capReached": "You've reached the maximum of {max} {period} quests. Archive one to add more.",
     "slots": "{used}/{max}",
+    "slotsLine": "{used} of {max} slots used",
     "moveUp": "Move {title} up",
     "moveDown": "Move {title} down",
     "editQuest": "Edit {title}",
@@ -161,11 +164,12 @@
     "selected": "Chosen",
     "confirm": "This is my hero",
     "pickFirst": "Pick a hero to continue",
-    "and": "and"
+    "and": "and",
+    "another": "Meet another hero"
   },
   "onboarding": {
     "splashTitle": "Questling",
-    "splashSub": "Goals with a travel companion.",
+    "splashSub": "Small steps. Great adventures.",
     "intro": {
       "s1Title": "A companion, not a to-do list",
       "s1Body": "Your hero has a voice, a story and a personality. It grows with you, quest after quest.",
@@ -224,7 +228,7 @@
     },
     "focus": {
       "title": "What do you want to work on?",
-      "subtitle": "Pick up to {max} areas and I'll suggest fitting quests. You can skip and change everything later.",
+      "subtitle": "Pick up to {max} areas and I'll suggest fitting quests.",
       "count": "{n} of {max} chosen",
       "skip": "Skip for now",
       "group": "Areas of interest"
@@ -236,7 +240,8 @@
       "evening": "Evening",
       "dayEnd": "Your day ends at",
       "dayEndHint": "Until then quests still count for the previous day: staying up late won't cost you your streak at midnight.",
-      "timesHint": "At most two messages a day, never at night. The times only apply if you turn on reminders in the next step."
+      "timesHint": "At most two messages a day, never at night. The times only apply if you turn on reminders in the next step.",
+      "dayEndOption": "{h}:00"
     },
     "ready": {
       "title": "All set, {name}!",
@@ -303,7 +308,7 @@
     "notificationsEnableHint": "At most two a day, in your hero's voice.",
     "morningTime": "Morning time",
     "eveningTime": "Evening time",
-    "streakRisk": "Alert when your streak is at risk",
+    "streakRisk": "A gentle nudge about your streak",
     "weeklyMonthly": "Weekly and monthly summaries",
     "comeback": "A hello if you don't open the app for a few days",
     "quietHours": "Out of respect, notifications always arrive between 8:00 and 22:00.",
@@ -332,7 +337,7 @@
     "preview": "A sample message",
     "what": "What you'll get",
     "list1": "At most 2 messages a day: one in the morning, one in the evening.",
-    "list2": "An alert only if your streak is about to break, plus weekly and monthly summaries.",
+    "list2": "Now and then a thought about your streak, plus weekly and monthly summaries.",
     "list3": "Never scolding, never messages at night. You can change everything in Settings.",
     "enable": "Turn on reminders",
     "skip": "Not now",

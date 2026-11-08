@@ -3,6 +3,7 @@ import type { AxisSigns, CharacterId } from '../core/types'
 /** Come si sblocca un eroe. Il livello e il record di streak sono derivati dallo storico: nessun dato in piu' da salvare. */
 export type UnlockRule = { kind: 'level'; value: number } | { kind: 'streak'; value: number }
 
+// Accento = versione per tema scuro dalla palette del manuale grafico (docs/design-brief.md, direzione A).
 export interface CharacterData {
   id: CharacterId
   accent: string
@@ -15,17 +16,17 @@ export interface CharacterData {
 export type QuizCharacter = CharacterData & { axes: AxisSigns }
 
 export const CHARACTERS: readonly CharacterData[] = [
-  { id: 'valdo', accent: '#41a6f6', axes: { O: 1, M: -1, S: 1, A: 1 } },
-  { id: 'kuro', accent: '#94b0c2', axes: { O: 1, M: -1, S: -1, A: -1 } },
-  { id: 'fenna', accent: '#38b764', axes: { O: -1, M: -1, S: -1, A: 1 } },
-  { id: 'zeffiro', accent: '#73eff7', axes: { O: -1, M: 1, S: -1, A: -1 } },
-  { id: 'lumen', accent: '#ffcd75', axes: { O: 1, M: 1, S: 1, A: -1 } },
-  { id: 'rondo', accent: '#ef7d57', axes: { O: -1, M: 1, S: 1, A: 1 } },
-  { id: 'u404', accent: '#a7f070', axes: { O: 1, M: 1, S: -1, A: 1 } },
-  { id: 'brunilde', accent: '#e8707f', axes: { O: -1, M: -1, S: 1, A: -1 } },
-  { id: 'salmastro', accent: '#2fb5a8', unlock: { kind: 'level', value: 10 } },
-  { id: 'plin', accent: '#b085f5', unlock: { kind: 'streak', value: 30 } },
-  { id: 'brace', accent: '#ff5d5d', unlock: { kind: 'level', value: 20 } },
+  { id: 'valdo', accent: '#82a8ff', axes: { O: 1, M: -1, S: 1, A: 1 } },
+  { id: 'kuro', accent: '#c7d0db', axes: { O: 1, M: -1, S: -1, A: -1 } },
+  { id: 'fenna', accent: '#91c394', axes: { O: -1, M: -1, S: -1, A: 1 } },
+  { id: 'zeffiro', accent: '#73d5e2', axes: { O: -1, M: 1, S: -1, A: -1 } },
+  { id: 'lumen', accent: '#edc875', axes: { O: 1, M: 1, S: 1, A: -1 } },
+  { id: 'rondo', accent: '#f0a46d', axes: { O: -1, M: 1, S: 1, A: 1 } },
+  { id: 'u404', accent: '#c0dd78', axes: { O: 1, M: 1, S: -1, A: 1 } },
+  { id: 'brunilde', accent: '#f1a8c6', axes: { O: -1, M: -1, S: 1, A: -1 } },
+  { id: 'salmastro', accent: '#72cabb', unlock: { kind: 'level', value: 10 } },
+  { id: 'plin', accent: '#b9a8f0', unlock: { kind: 'streak', value: 30 } },
+  { id: 'brace', accent: '#f08c80', unlock: { kind: 'level', value: 20 } },
 ]
 
 /** Gli otto eroi che il quiz puo' assegnare. */

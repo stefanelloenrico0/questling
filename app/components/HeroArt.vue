@@ -18,7 +18,8 @@ import zeffiro from '../assets/heroes/zeffiro.svg?raw'
 
 const ART: Record<CharacterId, string> = { valdo, kuro, fenna, zeffiro, lumen, rondo, u404, brunilde, salmastro, plin, brace }
 const VIEW = '-4 -24 262 304'
-const RATIO = 262 / 304
+const RATIO_SVG = 262 / 304
+const RATIO_PAINTED = 3 / 4
 
 const props = withDefaults(
   defineProps<{
@@ -26,11 +27,13 @@ const props = withDefaults(
     state?: 'idle' | 'happy'
     /** Altezza in px. */
     size?: number
+    /** Riempie l'altezza disponibile del contenitore (che deve avere un'altezza definita) invece di una misura fissa. */
+    fluid?: boolean
     /** Tier 1..5: dal 2 in poi compaiono scintille, stendardo, aura, corona. */
     tier?: 1 | 2 | 3 | 4 | 5
     alt?: string
   }>(),
-  { state: 'idle', size: 128, tier: 1, alt: '' },
+  { state: 'idle', size: 128, fluid: false, tier: 1, alt: '' },
 )
 
 // id univoci per istanza: piu' copie dello stesso SVG nella pagina non devono condividere i gradienti
@@ -42,6 +45,8 @@ const svg = computed(() =>
     .replace(/id="([\w-]+)"/g, `id="${uid}-$1"`)
     .replace(/url\(#([\w-]+)\)/g, `url(#${uid}-$1)`),
 )
+const painted = computed(() => heroImageUrl(props.character))
+const ratio = computed(() => (painted.value ? RATIO_PAINTED : RATIO_SVG))
 const accent = computed(() => CHARACTER_BY_ID[props.character].accent)
 const showSparkles = computed(() => props.tier >= 2 || props.state === 'happy')
 const auraColor = computed(() => (props.tier >= 5 ? '#ffcd75' : accent.value))
@@ -57,7 +62,7 @@ const sparkles = [
   <div
     class="hero"
     :class="`hero--${state}`"
-    :style="{ height: `${size}px`, width: `${Math.round(size * RATIO)}px` }"
+    :style="fluid ? { height: '100%', aspectRatio: String(ratio), maxWidth: '100%' } : { height: `${size}px`, width: `${Math.round(size * ratio)}px` }"
     role="img"
     :aria-label="alt"
   >
@@ -72,8 +77,9 @@ const sparkles = [
     </svg>
 
     <!-- SVG propri, inclusi nel pacchetto (mai input dell'utente): v-html e' sicuro qui -->
+    <div v-if="painted" class="hero__layer hero__art"><img class="hero__img" :src="painted" alt="" draggable="false" /></div>
     <!-- eslint-disable-next-line vue/no-v-html -->
-    <div class="hero__layer hero__art" v-html="svg" />
+    <div v-else class="hero__layer hero__art" v-html="svg" />
 
     <svg v-if="showSparkles || tier >= 3" class="hero__layer hero__fx" :viewBox="VIEW" aria-hidden="true">
       <defs>
@@ -131,6 +137,21 @@ const sparkles = [
   width: 100%;
   height: 100%;
   overflow: visible;
+}
+
+/* illustrazione dipinta: stesso respiro e salto dell'SVG */
+.hero__img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: 50% 100%;
+  transform-origin: 50% 100%;
+  animation: hero-bob 3.6s ease-in-out infinite;
+  filter: drop-shadow(0 8px 10px rgb(0 0 0 / 0.35));
+}
+.hero--happy .hero__img {
+  animation: hero-hop 0.9s cubic-bezier(0.3, 0.7, 0.4, 1) infinite;
 }
 
 /* idle */

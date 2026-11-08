@@ -1,8 +1,12 @@
 <script setup lang="ts">
-// Tre schermate brevi e saltabili. La seconda e' una mini-prova: si tocca una missione e si vede l'XP.
+import scene1 from '../../assets/scenes/onb-1.webp'
+import scene2 from '../../assets/scenes/onb-2.webp'
+import scene3 from '../../assets/scenes/onb-3.webp'
+// Tre schermate a tutto schermo, saltabili. La seconda e' una mini-prova: si tocca una missione e si vede l'XP.
 const emit = defineEmits<{ done: [] }>()
 const { t } = useI18n()
 
+const SCENES = [scene1, scene2, scene3]
 const SLIDES = 3
 const slide = ref(0)
 const demoDone = ref(false)
@@ -27,112 +31,170 @@ function onTouchEnd(e: TouchEvent): void {
 
 <template>
   <section
-    class="flex flex-col gap-6 pt-2"
+    class="onb-screen intro"
     data-testid="step-intro"
     @touchstart.passive="onTouchStart"
     @touchend.passive="onTouchEnd"
     @keydown.right="go(1)"
     @keydown.left="go(-1)"
   >
-    <UiCard tone="accent">
-      <div class="intro-visual" aria-hidden="true">
-        <template v-if="slide === 0">
-          <HeroArt character="valdo" :size="104" />
-          <HeroArt character="zeffiro" :size="124" />
-          <HeroArt character="brunilde" :size="104" />
-        </template>
-        <div v-else-if="slide === 1" class="demo">
-          <HeroArt character="kuro" :state="demoDone ? 'happy' : 'idle'" :size="104" class="mx-auto" />
-          <UiBar :value="demoDone ? 10 : 0" :max="10" :label="t('common.xp')" />
-          <p class="demo__gain" :class="{ 'demo__gain--on': demoDone }">{{ t('today.xpGain', { xp: 10 }) }}</p>
-        </div>
-        <template v-else>
-          <HeroArt character="lumen" state="happy" :size="124" />
-        </template>
-      </div>
+    <OnboardingScene :src="SCENES[slide]" />
 
-      <div v-if="slide === 1" class="my-3">
+    <div class="intro__skip">
+      <UiButton variant="ghost" compact data-testid="intro-skip" @click="emit('done')">{{ t('onboarding.intro.skip') }}</UiButton>
+    </div>
+
+    <div class="intro__copy onb-head">
+      <h2 class="onb-title">{{ t(`onboarding.intro.s${slide + 1}Title`) }}</h2>
+      <p class="onb-sub">{{ t(`onboarding.intro.s${slide + 1}Body`) }}</p>
+    </div>
+
+    <div class="intro__stage">
+      <div v-if="slide === 1" class="intro__demo glass">
+        <div class="intro__demo-bar">
+          <div class="flex-1"><UiBar :value="demoDone ? 10 : 0" :max="10" :label="t('common.xp')" /></div>
+          <span class="intro__gain num" :class="{ 'intro__gain--on': demoDone }">{{ t('today.xpGain', { xp: 10 }) }}</span>
+        </div>
         <UiCheck v-model="demoDone" :label="t('onboarding.intro.s2Demo')" data-testid="intro-demo" />
-        <p class="mt-2 text-[var(--text-soft)]" role="status">
-          {{ demoDone ? t('onboarding.intro.s2Done') : t('onboarding.intro.s2Hint') }}
-        </p>
+        <p class="intro__hint" role="status">{{ demoDone ? t('onboarding.intro.s2Done') : t('onboarding.intro.s2Hint') }}</p>
       </div>
-      <div v-else-if="slide === 2" class="my-3 flex flex-wrap">
+      <div v-else-if="slide === 2" class="intro__chips">
         <StatChip :label="t('today.streak')" :value="t('onboarding.intro.s3Streak')" />
         <StatChip :label="t('today.shields')" :value="t('onboarding.intro.s3Shields')" />
       </div>
+      <p v-if="slide === 2" class="intro__note">{{ t('onboarding.intro.s3Note') }}</p>
 
-      <h2 class="font-display mb-3 text-sm">{{ t(`onboarding.intro.s${slide + 1}Title`) }}</h2>
-      <p>{{ t(`onboarding.intro.s${slide + 1}Body`) }}</p>
-      <p v-if="slide === 2" class="mt-2 text-[var(--text-soft)]">{{ t('onboarding.intro.s3Note') }}</p>
-    </UiCard>
-
-    <div class="flex items-center justify-center gap-3" role="group" :aria-label="t('onboarding.intro.swipeHint')">
-      <button
-        v-for="n in SLIDES"
-        :key="n"
-        type="button"
-        class="dot"
-        :class="{ 'dot--on': slide === n - 1 }"
-        :aria-label="t('onboarding.intro.dots', { n, total: SLIDES })"
-        :aria-current="slide === n - 1 ? 'step' : undefined"
-        @click="slide = n - 1"
-      />
+      <div class="intro__heroes" aria-hidden="true">
+        <template v-if="slide === 0">
+          <HeroArt character="valdo" :size="170" />
+          <HeroArt character="zeffiro" :size="210" />
+          <HeroArt character="brunilde" :size="170" />
+        </template>
+        <HeroArt v-else-if="slide === 1" character="kuro" :state="demoDone ? 'happy' : 'idle'" :size="210" />
+        <HeroArt v-else character="lumen" state="happy" :size="220" />
+      </div>
     </div>
 
-    <div class="flex justify-between gap-2">
-      <UiButton variant="secondary" data-testid="intro-skip" @click="emit('done')">{{ t('onboarding.intro.skip') }}</UiButton>
-      <UiButton data-testid="intro-next" @click="go(1)">{{ t('onboarding.intro.next') }}</UiButton>
+    <div class="onb-actions intro__actions">
+      <div class="intro__nav">
+        <div class="intro__dots" role="group" :aria-label="t('onboarding.intro.swipeHint')">
+          <button
+            v-for="n in SLIDES"
+            :key="n"
+            type="button"
+            class="dot"
+            :class="{ 'dot--on': slide === n - 1 }"
+            :aria-label="t('onboarding.intro.dots', { n, total: SLIDES })"
+            :aria-current="slide === n - 1 ? 'step' : undefined"
+            @click="slide = n - 1"
+          />
+        </div>
+        <UiButton data-testid="intro-next" @click="go(1)">{{ t('onboarding.intro.next') }} →</UiButton>
+      </div>
     </div>
   </section>
 </template>
 
 <style scoped>
-.intro-visual {
+.intro__skip {
+  position: absolute;
+  top: -4px;
+  right: -8px;
+  z-index: 2;
+}
+.intro__copy {
+  position: relative;
+  z-index: 1;
+  padding-top: 52px;
+}
+.intro__stage {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 12px;
+  min-height: 0;
+}
+.intro__demo {
+  padding: 14px 16px;
+}
+.intro__demo-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 6px;
+}
+.intro__gain {
+  min-width: 64px;
+  text-align: right;
+  color: var(--gold);
+  opacity: 0.35;
+  transition: opacity 0.25s ease;
+}
+.intro__gain--on {
+  opacity: 1;
+}
+.intro__hint {
+  min-height: 44px;
+  margin: 4px 0 0;
+  font-size: 15px;
+  color: var(--text-soft);
+}
+.intro__chips {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.intro__note {
+  margin: 0 auto;
+  max-width: 32ch;
+  text-align: center;
+  font-size: 15px;
+  color: var(--text);
+  text-shadow: 0 2px 10px rgb(0 0 0 / 0.8);
+}
+.intro__heroes {
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  gap: 4px;
-  min-height: 132px;
+  gap: 0;
+  margin-bottom: -8px;
 }
-.demo {
-  width: 100%;
-  display: grid;
-  gap: 8px;
-  text-align: center;
+.intro__heroes > :deep(.hero:not(:first-child)) {
+  margin-left: -20px;
 }
-.demo__gain {
-  font-family: var(--font-display, inherit);
-  font-weight: 700;
-  color: var(--xp);
-  opacity: 0;
-  transform: translateY(6px);
-  transition:
-    opacity 0.25s ease,
-    transform 0.25s ease;
+.intro__nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
 }
-.demo__gain--on {
-  opacity: 1;
-  transform: none;
+.intro__dots {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-left: 8px;
 }
 .dot {
-  width: 12px;
-  height: 12px;
+  width: 11px;
+  height: 11px;
   padding: 0;
   border: 0;
   border-radius: 999px;
-  background: var(--edge);
+  background: rgb(245 240 229 / 0.35);
   cursor: pointer;
   transition:
     width 0.2s ease,
     background 0.2s ease;
 }
 .dot--on {
-  width: 28px;
-  background: var(--accent);
+  width: 26px;
+  background: var(--gold);
 }
 @media (prefers-reduced-motion: reduce) {
-  .demo__gain,
+  .intro__gain,
   .dot {
     transition: none;
   }

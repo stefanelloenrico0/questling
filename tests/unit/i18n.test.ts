@@ -38,7 +38,7 @@ describe('i18n: nessuna chiave mancante', () => {
 
   it('le chiavi di navigazione/periodo/difficolta\' usate dinamicamente esistono', () => {
     const keys = [
-      ...['today', 'quests', 'hero', 'settings'].map((k) => `nav.${k}`),
+      ...['today', 'quests', 'hero', 'stats', 'settings'].map((k) => `nav.${k}`),
       ...['daily', 'weekly', 'monthly'].flatMap((p) => [`period.${p}`, `period.${p}Short`, `period.${p}Plural`]),
       ...['easy', 'medium', 'hard'].map((d) => `difficulty.${d}`),
       ...['invalid_title', 'invalid_icon', 'cap_reached', 'not_found'].map((e) => `quests.errors.${e}`),

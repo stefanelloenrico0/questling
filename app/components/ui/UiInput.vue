@@ -21,7 +21,8 @@ const id = useId()
 }
 .ui-input__label {
   color: var(--text-soft);
-  font-size: 15px;
+  font-size: 14px;
+  line-height: 20px;
   font-weight: 600;
 }
 .ui-input__field {
@@ -30,8 +31,8 @@ const id = useId()
   color: var(--text);
   font: inherit;
   background: var(--bg);
-  border: 1.5px solid var(--edge);
-  border-radius: var(--radius-m);
+  border: 1.5px solid var(--edge-control);
+  border-radius: var(--radius-s);
   user-select: text;
   -webkit-user-select: text;
   transition:
@@ -47,7 +48,6 @@ const id = useId()
   color-scheme: dark;
 }
 .ui-input__field::placeholder {
-  color: var(--text-soft);
-  opacity: 0.65;
+  color: var(--text-muted);
 }
 </style>

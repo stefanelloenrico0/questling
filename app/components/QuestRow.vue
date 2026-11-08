@@ -33,18 +33,18 @@ const checked = computed({
   <div class="qrow" :class="{ 'qrow--done': row.done }" data-testid="quest-row">
     <UiCheck v-if="isDaily" v-model="checked" :label="row.quest.title">
       <span class="qrow__text">
-        <UiIcon :name="row.quest.icon" :size="26" />
+        <UiIconTile :name="row.quest.icon" :size="40" />
         <span class="qrow__title">{{ row.quest.title }}</span>
         <span class="qrow__xp">{{ t('today.xpGain', { xp: row.xp }) }}</span>
       </span>
     </UiCheck>
 
     <div v-else class="qrow__multi">
-      <UiIcon :name="row.quest.icon" :size="26" />
+      <UiIconTile :name="row.quest.icon" :size="40" />
       <div class="qrow__grow">
         <div class="qrow__title" :class="{ 'qrow__title--done': row.done }">{{ row.quest.title }}</div>
         <div class="qrow__meta">
-          <span class="font-display text-xs" data-testid="quest-count">{{ t('today.count', { count: row.count, target: row.quest.target }) }}</span>
+          <span class="num" data-testid="quest-count">{{ t('today.count', { count: row.count, target: row.quest.target }) }}</span>
           <span class="qrow__xp">{{ t('today.xpGain', { xp: row.xp }) }}</span>
         </div>
       </div>
@@ -63,14 +63,14 @@ const checked = computed({
       >+</UiButton>
     </div>
 
-    <span v-for="p in pops" :key="p.id" class="xp-pop font-display" aria-hidden="true">{{ t('today.xpGain', { xp: p.xp }) }}</span>
+    <span v-for="p in pops" :key="p.id" class="xp-pop num" aria-hidden="true">{{ t('today.xpGain', { xp: p.xp }) }}</span>
   </div>
 </template>
 
 <style scoped>
 .qrow {
   position: relative;
-  padding: 4px 0;
+  padding: 6px 0;
 }
 .qrow__text {
   display: flex;
@@ -87,8 +87,10 @@ const checked = computed({
   color: var(--text-soft);
 }
 .qrow__xp {
-  color: var(--xp);
-  font-size: 16px;
+  color: var(--gold);
+  font-size: 14px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
   white-space: nowrap;
 }
 .qrow__multi {
@@ -111,10 +113,10 @@ const checked = computed({
   position: absolute;
   right: 0;
   top: 0;
-  font-size: 12px;
-  color: var(--xp);
+  font-size: 14px;
+  color: var(--gold);
   pointer-events: none;
-  animation: xp-float 1.1s steps(8) forwards;
+  animation: xp-float 1.1s ease-out forwards;
 }
 @keyframes xp-float {
   from {

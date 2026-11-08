@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ICON_IDS, DEFAULT_ICON } from '../../data/icons'
+import { ICON_IDS, DEFAULT_ICON, ICON_COLORS } from '../../data/icons'
 import { DIFFICULTIES, PERIODS, type Difficulty, type Period } from '../../core/types'
 import { MAX_TITLE_LENGTH } from '../../core/game'
 import { TARGET_LIMITS, questXp } from '../../core/xp'
@@ -115,6 +115,7 @@ const difficultyOptions = computed(() =>
                 :class="{ 'icon-btn--on': icon === id }"
                 :aria-checked="icon === id"
                 :aria-label="t('quests.sheet.iconPick', { name: id })"
+                :style="{ '--tc': ICON_COLORS[id] }"
                 @click="icon = id"
               >
                 <UiIcon :name="id" :size="28" />
@@ -170,7 +171,8 @@ const difficultyOptions = computed(() =>
 </template>
 
 <style scoped>
-.sheet {
+.sheet.sheet {
+  background: var(--bg-2);
   max-height: 88dvh;
   overflow-y: auto;
   padding-bottom: calc(16px + var(--safe-bottom));
@@ -181,19 +183,19 @@ const difficultyOptions = computed(() =>
   gap: 8px;
 }
 .icon-btn {
+  color: var(--tc);
   display: grid;
   place-items: center;
   min-width: 48px;
   min-height: 48px;
-  color: var(--text);
-  background: var(--bg-2);
+  background: color-mix(in srgb, var(--tc) 12%, var(--bg-2));
   border: 1.5px solid var(--edge);
   border-radius: 14px;
   cursor: pointer;
 }
 .icon-btn--on {
-  color: #14162a;
-  background: var(--accent);
-  border-color: var(--accent);
+  background: color-mix(in srgb, var(--tc) 26%, var(--bg-2));
+  border-color: var(--gold);
+  box-shadow: 0 0 0 2px rgb(233 184 94 / 0.3);
 }
 </style>

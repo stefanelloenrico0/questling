@@ -30,16 +30,16 @@
         "A fine giornata, il valore si misura in missioni compiute. Una ancora, prode?"
       ],
       "streak": [
-        "La tua striscia di {n} giorni vacilla! Nessun cavaliere lascia la bandiera a terra.",
-        "{n} giorni di giuramento mantenuto! Non lasciare che il sole tramonti senza la tua impresa.",
-        "Prode, {n} giorni di gloria sono in gioco: una missione basta a salvarli.",
-        "La bandiera dei tuoi {n} giorni sventola ancora. Mantienila alta con una missione!",
-        "Per l'onore: {n} giorni di striscia non meritano di cadere stasera. Una missione, prode!",
-        "Il regno ricorda i tuoi {n} giorni di valore. Aggiungine uno prima di notte!",
-        "Le mura reggono da {n} giorni grazie a te. Un ultimo mattone, prode?",
-        "{n} giorni di fila: una cronaca degna dei menestrelli. Non spezzare il canto adesso!",
-        "Il tuo giuramento di {n} giorni chiede un ultimo sforzo. Il tempo scorre, prode.",
-        "Striscia di {n} giorni in pericolo! Impugna una missione e proteggila."
+        "{n} giorni di giuramento onorato, prode! Il sentiero resta aperto: un piccolo passo stasera, se vuoi.",
+        "Il regno ricorda i tuoi {n} giorni di valore. Una missione, anche piccola, e il racconto prosegue.",
+        "Prode, {n} giorni di cammino! Stasera la bandiera può restare dov'è, o salire ancora: scegli tu.",
+        "{n} giorni di fila: una cronaca degna dei menestrelli. Vuoi scrivere una riga anche stasera?",
+        "La tua serie di {n} giorni brilla ancora. Una missione gentile e sarà ancora più luminosa.",
+        "Il castello è in pace da {n} giorni, prode. Una missione stasera e le torce restano accese.",
+        "{n} giorni, e il tuo giuramento non ha vacillato. Il sentiero ti aspetta, senza fretta.",
+        "Prode, {n} giorni di impegno meritano un brindisi. Magari dopo una piccola missione?",
+        "Nel libro del regno ci sono {n} giorni a tuo nome. Una riga nuova stasera, se ti va.",
+        "{n} giorni di fila! Il regno è fiero di te. Una missione ancora, e dormi da paladino."
       ],
       "comeback": [
         "Il regno ti aspetta, prode. Nessun rimprovero: basta una missione per riprendere il cammino.",
@@ -116,16 +116,16 @@
         "Una missione. Poi buio e quiete."
       ],
       "streak": [
-        "{n} giorni di silenzio e disciplina. Non spezzarli stasera.",
-        "{n} giorni. Uno ancora.",
-        "La catena è lunga {n} giorni. Non lasciarla cadere.",
-        "{n} lanterne accese. Non spegnerne una ora.",
-        "Disciplina da {n} giorni. Una missione la protegge.",
-        "{n} giorni di fila. Stasera ne basta una.",
-        "Nessun ritardo in {n} giorni. Non iniziare ora.",
-        "La striscia vale {n} giorni. Poco tempo. Poca fatica.",
-        "{n} giorni. Il maestro osserva. Una missione.",
-        "Ancora una missione e i {n} giorni restano tuoi."
+        "{n} giorni. Il sentiero è aperto. Un passo, stasera, se vuoi.",
+        "{n} lanterne accese. Una in più, se ti va.",
+        "Disciplina di {n} giorni. Nessuna fretta. Una missione basta.",
+        "{n} giorni di silenzio buono. Il monastero ti aspetta.",
+        "La catena è lunga {n} giorni. Si può allungare, piano.",
+        "{n} giorni. Il maestro annuisce. Stasera, un passo piccolo.",
+        "Sei qui da {n} giorni. Anche stasera c'è posto per una missione.",
+        "{n} giorni. Respira. Poi, se vuoi, una missione.",
+        "Il cammino conta {n} giorni. Resta aperto.",
+        "{n} giorni di costanza. Una missione, e poi riposo."
       ],
       "comeback": [
         "Il monastero ti aspetta. Senza fretta.",
@@ -202,16 +202,16 @@
         "Una missione, poi zaino a terra e fuoco acceso. Affare fatto?"
       ],
       "streak": [
-        "{n} giorni di strada fatta. Non fermarti proprio ora.",
-        "Sono {n} giorni che tieni il passo. Non perdere il sentiero stasera.",
-        "{n} giorni di tacche sugli alberi. Una in più e il percorso continua.",
-        "Hai già percorso {n} giorni di sentiero. Sarebbe un peccato inciamparci ora.",
-        "{n} giorni di fila: roba da ranger. Una missione e sei ancora in pista.",
-        "La striscia è di {n} giorni. Io non la lascio cadere, e tu?",
-        "{n} giorni di cammino costante. Gli ultimi metri sono i più furbi.",
-        "Dopo {n} giorni di strada, non mollare il passo adesso.",
-        "{n} giorni di sentiero battuto. Una missione e lo tieni battuto.",
-        "Striscia di {n} giorni: ci siamo quasi, stasera basta una missione."
+        "{n} giorni di sentiero battuto. Il bosco ti aspetta, se hai voglia di fare un altro tratto.",
+        "Hai già percorso {n} giorni. Una tacca in più stasera? Il sentiero non scappa.",
+        "{n} giorni di fila: roba da ranger. Una missione e chiudiamo la tappa in bellezza.",
+        "Il sentiero è aperto da {n} giorni. Stasera basta un passo piccolo, promesso.",
+        "{n} giorni di cammino costante. Fermarsi a bere è lecito; una missione, ancora meglio.",
+        "La tua serie di {n} giorni si vede da lontano. Ti va di aggiungere una tacca?",
+        "{n} giorni sul sentiero e nessuna predica da parte mia. Una missione, se ti va.",
+        "Dopo {n} giorni, il bosco ti conosce per nome. Un ultimo tratto prima del fuoco?",
+        "{n} giorni di passi regolari. Stasera uno corto, che il sentiero è ancora lì.",
+        "Il fuoco è acceso e la serie è a {n} giorni. Una missione e poi si riposa."
       ],
       "comeback": [
         "Il sentiero è ancora lì, e gli scarponi pure. Quando vuoi, si riparte.",
@@ -288,16 +288,16 @@
         "Pozione del tramonto quasi pronta. Per renderla perfetta, serve una missione."
       ],
       "streak": [
-        "Magia antica: la tua striscia di {n} giorni sta per svanire. Abracadabra, apri l'app!",
-        "{n} giorni di fila! È un incantesimo bellissimo. Non farlo svanire stasera.",
-        "Il libro degli incantesimi dice: striscia di {n} giorni, una missione per proteggerla.",
-        "Ho contato {n} giorni di striscia due volte per sicurezza. Meritano una missione in più.",
-        "{n} giorni! Mi sono quasi ricordato dove ho messo il cappello. Ora: una missione!",
-        "La tua striscia di {n} giorni brilla come una gemma. Una missione e continua a brillare.",
-        "Se ricordo bene sono {n} giorni di magia costante. Non spezzare l'incantesimo!",
-        "Striscia di {n} giorni: ho una pozione protettiva. Ingrediente principale: una missione.",
-        "{n} giorni di magia vera. Una missione ancora e il sortilegio regge.",
-        "Formula d'emergenza: Strisciae servatus! Cioè: {n} giorni, una missione, e la salvi."
+        "{n} giorni di magia costante! Se ricordo bene, stasera serve solo una missione piccola.",
+        "Il libro degli incantesimi dice: {n} giorni di serie. Una missione e la pagina si riempie.",
+        "{n} giorni! Ho quasi ricordato dove ho messo il cappello. E tu, una missione stasera?",
+        "La tua serie di {n} giorni brilla come una gemma. Basta un piccolo incantesimo per tenerla lucida.",
+        "Ho contato {n} giorni di serie, due volte per sicurezza. Ti va di farne uno in più?",
+        "{n} giorni di magia vera. La bacchetta è dietro l'orecchio; la tua prossima missione, qui.",
+        "Formula del giorno: Missionis parvus! Cioè: {n} giorni, e una piccola missione per stasera.",
+        "{n} giorni di fila: un incantesimo bellissimo. Nessuna fretta, ma la lanterna è accesa.",
+        "Mi pare di ricordare {n} giorni di impegno. Un'altra missione e lo scrivo sul taccuino.",
+        "{n} giorni insieme. Mi sono dimenticato cosa dovevo dirti, ma credo fosse: bravo."
       ],
       "comeback": [
         "Ehi, ti ricordi di me? Io mi sono dimenticato di cosa dovevo dirti, ma torna quando vuoi.",
@@ -375,15 +375,15 @@
       ],
       "streak": [
         "Hai costruito {n} giorni di luce. Ne basta uno piccolo anche stasera.",
-        "{n} giorni di luce, uno dopo l'altro. Un piccolo passo basta a custodirli.",
-        "La tua luce brilla da {n} giorni. Stasera basta una missione piccola.",
-        "{n} giorni di cura. Uno ancora, e la Lanterna resta accesa.",
-        "Che bel cammino: {n} giorni. Un gesto gentile stasera e continua.",
-        "{n} giorni di piccoli passi. Ne basta uno ancora, con dolcezza.",
-        "La tua striscia di {n} giorni è una piccola luce. Prenditene cura con una missione.",
-        "{n} giorni insieme alla Lanterna. Anche stasera, un passo leggero.",
-        "Hai custodito {n} giorni di luce. Una missione e la custodisci ancora.",
-        "{n} giorni di dolcezza e costanza. Se ti va, stasera ne aggiungi uno."
+        "{n} giorni di cura. La Lanterna è accesa per te, qualunque cosa farai stasera.",
+        "La tua luce brilla da {n} giorni. Una missione leggera, solo se ne hai voglia.",
+        "{n} giorni di piccoli passi. Respira: anche oggi, uno basta.",
+        "Che bel cammino: {n} giorni. Un gesto gentile stasera e continua a brillare.",
+        "{n} giorni insieme alla Lanterna. Nessuna fretta, nessun giudizio.",
+        "Da {n} giorni scegli di esserci. Stasera, se vuoi, una missione tranquilla.",
+        "La tua serie di {n} giorni è una piccola luce. Puoi prendertene cura con dolcezza.",
+        "{n} giorni di dolcezza e costanza. Il sentiero resta aperto, sempre.",
+        "{n} giorni di luce, uno dopo l'altro. Un piccolo passo basta, senza fretta."
       ],
       "comeback": [
         "La Lanterna è ancora accesa per te. Torna quando vuoi, senza fretta.",
@@ -460,16 +460,16 @@
         "Tra poco spengo il liuto: ancora una missione e la serata è da leggenda."
       ],
       "streak": [
-        "{n} giorni di ballata... non lasciare il ritornello a metà!",
-        "{n} giorni in tournée: non fermarti proprio ora, il pubblico ti aspetta!",
-        "Bis, bis! {n} giorni di spettacolo: una missione e la replica è assicurata.",
-        "La tua striscia di {n} giorni è un'opera d'arte: non lasciarla senza finale!",
-        "{n} giorni di applausi consecutivi: una missione stasera e si va avanti.",
-        "La tournée dura da {n} giorni: un'ultima nota per tenerla viva!",
-        "{n} giorni di melodia continua: manca una nota stasera, e poi è tutto a posto.",
-        "Ti ricordi? {n} giorni di fila! Un ultimo inchino e continua la serie.",
-        "Lo show dei {n} giorni sta per andare in pausa: una missione e il sipario resta alzato!",
-        "{n} giorni di ballata: il pubblico vuole il prossimo verso. Una missione?"
+        "{n} giorni di ballata! Il pubblico ti aspetta, ma senza fretta: una missione e che bis sia.",
+        "{n} giorni in tournée: un applauso per te! Un ultimo numero stasera, se ti va.",
+        "La tua serie di {n} giorni è un'opera d'arte. Aggiungiamo un verso prima del sipario?",
+        "{n} giorni di melodia: manca una nota per stasera, e la rima è fatta.",
+        "Bis, bis! {n} giorni di spettacolo. Una piccola missione e il sipario resta alzato.",
+        "{n} giorni di ritornello: il pubblico canta con te. Una missione e si va a cena.",
+        "Hai {n} giorni di applausi in tasca. Stasera un inchino piccolo: una missione.",
+        "{n} giorni di show e nessuna stecca. Una missione e la serata è da standing ovation.",
+        "Il cartellone dice {n} giorni di fila: che meraviglia! Aggiungi una riga alla ballata?",
+        "{n} giorni di tournée: un verso ancora, poi il liuto riposa."
       ],
       "comeback": [
         "Il palco è sempre libero per te: torna quando vuoi, e si ricomincia con un bis.",
@@ -546,16 +546,16 @@
         "> Notifica notturna in arrivo. Missione serale ancora eseguibile."
       ],
       "streak": [
-        "> ERRORE IMMINENTE: striscia di {n} giorni a rischio reset.",
-        "> WARNING: striscia di {n} giorni in pericolo. Soluzione: eseguire una missione.",
-        "> LOG: {n} giorni di striscia attivi. Reset previsto se nessuna missione eseguita.",
-        "> Allarme: serie di {n} giorni compromessa. Missione consigliata.",
-        "> Integrità della striscia ({n} giorni) a rischio. Eseguire patch: una missione.",
-        "> {n} giorni di uptime. Evitare il crash: completare una missione.",
-        "> Avviso critico: la striscia di {n} giorni scade stanotte. Prevenire?",
-        "> Stato striscia: {n} giorni. Probabilità di reset: alta senza input.",
-        "> ERRORE 404: striscia non trovata... non ancora. {n} giorni da salvare.",
-        "> Backup striscia ({n} giorni) non disponibile. Eseguire missione per conservarla."
+        "> LOG: serie attiva da {n} giorni. Stato: ottimo. Missione serale disponibile, nessuna fretta.",
+        "> {n} giorni di uptime. Il sistema è stabile. Una missione opzionale migliora il report.",
+        "> STATO serie: {n} giorni. Nessun errore rilevato. Eseguire una missione? [S/n]",
+        "> Aggiornamento: {n} giorni consecutivi. Raccomandazione: una missione, solo se utile.",
+        "> {n} giorni di loop stabile. Il cabinato è acceso e il gettone è pronto.",
+        "> Report serale: serie a {n} giorni. Tutto in ordine. Missione disponibile quando vuoi.",
+        "> {n} giorni di dati coerenti. Nessun allarme. Una missione chiude il giorno in bellezza.",
+        "> NOTA: {n} giorni di serie. Il sistema è fiero (campo sperimentale).",
+        "> Checkpoint: {n} giorni raggiunti. Prossimo checkpoint: quando vuoi.",
+        "> {n} giorni attivi. Il sentiero è libero. Eseguire una missione? [S/n]"
       ],
       "comeback": [
         "> LOG: utente assente. Sistema in attesa. Riavvio possibile in qualsiasi momento.",
@@ -632,16 +632,16 @@
         "Un colpo prima del buio fa la lama migliore. Dai, che ti aspetto."
       ],
       "streak": [
-        "{n} giorni di colpi di martello! Non lasciar raffreddare la forgia.",
-        "{n} giorni di fila al fuoco: non farmi spegnere tutto per una sera.",
-        "Una striscia di {n} giorni è ferro buono. Un colpo in più e non si incrina.",
-        "{n} giorni di forgia accesa. Dai, un colpo ancora e il fuoco resta vivo.",
-        "Dopo {n} giorni di lavoro, non mollare il martello stasera.",
-        "{n} giorni di lavoro sodo: brontolo, ma sono fiera. Una missione ancora.",
-        "La lama dei tuoi {n} giorni va rifinita con un colpo stasera. Uno solo.",
-        "{n} giorni di fucina: l'incudine ti conosce. Una missione e il ritmo continua.",
-        "La tua striscia di {n} giorni è ferro temprato. Non lasciarla arrugginire stasera.",
-        "{n} giorni di colpi regolari. Un colpo ancora e il fuoco non si spegne."
+        "{n} giorni di forgia accesa! Il ferro è caldo: un colpo piccolo stasera, se ti va.",
+        "{n} giorni di fila al fuoco: brontolo, ma sono fiera. Una missione e poi la zuppa.",
+        "La lama dei tuoi {n} giorni è buon ferro. Un colpo in più e brilla ancora di più.",
+        "{n} giorni di martello regolare. Stasera basta un colpetto, apprendista.",
+        "Dopo {n} giorni di lavoro, l'incudine ti conosce. Una missione, senza fretta.",
+        "{n} giorni di colpi ben dati. Il fuoco resta acceso anche se vai piano.",
+        "La tua serie di {n} giorni è ferro temprato. Un colpo leggero e va in vetrina.",
+        "{n} giorni alla forgia: niente prediche, solo orgoglio. Ti va di batterne uno ancora?",
+        "{n} giorni di fucina. La zuppa bolle; una missione veloce e ti siedi.",
+        "Hai battuto il ferro per {n} giorni. Il martello aspetta, quando ti va."
       ],
       "comeback": [
         "La forgia è ancora accesa e il tuo posto al fuoco è libero. Torna quando vuoi.",
@@ -718,16 +718,16 @@
         "Chiudiamo la giornata come un buon capitano: con le missioni fatte."
       ],
       "streak": [
-        "Attenzione, mozzo: la tua striscia di {n} giorni rischia di affondare. Una missione e la salvi.",
-        "{n} giorni di fila! Non farli finire in fondo al mare stasera.",
-        "La striscia di {n} giorni è il vento in poppa. Non lasciarla calare proprio ora.",
-        "Per tutti i fiordi, {n} giorni di striscia! Una missione e il tesoro resta al sicuro.",
-        "Il pappagallo ha contato {n} giorni di fila. Non fargli perdere il conto.",
-        "{n} giorni senza mai mollare la rotta. Oggi manca solo una missione.",
-        "Ehi, capitano di {n} giorni: la striscia fa acqua. Tappa la falla con una missione.",
-        "{n} giorni di striscia valgono più di un forziere. Proteggili stasera.",
-        "Una tempesta minaccia la tua striscia di {n} giorni. Una missione e passa.",
-        "Non ammainare la bandiera ora: sono {n} giorni di striscia!"
+        "{n} giorni di rotta tenuta, mozzo! Il mare è calmo: una missione stasera, se ti va.",
+        "Il pappagallo ha contato {n} giorni di fila e ne è fiero. Un'altra, senza fretta?",
+        "{n} giorni di vento in poppa. Stasera un piccolo colpo di remo e si prosegue.",
+        "La tua serie di {n} giorni vale più di un forziere. Una missione e il tesoro cresce.",
+        "{n} giorni senza lasciare il timone. Il porto è lì: una missione e si getta l'ancora.",
+        "Per tutti i fiordi, {n} giorni di fila! Una missione stasera e la bandiera sventola ancora.",
+        "{n} giorni di navigazione tranquilla. Il sentiero sul mare resta aperto, mozzo.",
+        "Capitano di {n} giorni: il mare ti conosce. Un'ultima fatica prima di cena?",
+        "{n} giorni sul ponte: bravo marinaio. Una missione leggera e poi riposo.",
+        "{n} giorni di rotta: il pappagallo applaude. Una missione e brindiamo con l'acqua."
       ],
       "comeback": [
         "Mozzo, la ciurma ti aspetta: la nave è ancora ormeggiata e le missioni pure.",
@@ -804,16 +804,16 @@
         "Prima di chiudere gli occhi: c'è una missione che ti chiama piano piano?"
       ],
       "streak": [
-        "Plin. Una striscia di {n} giorni è un fiume: non lasciarlo seccare stasera.",
-        "{n} giorni di fila. Che cosa ti ha tenuto qui? Continua, forse lo scopri.",
-        "La tua striscia di {n} giorni rischia di evaporare. Una missione la salva.",
-        "{n} giorni sono una piccola eternità. Meritano una missione oggi.",
-        "Mi chiedo se saprai proteggere {n} giorni di striscia. Io credo di sì.",
-        "Plin. {n} giorni di costanza sono una goccia che scava la pietra. Continua.",
-        "Se la striscia di {n} giorni finisse stasera, che cosa resterebbe? Meglio non scoprirlo.",
-        "{n} giorni di fila: una bella risposta a una domanda difficile. Non interromperla.",
-        "Il fiume dei tuoi {n} giorni vuole arrivare al mare. Una missione e prosegue.",
-        "La striscia di {n} giorni è fragile come una bolla. Con una missione diventa solida."
+        "{n} giorni di costanza: che cosa ti ha tenuto qui? Una missione, forse, ti risponde. Plin.",
+        "{n} giorni. Una domanda gentile: ti va di farne uno in più stasera?",
+        "La tua serie di {n} giorni è un fiume tranquillo. Una missione e continua a scorrere.",
+        "Mi chiedo cosa significhi arrivare a {n} giorni. Forse: esserci. Stasera, anche un po'.",
+        "Plin plin. {n} giorni di gocce che scavano la pietra. Ne aggiungi una?",
+        "{n} giorni di serie: una bella risposta a una domanda difficile. Nessuna fretta.",
+        "Il lago dei tuoi {n} giorni è calmo e profondo. Una missione piccola, se ti va.",
+        "{n} giorni, uno dopo l'altro. Che cosa porterai con te stasera? Magari una missione.",
+        "Plin. {n} giorni: il tempo scorre, e tu con lui. Un passo piccolo, quando vuoi.",
+        "{n} giorni di presenza. Ti sembra poco? A me sembra moltissimo. Plin."
       ],
       "comeback": [
         "Plin. Sono passati dei giorni. Non è un rimprovero: è solo una domanda sul tuo ritorno.",
@@ -890,16 +890,16 @@
         "Sera di draghi: una missione piccola vale una grande dormita."
       ],
       "streak": [
-        "Sbuff! La tua striscia di {n} giorni sta per spegnersi! Una missione e la riaccendi.",
-        "{n} giorni di fuoco! Non lasciare spegnere la fiamma stasera.",
-        "La striscia di {n} giorni è il mio tesoro preferito. Proteggila con una missione.",
-        "{n} giorni di fila! Se si interrompe, sbuffo tristezza per un mese.",
-        "Allarme fiamma: {n} giorni di striscia a rischio! Una missione e si salva tutto.",
-        "Che tesoro: {n} giorni di striscia. Non permettere che si raffreddi.",
-        "{n} giorni di fila fanno una montagna d'oro. Aggiungi una moneta stasera.",
-        "La fiammella dei tuoi {n} giorni trema. Una missione e torna forte.",
-        "Hai accumulato {n} giorni di striscia! Siamo quasi leggendari, non fermarti.",
-        "Stasera il fuoco dei tuoi {n} giorni vuole una missione. Dagli un po' di legna."
+        "Sbuff! {n} giorni di fiamma viva! Una missione stasera e il tesoro cresce ancora.",
+        "{n} giorni di fuoco! La tana è calda e ti aspetta, quando vuoi.",
+        "La tua serie di {n} giorni è il mio tesoro preferito. Una moneta in più, se ti va.",
+        "{n} giorni di fila: sono così fiero che sbuffo scintille! Una missione stasera?",
+        "Hai accumulato {n} giorni di serie. Una missione e il mucchio d'oro luccica di più.",
+        "{n} giorni di ali spiegate! Stasera un volo breve: una missione piccola.",
+        "La fiamma dei tuoi {n} giorni è forte. Un legnetto in più, se hai voglia.",
+        "{n} giorni insieme: la tana non è mai stata così luminosa. Una missione e si festeggia.",
+        "Quasi leggendari: {n} giorni di serie! Una missione tranquilla, poi riposo.",
+        "{n} giorni di scintille. Il fuoco è acceso e io faccio il tifo per te."
       ],
       "comeback": [
         "Sbuff, ti aspetto! La tana è calda e le missioni sono ancora qui.",

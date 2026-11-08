@@ -28,7 +28,8 @@
     "today": "Oggi",
     "quests": "Missioni",
     "hero": "Eroe",
-    "settings": "Altro"
+    "settings": "Impostazioni",
+    "stats": "Statistiche"
   },
   "period": {
     "daily": "Giornaliera",
@@ -48,6 +49,7 @@
     "hard": "Difficile"
   },
   "today": {
+    "pageTitle": "La tua avventura di oggi",
     "title": "Oggi",
     "sectionDaily": "Oggi",
     "sectionWeekly": "Settimana",
@@ -58,7 +60,7 @@
     "streak": "Streak",
     "shields": "Scudi",
     "streakDays": "{n} giorni",
-    "streakAtRisk": "Completa una daily oggi per non spezzare la streak.",
+    "streakAtRisk": "Una piccola missione oggi tiene vivo il tuo cammino.",
     "levelTitle": "Lv {level} · {title}",
     "xpProgress": "{current}/{next} XP",
     "xpGain": "+{xp} XP",
@@ -82,6 +84,7 @@
     "empty": "Nessuna missione {period}. Creane una!",
     "capReached": "Hai raggiunto il massimo di {max} missioni {period}. Archiviane una per aggiungerne altre.",
     "slots": "{used}/{max}",
+    "slotsLine": "{used} su {max} posti usati",
     "moveUp": "Sposta su {title}",
     "moveDown": "Sposta giù {title}",
     "editQuest": "Modifica {title}",
@@ -161,11 +164,12 @@
     "selected": "Scelto",
     "confirm": "Questo è il mio eroe",
     "pickFirst": "Scegli un eroe per continuare",
-    "and": "e"
+    "and": "e",
+    "another": "Conosci un altro eroe"
   },
   "onboarding": {
     "splashTitle": "Questling",
-    "splashSub": "Obiettivi con un compagno di viaggio.",
+    "splashSub": "Piccoli passi. Grandi avventure.",
     "intro": {
       "s1Title": "Un compagno, non una to-do list",
       "s1Body": "Il tuo eroe ha una voce, una storia e una personalità. Cresce con te, missione dopo missione.",
@@ -224,7 +228,7 @@
     },
     "focus": {
       "title": "Su cosa vuoi lavorare?",
-      "subtitle": "Scegli fino a {max} aree e ti propongo missioni adatte. Puoi saltare e cambiare tutto più tardi.",
+      "subtitle": "Scegli fino a {max} aree: ti propongo missioni adatte.",
       "count": "{n} di {max} scelte",
       "skip": "Salta per ora",
       "group": "Aree di interesse"
@@ -236,7 +240,8 @@
       "evening": "Sera",
       "dayEnd": "La tua giornata finisce alle",
       "dayEndHint": "Fino a quell'ora le missioni contano ancora per il giorno prima: chi fa tardi non perde la streak a mezzanotte.",
-      "timesHint": "Al massimo due messaggi al giorno, mai di notte. Gli orari valgono solo se attivi i promemoria al passo dopo."
+      "timesHint": "Al massimo due messaggi al giorno, mai di notte. Gli orari valgono solo se attivi i promemoria al passo dopo.",
+      "dayEndOption": "{h}:00"
     },
     "ready": {
       "title": "Tutto pronto, {name}!",
@@ -303,7 +308,7 @@
     "notificationsEnableHint": "Al massimo due al giorno, nella voce del tuo eroe.",
     "morningTime": "Orario della mattina",
     "eveningTime": "Orario della sera",
-    "streakRisk": "Avviso se la streak è a rischio",
+    "streakRisk": "Un pensiero gentile sulla tua serie",
     "weeklyMonthly": "Riepiloghi settimanali e mensili",
     "comeback": "Un saluto se non apri l'app per qualche giorno",
     "quietHours": "Per rispetto, le notifiche arrivano sempre tra le 8:00 e le 22:00.",
@@ -332,7 +337,7 @@
     "preview": "Un esempio di messaggio",
     "what": "Cosa riceverai",
     "list1": "Al massimo 2 messaggi al giorno: uno la mattina, uno la sera.",
-    "list2": "Un avviso solo se la tua streak rischia di spezzarsi, e riepiloghi di settimana e mese.",
+    "list2": "Ogni tanto un pensiero sulla tua serie, e riepiloghi di settimana e mese.",
     "list3": "Mai rimproveri, mai messaggi di notte. Puoi cambiare tutto in Impostazioni.",
     "enable": "Attiva i promemoria",
     "skip": "Non ora",

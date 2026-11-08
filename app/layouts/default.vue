@@ -5,15 +5,22 @@ const tabs: { to: string; label: string; icon: string }[] = [
   { to: '/', label: 'nav.today', icon: 'calendar-check' },
   { to: '/quests', label: 'nav.quests', icon: 'list-checks' },
   { to: '/hero', label: 'nav.hero', icon: 'shield' },
-  { to: '/settings', label: 'nav.settings', icon: 'settings' },
+  { to: '/stats', label: 'nav.stats', icon: 'chart-column' },
 ]
 </script>
 
 <template>
   <div class="app-shell">
-    <main class="mx-auto w-full max-w-md px-4 pt-4 pb-32">
+    <header class="topbar">
+      <NuxtLink to="/settings" class="topbar__gear" active-class="topbar__gear--active" :aria-label="t('nav.settings')">
+        <UiIcon name="settings" :size="24" />
+      </NuxtLink>
+    </header>
+
+    <main class="mx-auto w-full max-w-md px-5 pt-3 pb-36">
       <slot />
     </main>
+
     <nav class="tabbar" :aria-label="t('nav.label')">
       <NuxtLink
         v-for="tab in tabs"
@@ -31,6 +38,33 @@ const tabs: { to: string; label: string; icon: string }[] = [
 </template>
 
 <style scoped>
+.topbar {
+  position: relative;
+  height: 0;
+  max-width: 28rem;
+  margin: 0 auto;
+  z-index: 10;
+}
+.topbar__gear {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  color: var(--text-soft);
+  border-radius: 999px;
+  transition:
+    background 0.18s ease,
+    color 0.18s ease;
+}
+.topbar__gear:active,
+.topbar__gear--active {
+  color: var(--gold);
+  background: var(--surface-active);
+}
+
 .tabbar {
   position: fixed;
   inset: auto 0 0 0;
@@ -38,12 +72,10 @@ const tabs: { to: string; label: string; icon: string }[] = [
   display: flex;
   justify-content: center;
   gap: 4px;
-  padding: 8px 12px calc(8px + var(--safe-bottom));
-  background: color-mix(in srgb, var(--bg-2) 92%, transparent);
-  backdrop-filter: blur(14px);
+  padding: 6px 12px calc(6px + var(--safe-bottom));
+  background: color-mix(in srgb, var(--bg-2) 94%, transparent);
+  backdrop-filter: blur(12px);
   border-top: 1px solid var(--edge);
-  border-radius: 24px 24px 0 0;
-  box-shadow: 0 -12px 30px -16px rgb(0 0 0 / 0.7);
 }
 .tabbar__item {
   flex: 1 1 0;
@@ -54,26 +86,29 @@ const tabs: { to: string; label: string; icon: string }[] = [
   align-items: center;
   justify-content: center;
   gap: 2px;
-  color: var(--text-soft);
-  font-size: 13px;
-  font-weight: 700;
+  color: var(--text-muted);
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 600;
   text-decoration: none;
 }
 .tabbar__icon {
   display: grid;
   place-items: center;
-  width: 54px;
+  width: 56px;
   height: 30px;
   border-radius: 999px;
   transition:
-    background 0.2s ease,
-    color 0.2s ease;
+    background 0.18s ease,
+    color 0.18s ease;
 }
 .tabbar__item--active {
   color: var(--text);
+  font-weight: 700;
 }
 .tabbar__item--active .tabbar__icon {
-  color: #14162a;
-  background: var(--accent);
+  color: var(--gold);
+  background: var(--surface-active);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--gold) 38%, transparent);
 }
 </style>

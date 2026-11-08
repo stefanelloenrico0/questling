@@ -23,7 +23,7 @@ const accent = computed(() => CHARACTER_BY_ID[props.id].accent)
     :data-testid="`hero-card-${id}`"
   >
     <span class="hcard__art"><HeroArt :character="id" :size="96" /></span>
-    <span class="font-display hcard__name">{{ lockedHint ? t('hero.lockedName') : hero.name(id) }}</span>
+    <span class="hcard__name">{{ lockedHint ? t('hero.lockedName') : hero.name(id) }}</span>
     <span class="hcard__arch">{{ lockedHint ?? hero.archetype(id) }}</span>
     <span v-if="affinity != null" class="hcard__aff">{{ t('quiz.affinity', { pct: affinity }) }}</span>
     <span v-if="selected" class="hcard__sel">■ {{ t('quiz.selected') }}</span>
@@ -69,11 +69,15 @@ const accent = computed(() => CHARACTER_BY_ID[props.id].accent)
   animation: none !important;
 }
 .hcard__name {
-  font-size: 17px;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 24px;
   color: var(--hc);
 }
 .hcard__arch {
   font-size: 14px;
+  line-height: 20px;
   color: var(--text-soft);
 }
 .hcard__aff {

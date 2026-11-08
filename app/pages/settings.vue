@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { PALETTE } from '../../data/icons'
 import { exportBackup, parseBackup, type BackupSummary } from '../../core/backup'
 import type { AppState } from '../../core/types'
 import type { ReminderPermission } from '../composables/useNotifications'
@@ -144,7 +145,7 @@ const summaryRows = computed(() => {
 
 <template>
   <div class="flex flex-col gap-6" data-testid="page-settings">
-    <h1 class="font-display text-sm">{{ t('settings.title') }}</h1>
+    <PageHeader :title="t('settings.title')" />
 
     <UiCard v-if="game.loadStatus === 'recovered'" tone="accent" data-testid="recovered-notice">
       <h2 class="font-display mb-2 text-xs">{{ t('settings.recoveredTitle') }}</h2>
@@ -152,7 +153,10 @@ const summaryRows = computed(() => {
     </UiCard>
 
     <UiCard>
-      <h2 class="font-display mb-3 text-xs">{{ t('settings.profile') }}</h2>
+      <div class="mb-3 flex items-center gap-3">
+        <UiIconTile name="user" :size="40" :color="PALETTE.sky" />
+        <h2 class="font-display text-xs">{{ t('settings.profile') }}</h2>
+      </div>
       <form class="flex flex-col gap-3" @submit.prevent="saveName">
         <UiInput v-model="name" :label="t('settings.name')" maxlength="24" data-testid="settings-name" />
         <div><UiButton type="submit" variant="secondary">{{ t('settings.nameSave') }}</UiButton></div>
@@ -160,26 +164,38 @@ const summaryRows = computed(() => {
     </UiCard>
 
     <UiCard data-testid="settings-account">
-      <h2 class="font-display mb-3 text-xs">{{ t('account.card.title') }}</h2>
+      <div class="mb-3 flex items-center gap-3">
+        <UiIconTile name="globe" :size="40" :color="PALETTE.cyan" />
+        <h2 class="font-display text-xs">{{ t('account.card.title') }}</h2>
+      </div>
       <p v-if="account.user" class="mb-2" data-testid="settings-account-email">{{ t('account.card.signedInAs', { email: account.user.email ?? '' }) }}</p>
       <p v-else class="mb-3 text-[var(--text-soft)]">{{ account.available ? t('account.card.body') : t('account.unavailable') }}</p>
       <UiButton variant="secondary" data-testid="settings-account-link" @click="navigateTo('/account')">{{ t('account.card.manage') }}</UiButton>
     </UiCard>
 
     <UiCard data-testid="settings-language">
-      <h2 class="font-display mb-3 text-xs">{{ t('settings.language') }}</h2>
+      <div class="mb-3 flex items-center gap-3">
+        <UiIconTile name="languages" :size="40" :color="PALETTE.green" />
+        <h2 class="font-display text-xs">{{ t('settings.language') }}</h2>
+      </div>
       <LanguageSwitch />
       <p class="mt-3 text-[var(--text-soft)]">{{ t('settings.languageHint') }}</p>
     </UiCard>
 
     <UiCard>
-      <h2 class="font-display mb-3 text-xs">{{ t('settings.dayStart') }}</h2>
+      <div class="mb-3 flex items-center gap-3">
+        <UiIconTile name="sun-moon" :size="40" :color="PALETTE.gold" />
+        <h2 class="font-display text-xs">{{ t('settings.dayStart') }}</h2>
+      </div>
       <UiSegmented v-model="dayStart" :label="t('settings.dayStart')" :options="dayStartOptions" />
       <p class="mt-3 text-[var(--text-soft)]">{{ t('settings.dayStartHint') }}</p>
     </UiCard>
 
     <UiCard data-testid="settings-notifications">
-      <h2 class="font-display mb-3 text-xs">{{ t('settings.notifications') }}</h2>
+      <div class="mb-3 flex items-center gap-3">
+        <UiIconTile name="bell" :size="40" :color="PALETTE.orange" />
+        <h2 class="font-display text-xs">{{ t('settings.notifications') }}</h2>
+      </div>
       <UiSwitch v-model="enabled" :label="t('settings.notificationsEnable')" :hint="t('settings.notificationsEnableHint')" data-testid="notif-enable" />
       <div v-if="cfg.enabled" class="mt-3 flex flex-col gap-3">
         <UiInput v-model="morningTime" type="time" :label="t('settings.morningTime')" data-testid="notif-morning" />
@@ -200,13 +216,19 @@ const summaryRows = computed(() => {
     </UiCard>
 
     <UiCard data-testid="settings-feedback">
-      <h2 class="font-display mb-3 text-xs">{{ t('settings.feedback') }}</h2>
+      <div class="mb-3 flex items-center gap-3">
+        <UiIconTile name="volume-2" :size="40" :color="PALETTE.violet" />
+        <h2 class="font-display text-xs">{{ t('settings.feedback') }}</h2>
+      </div>
       <UiSwitch v-model="sound" :label="t('settings.sound')" :hint="t('settings.soundHint')" data-testid="sound-switch" />
       <UiSwitch v-model="haptics" :label="t('settings.haptics')" :hint="t('settings.hapticsHint')" />
     </UiCard>
 
     <UiCard>
-      <h2 class="font-display mb-3 text-xs">{{ t('settings.data') }}</h2>
+      <div class="mb-3 flex items-center gap-3">
+        <UiIconTile name="database" :size="40" :color="PALETTE.teal" />
+        <h2 class="font-display text-xs">{{ t('settings.data') }}</h2>
+      </div>
       <p class="mb-3 text-[var(--text-soft)]">{{ t('settings.dataHint') }}</p>
       <div class="flex flex-wrap">
         <UiButton data-testid="export" @click="doExport">{{ t('settings.export') }}</UiButton>
@@ -217,13 +239,19 @@ const summaryRows = computed(() => {
     </UiCard>
 
     <UiCard>
-      <h2 class="font-display mb-3 text-xs">{{ t('settings.privacy') }}</h2>
+      <div class="mb-3 flex items-center gap-3">
+        <UiIconTile name="shield" :size="40" :color="PALETTE.sky" />
+        <h2 class="font-display text-xs">{{ t('settings.privacy') }}</h2>
+      </div>
       <p class="mb-2 text-[var(--text-soft)]">{{ t('settings.privacyBody') }}</p>
       <NuxtLink to="/privacy" class="underline" data-testid="settings-privacy-link">{{ t('account.privacyLink') }}</NuxtLink>
     </UiCard>
 
     <UiCard>
-      <h2 class="font-display mb-3 text-xs">{{ t('settings.danger') }}</h2>
+      <div class="mb-3 flex items-center gap-3">
+        <UiIconTile name="skull" :size="40" :color="PALETTE.rose" />
+        <h2 class="font-display text-xs">{{ t('settings.danger') }}</h2>
+      </div>
       <UiButton variant="secondary" data-testid="wipe" @click="wipeOpen = true">{{ t('settings.wipe') }}</UiButton>
     </UiCard>
 

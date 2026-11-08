@@ -29,7 +29,7 @@
       "evening": "The sun sets and duty calls: one last charge before dusk?",
       "done": "Every quest is done, brave one! The realm sleeps soundly."
     },
-    "permission": "Brave one, may I send you messages from the castle? At most two a day: one at dawn, one at dusk, plus a call if your streak is in danger. No scolding, only trumpet blasts."
+    "permission": "Brave one, may I send you messages from the castle? At most two a day: one at dawn, one at dusk, and sometimes a word about your streak. No scolding, only trumpet blasts."
   },
   "kuro": {
     "name": "Kuro",
@@ -61,7 +61,7 @@
       "evening": "The shadow falls. One remains.",
       "done": "Done. No noise. Rest."
     },
-    "permission": "I may write to you. Two messages a day, at most. One in the morning, one in the evening. A warning if the streak is in danger. No scolding."
+    "permission": "I may write to you. Two messages a day, at most. One in the morning, one in the evening. A thought about the streak, now and then. No scolding."
   },
   "fenna": {
     "name": "Fenna",
@@ -93,7 +93,7 @@
       "evening": "The trail won't walk itself. One quest before dark.",
       "done": "Trail beaten for today. Nice stride."
     },
-    "permission": "I'll send you a nudge in the morning and one in the evening, two at most. Now and then a warning if your streak is about to snap. No sermons, promise."
+    "permission": "I'll send you a nudge in the morning and one in the evening, two at most. Now and then a thought about your streak. No sermons, promise."
   },
   "zeffiro": {
     "name": "Zeffiro",
@@ -125,7 +125,7 @@
       "evening": "I lost my wand (it was in my pocket). Meanwhile: the quests?",
       "done": "All done! Abracadabra... or maybe we really did it."
     },
-    "permission": "May I send you owls... I mean notifications! One in the morning and one in the evening, no more. I'll warn you too if your streak is about to vanish, if I remember."
+    "permission": "May I send you owls... I mean notifications! One in the morning and one in the evening, no more. I'll write about your streak too, if I remember."
   },
   "lumen": {
     "name": "Lumen",
@@ -189,7 +189,7 @@
       "evening": "Final act: one more quest and the applause is guaranteed!",
       "done": "Curtain! A standing ovation for today's quests!"
     },
-    "permission": "One announcement as the morning curtain rises and one as the evening falls: two a day, not one more! And a round of applause as a reminder if your streak is at risk. Never a sour note."
+    "permission": "One announcement as the morning curtain rises and one as the evening falls: two a day, not one more! And now and then a round of applause for your streak. Never a sour note."
   },
   "u404": {
     "name": "Unit 404",
@@ -221,7 +221,7 @@
       "evening": "> WARNING: quests not completed. Timeout in 3 hours.",
       "done": "> ALL QUESTS EXECUTED. Status: satisfactory."
     },
-    "permission": "> REQUEST: send notifications. Frequency: max 2 per day (morning, evening). Special event: streak at risk. Tone: deadpan. Allow? [Y/n]"
+    "permission": "> REQUEST: send notifications. Frequency: max 2 per day (morning, evening). Special event: streak update. Tone: deadpan. Allow? [Y/n]"
   },
   "brunilde": {
     "name": "Brunilde",
@@ -253,7 +253,7 @@
       "evening": "You strike iron while it's hot: one quest before dinner?",
       "done": "The iron is struck for today. Fine work, apprentice."
     },
-    "permission": "May I send you a call from the forge? One in the morning, one in the evening, two at most. I only grumble a little if the streak is about to cool. I love you anyway."
+    "permission": "May I send you a call from the forge? One in the morning, one in the evening, two at most. I only grumble a little, and only with affection, about the streak. I love you anyway."
   },
   "salmastro": {
     "name": "Captain Brine",
@@ -285,7 +285,7 @@
       "evening": "Night falls. One quest before dropping anchor?",
       "done": "All done! The deck shines brighter than my coin."
     },
-    "permission": "May I send you a message in a bottle? One in the morning, one in the evening, no more. I'll warn you too if your streak is about to sink. Captain's word."
+    "permission": "May I send you a message in a bottle? One in the morning, one in the evening, no more. I'll write about your streak too. Captain's word."
   },
   "plin": {
     "name": "Plin",
@@ -317,7 +317,7 @@
       "evening": "Plin. Evening is a good question: have you done your quests?",
       "done": "All done. Plin. Maybe this is the meaning, or close to it."
     },
-    "permission": "May I send you a thought now and then? One in the morning and one in the evening, no more. I'll warn you too if your streak is about to evaporate. Plin."
+    "permission": "May I send you a thought now and then? One in the morning and one in the evening, no more. I'll write about your streak too, gently. Plin."
   },
   "brace": {
     "name": "Ember",
@@ -349,6 +349,6 @@
       "evening": "The fire is lit and the quests are still waiting. Shall we handle them together?",
       "done": "All done! A puff of joy, but no burned curtains this time."
     },
-    "permission": "May I send you a smoky message? One in the morning and one in the evening, no more. I'll warn you too if your streak is about to go out. I promise not to burn anything."
+    "permission": "May I send you a smoky message? One in the morning and one in the evening, no more. I'll write about your streak too. I promise not to burn anything."
   }
 }

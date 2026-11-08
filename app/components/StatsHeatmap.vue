@@ -67,7 +67,7 @@ function label(cell: HeatCell): string {
   height: 18px;
   /* piu' scuro della card (--surface): altrimenti i giorni senza attivita' sparirebbero */
   background: var(--bg);
-  border-radius: 5px;
+  border-radius: 50%;
 }
 .hm__cell--future {
   background: transparent;

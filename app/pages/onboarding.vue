@@ -1,12 +1,15 @@
 <script setup lang="ts">
-import { CHARACTER_BY_ID, QUIZ_CHARACTERS } from '../../data/characters'
+import { CHARACTER_BY_ID } from '../../data/characters'
 import { SUGGESTED_QUESTS } from '../../data/suggested-quests'
 import { FOCUS_BY_ID, type FocusId } from '../../data/focus-areas'
 import { DEFAULT_ICON } from '../../data/icons'
 import { MAX_NAME_LENGTH, MAX_TITLE_LENGTH, type QuestInput } from '../../core/game'
 import type { CharacterId, Period } from '../../core/types'
-import { QUEST_CAPS } from '../../core/xp'
+import { QUEST_CAPS, questXp } from '../../core/xp'
 import { textsFor } from '../../data/notification-texts'
+import splashScene from '../assets/scenes/onb-splash.webp'
+import gladeScene from '../assets/scenes/onb-glade.webp'
+import campfireScene from '../assets/scenes/onb-3.webp'
 
 definePageMeta({ layout: 'blank' })
 
@@ -30,6 +33,14 @@ const BACK: Partial<Record<Step, Step>> = {
   rhythm: 'quests',
   notify: 'rhythm',
 }
+// gli eroi in fila sulla collina della schermata iniziale: [id, altezza]
+const LINEUP: [CharacterId, number][] = [
+  ['kuro', 112],
+  ['valdo', 128],
+  ['zeffiro', 142],
+  ['lumen', 126],
+  ['rondo', 110],
+]
 
 const game = useGameStore()
 const { t } = useI18n()
@@ -64,6 +75,8 @@ const areaGroups = computed(() =>
   areas.value.map((id) => ({ id, items: items.value.filter((i) => i.source === id) })).filter((g) => g.items.length > 0),
 )
 const progress = computed(() => PROGRESS[step.value] ?? 0)
+const sceneFor: Partial<Record<Step, string>> = { splash: splashScene, name: gladeScene, notify: campfireScene }
+const scene = computed(() => sceneFor[step.value] ?? null)
 
 watch(
   [step, characterId, pickedId],
@@ -77,7 +90,11 @@ onBeforeUnmount(() => {
   accentOverride.value = null
 })
 
+const quizRef = ref<{ back: () => boolean; step: 'quiz' | 'reveal' } | null>(null)
+
 const goBack = (): void => {
+  // nel quiz "indietro" torna alla domanda precedente prima di lasciare il passo
+  if (step.value === 'quiz' && quizRef.value?.back()) return
   const prev = BACK[step.value]
   if (!prev) return
   if (prev === 'choose') pickedId.value = characterId.value
@@ -199,38 +216,44 @@ async function finish(): Promise<void> {
 </script>
 
 <template>
-  <div data-testid="page-onboarding">
-    <!-- Barra di avanzamento con "indietro" (dall'intro al permesso notifiche) -->
-    <header v-if="progress" class="mb-4 flex items-center gap-3">
-      <UiButton variant="secondary" compact :aria-label="t('onboarding.back')" data-testid="onb-back" @click="goBack">
-        <UiIcon name="chevron-left" :size="22" />
-      </UiButton>
-      <div class="min-w-0 flex-1">
-        <UiBar :value="progress" :max="TOTAL_STEPS" :label="t('onboarding.progressLabel')" />
-        <p class="mt-1 text-[var(--text-soft)]" data-testid="onb-step">{{ t('onboarding.step', { n: progress, total: TOTAL_STEPS }) }}</p>
-      </div>
+  <div class="onb" data-testid="page-onboarding">
+    <OnboardingScene v-if="scene" :src="scene" />
+
+    <!-- filo di avanzamento sottile e "indietro" (dall'intro al permesso notifiche) -->
+    <div v-if="progress" class="onb-line" role="progressbar" :aria-label="t('onboarding.progressLabel')" :aria-valuemin="0" :aria-valuemax="TOTAL_STEPS" :aria-valuenow="progress">
+      <i :style="{ width: `${(progress / TOTAL_STEPS) * 100}%` }" />
+    </div>
+    <header v-if="progress" class="onb-top">
+      <button type="button" class="onb-back" :aria-label="t('onboarding.back')" data-testid="onb-back" @click="goBack">
+        <UiIcon name="chevron-left" :size="26" />
+      </button>
+      <span class="sr-only" data-testid="onb-step">{{ t('onboarding.step', { n: progress, total: TOTAL_STEPS }) }}</span>
     </header>
 
-    <!-- Splash -->
-    <section v-if="step === 'splash'" class="flex flex-col items-center gap-6 pt-8 text-center" data-testid="step-splash">
-      <h1 class="font-display text-lg">{{ t('onboarding.splashTitle') }}</h1>
-      <p class="text-[var(--text-soft)]">{{ t('onboarding.splashSub') }}</p>
-      <div class="grid grid-cols-4 gap-2" aria-hidden="true">
-        <HeroArt v-for="c in QUIZ_CHARACTERS" :key="c.id" :character="c.id" :size="64" />
+    <!-- Schermata iniziale -->
+    <section v-if="step === 'splash'" class="onb-screen splash" data-testid="step-splash">
+      <div class="splash__lang"><LanguageSwitch compact /></div>
+      <div class="splash__head">
+        <svg viewBox="0 0 24 24" width="30" height="30" class="splash__star" aria-hidden="true"><path d="M12 1.5l2.1 7.4 7.4 2.1-7.4 2.1L12 20.5l-2.1-7.4L2.5 11l7.4-2.1z" fill="currentColor" /></svg>
+        <h1 class="splash__word">{{ t('onboarding.splashTitle') }}</h1>
+        <p class="onb-sub">{{ t('onboarding.splashSub') }}</p>
       </div>
-      <UiButton data-testid="splash-start" @click="step = 'intro'">{{ t('onboarding.intro.start') }}</UiButton>
-      <LanguageSwitch />
-      <NuxtLink v-if="account.available" to="/account" class="underline" data-testid="splash-account">{{ t('account.restoreHint') }}</NuxtLink>
+      <div class="splash__lineup" aria-hidden="true">
+        <HeroArt v-for="[id, h] in LINEUP" :key="id" :character="id" :size="h" />
+      </div>
+      <div class="onb-actions">
+        <UiButton data-testid="splash-start" @click="step = 'intro'">{{ t('onboarding.intro.start') }}</UiButton>
+        <NuxtLink v-if="account.available" to="/account" class="splash__link" data-testid="splash-account">{{ t('account.restoreHint') }}</NuxtLink>
+      </div>
     </section>
 
     <OnboardingIntro v-else-if="step === 'intro'" @done="step = 'quiz'" />
 
     <!-- Quiz + rivelazione (oppure scelta diretta) -->
-    <section v-else-if="step === 'quiz'" class="flex flex-col gap-4">
-      <p class="text-[var(--text-soft)]">{{ t('onboarding.quizIntro') }}</p>
-      <HeroQuiz @done="onQuizDone" />
-      <div>
-        <UiButton variant="secondary" data-testid="quiz-choose" @click="step = 'choose'">{{ t('onboarding.quizChoose') }}</UiButton>
+    <section v-else-if="step === 'quiz'" class="quiz-step onb-screen">
+      <HeroQuiz ref="quizRef" @done="onQuizDone" />
+      <div v-if="quizRef?.step !== 'reveal'" class="quiz-step__alt">
+        <UiButton variant="ghost" data-testid="quiz-choose" @click="step = 'choose'">{{ t('onboarding.quizChoose') }}</UiButton>
       </div>
     </section>
 
@@ -243,18 +266,25 @@ async function finish(): Promise<void> {
     />
 
     <!-- Nome -->
-    <section v-else-if="step === 'name' && characterId" class="flex flex-col gap-4" data-testid="step-name">
-      <div class="flex justify-center"><HeroArt :character="characterId" :size="176" :alt="heroName" /></div>
-      <h2 class="font-display text-center text-sm">{{ t('onboarding.name.title', { hero: heroName }) }}</h2>
-      <form class="flex flex-col gap-4" @submit.prevent="displayName.trim() && (step = 'focus')">
-        <UiInput
-          v-model="displayName"
-          :label="t('onboarding.name.label')"
-          :placeholder="t('onboarding.name.placeholder')"
-          :maxlength="MAX_NAME_LENGTH"
-          data-testid="name-input"
-        />
-        <p class="text-[var(--text-soft)]">{{ t('onboarding.name.hint') }}</p>
+    <section v-else-if="step === 'name' && characterId" class="onb-screen" data-testid="step-name">
+      <div class="onb-head onb-head--short"><h2 class="onb-title">{{ t('onboarding.name.title', { hero: heroName }) }}</h2></div>
+      <div class="name__stage">
+        <HeroArt :character="characterId" fluid :alt="heroName" />
+      </div>
+      <form class="onb-actions" @submit.prevent="displayName.trim() && (step = 'focus')">
+        <label class="name__field glass">
+          <UiIcon name="user" :size="22" />
+          <input
+            v-model="displayName"
+            type="text"
+            autocomplete="off"
+            :aria-label="t('onboarding.name.label')"
+            :placeholder="t('onboarding.name.placeholder')"
+            :maxlength="MAX_NAME_LENGTH"
+            data-testid="name-input"
+          />
+        </label>
+        <p class="name__hint">{{ t('onboarding.name.hint') }}</p>
         <UiButton type="submit" :disabled="!displayName.trim()" data-testid="name-next">{{ t('common.continue') }}</UiButton>
       </form>
     </section>
@@ -262,60 +292,67 @@ async function finish(): Promise<void> {
     <OnboardingFocus v-else-if="step === 'focus'" v-model="areas" @next="afterFocus" />
 
     <!-- Prime missioni -->
-    <section v-else-if="step === 'quests' && characterId" class="flex flex-col gap-4" data-testid="step-quests">
-      <h2 class="font-display text-sm">{{ t('onboarding.quests.title') }}</h2>
-      <p class="text-[var(--text-soft)]">{{ t('onboarding.quests.subtitle', { hero: heroName }) }}</p>
+    <section v-else-if="step === 'quests' && characterId" class="onb-screen quests" data-testid="step-quests">
+      <div class="onb-head onb-head--short">
+        <h2 class="onb-title">{{ t('onboarding.quests.title') }}</h2>
+        <p class="onb-sub">{{ t('onboarding.quests.subtitle', { hero: heroName }) }}</p>
+      </div>
 
-      <UiCard>
-        <h3 class="font-display mb-2 text-xs">{{ t('onboarding.quests.suggested', { hero: heroName }) }}</h3>
-        <div v-for="item in heroItems" :key="item.id" class="flex items-center gap-2">
-          <UiCheck :model-value="item.checked" :label="item.title" data-testid="suggested-item" @update:model-value="toggle(item, $event)">
-            <span class="flex items-center gap-3">
-              <UiIcon :name="item.icon" :size="24" />
-              <span>{{ item.title }}</span>
-              <span class="text-[var(--text-soft)]">· {{ t(`period.${item.period}Short`) }}</span>
+      <div class="quests__list">
+        <h3 class="quests__label">{{ t('onboarding.quests.suggested', { hero: heroName }) }}</h3>
+        <div v-for="item in heroItems" :key="item.id" class="qitem glass">
+          <UiCheck :model-value="item.checked" :strike="false" :label="item.title" data-testid="suggested-item" @update:model-value="toggle(item, $event)">
+            <span class="qitem__row">
+              <UiIconTile :name="item.icon" :size="40" />
+              <span class="qitem__text">
+                <span class="qitem__title">{{ item.title }}</span>
+                <span class="qitem__meta num">+{{ questXp(item.difficulty, item.period) }} XP · {{ t(`period.${item.period}Short`) }}</span>
+              </span>
             </span>
           </UiCheck>
         </div>
-      </UiCard>
 
-      <UiCard v-for="group in areaGroups" :key="group.id" data-testid="area-group">
-        <h3 class="font-display mb-2 text-xs">{{ t(`focus.areas.${group.id}.title`) }}</h3>
-        <div v-for="item in group.items" :key="item.id" class="flex items-center gap-2">
-          <UiCheck :model-value="item.checked" :label="item.title" data-testid="area-item" @update:model-value="toggle(item, $event)">
-            <span class="flex items-center gap-3">
-              <UiIcon :name="item.icon" :size="24" />
-              <span>{{ item.title }}</span>
-              <span class="text-[var(--text-soft)]">· {{ t(`period.${item.period}Short`) }}<template v-if="item.target > 1"> ×{{ item.target }}</template></span>
-            </span>
-          </UiCheck>
-        </div>
-      </UiCard>
+        <template v-for="group in areaGroups" :key="group.id">
+          <h3 class="quests__label" data-testid="area-group">{{ t(`focus.areas.${group.id}.title`) }}</h3>
+          <div v-for="item in group.items" :key="item.id" class="qitem glass">
+            <UiCheck :model-value="item.checked" :strike="false" :label="item.title" data-testid="area-item" @update:model-value="toggle(item, $event)">
+              <span class="qitem__row">
+                <UiIconTile :name="item.icon" :size="40" />
+                <span class="qitem__text">
+                  <span class="qitem__title">{{ item.title }}</span>
+                  <span class="qitem__meta num">
+                    +{{ questXp(item.difficulty, item.period) }} XP · {{ t(`period.${item.period}Short`) }}<template v-if="item.target > 1"> ×{{ item.target }}</template>
+                  </span>
+                </span>
+              </span>
+            </UiCheck>
+          </div>
+        </template>
 
-      <UiCard>
-        <h3 class="font-display mb-2 text-xs">{{ t('onboarding.quests.custom') }}</h3>
-        <div v-for="item in customItems" :key="item.id" class="flex items-center gap-2">
-          <UiCheck :model-value="item.checked" :label="item.title" @update:model-value="toggle(item, $event)" />
+        <h3 class="quests__label">{{ t('onboarding.quests.custom') }}</h3>
+        <div v-for="item in customItems" :key="item.id" class="qitem glass qitem--custom">
+          <UiCheck :model-value="item.checked" :strike="false" :label="item.title" @update:model-value="toggle(item, $event)" />
           <UiButton variant="secondary" compact :aria-label="t('onboarding.quests.remove', { title: item.title })" @click="removeItem(item.id)">×</UiButton>
         </div>
-        <form class="mt-2 flex items-end gap-2" @submit.prevent="addCustom">
-          <div class="flex-1">
-            <UiInput
-              v-model="customTitle"
-              :label="t('onboarding.quests.addLabel')"
-              :placeholder="t('onboarding.quests.addPlaceholder')"
-              :maxlength="MAX_TITLE_LENGTH"
-              data-testid="custom-input"
-            />
-          </div>
+        <form class="quests__add" @submit.prevent="addCustom">
+          <UiInput
+            v-model="customTitle"
+            class="flex-1"
+            :label="t('onboarding.quests.addLabel')"
+            :placeholder="t('onboarding.quests.addPlaceholder')"
+            :maxlength="MAX_TITLE_LENGTH"
+            data-testid="custom-input"
+          />
           <UiButton type="submit" variant="secondary" :disabled="!customTitle.trim() || dailyFull" data-testid="custom-add">{{ t('onboarding.quests.addButton') }}</UiButton>
         </form>
-        <p v-if="dailyFull" class="mt-2 text-[var(--warn)]">{{ t('onboarding.quests.capNote', { max: QUEST_CAPS.daily }) }}</p>
-        <p v-if="weeklyFull" class="mt-2 text-[var(--warn)]">{{ t('onboarding.quests.capNoteWeekly', { max: QUEST_CAPS.weekly }) }}</p>
-      </UiCard>
+        <p v-if="dailyFull" class="quests__note">{{ t('onboarding.quests.capNote', { max: QUEST_CAPS.daily }) }}</p>
+        <p v-if="weeklyFull" class="quests__note">{{ t('onboarding.quests.capNoteWeekly', { max: QUEST_CAPS.weekly }) }}</p>
+        <p v-if="!items.some((i) => i.checked)" class="quests__note quests__note--soft">{{ t('onboarding.quests.none') }}</p>
+      </div>
 
-      <p v-if="!items.some((i) => i.checked)" class="text-[var(--text-soft)]">{{ t('onboarding.quests.none') }}</p>
-      <UiButton data-testid="onboarding-finish" @click="step = 'rhythm'">{{ t('common.continue') }}</UiButton>
+      <div class="onb-actions">
+        <UiButton data-testid="onboarding-finish" @click="step = 'rhythm'">{{ t('common.continue') }}</UiButton>
+      </div>
     </section>
 
     <OnboardingRhythm
@@ -328,27 +365,20 @@ async function finish(): Promise<void> {
     />
 
     <!-- Permesso notifiche (contestuale, nella voce dell'eroe) -->
-    <section v-else-if="step === 'notify' && characterId" class="flex flex-col gap-4" data-testid="step-notify">
-      <div class="flex justify-center"><HeroArt :character="characterId" :size="176" :alt="heroName" /></div>
-      <h2 class="font-display text-center text-sm">{{ t('notify.title', { hero: heroName }) }}</h2>
-      <UiCard tone="accent">
-        <p data-testid="notify-voice">{{ hero.permission(characterId) }}</p>
-      </UiCard>
-      <UiCard>
-        <h3 class="font-display mb-2 text-xs">{{ t('notify.preview') }}</h3>
-        <p class="notify-sample" data-testid="notify-sample">{{ textsFor(game.settings.locale).variants(characterId, 'morning')[0] }}</p>
-        <h3 class="font-display mt-4 mb-2 text-xs">{{ t('notify.what') }}</h3>
-        <ul class="flex list-disc flex-col gap-1 pl-5">
-          <li>{{ t('notify.list1') }}</li>
-          <li>{{ t('notify.list2') }}</li>
-          <li>{{ t('notify.list3') }}</li>
-        </ul>
-      </UiCard>
-      <p v-if="!notifications.isNative()" class="text-[var(--text-soft)]">{{ t('notify.webNote') }}</p>
-      <div class="flex flex-col gap-2">
+    <section v-else-if="step === 'notify' && characterId" class="onb-screen notify" data-testid="step-notify">
+      <div class="onb-head onb-head--short"><h2 class="onb-title">{{ t('notify.title', { hero: heroName }) }}</h2></div>
+      <div class="notify__stage">
+        <div class="notify__bubble" data-testid="notify-voice">{{ hero.permission(characterId) }}</div>
+        <div class="notify__hero"><HeroArt :character="characterId" fluid :alt="heroName" /></div>
+      </div>
+      <div class="notify__info glass">
+        <h3 class="notify__label">{{ t('notify.preview') }}</h3>
+        <p class="notify__sample" data-testid="notify-sample">{{ textsFor(game.settings.locale).variants(characterId, 'morning')[0] }}</p>
+        <p v-if="!notifications.isNative()" class="notify__web">{{ t('notify.webNote') }}</p>
+      </div>
+      <div class="onb-actions">
         <UiButton :disabled="busy" data-testid="notify-enable" @click="decideNotifications(true)">{{ t('notify.enable') }}</UiButton>
-        <UiButton variant="secondary" :disabled="busy" data-testid="notify-skip" @click="decideNotifications(false)">{{ t('notify.skip') }}</UiButton>
-        <p class="text-[var(--text-soft)]">{{ t('notify.skipNote') }}</p>
+        <UiButton variant="ghost" :disabled="busy" data-testid="notify-skip" @click="decideNotifications(false)">{{ t('notify.skip') }}</UiButton>
       </div>
     </section>
 
@@ -366,10 +396,318 @@ async function finish(): Promise<void> {
 </template>
 
 <style scoped>
-.notify-sample {
-  padding: 10px 14px;
-  background: var(--bg-2);
+.onb-line {
+  position: fixed;
+  top: var(--safe-top);
+  left: 0;
+  right: 0;
+  z-index: 5;
+  height: 3px;
+  background: rgb(245 240 229 / 0.12);
+}
+.onb-line > i {
+  display: block;
+  height: 100%;
+  background: var(--gold);
+  border-radius: 0 3px 3px 0;
+  transition: width 0.35s ease;
+}
+.onb-top {
+  position: relative;
+  z-index: 3;
+  height: 44px;
+  margin: -8px 0 0 -12px;
+}
+.onb-back {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  color: var(--text);
+  background: transparent;
+  border: 0;
+  border-radius: 50%;
+  cursor: pointer;
+  filter: drop-shadow(0 2px 6px rgb(0 0 0 / 0.7));
+}
+
+/* Schermata iniziale */
+.splash__lang {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  z-index: 2;
+}
+.splash__head {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 40px;
+  text-align: center;
+}
+.splash__star {
+  color: var(--gold);
+  filter: drop-shadow(0 0 12px rgb(233 184 94 / 0.8));
+}
+.splash__word {
+  margin: 4px 0 0;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 58px;
+  line-height: 62px;
+  color: #f6dfa2;
+  text-shadow:
+    0 0 24px rgb(233 184 94 / 0.45),
+    0 3px 16px rgb(0 0 0 / 0.7);
+}
+.splash__lineup {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  margin-top: auto;
+  margin-bottom: -6px;
+}
+.splash__lineup > :deep(.hero:not(:first-child)) {
+  margin-left: -26px;
+}
+.splash__link {
+  display: block;
+  padding: 10px;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-shadow: 0 2px 10px rgb(0 0 0 / 0.8);
+}
+
+/* Quiz */
+.quiz-step__alt {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  margin-top: auto;
+  padding-top: 12px;
+}
+
+/* Nome */
+.name__stage {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex: 1;
+  min-height: 0;
+  align-items: flex-end;
+  justify-content: center;
+  margin-bottom: -4px;
+}
+.name__field {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 56px;
+  padding: 0 18px;
+  margin: 4px;
+  color: var(--text-soft);
+  border-radius: 999px;
+}
+.name__field input {
+  flex: 1;
+  min-width: 0;
+  height: 54px;
+  font: inherit;
+  font-size: 18px;
+  color: var(--text);
+  background: transparent;
+  border: 0;
+  outline: none;
+  user-select: text;
+  -webkit-user-select: text;
+}
+.name__field input::placeholder {
+  color: var(--text-muted);
+}
+.name__field:focus-within {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgb(233 184 94 / 0.25);
+}
+.name__hint {
+  margin: 0 0 4px;
+  text-align: center;
+  font-size: 14px;
+  color: var(--text);
+  text-shadow: 0 2px 8px rgb(0 0 0 / 0.8);
+}
+
+/* Prime missioni */
+.quests {
+  gap: 0;
+}
+.quests__list {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 10px;
+  min-height: 0;
+  margin: 8px -4px 0;
+  padding: 0 4px 24px;
+  overflow-y: auto;
+  scrollbar-width: none;
+  -webkit-mask-image: linear-gradient(180deg, #000 calc(100% - 28px), transparent);
+  mask-image: linear-gradient(180deg, #000 calc(100% - 28px), transparent);
+}
+.quests__list::-webkit-scrollbar {
+  display: none;
+}
+.quests__label {
+  margin: 8px 4px 0;
+  font-size: 13px;
+  line-height: 16px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.qitem {
+  padding: 6px 14px;
+}
+.qitem--custom {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.qitem__row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+  min-width: 0;
+}
+.qitem__text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.qitem__title {
+  font-weight: 600;
+  line-height: 22px;
+}
+.qitem__meta {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--gold);
+}
+.quests__add {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+}
+.quests__note {
+  margin: 0 4px;
+  font-size: 14px;
+  color: var(--warn);
+}
+.quests__note--soft {
+  color: var(--text-soft);
+}
+
+/* Promemoria */
+.notify__stage {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  min-height: 0;
+}
+.notify__hero {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+  align-items: flex-end;
+  justify-content: center;
+  margin-top: 16px;
+}
+.notify__bubble {
+  position: relative;
+  max-width: 330px;
+  padding: 12px 18px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 19px;
+  line-height: 24px;
+  text-align: center;
+  color: #1b2637;
+  background: #f5f0e5;
+  border-radius: 26px;
+  box-shadow: 0 14px 30px -12px rgb(0 0 0 / 0.7);
+}
+.notify__bubble::after {
+  content: '';
+  position: absolute;
+  bottom: -12px;
+  left: 50%;
+  width: 24px;
+  height: 24px;
+  background: #f5f0e5;
+  border-radius: 4px;
+  transform: translateX(-50%) rotate(45deg);
+}
+.notify__info {
+  position: relative;
+  z-index: 1;
+  padding: 12px 16px;
+  margin-top: 4px;
+}
+.notify__label {
+  margin: 0 0 4px;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.notify__sample {
+  margin: 0 0 10px;
+  padding: 8px 12px;
+  background: var(--bg-3);
   border: 1px solid var(--edge);
-  border-radius: 18px 18px 18px 6px;
+  border-radius: 16px 16px 16px 6px;
+}
+.notify__list {
+  margin: 0;
+  padding-left: 18px;
+  list-style: disc;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--text-soft);
+}
+.notify__web {
+  margin: 8px 0 0;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+.notify__skipnote {
+  margin: 0 8px;
+  text-align: center;
+  font-size: 13px;
+  color: var(--text);
+  text-shadow: 0 2px 8px rgb(0 0 0 / 0.8);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .onb-line > i {
+    transition: none;
+  }
 }
 </style>

@@ -4,6 +4,11 @@ import { PERIODS, type Period } from '../../core/types'
 const game = useGameStore()
 const { t } = useI18n()
 const hero = useHero()
+const { locale } = useI18n()
+const dateLabel = computed(() => {
+  const d = new Intl.DateTimeFormat(locale.value, { weekday: 'long', day: 'numeric', month: 'long' }).format(game.now)
+  return d.charAt(0).toUpperCase() + d.slice(1)
+})
 
 const sectionTitle: Record<Period, string> = {
   daily: 'today.sectionDaily',
@@ -17,7 +22,8 @@ const sections = computed(() =>
 </script>
 
 <template>
-  <div class="flex flex-col gap-6" data-testid="page-today">
+  <div class="flex flex-col gap-5" data-testid="page-today">
+    <PageHeader :title="t('today.pageTitle')" :sub="dateLabel" />
     <HeroHeader v-if="game.character" />
 
     <!-- Primo avvio: sparisce da solo dopo la prima missione completata -->

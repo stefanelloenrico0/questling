@@ -29,7 +29,7 @@
       "evening": "Il sole cala e il dovere chiama: un ultimo assalto prima del tramonto?",
       "done": "Ogni missione è compiuta, prode! Il regno dorme sereno."
     },
-    "permission": "Prode, posso inviarti messaggi dal castello? Al massimo due al giorno: uno all'alba, uno al tramonto, con un richiamo se la tua striscia è in pericolo. Niente rimproveri, solo squilli di tromba."
+    "permission": "Prode, posso inviarti messaggi dal castello? Al massimo due al giorno: uno all'alba, uno al tramonto, e a volte un pensiero sulla tua serie. Niente rimproveri, solo squilli di tromba."
   },
   "kuro": {
     "name": "Kuro",
@@ -61,7 +61,7 @@
       "evening": "L'ombra cala. Ne resta una.",
       "done": "Fatto. Nessun rumore. Riposa."
     },
-    "permission": "Posso scriverti. Due messaggi al giorno, al massimo. Uno al mattino, uno alla sera. Un avviso se la striscia è in pericolo. Nessun rimprovero."
+    "permission": "Posso scriverti. Due messaggi al giorno, al massimo. Uno al mattino, uno alla sera. Un pensiero sulla serie, a volte. Nessun rimprovero."
   },
   "fenna": {
     "name": "Fenna",
@@ -93,7 +93,7 @@
       "evening": "Il sentiero non si cammina da solo. Una missione prima del buio.",
       "done": "Sentiero battuto per oggi. Bel passo."
     },
-    "permission": "Ti mando un richiamo al mattino e uno alla sera, due al massimo. Ogni tanto un avviso se la tua striscia rischia di spezzarsi. Niente prediche, promesso."
+    "permission": "Ti mando un richiamo al mattino e uno alla sera, due al massimo. Ogni tanto un pensiero sulla tua serie. Niente prediche, promesso."
   },
   "zeffiro": {
     "name": "Zeffiro",
@@ -125,7 +125,7 @@
       "evening": "Ho perso la bacchetta (era in tasca). Intanto: le missioni?",
       "done": "Fatto tutto! Abracadabra... o forse l'abbiamo fatto davvero."
     },
-    "permission": "Posso inviarti dei gufi... cioè notifiche! Una al mattino e una alla sera, non di più. Ti avviso anche se la striscia sta per svanire, se me ne ricordo."
+    "permission": "Posso inviarti dei gufi... cioè notifiche! Una al mattino e una alla sera, non di più. Ti scrivo anche della tua serie, se me ne ricordo."
   },
   "lumen": {
     "name": "Lumen",
@@ -189,7 +189,7 @@
       "evening": "Ultimo atto: una missione ancora e l'applauso è garantito!",
       "done": "Sipario! Applausi a scena aperta per le missioni di oggi!"
     },
-    "permission": "Un annuncio al sipario del mattino e uno al calare della sera: due al giorno, non uno di più! E un applauso di richiamo se la tua striscia rischia. Mai una nota stonata."
+    "permission": "Un annuncio al sipario del mattino e uno al calare della sera: due al giorno, non uno di più! E ogni tanto un applauso per la tua serie. Mai una nota stonata."
   },
   "u404": {
     "name": "Unità 404",
@@ -221,7 +221,7 @@
       "evening": "> WARNING: missioni non completate. Timeout in 3 ore.",
       "done": "> TUTTE LE MISSIONI ESEGUITE. Stato: soddisfacente."
     },
-    "permission": "> RICHIESTA: inviare notifiche. Frequenza: max 2 al giorno (mattina, sera). Evento speciale: striscia a rischio. Tono: deadpan. Consentire? [S/n]"
+    "permission": "> RICHIESTA: inviare notifiche. Frequenza: max 2 al giorno (mattina, sera). Evento speciale: aggiornamento sulla serie. Tono: deadpan. Consentire? [S/n]"
   },
   "brunilde": {
     "name": "Brunilde",
@@ -253,7 +253,7 @@
       "evening": "Il ferro si batte finché è caldo: una missione prima di cena?",
       "done": "Il ferro è battuto per oggi. Bel lavoro, apprendista."
     },
-    "permission": "Posso mandarti un richiamo dalla forgia? Uno la mattina, uno la sera, due al massimo. Brontolo solo un po' se la striscia rischia di raffreddarsi. Ti voglio bene lo stesso."
+    "permission": "Posso mandarti un richiamo dalla forgia? Uno la mattina, uno la sera, due al massimo. Brontolo solo un po', e solo con affetto, sulla serie. Ti voglio bene lo stesso."
   },
   "salmastro": {
     "name": "Capitan Salmastro",
@@ -285,7 +285,7 @@
       "evening": "Cala la sera. Una missione prima di buttare l'ancora?",
       "done": "Tutto fatto! Il ponte brilla più della mia moneta."
     },
-    "permission": "Posso mandarti un messaggio in bottiglia? Uno la mattina, uno la sera, non di più. Ti avviso anche se la tua striscia rischia di affondare. Parola di capitano."
+    "permission": "Posso mandarti un messaggio in bottiglia? Uno la mattina, uno la sera, non di più. Ti scrivo anche della tua serie. Parola di capitano."
   },
   "plin": {
     "name": "Plin",
@@ -317,7 +317,7 @@
       "evening": "Plin. La sera è una buona domanda: hai fatto le tue missioni?",
       "done": "Fatto tutto. Plin. Forse è questo il senso, o quasi."
     },
-    "permission": "Posso mandarti un pensiero ogni tanto? Uno la mattina e uno la sera, non di più. Ti avviso anche se la striscia rischia di evaporare. Plin."
+    "permission": "Posso mandarti un pensiero ogni tanto? Uno la mattina e uno la sera, non di più. Ti scrivo anche della tua serie, con gentilezza. Plin."
   },
   "brace": {
     "name": "Brace",
@@ -349,6 +349,6 @@
       "evening": "Ho il fuoco acceso e le missioni ancora da fare. Ci pensiamo insieme?",
       "done": "Tutte fatte! Sbuffo di gioia, ma stavolta niente tende bruciate."
     },
-    "permission": "Posso mandarti un messaggio fumante? Uno al mattino e uno alla sera, non di più. Ti avviso anche se la striscia rischia di spegnersi. Prometto di non bruciare niente."
+    "permission": "Posso mandarti un messaggio fumante? Uno al mattino e uno alla sera, non di più. Ti scrivo anche della tua serie. Prometto di non bruciare niente."
   }
 }

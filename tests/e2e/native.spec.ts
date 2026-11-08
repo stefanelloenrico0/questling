@@ -102,7 +102,7 @@ test.describe('percorso nativo (bridge simulato)', () => {
     await page.waitForTimeout(1500)
     expect(await nativeCalls(page, 'LocalNotifications', 'schedule')).toHaveLength(0)
 
-    await page.getByRole('link', { name: 'Altro' }).click()
+    await page.getByRole('link', { name: 'Impostazioni' }).click()
     await expect(page.getByTestId('notif-enable')).toHaveAttribute('aria-checked', 'false')
     await expect(page.getByTestId('notif-denied')).toBeVisible()
     await page.getByTestId('notif-enable').click() // riprova: il sistema nega ancora, resta spento
@@ -113,7 +113,7 @@ test.describe('percorso nativo (bridge simulato)', () => {
     await boot(page, { permission: 'prompt', requestResult: 'granted' })
     await onboard(page, 'notify-skip')
     expect(await nativeCalls(page, 'LocalNotifications', 'requestPermissions')).toHaveLength(0)
-    await page.getByRole('link', { name: 'Altro' }).click()
+    await page.getByRole('link', { name: 'Impostazioni' }).click()
     await expect(page.getByTestId('notif-ask')).toBeVisible()
     await page.getByTestId('notif-enable').click()
     await expect(page.getByTestId('notif-enable')).toHaveAttribute('aria-checked', 'true')
@@ -124,7 +124,7 @@ test.describe('percorso nativo (bridge simulato)', () => {
     await boot(page, { permission: 'granted' })
     await onboard(page, 'notify-enable')
     await expect.poll(async () => (await page.evaluate(() => window.__native.pending)).length).toBeGreaterThan(0)
-    await page.getByRole('link', { name: 'Altro' }).click()
+    await page.getByRole('link', { name: 'Impostazioni' }).click()
     await page.getByTestId('notif-enable').click()
     await expect(page.getByTestId('notif-enable')).toHaveAttribute('aria-checked', 'false')
     await expect.poll(async () => (await page.evaluate(() => window.__native.pending)).length).toBe(0)
@@ -134,7 +134,7 @@ test.describe('percorso nativo (bridge simulato)', () => {
     await boot(page, { permission: 'granted' })
     await onboard(page, 'notify-enable')
     await expect.poll(async () => (await scheduledNotifications(page)).length).toBeGreaterThan(0)
-    await page.getByRole('link', { name: 'Altro' }).click()
+    await page.getByRole('link', { name: 'Impostazioni' }).click()
     // 07:30 e' fuori dalla fascia 08:00-22:00: viene portato alle 08:00
     await page.getByTestId('notif-morning').fill('07:30')
     await expect.poll(async () => (await nativeCalls(page, 'LocalNotifications', 'schedule')).length).toBeGreaterThan(1)
@@ -185,7 +185,7 @@ test.describe('percorso nativo (bridge simulato)', () => {
   test('haptics spenti: nessuna vibrazione', async ({ page }) => {
     await boot(page, { permission: 'granted' })
     await onboard(page, 'notify-skip')
-    await page.getByRole('link', { name: 'Altro' }).click()
+    await page.getByRole('link', { name: 'Impostazioni' }).click()
     await page.getByRole('switch', { name: /Vibrazione/ }).click()
     await page.getByRole('link', { name: 'Oggi' }).click()
     await page.getByRole('checkbox', { name: /Allenamento/ }).click()
@@ -215,7 +215,7 @@ test.describe('percorso nativo (bridge simulato)', () => {
     })
     await boot(page, { permission: 'prompt', requestResult: 'granted' })
     await onboard(page, 'notify-enable')
-    for (const link of ['Missioni', 'Eroe', 'Altro', 'Oggi']) await page.getByRole('link', { name: link }).click()
+    for (const link of ['Missioni', 'Eroe', 'Statistiche', 'Impostazioni', 'Oggi']) await page.getByRole('link', { name: link }).click()
     await page.waitForTimeout(1000)
     expect(errors).toEqual([])
   })

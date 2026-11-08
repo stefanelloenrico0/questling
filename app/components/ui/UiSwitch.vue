@@ -14,7 +14,7 @@ defineProps<{ label: string; hint?: string }>()
     <span class="sw__track" :class="{ 'sw__track--on': model }" aria-hidden="true">
       <span class="sw__knob" />
     </span>
-    <span class="sw__state font-display" aria-hidden="true">{{ model ? t('common.on') : t('common.off') }}</span>
+    <span class="sw__state num" aria-hidden="true">{{ model ? t('common.on') : t('common.off') }}</span>
   </button>
 </template>
 
@@ -39,7 +39,8 @@ defineProps<{ label: string; hint?: string }>()
 }
 .sw__hint {
   color: var(--text-soft);
-  font-size: 15px;
+  font-size: 14px;
+  line-height: 20px;
 }
 .sw__track {
   flex: none;
@@ -47,7 +48,7 @@ defineProps<{ label: string; hint?: string }>()
   width: 54px;
   height: 32px;
   background: var(--bg);
-  border: 1.5px solid var(--edge);
+  border: 1.5px solid var(--edge-control);
   border-radius: 999px;
   transition:
     background 0.2s ease,

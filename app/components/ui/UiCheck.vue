@@ -3,7 +3,7 @@
 const model = defineModel<boolean>({ default: false })
 const { t } = useI18n()
 
-defineProps<{ label: string }>()
+withDefaults(defineProps<{ label: string; strike?: boolean }>(), { strike: true })
 </script>
 
 <template>
@@ -20,7 +20,7 @@ defineProps<{ label: string }>()
         <path d="M3 8.5 6.5 12 13 4.5" fill="none" stroke="#10331a" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" />
       </svg>
     </span>
-    <span class="ui-check__label" :class="{ 'ui-check__label--done': model }">
+    <span class="ui-check__label" :class="{ 'ui-check__label--done': model && strike }">
       <slot>{{ label }}</slot>
     </span>
   </button>
@@ -47,17 +47,22 @@ defineProps<{ label: string }>()
   width: 30px;
   height: 30px;
   background: var(--bg);
-  border: 2px solid #5a63a8;
-  border-radius: 10px;
+  border: 2px solid var(--edge-control);
+  border-radius: var(--radius-xs);
   transition:
     background 0.15s ease,
-    border-color 0.15s ease,
-    transform 0.15s ease;
+    border-color 0.18s ease;
 }
 .ui-check__box--on {
   background: var(--ok);
   border-color: var(--ok);
-  transform: scale(1.05);
+}
+.ui-check:active .ui-check__box {
+  background: var(--surface-active);
+}
+.ui-check:active .ui-check__box--on {
+  background: var(--ok);
+  filter: brightness(0.92);
 }
 .ui-check__label--done {
   color: var(--text-soft);

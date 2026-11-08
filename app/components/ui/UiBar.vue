@@ -1,5 +1,6 @@
 <script setup lang="ts">
-// Barra di avanzamento (XP, traguardi). `blocks` e' accettato per compatibilita' ma non serve piu'.
+// Barra di avanzamento da 8 px. Di default prende l'accento dell'eroe (progresso personale);
+// l'oro (`color="var(--gold)"`) e' riservato ai momenti di ricompensa universale.
 const props = withDefaults(
   defineProps<{
     value: number
@@ -8,7 +9,7 @@ const props = withDefaults(
     blocks?: number
     color?: string
   }>(),
-  { label: '', blocks: 0, color: 'linear-gradient(90deg, #ffcd75, #ff9d6b)' },
+  { label: '', blocks: 0, color: 'var(--accent)' },
 )
 
 const percent = computed(() => (props.max <= 0 ? 0 : Math.round(Math.min(1, Math.max(0, props.value / props.max)) * 100)))
@@ -29,18 +30,22 @@ const percent = computed(() => (props.max <= 0 ? 0 : Math.round(Math.min(1, Math
 
 <style scoped>
 .ui-bar {
-  height: 14px;
+  height: 8px;
   overflow: hidden;
   background: var(--bg);
+  border: 1px solid var(--edge);
   border-radius: 999px;
-  box-shadow: inset 0 2px 4px rgb(0 0 0 / 0.4);
 }
 .ui-bar__fill {
   display: block;
   height: 100%;
   min-width: 0;
   border-radius: inherit;
-  transition: width 0.5s cubic-bezier(0.3, 0.7, 0.3, 1);
-  box-shadow: inset 0 -3px 0 rgb(0 0 0 / 0.15);
+  transition: width 0.35s ease;
+}
+@media (prefers-reduced-motion: reduce) {
+  .ui-bar__fill {
+    transition: none;
+  }
 }
 </style>

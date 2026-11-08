@@ -221,7 +221,7 @@ test.describe('MVP: primo avvio -> Oggi, senza account', () => {
 
     await page.getByTestId('rhythm-morning').fill('07:30')
     await page.getByTestId('rhythm-evening').fill('21:15')
-    await page.getByRole('radio', { name: 'Alle 3:00' }).click()
+    await page.getByRole('radio', { name: '3:00' }).click()
     await page.getByTestId('rhythm-next').click()
     await page.getByTestId('notify-enable').click()
 
@@ -236,10 +236,10 @@ test.describe('MVP: primo avvio -> Oggi, senza account', () => {
     await expect(page.getByTestId('page-today')).toBeVisible()
     await expect(page.getByTestId('quest-row')).toHaveCount(5)
 
-    await page.getByRole('link', { name: 'Altro' }).click()
+    await page.getByRole('link', { name: 'Impostazioni' }).click()
     await expect(page.getByTestId('notif-morning')).toHaveValue('07:30')
     await expect(page.getByTestId('notif-evening')).toHaveValue('21:15')
-    await expect(page.getByRole('radio', { name: 'Alle 3:00' })).toHaveAttribute('aria-checked', 'true')
+    await expect(page.getByRole('radio', { name: '3:00' })).toHaveAttribute('aria-checked', 'true')
   })
 
   test('Oggi: il suggerimento di primo avvio sparisce dopo la prima missione', async ({ page }) => {
@@ -268,7 +268,7 @@ test.describe('MVP: primo avvio -> Oggi, senza account', () => {
     await page.getByRole('checkbox', { name: /Allenamento/ }).click()
     await expect(xpText(page)).toContainText('10/50 XP')
 
-    await page.getByRole('link', { name: 'Altro' }).click()
+    await page.getByRole('link', { name: 'Impostazioni' }).click()
     const [download] = await Promise.all([page.waitForEvent('download'), page.getByTestId('export').click()])
     const file = await download.path()
     expect(download.suggestedFilename()).toMatch(/^questling-backup-\d{4}-\d{2}-\d{2}\.json$/)
@@ -283,7 +283,7 @@ test.describe('MVP: primo avvio -> Oggi, senza account', () => {
     await page.getByRole('link', { name: 'Oggi' }).click()
     await page.getByRole('checkbox', { name: /Letto rifatto/ }).click()
     await expect(xpText(page)).toContainText('15/50 XP')
-    await page.getByRole('link', { name: 'Altro' }).click()
+    await page.getByRole('link', { name: 'Impostazioni' }).click()
     await page.getByTestId('import-file').setInputFiles(file)
     await expect(page.getByTestId('import-summary')).toContainText('Enrico')
     await page.getByTestId('import-confirm').click()
@@ -308,7 +308,7 @@ test.describe('MVP: primo avvio -> Oggi, senza account', () => {
 
   test('elimina tutti i dati locali -> torna all\'onboarding', async ({ page }) => {
     await onboard(page)
-    await page.getByRole('link', { name: 'Altro' }).click()
+    await page.getByRole('link', { name: 'Impostazioni' }).click()
     await page.getByTestId('wipe').click()
     await page.getByTestId('wipe-confirm').click()
     await expect(page).toHaveURL(/#\/onboarding/)
@@ -338,7 +338,7 @@ test.describe('MVP: primo avvio -> Oggi, senza account', () => {
     await onboard(page, 'Enrico', 'notify-skip')
     await page.getByRole('checkbox', { name: /Allenamento/ }).click()
     await expect(xpText(page)).toContainText('10/50 XP')
-    await page.getByRole('link', { name: 'Altro' }).click()
+    await page.getByRole('link', { name: 'Impostazioni' }).click()
     const enable = page.getByTestId('notif-enable')
     await expect(enable).toHaveAttribute('aria-checked', 'false')
     await expect(page.getByTestId('notif-web')).toBeVisible() // nel browser: nessuna notifica reale
@@ -346,32 +346,32 @@ test.describe('MVP: primo avvio -> Oggi, senza account', () => {
     await expect(enable).toHaveAttribute('aria-checked', 'true')
     await page.getByTestId('notif-morning').fill('07:30')
     await page.reload()
-    await page.getByRole('link', { name: 'Altro' }).click()
+    await page.getByRole('link', { name: 'Impostazioni' }).click()
     await expect(page.getByTestId('notif-enable')).toHaveAttribute('aria-checked', 'true')
     await expect(page.getByTestId('notif-morning')).toHaveValue('07:30')
   })
 
   test('attivare i promemoria in onboarding salva la preferenza', async ({ page }) => {
     await onboard(page, 'Enrico', 'notify-enable')
-    await page.getByRole('link', { name: 'Altro' }).click()
+    await page.getByRole('link', { name: 'Impostazioni' }).click()
     await expect(page.getByTestId('notif-enable')).toHaveAttribute('aria-checked', 'true')
   })
 
   test('suoni: l\'interruttore si salva e non rompe nulla (audio sintetizzato)', async ({ page }) => {
     await onboard(page)
-    await page.getByRole('link', { name: 'Altro' }).click()
+    await page.getByRole('link', { name: 'Impostazioni' }).click()
     const sound = page.getByTestId('sound-switch')
     await expect(sound).toHaveAttribute('aria-checked', 'true')
     await sound.click()
     await expect(sound).toHaveAttribute('aria-checked', 'false')
     await page.reload()
-    await page.getByRole('link', { name: 'Altro' }).click()
+    await page.getByRole('link', { name: 'Impostazioni' }).click()
     await expect(page.getByTestId('sound-switch')).toHaveAttribute('aria-checked', 'false')
   })
 
   test('senza Firebase configurato: l\'app e\' solo locale e la pagina account lo dice con chiarezza', async ({ page }) => {
     await onboard(page)
-    await page.getByRole('link', { name: 'Altro' }).click()
+    await page.getByRole('link', { name: 'Impostazioni' }).click()
     await expect(page.getByTestId('settings-account')).toContainText('non sono attivi')
     await page.getByTestId('settings-account-link').click()
     await expect(page.getByTestId('account-unavailable')).toBeVisible()
@@ -398,7 +398,7 @@ test.describe('MVP: primo avvio -> Oggi, senza account', () => {
     await onboard(page)
     await page.getByRole('checkbox', { name: /Allenamento/ }).click()
     await page.getByRole('link', { name: 'Eroe' }).click()
-    await page.getByTestId('hero-stats-link').click()
+    await page.getByRole('link', { name: 'Statistiche' }).click()
     await expect(page.getByTestId('page-stats')).toBeVisible()
 
     await expect(page.getByTestId('heat-today')).toHaveAttribute('data-count', '1')
@@ -413,7 +413,7 @@ test.describe('MVP: primo avvio -> Oggi, senza account', () => {
     await page.getByRole('link', { name: 'Oggi' }).click()
     await page.getByRole('checkbox', { name: /Allenamento/ }).click()
     await page.getByRole('link', { name: 'Eroe' }).click()
-    await page.getByTestId('hero-stats-link').click()
+    await page.getByRole('link', { name: 'Statistiche' }).click()
     await expect(page.getByTestId('heat-today')).toHaveAttribute('data-count', '0')
     await expect(page.getByTestId('total-7')).toContainText('0 daily · 0 XP')
     await expect(page.getByTestId('ach-first_step')).toHaveAttribute('data-done', 'false')
@@ -430,7 +430,7 @@ test.describe('MVP: primo avvio -> Oggi, senza account', () => {
       if (m.type() === 'error' || m.type() === 'warning') errors.push(m.text())
     })
     await onboard(page)
-    for (const link of ['Missioni', 'Eroe', 'Altro', 'Oggi']) await page.getByRole('link', { name: link }).click()
+    for (const link of ['Missioni', 'Eroe', 'Statistiche', 'Impostazioni', 'Oggi']) await page.getByRole('link', { name: link }).click()
     expect(external).toEqual([])
     expect(errors).toEqual([])
   })
@@ -469,7 +469,7 @@ test.describe('Inglese', () => {
     await expect(page.getByRole('link', { name: 'Today' })).toBeVisible()
 
     // cambio lingua dalle impostazioni: tutto passa all'italiano e resta cosi' dopo il ricaricamento
-    await page.getByRole('link', { name: 'More' }).click()
+    await page.getByRole('link', { name: 'Settings' }).click()
     await expect(page.getByRole('radio', { name: 'English' })).toHaveAttribute('aria-checked', 'true')
     await page.getByRole('radio', { name: 'Italiano' }).click()
     await expect(page.getByRole('link', { name: 'Oggi' })).toBeVisible()
@@ -482,7 +482,7 @@ test.describe('Inglese', () => {
     await expect(page.getByRole('checkbox', { name: /Make the bed before 9/ })).toBeVisible()
 
     // ... e di nuovo in inglese
-    await page.getByRole('link', { name: 'Altro' }).click()
+    await page.getByRole('link', { name: 'Impostazioni' }).click()
     await page.getByRole('radio', { name: 'English' }).click()
     await expect(page.getByRole('link', { name: 'Today' })).toBeVisible()
   })

@@ -39,31 +39,73 @@ function choose(): void {
     v-model:open="open"
     :title="t('heroUnlock.title')"
     :description="t('heroUnlock.body', { name: hero.name(id) })"
+    celebrate
   >
-    <div class="flex flex-col items-center gap-3" data-testid="hero-unlock" :style="{ '--hc': accent }">
-      <HeroArt :character="id" state="happy" :size="176" :alt="hero.name(id)" />
-      <p class="font-display text-center text-lg unlock-name">{{ hero.name(id) }}</p>
-      <p class="text-center text-[var(--text-soft)]">{{ hero.archetype(id) }}</p>
-      <p class="unlock-line">{{ hero.voice(id) }}</p>
+    <div class="un" data-testid="hero-unlock" :style="{ '--hc': accent }">
+      <div class="un__stage">
+        <div class="un__glow" aria-hidden="true" />
+        <HeroArt :character="id" state="happy" fluid :alt="hero.name(id)" />
+      </div>
+      <p class="un__name">{{ hero.name(id) }}</p>
+      <p class="un__arch">{{ hero.archetype(id) }}</p>
+      <p class="un__line">{{ hero.voice(id) }}</p>
     </div>
     <template #actions>
-      <div class="flex gap-2">
-        <UiButton variant="secondary" data-testid="hero-unlock-later" @click="game.dismissHeroUnlock()">{{ t('heroUnlock.later') }}</UiButton>
-        <UiButton data-testid="hero-unlock-choose" @click="choose">{{ t('heroUnlock.choose', { name: hero.name(id) }) }}</UiButton>
-      </div>
+      <UiButton data-testid="hero-unlock-choose" @click="choose">{{ t('heroUnlock.choose', { name: hero.name(id) }) }}</UiButton>
+      <UiButton variant="ghost" data-testid="hero-unlock-later" @click="game.dismissHeroUnlock()">{{ t('heroUnlock.later') }}</UiButton>
     </template>
   </UiDialog>
 </template>
 
 <style scoped>
-.unlock-name {
-  color: var(--hc);
+.un {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  min-height: 0;
 }
-.unlock-line {
-  padding: 10px 14px;
+.un__stage {
+  position: relative;
+  display: flex;
+  flex: 1;
+  align-items: flex-end;
+  justify-content: center;
+  width: 100%;
+  min-height: 0;
+}
+.un__glow {
+  position: absolute;
+  inset: 4% -10% 0;
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--hc) 55%, transparent), transparent 72%);
+}
+.un__stage > :deep(.hero) {
+  position: relative;
+}
+.un__name {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 34px;
+  line-height: 38px;
+  color: var(--hc);
+  text-shadow: 0 3px 14px rgb(0 0 0 / 0.85);
+}
+.un__arch {
+  margin: 0;
+  color: var(--text);
+  text-shadow: 0 2px 10px rgb(0 0 0 / 0.85);
+}
+.un__line {
+  margin: 6px 8px 0;
+  min-height: 52px;
   text-align: center;
-  background: var(--bg-2);
-  border: 1px solid var(--edge);
-  border-radius: 18px;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 24px;
+  color: var(--text);
+  text-shadow: 0 2px 10px rgb(0 0 0 / 0.85);
 }
 </style>

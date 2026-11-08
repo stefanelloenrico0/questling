@@ -33,8 +33,8 @@ defineProps<{
   gap: 6px;
   padding: 5px;
   background: var(--bg);
-  border: 1px solid var(--edge);
-  border-radius: 20px;
+  border: 1px solid var(--edge-control);
+  border-radius: var(--radius-m);
 }
 .seg__opt {
   flex: 1 1 0;
@@ -42,21 +42,21 @@ defineProps<{
   min-height: 46px;
   padding: 8px 12px;
   color: var(--text-soft);
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   font-size: 16px;
   font-weight: 600;
   background: transparent;
   border: 0;
-  border-radius: 15px;
+  border-radius: var(--radius-s);
   cursor: pointer;
   transition:
     background 0.15s ease,
     color 0.15s ease;
 }
 .seg__opt--on {
-  color: #14162a;
-  background: var(--accent);
-  box-shadow: 0 3px 0 color-mix(in srgb, var(--accent) 52%, #0b0d22);
+  color: var(--text);
+  background: color-mix(in srgb, var(--accent) 18%, var(--surface-active));
+  box-shadow: inset 0 0 0 1.5px var(--accent);
 }
 .seg__opt:disabled {
   opacity: 0.45;

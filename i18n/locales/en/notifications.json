@@ -30,16 +30,16 @@
         "At day's end, valour is measured in quests completed. One more, brave one?"
       ],
       "streak": [
-        "Your {n}-day streak wavers! No knight leaves the banner on the ground.",
-        "{n} days of oath kept! Don't let the sun set without your deed.",
-        "Brave one, {n} days of glory are at stake: one quest is enough to save them.",
-        "The banner of your {n} days still flies. Keep it high with a quest!",
-        "For honour: a {n}-day streak doesn't deserve to fall tonight. One quest, brave one!",
-        "The realm remembers your {n} days of valour. Add one more before nightfall!",
-        "The walls have stood for {n} days thanks to you. One last brick, brave one?",
-        "{n} days in a row: a chronicle worthy of minstrels. Don't break the song now!",
-        "Your {n}-day oath asks for one last effort. Time is running, brave one.",
-        "A {n}-day streak in danger! Grab a quest and defend it."
+        "{n} days of oath honoured, brave one! The trail stays open: one small step tonight, if you like.",
+        "The realm remembers your {n} days of valour. One quest, however small, and the tale goes on.",
+        "Brave one, {n} days on the road! Tonight the banner may rest, or rise again: your choice.",
+        "{n} days in a row: a chronicle worthy of minstrels. Shall we write one more line tonight?",
+        "Your {n}-day streak still shines. One gentle quest and it will shine even more.",
+        "The castle has been at peace for {n} days, brave one. One quest tonight keeps the torches lit.",
+        "{n} days, and your oath has not wavered. The trail awaits, no hurry.",
+        "Brave one, {n} days of effort deserve a toast. Perhaps after one small quest?",
+        "The realm's book holds {n} days in your name. A new line tonight, if you wish.",
+        "{n} days in a row! The realm is proud of you. One more quest, and you sleep like a paladin."
       ],
       "comeback": [
         "The realm awaits you, brave one. No scolding: one quest is enough to take the road again.",
@@ -116,16 +116,16 @@
         "One quest. Then dark and quiet."
       ],
       "streak": [
-        "{n} days of silence and discipline. Don't break them tonight.",
-        "{n} days. One more.",
-        "The chain is {n} days long. Don't let it fall.",
-        "{n} lanterns lit. Don't put one out now.",
-        "Discipline of {n} days. One quest protects it.",
-        "{n} days in a row. Tonight, one is enough.",
-        "No delay in {n} days. Don't begin now.",
-        "The streak is worth {n} days. Little time. Little effort.",
-        "{n} days. The master is watching. One quest.",
-        "One more quest and the {n} days stay yours."
+        "{n} days. The path is open. One step tonight, if you wish.",
+        "{n} lanterns lit. One more, if you like.",
+        "{n} days of discipline. No hurry. One quest is enough.",
+        "{n} days of good silence. The monastery awaits.",
+        "The chain is {n} days long. It can grow, slowly.",
+        "{n} days. The master nods. Tonight, one small step.",
+        "You have been here {n} days. Tonight there is room for one quest.",
+        "{n} days. Breathe. Then, if you wish, one quest.",
+        "The path counts {n} days. It stays open.",
+        "{n} days of constancy. One quest, then rest."
       ],
       "comeback": [
         "The monastery awaits you. No hurry.",
@@ -202,16 +202,16 @@
         "One quest, then pack down and fire up. Deal?"
       ],
       "streak": [
-        "{n} days of road covered. Don't stop right now.",
-        "You've kept the pace for {n} days. Don't lose the trail tonight.",
-        "{n} days of notches on the trees. One more and the route goes on.",
-        "You've already walked {n} days of trail. Shame to trip now.",
-        "{n} days in a row: proper ranger stuff. One quest and you're still on track.",
-        "The streak is {n} days long. I'm not letting it drop, and you?",
-        "{n} days of steady walking. The last metres are the sneaky ones.",
-        "After {n} days on the road, don't drop the pace now.",
-        "{n} days of beaten trail. One quest and you keep it beaten.",
-        "A {n}-day streak: nearly there, tonight one quest will do."
+        "{n} days of beaten trail. The woods are waiting, if you fancy another stretch.",
+        "You've already walked {n} days. One more notch tonight? The trail isn't going anywhere.",
+        "{n} days in a row: proper ranger stuff. One quest and we close the leg in style.",
+        "The trail has been open {n} days. Tonight one small step is enough, promise.",
+        "{n} days of steady walking. A water break is fine; a quest is even better.",
+        "Your {n}-day streak can be seen from afar. Fancy adding a notch?",
+        "{n} days on the trail and not a sermon from me. One quest, if you like.",
+        "After {n} days, the woods know you by name. One last stretch before the fire?",
+        "{n} days of regular steps. Tonight a short one, the trail is still there.",
+        "The fire is lit and the streak stands at {n} days. One quest and then rest."
       ],
       "comeback": [
         "The trail is still there, and so are the boots. Whenever you like, we set off.",
@@ -288,16 +288,16 @@
         "Sunset potion almost ready. To make it perfect, it needs a quest."
       ],
       "streak": [
-        "Ancient magic: your {n}-day streak is about to vanish. Abracadabra, open the app!",
-        "{n} days in a row! It's a lovely spell. Don't let it vanish tonight.",
-        "The spellbook says: {n}-day streak, one quest to protect it.",
-        "I counted {n} days of streak twice just to be sure. They deserve one more quest.",
-        "{n} days! I almost remembered where I put my hat. Now: a quest!",
-        "Your {n}-day streak shines like a gem. One quest and it keeps shining.",
-        "If I remember rightly that's {n} days of steady magic. Don't break the spell!",
-        "A {n}-day streak: I have a protective potion. Main ingredient: a quest.",
-        "{n} days of real magic. One more quest and the enchantment holds.",
-        "Emergency formula: Streakus servatus! That is: {n} days, one quest, and you save it."
+        "{n} days of steady magic! If I remember rightly, tonight only needs one small quest.",
+        "The spellbook says: {n}-day streak. One quest and the page fills up.",
+        "{n} days! I almost remembered where I put my hat. And you, one quest tonight?",
+        "Your {n}-day streak shines like a gem. One small spell keeps it polished.",
+        "I counted {n} days of streak, twice to be sure. Fancy one more?",
+        "{n} days of real magic. The wand is behind my ear; your next quest is right here.",
+        "Formula of the day: Questus parvus! That is: {n} days, and one small quest for tonight.",
+        "{n} days in a row: a lovely spell. No hurry, but the lantern is lit.",
+        "I seem to remember {n} days of effort. Another quest and I'll write it in the notebook.",
+        "{n} days together. I forgot what I was going to tell you, but I think it was: well done."
       ],
       "comeback": [
         "Hey, remember me? I forgot what I was going to tell you, but come back whenever you like.",
@@ -374,16 +374,16 @@
         "No duty, just a gentle invitation: one quest before bed?"
       ],
       "streak": [
-        "You've built {n} days of light. One small one tonight too is enough.",
-        "{n} days of light, one after another. One small step is enough to keep them safe.",
-        "Your light has shone for {n} days. Tonight one small quest is enough.",
-        "{n} days of care. One more, and the Lantern stays lit.",
-        "What a lovely journey: {n} days. One kind gesture tonight and it goes on.",
-        "{n} days of small steps. One more is enough, gently.",
-        "Your {n}-day streak is a little light. Care for it with a quest.",
-        "{n} days beside the Lantern. Tonight too, one light step.",
-        "You've kept {n} days of light. One quest and you keep it a little longer.",
-        "{n} days of gentleness and constancy. If you like, add one tonight."
+        "You've built {n} days of light. One small one tonight is enough.",
+        "{n} days of care. The Lantern is lit for you, whatever you do tonight.",
+        "Your light has shone for {n} days. One light quest, only if you feel like it.",
+        "{n} days of small steps. Breathe: today, one is enough.",
+        "What a lovely journey: {n} days. One kind gesture tonight and it keeps shining.",
+        "{n} days beside the Lantern. No hurry, no judgement.",
+        "For {n} days you've chosen to show up. Tonight, if you wish, one quiet quest.",
+        "Your {n}-day streak is a little light. You can tend it gently.",
+        "{n} days of gentleness and constancy. The path stays open, always.",
+        "{n} days of light, one after another. One small step is enough, no hurry."
       ],
       "comeback": [
         "The Lantern is still lit for you. Come back whenever you like, no hurry.",
@@ -460,16 +460,16 @@
         "Soon I'll put away the lute: one more quest and the night is legendary."
       ],
       "streak": [
-        "{n} days of ballad... don't leave the chorus half sung!",
-        "{n} days on tour: don't stop right now, the audience is waiting!",
-        "Encore, encore! {n} days of show: one quest and the repeat is guaranteed.",
-        "Your {n}-day streak is a work of art: don't leave it without a finale!",
-        "{n} days of consecutive applause: one quest tonight and the run goes on.",
-        "The tour has lasted {n} days: one last note to keep it alive!",
-        "{n} days of continuous melody: one note is missing tonight, and then all is well.",
-        "Remember? {n} days in a row! One last bow and the series continues.",
-        "The {n}-day show is about to take a break: one quest and the curtain stays up!",
-        "{n} days of ballad: the audience wants the next verse. One quest?"
+        "{n} days of ballad! The audience waits, but no rush: one quest and an encore it is.",
+        "{n} days on tour: a round of applause for you! One last number tonight, if you like.",
+        "Your {n}-day streak is a work of art. Shall we add a verse before the curtain?",
+        "{n} days of melody: one note missing for tonight, and the rhyme is done.",
+        "Encore, encore! {n} days of show. One small quest and the curtain stays up.",
+        "{n} days of chorus: the audience sings with you. One quest and off to dinner.",
+        "You've got {n} days of applause in your pocket. Tonight a small bow: one quest.",
+        "{n} days of show and not one sour note. One quest and the evening is a standing ovation.",
+        "The playbill says {n} days in a row: marvellous! Add a line to the ballad?",
+        "{n} days of touring: one more verse, then the lute rests."
       ],
       "comeback": [
         "The stage is always free for you: come back whenever you like, and we restart with an encore.",
@@ -546,16 +546,16 @@
         "> Night notification incoming. Evening quest still executable."
       ],
       "streak": [
-        "> IMMINENT ERROR: {n}-day streak at risk of reset.",
-        "> WARNING: {n}-day streak in danger. Solution: execute one quest.",
-        "> LOG: {n} streak days active. Reset expected if no quest is executed.",
-        "> Alert: {n}-day series compromised. Quest recommended.",
-        "> Streak integrity ({n} days) at risk. Apply patch: one quest.",
-        "> {n} days of uptime. Avoid the crash: complete one quest.",
-        "> Critical notice: the {n}-day streak expires tonight. Prevent?",
-        "> Streak status: {n} days. Reset probability: high without input.",
-        "> ERROR 404: streak not found... not yet. {n} days to save.",
-        "> Streak backup ({n} days) unavailable. Execute a quest to preserve it."
+        "> LOG: streak active for {n} days. Status: excellent. Evening quest available, no rush.",
+        "> {n} days of uptime. System stable. One optional quest improves the report.",
+        "> STREAK status: {n} days. No errors detected. Execute a quest? [Y/n]",
+        "> Update: {n} consecutive days. Recommendation: one quest, only if useful.",
+        "> {n} days of stable loop. The cabinet is on and the token is ready.",
+        "> Evening report: streak at {n} days. All in order. Quest available whenever you like.",
+        "> {n} days of consistent data. No alarms. One quest closes the day nicely.",
+        "> NOTE: {n} streak days. The system is proud (experimental field).",
+        "> Checkpoint: {n} days reached. Next checkpoint: whenever you like.",
+        "> {n} active days. The path is clear. Execute a quest? [Y/n]"
       ],
       "comeback": [
         "> LOG: user absent. System waiting. Restart possible at any time.",
@@ -632,16 +632,16 @@
         "A blow before dark makes the better blade. Come on, I'm waiting."
       ],
       "streak": [
-        "{n} days of hammer blows! Don't let the forge go cold.",
-        "{n} days in a row at the fire: don't make me put it all out for one evening.",
-        "A {n}-day streak is good iron. One more blow and it won't crack.",
-        "{n} days of forge lit. Come on, one more blow and the fire stays alive.",
-        "After {n} days of work, don't drop the hammer tonight.",
-        "{n} days of hard graft: I grumble, but I'm proud. One more quest.",
-        "The blade of your {n} days needs finishing with one blow tonight. Just one.",
-        "{n} days at the forge: the anvil knows you. One quest and the rhythm goes on.",
-        "Your {n}-day streak is tempered iron. Don't let it rust tonight.",
-        "{n} days of steady blows. One more blow and the fire doesn't go out."
+        "{n} days of forge lit! The iron is hot: one small blow tonight, if you like.",
+        "{n} days in a row at the fire: I grumble, but I'm proud. One quest and then the soup.",
+        "The blade of your {n} days is good iron. One more blow and it gleams even brighter.",
+        "{n} days of steady hammer. Tonight a little tap will do, apprentice.",
+        "After {n} days of work, the anvil knows you. One quest, no hurry.",
+        "{n} days of well-struck blows. The fire stays lit even if you go slow.",
+        "Your {n}-day streak is tempered iron. One light blow and it goes in the shop window.",
+        "{n} days at the forge: no sermons, just pride. Fancy striking one more?",
+        "{n} days of smithing. The soup is boiling; one quick quest and you sit down.",
+        "You've struck iron for {n} days. The hammer waits, whenever you like."
       ],
       "comeback": [
         "The forge is still lit and your spot by the fire is free. Come back whenever you like.",
@@ -718,16 +718,16 @@
         "Let's close the day like a good captain: with the quests done."
       ],
       "streak": [
-        "Careful, matey: your {n}-day streak is in danger of sinking. One quest and you save it.",
-        "{n} days in a row! Don't let them end up at the bottom of the sea tonight.",
-        "Your {n}-day streak is the wind at your back. Don't let it drop right now.",
-        "By all the fjords, a {n}-day streak! One quest and the treasure stays safe.",
-        "The parrot has counted {n} days in a row. Don't make him lose count.",
-        "{n} days without ever leaving the course. Only one quest left today.",
-        "Hey, captain of {n} days: the streak is leaking. Plug the hole with a quest.",
-        "{n} days of streak are worth more than a chest. Protect them tonight.",
-        "A storm threatens your {n}-day streak. One quest and it passes.",
-        "Don't lower the flag now: that's {n} days of streak!"
+        "{n} days holding the course, matey! The sea is calm: one quest tonight, if you like.",
+        "The parrot has counted {n} days in a row and is proud. One more, no rush?",
+        "{n} days of wind at your back. Tonight a small stroke of the oar and we carry on.",
+        "Your {n}-day streak is worth more than a chest. One quest and the treasure grows.",
+        "{n} days at the helm. The harbour is there: one quest and we drop anchor.",
+        "By all the fjords, {n} days in a row! One quest tonight and the flag flies on.",
+        "{n} days of calm sailing. The path across the sea stays open, matey.",
+        "Captain of {n} days: the sea knows you. One last labour before supper?",
+        "{n} days on deck: well done, sailor. One light quest and then rest.",
+        "{n} days of course kept: the parrot applauds. One quest and we toast with water."
       ],
       "comeback": [
         "Matey, the crew is waiting: the ship is still moored and so are the quests.",
@@ -804,16 +804,16 @@
         "Before you close your eyes: is there a quest softly calling you?"
       ],
       "streak": [
-        "Plin. A {n}-day streak is a river: don't let it dry up tonight.",
-        "{n} days in a row. What kept you here? Carry on, maybe you'll find out.",
-        "Your {n}-day streak is about to evaporate. One quest saves it.",
-        "{n} days are a small eternity. They deserve a quest today.",
-        "I wonder if you'll protect {n} days of streak. I think you will.",
-        "Plin. {n} days of constancy are a drop that carves the stone. Carry on.",
-        "If the {n}-day streak ended tonight, what would be left? Better not to find out.",
-        "{n} days in a row: a lovely answer to a hard question. Don't interrupt it.",
-        "The river of your {n} days wants to reach the sea. One quest and it flows on.",
-        "A {n}-day streak is as fragile as a bubble. With a quest it turns solid."
+        "Plin. {n} days of constancy: what kept you here? One quest, perhaps, will answer.",
+        "{n} days. A gentle question: would you like to make it one more tonight?",
+        "Your {n}-day streak is a quiet river. One quest and it keeps flowing.",
+        "I wonder what it means to reach {n} days. Perhaps: showing up. Tonight, a little more.",
+        "Plin plin. {n} days of drops that carve the stone. Add one?",
+        "{n} days of streak: a lovely answer to a hard question. No hurry.",
+        "The lake of your {n} days is calm and deep. One small quest, if you like.",
+        "{n} days, one after another. What will you carry with you tonight? Perhaps a quest.",
+        "Plin. {n} days: time flows, and you with it. One small step, whenever you like.",
+        "{n} days of presence. Does it seem small? To me it seems enormous. Plin."
       ],
       "comeback": [
         "Plin. A few days have passed. It's not a reproach: just a question about your return.",
@@ -890,16 +890,16 @@
         "Dragon evening: one small quest is worth one big sleep."
       ],
       "streak": [
-        "Puff! Your {n}-day streak is about to go out! One quest and you relight it.",
-        "{n} days of fire! Don't let the flame go out tonight.",
-        "The {n}-day streak is my favourite treasure. Protect it with a quest.",
-        "{n} days in a row! If it breaks, I'll puff sadness for a month.",
-        "Flame alarm: {n} days of streak at risk! One quest and it's all saved.",
-        "What a treasure: {n} days of streak. Don't let it cool down.",
-        "{n} days in a row make a mountain of gold. Add a coin tonight.",
-        "The little flame of your {n} days flickers. One quest and it's strong again.",
-        "You've stacked up {n} days of streak! We're nearly legendary, don't stop.",
-        "Tonight the fire of your {n} days wants a quest. Give it some wood."
+        "Puff! {n} days of living flame! One quest tonight and the hoard grows again.",
+        "{n} days of fire! The lair is warm and waiting for you, whenever you like.",
+        "Your {n}-day streak is my favourite treasure. One more coin, if you like.",
+        "{n} days in a row: I'm so proud I'm puffing sparks! One quest tonight?",
+        "You've stacked up {n} days of streak. One quest and the pile of gold glitters more.",
+        "{n} days with wings spread! Tonight a short flight: one small quest.",
+        "The flame of your {n} days is strong. One more twig, if you feel like it.",
+        "{n} days together: the lair has never been so bright. One quest and we celebrate.",
+        "Almost legendary: {n} days of streak! One quiet quest, then rest.",
+        "{n} days of sparks. The fire is lit and I'm cheering for you."
       ],
       "comeback": [
         "Puff, I'm waiting for you! The lair is warm and the quests are still here.",

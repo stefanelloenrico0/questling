@@ -157,7 +157,7 @@ test.describe('account e sincronizzazione (emulatori Firebase)', () => {
     await A.ctx.setOffline(false)
     await B.ctx.setOffline(false)
     for (const p of [A.page, B.page, A.page, B.page]) {
-      await p.getByRole('link', { name: 'Altro' }).click()
+      await p.getByRole('link', { name: 'Impostazioni' }).click()
       await p.getByTestId('settings-account-link').click()
       await syncNow(p)
       await p.getByRole('button', { name: 'Indietro' }).click()

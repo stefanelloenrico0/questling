@@ -1,5 +1,7 @@
 <script setup lang="ts">
+import { PALETTE } from '../../data/icons'
 import { CHARACTERS } from '../../data/characters'
+import bannerScene from '../assets/scenes/hero-banner.webp'
 import { TIER_LEVELS } from '../../core/levels'
 import type { CharacterId } from '../../core/types'
 
@@ -49,26 +51,32 @@ function onQuizDone(payload: { answers: number[]; characterId: CharacterId }): v
 </script>
 
 <template>
-  <div v-if="mode === 'quiz'" class="flex flex-col gap-4" data-testid="hero-quiz">
-    <h1 class="font-display text-sm">{{ t('hero.retakeTitle') }}</h1>
-    <p class="text-[var(--text-soft)]">{{ t('hero.retakeNote') }}</p>
-    <HeroQuiz @done="onQuizDone" />
-    <div>
-      <UiButton variant="secondary" @click="mode = 'view'">{{ t('hero.cancelQuiz') }}</UiButton>
+  <div v-if="mode === 'quiz'" class="retake" data-testid="hero-quiz">
+    <div class="onb retake__frame">
+      <header class="retake__top">
+        <button type="button" class="retake__back" :aria-label="t('hero.cancelQuiz')" data-testid="hero-quiz-cancel" @click="mode = 'view'">
+          <UiIcon name="x" :size="26" />
+        </button>
+        <span class="retake__title">{{ t('hero.retakeTitle') }}</span>
+      </header>
+      <HeroQuiz @done="onQuizDone" />
     </div>
   </div>
 
   <div v-else class="flex flex-col gap-6" data-testid="page-hero">
-    <UiCard tone="accent">
-      <div class="flex items-center gap-4">
-        <HeroArt :character="character.id" :tier="stats.tier" :size="176" :alt="hero.name(character.id)" />
-        <div class="min-w-0">
-          <h1 class="font-display text-sm">{{ hero.name(character.id) }}</h1>
-          <p class="text-[var(--text-soft)]">{{ hero.archetype(character.id) }}</p>
-          <p class="font-display mt-2 text-xs text-[var(--xp)]">
-            {{ t('today.levelTitle', { level: stats.level.level, title: hero.levelTitle(character.id, stats.level.level) }) }}
-          </p>
+    <div class="hero-card">
+      <div class="hero-banner">
+        <img class="hero-banner__img" :src="bannerScene" alt="" draggable="false" />
+        <div class="hero-banner__art">
+          <HeroArt :character="character.id" :tier="stats.tier" :size="300" :alt="hero.name(character.id)" />
         </div>
+      </div>
+      <div class="hero-who min-w-0">
+        <h1 class="hero-who__name">{{ hero.name(character.id) }}</h1>
+        <p class="text-[var(--text-soft)]">{{ hero.archetype(character.id) }}</p>
+        <p class="mt-2 text-[var(--gold)]" style="font-weight: 700; font-size: 18px; line-height: 24px">
+          {{ t('today.levelTitle', { level: stats.level.level, title: hero.levelTitle(character.id, stats.level.level) }) }}
+        </p>
       </div>
       <p class="mt-4"><span class="text-[var(--text-soft)]">{{ t('hero.voice') }}:</span> {{ hero.voice(character.id) }}</p>
       <p class="mt-2"><span class="text-[var(--text-soft)]">{{ t('hero.appearance') }}:</span> {{ hero.appearance(character.id) }}</p>
@@ -76,17 +84,16 @@ function onQuizDone(payload: { answers: number[]; characterId: CharacterId }): v
         <UiButton data-testid="hero-change" @click="openChange">{{ t('hero.change') }}</UiButton>
         <UiButton variant="secondary" data-testid="hero-retake" @click="mode = 'quiz'">{{ t('hero.retake') }}</UiButton>
       </div>
-    </UiCard>
+    </div>
 
     <section class="flex flex-col gap-3">
       <h2 class="font-display text-xs">{{ t('hero.stats') }}</h2>
-      <div class="flex flex-wrap">
-        <StatChip :label="t('hero.statXp')" :value="stats.totalXp" />
-        <StatChip :label="t('hero.statStreak')" :value="stats.streak.current" />
-        <StatChip :label="t('hero.statBest')" :value="stats.streak.best" />
-        <StatChip :label="t('hero.statDone')" :value="stats.questsCompleted" />
+      <div class="grid grid-cols-2 gap-2.5">
+        <StatChip icon="sparkles" :color="PALETTE.gold" :label="t('hero.statXp')" :value="stats.totalXp" />
+        <StatChip icon="flame" :color="PALETTE.orange" :label="t('hero.statStreak')" :value="stats.streak.current" />
+        <StatChip icon="trophy" :color="PALETTE.violet" :label="t('hero.statBest')" :value="stats.streak.best" />
+        <StatChip icon="check" :color="PALETTE.green" :label="t('hero.statDone')" :value="stats.questsCompleted" />
       </div>
-      <div><UiButton variant="secondary" data-testid="hero-stats-link" @click="navigateTo('/stats')">{{ t('stats.link') }}</UiButton></div>
     </section>
 
     <section class="flex flex-col gap-3">
@@ -128,3 +135,78 @@ function onQuizDone(payload: { answers: number[]; characterId: CharacterId }): v
     </UiDialog>
   </div>
 </template>
+
+<style scoped>
+.retake {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  padding: calc(var(--safe-top) + 12px) 20px calc(var(--safe-bottom) + 16px);
+  background: var(--bg);
+}
+.retake__frame {
+  height: 100%;
+  max-width: 28rem;
+  margin: 0 auto;
+}
+.retake__top {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 48px;
+  margin-left: -12px;
+}
+.retake__back {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  color: var(--text);
+  background: transparent;
+  border: 0;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.retake__title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-soft);
+}
+.hero-banner {
+  position: relative;
+  height: 340px;
+  margin: -12px -20px 0;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(180deg, #000 78%, transparent);
+  mask-image: linear-gradient(180deg, #000 78%, transparent);
+}
+.hero-who {
+  position: relative;
+  margin-top: -44px;
+  text-align: center;
+}
+.hero-who__name {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 40px;
+  color: var(--text);
+  text-shadow: 0 3px 14px rgb(0 0 0 / 0.7);
+}
+.hero-banner__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.hero-banner__art {
+  position: absolute;
+  inset: auto 0 2px;
+  display: flex;
+  justify-content: center;
+}
+</style>

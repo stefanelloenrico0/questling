@@ -13,7 +13,7 @@ const inc = (): void => {
 <template>
   <div class="stepper" role="group" :aria-label="label">
     <UiButton variant="secondary" compact :disabled="model <= min" :aria-label="decreaseLabel" @click="dec">−</UiButton>
-    <output class="stepper__value font-display" aria-live="polite">{{ valueLabel }}</output>
+    <output class="stepper__value num" aria-live="polite">{{ valueLabel }}</output>
     <UiButton variant="secondary" compact :disabled="model >= max" :aria-label="increaseLabel" @click="inc">+</UiButton>
   </div>
 </template>
