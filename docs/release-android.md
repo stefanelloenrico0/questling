@@ -27,42 +27,21 @@ keyAlias=questling
 keyPassword=...
 ```
 
-E in `android/app/build.gradle`, dentro `android { ... }`:
-
-```groovy
-def keystorePropertiesFile = rootProject.file("keystore.properties")
-def keystoreProperties = new Properties()
-if (keystorePropertiesFile.exists()) { keystoreProperties.load(new FileInputStream(keystorePropertiesFile)) }
-
-signingConfigs {
-    release {
-        if (keystorePropertiesFile.exists()) {
-            storeFile file(keystoreProperties['storeFile'])
-            storePassword keystoreProperties['storePassword']
-            keyAlias keystoreProperties['keyAlias']
-            keyPassword keystoreProperties['keyPassword']
-        }
-    }
-}
-buildTypes {
-    release {
-        signingConfig signingConfigs.release
-        minifyEnabled false
-    }
-}
-```
-
-> Questo frammento **non è stato provato** (qui non c'è l'Android SDK): verificalo alla prima build.
+La configurazione di firma e' **gia' in `android/app/build.gradle`**: legge `android/keystore.properties` solo se esiste, quindi la build di debug non cambia e senza il file il rilascio resta non firmato.
 
 ## 2. Build
 
 ```bash
-npm run cap:sync                 # genera il web e sincronizza i plugin in android/
+npm run cap:sync:local           # v1 solo locale: genera il web SENZA chiavi Firebase e sincronizza i plugin in android/
+# (npm run cap:sync usa invece il tuo .env, quindi include gli account)
 cd android
+# serve JAVA_HOME (es. il JBR di Android Studio) e ANDROID_HOME
 ./gradlew bundleRelease          # AAB firmato: android/app/build/outputs/bundle/release/app-release.aab
 ```
 
 Prima di ogni invio incrementa `versionCode` (e `versionName`) in `android/app/build.gradle`: Play rifiuta un `versionCode` già usato.
+
+> Provato il 10/11/2026 sull'emulatore Pixel 8 (Android 36): la build di debug e il `bundleRelease` (non firmato) riescono, l'app si avvia e funziona. Nel log compare un errore non bloccante del plugin `FirebaseAuthentication` (Firebase non configurato nella v1 solo locale).
 
 ## 3. Prova su dispositivo reale (prima di caricare)
 
@@ -72,14 +51,14 @@ Spuntare, su un telefono Android vero (anche Xiaomi/Samsung se possibile):
 - [ ] Notifiche: arrivano all'ora giusta e **nella voce dell'eroe**; completando tutte le daily la serale di oggi sparisce; dopo il **riavvio del telefono** tornano all'apertura; rifiutando il permesso l'app funziona.
 - [ ] Risparmio energetico aggressivo / app in background a lungo.
 - [ ] Cambio fuso e ora legale.
-- [ ] Login email e **Google** (serve `google-services.json` e le impronte SHA-1/256 della chiave di firma e di Play App Signing).
+- [ ] (solo se la versione ha gli account) Login email e **Google** (serve `google-services.json` e le impronte SHA-1/256 della chiave di firma e di Play App Signing).
 - [ ] Esporta/Importa backup; elimina account.
 - [ ] Haptics e suoni; rotazione bloccata in verticale; area sicura (notch) e tastiera.
 
 ## 4. Play Console
 
 1. **Crea l'app** → nome, lingua predefinita italiano, gratuita.
-2. **Scheda dello store**: testi in `docs/store-listing.md`; icona 512×512 (da `resources/icon.png`, **arte placeholder**); *feature graphic* 1024×500 e screenshot (**da fare con l'arte vera**).
+2. **Scheda dello store**: testi in `docs/store-listing.md`; icona 512×512 (da `resources/icon.png`, ora con l'arte dipinta; si rigenera con `npm run icons`); *feature graphic* 1024×500 e screenshot (**da fare con l'arte vera**).
 3. **Privacy policy**: URL `https://<tuo-dominio>/privacy.html` (completata con i tuoi dati; fai rivedere il testo).
 4. **Sicurezza dei dati (Data safety)** — proposta di partenza, da verificare con la policy corrente:
    - Senza account **nessun dato lascia il dispositivo**.

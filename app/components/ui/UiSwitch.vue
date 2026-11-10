@@ -75,7 +75,7 @@ defineProps<{ label: string; hint?: string; icon?: string; color?: string }>()
   transition: transform 0.2s cubic-bezier(0.3, 0.7, 0.3, 1);
 }
 .sw__track--on .sw__knob {
-  background: #14162a;
+  background: #0b1020;
   transform: translateX(22px);
 }
 .sw__state {

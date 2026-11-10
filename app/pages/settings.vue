@@ -162,7 +162,7 @@ const summaryRows = computed(() => {
       </form>
     </SettingsGroup>
 
-    <SettingsGroup :title="t('account.card.title')" data-testid="settings-account">
+    <SettingsGroup v-if="account.available" :title="t('account.card.title')" data-testid="settings-account">
       <SettingsRow
         icon="globe"
         :color="PALETTE.cyan"

@@ -33,7 +33,7 @@ export default defineNuxtPlugin({
         else onHidden()
       }).catch(noop)
       StatusBar.setStyle({ style: Style.Dark }).catch(noop) // testo chiaro su sfondo scuro
-      StatusBar.setBackgroundColor({ color: '#14162a' }).catch(noop)
+      StatusBar.setBackgroundColor({ color: '#0b1020' }).catch(noop)
       SplashScreen.hide().catch(noop)
     }
   },

@@ -372,8 +372,10 @@ test.describe('MVP: primo avvio -> Oggi, senza account', () => {
   test('senza Firebase configurato: l\'app e\' solo locale e la pagina account lo dice con chiarezza', async ({ page }) => {
     await onboard(page)
     await page.getByRole('link', { name: 'Impostazioni' }).click()
-    await expect(page.getByTestId('settings-account')).toContainText('non sono attivi')
-    await page.getByTestId('settings-account-link').click()
+    // senza account configurati nelle Impostazioni non compare nessuna voce "Account"
+    await expect(page.getByTestId('page-settings')).toBeVisible()
+    await expect(page.getByTestId('settings-account')).toHaveCount(0)
+    await page.goto('/#/account')
     await expect(page.getByTestId('account-unavailable')).toBeVisible()
     await expect(page.getByTestId('account-form')).toHaveCount(0)
     await page.getByTestId('account-back').click()
