@@ -53,7 +53,11 @@ const tabs: { to: string; label: string; icon: string }[] = [
   place-items: center;
   width: 48px;
   height: 48px;
-  color: var(--text-soft);
+  color: var(--text);
+  background: rgb(11 16 32 / 0.42);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgb(255 255 255 / 0.14);
   border-radius: 999px;
   transition:
     background 0.18s ease,
@@ -67,48 +71,58 @@ const tabs: { to: string; label: string; icon: string }[] = [
 
 .tabbar {
   position: fixed;
-  inset: auto 0 0 0;
+  inset: auto 0 calc(12px + var(--safe-bottom)) 0;
   z-index: 20;
   display: flex;
-  justify-content: center;
-  gap: 4px;
-  padding: 6px 12px calc(6px + var(--safe-bottom));
-  background: color-mix(in srgb, var(--bg-2) 94%, transparent);
-  backdrop-filter: blur(12px);
-  border-top: 1px solid var(--edge);
+  justify-content: space-between;
+  gap: 2px;
+  max-width: calc(28rem - 24px);
+  margin: 0 auto;
+  padding: 6px;
+  width: calc(100% - 32px);
+  background: linear-gradient(180deg, rgb(40 54 88 / 0.74), rgb(18 26 46 / 0.86));
+  backdrop-filter: blur(22px) saturate(1.5);
+  -webkit-backdrop-filter: blur(22px) saturate(1.5);
+  border: 1px solid color-mix(in srgb, var(--accent) 26%, rgb(160 185 240 / 0.3));
+  border-radius: 999px;
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 0.12),
+    0 14px 34px -10px rgb(0 0 0 / 0.75),
+    0 0 26px -14px var(--accent);
 }
 .tabbar__item {
   flex: 1 1 0;
-  max-width: 104px;
   min-height: 56px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 2px;
+  gap: 1px;
   color: var(--text-muted);
   font-size: 12px;
   line-height: 16px;
   font-weight: 600;
   text-decoration: none;
-}
-.tabbar__icon {
-  display: grid;
-  place-items: center;
-  width: 56px;
-  height: 30px;
   border-radius: 999px;
   transition:
     background 0.18s ease,
     color 0.18s ease;
 }
+.tabbar__icon {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 26px;
+}
 .tabbar__item--active {
   color: var(--text);
   font-weight: 700;
+  background: linear-gradient(180deg, rgb(233 184 94 / 0.26), rgb(233 184 94 / 0.1));
+  box-shadow:
+    inset 0 0 0 1px rgb(233 184 94 / 0.45),
+    0 0 18px -8px var(--gold);
 }
 .tabbar__item--active .tabbar__icon {
   color: var(--gold);
-  background: var(--surface-active);
-  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--gold) 38%, transparent);
 }
 </style>

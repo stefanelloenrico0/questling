@@ -16,7 +16,7 @@ withDefaults(defineProps<{ tone?: 'surface' | 'accent' | 'raised' | 'row' }>(), 
   padding: 16px;
   color: var(--text);
   background: linear-gradient(180deg, rgb(32 43 69 / 0.78), rgb(21 29 50 / 0.86));
-  border: 1px solid rgb(129 160 230 / 0.26);
+  border: 1px solid color-mix(in srgb, var(--accent) 22%, rgb(129 160 230 / 0.3));
   border-radius: var(--radius-l);
   box-shadow:
     inset 0 1px 0 rgb(255 255 255 / 0.05),

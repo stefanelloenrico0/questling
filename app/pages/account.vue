@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { Capacitor } from '@capacitor/core'
 import type { AccountProviderId } from '../services/account'
+import loginScene from '../assets/scenes/login.webp'
 
 // Layout "blank": la pagina e' raggiungibile anche senza profilo (ritrovare i dati su un dispositivo nuovo).
 definePageMeta({ layout: 'blank' })
@@ -79,7 +80,8 @@ const back = (): void => void navigateTo(game.profile ? '/settings' : '/onboardi
 
 <template>
   <div class="flex flex-col gap-4" data-testid="page-account">
-    <h1 class="font-display text-sm">{{ t('account.title') }}</h1>
+    <OnboardingScene :src="loginScene" />
+    <PageHeader :title="t('account.title')" />
 
     <!-- Non configurato -->
     <UiCard v-if="!account.available" data-testid="account-unavailable">

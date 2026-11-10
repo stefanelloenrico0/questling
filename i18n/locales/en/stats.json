@@ -9,7 +9,7 @@
     "level": "Level",
     "totalXp": "Total XP",
     "heatmapTitle": "Last 12 weeks",
-    "heatmapNote": "Each square is a day: the brighter it is, the more dailies you completed.",
+    "heatmapNote": "Each dot is a day: the brighter it is, the more dailies you completed.",
     "heatmapSummary": "{total} dailies completed over {days} active days.",
     "legendLess": "Less",
     "legendMore": "More",

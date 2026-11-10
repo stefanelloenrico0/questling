@@ -2,11 +2,12 @@
 // Interruttore accessibile: lo stato e' dichiarato anche con testo (Si/No), non solo col colore.
 const model = defineModel<boolean>({ default: false })
 const { t } = useI18n()
-defineProps<{ label: string; hint?: string }>()
+defineProps<{ label: string; hint?: string; icon?: string; color?: string }>()
 </script>
 
 <template>
-  <button class="sw" type="button" role="switch" :aria-checked="model" @click="model = !model">
+  <button class="sw" :class="{ 'sw--icon': icon }" type="button" role="switch" :aria-checked="model" @click="model = !model">
+    <UiIconTile v-if="icon" :name="icon" :size="40" :color="color" />
     <span class="sw__text">
       <span>{{ label }}</span>
       <span v-if="hint" class="sw__hint">{{ hint }}</span>
@@ -31,6 +32,10 @@ defineProps<{ label: string; hint?: string }>()
   background: transparent;
   border: 0;
   cursor: pointer;
+}
+.sw--icon {
+  min-height: 64px;
+  padding: 12px 14px;
 }
 .sw__text {
   flex: 1;

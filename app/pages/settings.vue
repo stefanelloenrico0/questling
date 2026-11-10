@@ -144,7 +144,7 @@ const summaryRows = computed(() => {
 </script>
 
 <template>
-  <div class="flex flex-col gap-6" data-testid="page-settings">
+  <div class="flex flex-col gap-5" data-testid="page-settings">
     <PageHeader :title="t('settings.title')" />
 
     <UiCard v-if="game.loadStatus === 'recovered'" tone="accent" data-testid="recovered-notice">
@@ -152,108 +152,84 @@ const summaryRows = computed(() => {
       <p>{{ t('settings.recoveredBody') }}</p>
     </UiCard>
 
-    <UiCard>
-      <div class="mb-3 flex items-center gap-3">
-        <UiIconTile name="user" :size="40" :color="PALETTE.sky" />
-        <h2 class="font-display text-xs">{{ t('settings.profile') }}</h2>
-      </div>
-      <form class="flex flex-col gap-3" @submit.prevent="saveName">
-        <UiInput v-model="name" :label="t('settings.name')" maxlength="24" data-testid="settings-name" />
-        <div><UiButton type="submit" variant="secondary">{{ t('settings.nameSave') }}</UiButton></div>
+    <SettingsGroup :title="t('settings.profile')">
+      <form class="prof" @submit.prevent="saveName">
+        <HeroAvatar v-if="game.character" :character="game.character.id" :size="68" :alt="hero.name(game.character.id)" />
+        <div class="prof__form">
+          <UiInput v-model="name" :label="t('settings.name')" maxlength="24" data-testid="settings-name" />
+          <UiButton type="submit" variant="secondary" compact>{{ t('settings.nameSave') }}</UiButton>
+        </div>
       </form>
-    </UiCard>
+    </SettingsGroup>
 
-    <UiCard data-testid="settings-account">
-      <div class="mb-3 flex items-center gap-3">
-        <UiIconTile name="globe" :size="40" :color="PALETTE.cyan" />
-        <h2 class="font-display text-xs">{{ t('account.card.title') }}</h2>
-      </div>
-      <p v-if="account.user" class="mb-2" data-testid="settings-account-email">{{ t('account.card.signedInAs', { email: account.user.email ?? '' }) }}</p>
-      <p v-else class="mb-3 text-[var(--text-soft)]">{{ account.available ? t('account.card.body') : t('account.unavailable') }}</p>
-      <UiButton variant="secondary" data-testid="settings-account-link" @click="navigateTo('/account')">{{ t('account.card.manage') }}</UiButton>
-    </UiCard>
+    <SettingsGroup :title="t('account.card.title')" data-testid="settings-account">
+      <SettingsRow
+        icon="globe"
+        :color="PALETTE.cyan"
+        :label="t('account.card.manage')"
+        :value="account.user ? t('settings.accountOn') : ''"
+        to="/account"
+        testid="settings-account-link"
+      >
+        <p v-if="account.user" class="sr-note" data-testid="settings-account-email">{{ t('account.card.signedInAs', { email: account.user.email ?? '' }) }}</p>
+        <p v-else class="sr-note">{{ account.available ? t('account.card.body') : t('account.unavailable') }}</p>
+      </SettingsRow>
+    </SettingsGroup>
 
-    <UiCard data-testid="settings-language">
-      <div class="mb-3 flex items-center gap-3">
-        <UiIconTile name="languages" :size="40" :color="PALETTE.green" />
-        <h2 class="font-display text-xs">{{ t('settings.language') }}</h2>
-      </div>
-      <LanguageSwitch />
-      <p class="mt-3 text-[var(--text-soft)]">{{ t('settings.languageHint') }}</p>
-    </UiCard>
+    <SettingsGroup :title="t('settings.preferences')">
+      <SettingsRow icon="languages" :color="PALETTE.green" :label="t('settings.language')" data-testid="settings-language">
+        <LanguageSwitch />
+        <p class="sr-note">{{ t('settings.languageHint') }}</p>
+      </SettingsRow>
+      <SettingsRow icon="sun-moon" :color="PALETTE.gold" :label="t('settings.dayStart')">
+        <UiSegmented v-model="dayStart" :label="t('settings.dayStart')" :options="dayStartOptions" />
+        <p class="sr-note">{{ t('settings.dayStartHint') }}</p>
+      </SettingsRow>
+    </SettingsGroup>
 
-    <UiCard>
-      <div class="mb-3 flex items-center gap-3">
-        <UiIconTile name="sun-moon" :size="40" :color="PALETTE.gold" />
-        <h2 class="font-display text-xs">{{ t('settings.dayStart') }}</h2>
+    <SettingsGroup :title="t('settings.notifications')" data-testid="settings-notifications">
+      <UiSwitch v-model="enabled" icon="bell" :color="PALETTE.orange" :label="t('settings.notificationsEnable')" :hint="t('settings.notificationsEnableHint')" data-testid="notif-enable" />
+      <template v-if="cfg.enabled">
+        <SettingsRow icon="sun" :color="PALETTE.gold" :label="t('settings.morningTime')">
+          <template #end><input v-model="morningTime" type="time" class="sr-time num" :aria-label="t('settings.morningTime')" data-testid="notif-morning" /></template>
+        </SettingsRow>
+        <SettingsRow icon="moon" :color="PALETTE.violet" :label="t('settings.eveningTime')">
+          <template #end><input v-model="eveningTime" type="time" class="sr-time num" :aria-label="t('settings.eveningTime')" data-testid="notif-evening" /></template>
+        </SettingsRow>
+        <UiSwitch v-model="streakRisk" icon="flame" :color="PALETTE.orange" :label="t('settings.streakRisk')" />
+        <UiSwitch v-model="weeklyMonthly" icon="calendar-check" :color="PALETTE.sky" :label="t('settings.weeklyMonthly')" />
+        <UiSwitch v-model="comeback" icon="heart" :color="PALETTE.rose" :label="t('settings.comeback')" />
+        <p class="sr-note sr-note--pad">{{ t('settings.quietHours') }}</p>
+      </template>
+      <p v-if="permission === 'unsupported'" class="sr-note sr-note--pad" data-testid="notif-web">{{ t('settings.permissionWeb') }}</p>
+      <div v-else-if="permission === 'denied'" class="sr-note sr-note--pad" data-testid="notif-denied">
+        <p>{{ t('settings.permissionDenied') }}</p>
       </div>
-      <UiSegmented v-model="dayStart" :label="t('settings.dayStart')" :options="dayStartOptions" />
-      <p class="mt-3 text-[var(--text-soft)]">{{ t('settings.dayStartHint') }}</p>
-    </UiCard>
+      <div v-else-if="permission === 'prompt'" class="sr-note sr-note--pad flex flex-col gap-2">
+        <p>{{ t('settings.permissionPrompt') }}</p>
+        <div><UiButton variant="secondary" compact data-testid="notif-ask" @click="askPermission">{{ t('settings.permissionAsk') }}</UiButton></div>
+      </div>
+    </SettingsGroup>
 
-    <UiCard data-testid="settings-notifications">
-      <div class="mb-3 flex items-center gap-3">
-        <UiIconTile name="bell" :size="40" :color="PALETTE.orange" />
-        <h2 class="font-display text-xs">{{ t('settings.notifications') }}</h2>
-      </div>
-      <UiSwitch v-model="enabled" :label="t('settings.notificationsEnable')" :hint="t('settings.notificationsEnableHint')" data-testid="notif-enable" />
-      <div v-if="cfg.enabled" class="mt-3 flex flex-col gap-3">
-        <UiInput v-model="morningTime" type="time" :label="t('settings.morningTime')" data-testid="notif-morning" />
-        <UiInput v-model="eveningTime" type="time" :label="t('settings.eveningTime')" data-testid="notif-evening" />
-        <UiSwitch v-model="streakRisk" :label="t('settings.streakRisk')" />
-        <UiSwitch v-model="weeklyMonthly" :label="t('settings.weeklyMonthly')" />
-        <UiSwitch v-model="comeback" :label="t('settings.comeback')" />
-        <p class="text-[var(--text-soft)]">{{ t('settings.quietHours') }}</p>
-      </div>
-      <p v-if="permission === 'unsupported'" class="mt-3 text-[var(--text-soft)]" data-testid="notif-web">{{ t('settings.permissionWeb') }}</p>
-      <div v-else-if="permission === 'denied'" class="mt-3" data-testid="notif-denied">
-        <p class="text-[var(--text-soft)]">{{ t('settings.permissionDenied') }}</p>
-      </div>
-      <div v-else-if="permission === 'prompt'" class="mt-3 flex flex-col gap-2">
-        <p class="text-[var(--text-soft)]">{{ t('settings.permissionPrompt') }}</p>
-        <div><UiButton variant="secondary" data-testid="notif-ask" @click="askPermission">{{ t('settings.permissionAsk') }}</UiButton></div>
-      </div>
-    </UiCard>
+    <SettingsGroup :title="t('settings.feedback')" data-testid="settings-feedback">
+      <UiSwitch v-model="sound" icon="volume-2" :color="PALETTE.violet" :label="t('settings.sound')" :hint="t('settings.soundHint')" data-testid="sound-switch" />
+      <UiSwitch v-model="haptics" icon="vibrate" :color="PALETTE.teal" :label="t('settings.haptics')" :hint="t('settings.hapticsHint')" />
+    </SettingsGroup>
 
-    <UiCard data-testid="settings-feedback">
-      <div class="mb-3 flex items-center gap-3">
-        <UiIconTile name="volume-2" :size="40" :color="PALETTE.violet" />
-        <h2 class="font-display text-xs">{{ t('settings.feedback') }}</h2>
-      </div>
-      <UiSwitch v-model="sound" :label="t('settings.sound')" :hint="t('settings.soundHint')" data-testid="sound-switch" />
-      <UiSwitch v-model="haptics" :label="t('settings.haptics')" :hint="t('settings.hapticsHint')" />
-    </UiCard>
-
-    <UiCard>
-      <div class="mb-3 flex items-center gap-3">
-        <UiIconTile name="database" :size="40" :color="PALETTE.teal" />
-        <h2 class="font-display text-xs">{{ t('settings.data') }}</h2>
-      </div>
-      <p class="mb-3 text-[var(--text-soft)]">{{ t('settings.dataHint') }}</p>
-      <div class="flex flex-wrap">
-        <UiButton data-testid="export" @click="doExport">{{ t('settings.export') }}</UiButton>
-        <UiButton variant="secondary" data-testid="import" @click="fileInput?.click()">{{ t('settings.import') }}</UiButton>
-      </div>
+    <SettingsGroup :title="t('settings.data')">
+      <SettingsRow icon="database" :color="PALETTE.teal" :label="t('settings.export')" :hint="t('settings.dataHint')" button testid="export" @click="doExport" />
+      <SettingsRow icon="database" :color="PALETTE.sky" :label="t('settings.import')" button testid="import" @click="fileInput?.click()" />
       <input ref="fileInput" type="file" accept="application/json,.json" class="hidden" data-testid="import-file" @change="onFile" />
-      <p v-if="importError" class="mt-3 text-[var(--warn)]" role="alert" data-testid="import-error">{{ importError }}</p>
-    </UiCard>
+      <p v-if="importError" class="sr-note sr-note--pad text-[var(--warn)]" role="alert" data-testid="import-error">{{ importError }}</p>
+    </SettingsGroup>
 
-    <UiCard>
-      <div class="mb-3 flex items-center gap-3">
-        <UiIconTile name="shield" :size="40" :color="PALETTE.sky" />
-        <h2 class="font-display text-xs">{{ t('settings.privacy') }}</h2>
-      </div>
-      <p class="mb-2 text-[var(--text-soft)]">{{ t('settings.privacyBody') }}</p>
-      <NuxtLink to="/privacy" class="underline" data-testid="settings-privacy-link">{{ t('account.privacyLink') }}</NuxtLink>
-    </UiCard>
+    <SettingsGroup :title="t('settings.privacy')">
+      <SettingsRow icon="shield" :color="PALETTE.sky" :label="t('account.privacyLink')" :hint="t('settings.privacyBody')" to="/privacy" testid="settings-privacy-link" />
+    </SettingsGroup>
 
-    <UiCard>
-      <div class="mb-3 flex items-center gap-3">
-        <UiIconTile name="skull" :size="40" :color="PALETTE.rose" />
-        <h2 class="font-display text-xs">{{ t('settings.danger') }}</h2>
-      </div>
-      <UiButton variant="secondary" data-testid="wipe" @click="wipeOpen = true">{{ t('settings.wipe') }}</UiButton>
-    </UiCard>
+    <SettingsGroup :title="t('settings.danger')">
+      <SettingsRow icon="skull" :label="t('settings.wipe')" button danger testid="wipe" @click="wipeOpen = true" />
+    </SettingsGroup>
 
     <p class="text-center text-[var(--text-soft)]">{{ t('settings.version', { v: config.public.appVersion }) }}</p>
 
@@ -282,3 +258,47 @@ const summaryRows = computed(() => {
     </UiDialog>
   </div>
 </template>
+
+<style scoped>
+.prof {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 14px;
+}
+.prof__form {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  min-width: 0;
+}
+.prof__form > :first-child {
+  width: 100%;
+}
+.sr-note {
+  margin: 10px 0 0;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--text-soft);
+}
+.sr-note--pad {
+  margin: 0;
+  padding: 10px 14px 14px;
+}
+.sr-time {
+  flex: none;
+  min-width: 112px;
+  padding: 8px 10px;
+  font-size: 20px;
+  color: var(--text);
+  text-align: center;
+  color-scheme: dark;
+  background: rgb(11 16 32 / 0.6);
+  border: 1px solid var(--edge-control);
+  border-radius: var(--radius-s);
+  user-select: text;
+  -webkit-user-select: text;
+}
+</style>

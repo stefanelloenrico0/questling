@@ -1,5 +1,10 @@
 <script setup lang="ts">
 import { PALETTE } from '../../data/icons'
+import emptyStats from '../assets/ui/empty-stats.webp'
+import medalQuests from '../assets/ui/medal-quests.webp'
+import medalStreak from '../assets/ui/medal-streak.webp'
+import medalLevel from '../assets/ui/medal-level.webp'
+import medalSpecial from '../assets/ui/medal-special.webp'
 import { ACHIEVEMENTS } from '../../data/achievements'
 import { achievementsProgress, buildHeatmap, periodTotals } from '../../core/history'
 
@@ -13,6 +18,7 @@ const doneCount = computed(() => achievements.value.filter((a) => a.done).length
 const groups = ['quests', 'streak', 'level', 'special'] as const
 const inGroup = (g: (typeof groups)[number]) => achievements.value.filter((a) => a.def.group === g)
 const stats = computed(() => game.stats)
+const MEDAL = { quests: medalQuests, streak: medalStreak, level: medalLevel, special: medalSpecial }
 </script>
 
 <template>
@@ -29,6 +35,7 @@ const stats = computed(() => game.stats)
     <section class="flex flex-col gap-3">
       <h2 class="font-display text-xs">{{ t('stats.heatmapTitle') }}</h2>
       <UiCard>
+        <img v-if="heatmap.total === 0" :src="emptyStats" class="mx-auto mb-2 w-32" alt="" draggable="false" />
         <StatsHeatmap :heatmap="heatmap" />
         <p class="mt-3 text-[var(--text-soft)]">{{ t('stats.heatmapNote') }}</p>
         <p class="mt-1" data-testid="heatmap-summary">{{ t('stats.heatmapSummary', { total: heatmap.total, days: heatmap.activeDays }) }}</p>
@@ -60,7 +67,10 @@ const stats = computed(() => game.stats)
         {{ t('stats.achievementsCount', { done: doneCount, total: ACHIEVEMENTS.length }) }}
       </p>
       <UiCard v-for="g in groups" :key="g">
-        <h3 class="font-display mb-3 text-xs">{{ t(`stats.group.${g}`) }}</h3>
+        <div class="mb-3 flex items-center gap-3">
+          <img :src="MEDAL[g]" class="h-12 w-12" alt="" draggable="false" />
+          <h3 class="font-display text-xs">{{ t(`stats.group.${g}`) }}</h3>
+        </div>
         <ul class="flex flex-col gap-4">
           <li v-for="a in inGroup(g)" :key="a.def.id" :data-testid="`ach-${a.def.id}`" :data-done="a.done">
             <div class="flex items-center gap-3">

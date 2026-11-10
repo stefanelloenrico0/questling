@@ -35,8 +35,8 @@ function withStreak(state: AppState, days: number): AppState {
 }
 
 describe('dati degli eroi sbloccabili', () => {
-  it('ci sono 8 eroi del quiz e 3 sbloccabili, ognuno con la sua regola', () => {
-    expect(CHARACTERS).toHaveLength(11)
+  it('ci sono 8 eroi del quiz e 5 sbloccabili, ognuno con la sua regola', () => {
+    expect(CHARACTERS).toHaveLength(13)
     expect(QUIZ_CHARACTERS).toHaveLength(8)
     expect(CHARACTERS.map((c) => c.id).sort()).toEqual([...CHARACTER_IDS].sort())
     const rules = CHARACTERS.filter((c) => c.unlock).map((c) => [c.id, c.unlock])
@@ -44,6 +44,8 @@ describe('dati degli eroi sbloccabili', () => {
       ['salmastro', { kind: 'level', value: 10 }],
       ['plin', { kind: 'streak', value: 30 }],
       ['brace', { kind: 'level', value: 20 }],
+      ['ulisse', { kind: 'level', value: 15 }],
+      ['cometa', { kind: 'level', value: 30 }],
     ])
   })
 

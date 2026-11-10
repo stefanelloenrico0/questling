@@ -949,6 +949,178 @@
         "You've levelled up! The proudest dragon in the valley is me, and you're my buddy.",
         "Level up, wings down: today we celebrate!"
       ]
+    },
+    "ulisse": {
+      "morning": [
+        "Good morning, dear reader. Today's quests are a new chapter. Shall we open it?",
+        "I've lit the lantern and tidied the shelves. Which quest shall we read first?",
+        "Hoo, good morning. One small quest now is worth a whole page of a good day.",
+        "The day is a blank book. Shall we write the first line with a quest?",
+        "Wake up, wise owls and stubborn readers! Which quest will you choose this morning?",
+        "I've made tea and today's list. Whenever you like, we start slowly.",
+        "A morning note: a quest done early weighs less than one put off.",
+        "Good morning! The shelves are in order, and so are the quests. Only your step is missing.",
+        "Hoo, new day, new chapter. One quest is enough to place the bookmark.",
+        "The library is open. Today's quests are waiting on the first table."
+      ],
+      "evening": [
+        "Evening falls over the shelves. Is there one quest left before we close the book?",
+        "Hoo, the lantern is lit. One more quest and today's chapter is complete.",
+        "Before the light goes out: one small quest, and we sleep with a light conscience.",
+        "The bookmark is nearly at the end of the page. Shall we finish with one quest?",
+        "It's the owls' hour. If you have a moment, a quest closes the day well.",
+        "I polished my spectacles and reread the list: one is left. Together it's shorter.",
+        "A quiet evening in the library. One quest, then well-earned rest.",
+        "An evening note: even one line written today is worth more than a postponed chapter.",
+        "The moon is high over the shelves. Shall we add one last page to your day?",
+        "Hoo, nearly night. One small quest and we close the book in peace."
+      ],
+      "streak": [
+        "{n} days in a row: quite a volume! One quest tonight adds another page.",
+        "Your {n}-day streak is already a whole collection. One small quest keeps it going.",
+        "Hoo, {n} consecutive days. One quest tonight and the chapter goes on.",
+        "{n} days of steady reading. One small step today and the bookmark moves forward.",
+        "I counted {n} days of streak on the shelves. Shall we add one, gently?",
+        "{n} days: your streak is properly bound by now. One quest and we protect it.",
+        "A note in the margin: {n} days in a row! Even a tiny quest keeps the story alive.",
+        "{n} days of consistency. One short quest tonight and the tale continues.",
+        "Your diary shows a {n}-day streak. Write today's line, even a short one.",
+        "{n} days: a fine tome! One quest tonight and we don't lose the thread."
+      ],
+      "comeback": [
+        "Hoo, I'm waiting for you in the library. Your seat is free, and so is your bookmark.",
+        "No hurry, dear reader: the quests are here, in order, whenever you like.",
+        "I kept your place by the lantern. Shall we start again from a single page?",
+        "Every reader returns to their book. Yours is open at the right page.",
+        "The shelves say hello. One small quest and the story begins again.",
+        "I've missed you among these shelves. Whenever you like, we restart gently.",
+        "The lantern is still lit for you. One quest and we pick up the thread.",
+        "No backlog to catch up on, just a fresh page. Would you like it?",
+        "Hoo, the library is quiet without you. Come back when you feel ready.",
+        "A book can always be reopened where you left it. Yours is waiting."
+      ],
+      "weekly": [
+        "Hoo, the week is winding down: shall we check the weekly quests together?",
+        "A few weekly quests are still on the table. There's time, take it slowly.",
+        "The weekend is near: a glance at the list, and we pick the easiest one.",
+        "Weekly quests are like chapters: closing one feels good.",
+        "A midway note: one weekly quest today lightens the ending.",
+        "I've sorted the week's volumes. One is missing. Shall we look at it together?",
+        "Before the week closes, a weekly quest deserves a bookmark.",
+        "Hoo, there's still room for one quest this week. Slowly does it.",
+        "One weekly quest today and Sunday will be lighter.",
+        "This week's shelves are nearly full. Shall we add the last volume?"
+      ],
+      "monthly": [
+        "The month is nearing its end: a monthly quest deserves a look, dear reader.",
+        "Hoo, the last days of the month. Which monthly quest shall we open first?",
+        "An end-of-month note: a monthly quest done today closes the volume well.",
+        "The month is about to close like a big book. Are a few pages still missing?",
+        "I checked the month's catalogue: some monthly quests are still to complete.",
+        "End of month in the library: let's tidy the remaining quests calmly.",
+        "One monthly quest at a time, and the month's chapter closes in order.",
+        "Hoo, the calendar turns its last page. One more monthly quest?",
+        "The last days of the month are perfect for a quest that's been waiting.",
+        "The month's volume is nearly finished. Shall we add the final line together?"
+      ],
+      "levelup": [
+        "Hoo! A new level: one more volume on the shelves. What a fine read!",
+        "You gained a level. I'll note it in the register: steady effort, well rewarded.",
+        "New level! The lantern shines a little brighter, and so do I.",
+        "Congratulations, dear reader: another chapter of your story is written.",
+        "One level up! I'm filing it straight in the best-results section.",
+        "Hoo, what a lovely page: you've reached a new level.",
+        "You levelled up. The shelves applaud you, quietly, as they should.",
+        "Level cleared! I polished my spectacles to see it better.",
+        "A new level: that's what happens to those who read a page a day.",
+        "Well done! Your progress catalogue now has one more entry."
+      ]
+    },
+    "cometa": {
+      "morning": [
+        "Good morning! The sky has gone quiet but today's quests still shine. Shall we start?",
+        "The stars have gone to sleep: it's your turn to light the first quest!",
+        "I've already pointed the telescope at your day. I can see an easy quest right there!",
+        "Sunrise! A quest done now is like a new star on the map.",
+        "Wake up, curious soul! Which quest shall we draw first on today's chart?",
+        "Hey, see what a day it is? I'd bet a comet it starts with a quest.",
+        "Good morning! Every quest today is a little constellation to complete.",
+        "The sun rises and I'm already counting quests. Shall we pick one together?",
+        "New morning, new sky map: shall we start from the nearest quest?",
+        "Morning spark! One small quest and the day lights up."
+      ],
+      "evening": [
+        "The stars are coming out! Before we watch them, one more quest?",
+        "The sky is lighting up and my telescope is ready. One quest, then we sit and watch.",
+        "Sunset! One small quest, then the evening is all for the stars.",
+        "I found a new star and a quest still to do. Shall we start with the quest?",
+        "A clear evening: perfect for stargazing and for closing a quest.",
+        "The moon is rising slowly. One quest before we say hello?",
+        "The sky is nearly dark: one more quest and your day has its star.",
+        "I've marked the remaining quests on the map: just one, and the whole evening is free.",
+        "Before the constellations appear, one small quest? Then we watch together.",
+        "A shooting-star evening! One quest and we make a wish on one."
+      ],
+      "streak": [
+        "{n} days in a row: a whole constellation! One quest tonight adds a star.",
+        "Your {n}-day streak shines on the map. One small quest keeps it shining.",
+        "{n} consecutive days, what a glow! One quest tonight and the trail grows.",
+        "I counted {n} days of streak: one star per day! Shall we add one?",
+        "{n} days of consistency. One quest tonight keeps the constellation whole.",
+        "What a bright trail: {n} days! One short quest and we stay on course.",
+        "{n} days of clear sky: one quest tonight and the map fills up more.",
+        "Your streak is {n} days long, like a comet with a long tail. One quest and it shines on.",
+        "{n} days in a row! Even a tiny quest is worth one more star.",
+        "Map updated: {n} days of streak. One quest tonight and we write one more."
+      ],
+      "comeback": [
+        "Hey, the telescope is still pointed at you. Whenever you like, we start again!",
+        "All the stars are in their places, waiting. No hurry.",
+        "I kept your patch of sky lit. Shall we return with one small quest?",
+        "The sky changes every night, but your map is still here. Shall we restart?",
+        "I miss our stargazing! One quest and we're back on course.",
+        "Even comets come back: your orbit brings you here whenever you like.",
+        "No star has gone out, they're only paused. One small quest and it relights.",
+        "I dusted off the telescope for you. When you feel like it, we look together.",
+        "The sky is clear and in no rush. One quest and we start mapping again.",
+        "I'm waiting under the stars. Just one quest and the journey restarts."
+      ],
+      "weekly": [
+        "The week is closing: shall we check the weekly quests on the map?",
+        "A few weekly quests still shine in this week's sky.",
+        "The weekend is near! One weekly quest and the map is tidier.",
+        "I marked the weekly quests that remain: one at a time, no rush.",
+        "One weekly quest today and the weekend stargazing feels lighter.",
+        "The week's quests are like phases of the moon: they complete slowly.",
+        "Take a look at the map: there's a really easy weekly quest.",
+        "Before the week sets, a weekly quest deserves a star.",
+        "The week is about to end like a comet: one more quest and it closes well.",
+        "One more weekly quest and this week's sky is complete."
+      ],
+      "monthly": [
+        "The month is ending: a monthly quest deserves a look on the map.",
+        "Last days of the month! Which monthly quest shall we light first?",
+        "One monthly quest today and this month's sky is brighter.",
+        "The month turns the last page of the map: some monthly quests remain.",
+        "End of month: let's tidy the remaining quests calmly, one star at a time.",
+        "I checked the month's sky: there's still one monthly quest to light.",
+        "The last days of the month are great for a quest that's been waiting a while.",
+        "One monthly quest at a time and the month's map is complete.",
+        "The month fades like a sunset: one monthly quest and we close it beautifully.",
+        "Not long until month's end: shall we add the last star together?"
+      ],
+      "levelup": [
+        "New level! One more star on your map!",
+        "You gained a level: I marked it on the sky chart right away.",
+        "Wow, a level! The telescope has never been this bright.",
+        "You levelled up: a new constellation has appeared on the map!",
+        "Level cleared! I'm making a wish on a shooting star for you.",
+        "What a discovery: a new level! The night shines a little brighter.",
+        "One level up: your trail across the sky grows longer.",
+        "Hooray! I found a new level, right in your patch of sky.",
+        "New level! I'm noting the date: tonight is one to remember.",
+        "Congratulations! The map has one more star now and the journey goes on."
+      ]
     }
   }
 }

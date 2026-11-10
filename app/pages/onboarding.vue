@@ -10,6 +10,10 @@ import { textsFor } from '../../data/notification-texts'
 import splashScene from '../assets/scenes/onb-splash.webp'
 import gladeScene from '../assets/scenes/onb-glade.webp'
 import campfireScene from '../assets/scenes/onb-3.webp'
+import pathScene from '../assets/scenes/onb-1.webp'
+import starScene from '../assets/scenes/onb-2.webp'
+import bannerScene from '../assets/scenes/hero-banner.webp'
+import castleScene from '../assets/scenes/intro-1.webp'
 
 definePageMeta({ layout: 'blank' })
 
@@ -75,7 +79,18 @@ const areaGroups = computed(() =>
   areas.value.map((id) => ({ id, items: items.value.filter((i) => i.source === id) })).filter((g) => g.items.length > 0),
 )
 const progress = computed(() => PROGRESS[step.value] ?? 0)
-const sceneFor: Partial<Record<Step, string>> = { splash: splashScene, name: gladeScene, notify: campfireScene }
+const sceneFor: Partial<Record<Step, string>> = {
+  splash: splashScene,
+  quiz: castleScene,
+  name: gladeScene,
+  focus: pathScene,
+  quests: bannerScene,
+  rhythm: starScene,
+  notify: campfireScene,
+  ready: gladeScene,
+}
+// passi con molto testo: la scena resta visibile ma piu' scura
+const DIM_STEPS: Step[] = ['quiz', 'focus', 'quests', 'rhythm']
 const scene = computed(() => sceneFor[step.value] ?? null)
 
 watch(
@@ -217,7 +232,7 @@ async function finish(): Promise<void> {
 
 <template>
   <div class="onb" data-testid="page-onboarding">
-    <OnboardingScene v-if="scene" :src="scene" />
+    <OnboardingScene v-if="scene" :src="scene" :dim="DIM_STEPS.includes(step)" />
 
     <!-- filo di avanzamento sottile e "indietro" (dall'intro al permesso notifiche) -->
     <div v-if="progress" class="onb-line" role="progressbar" :aria-label="t('onboarding.progressLabel')" :aria-valuemin="0" :aria-valuemax="TOTAL_STEPS" :aria-valuenow="progress">

@@ -350,5 +350,69 @@
       "done": "Tutte fatte! Sbuffo di gioia, ma stavolta niente tende bruciate."
     },
     "permission": "Posso mandarti un messaggio fumante? Uno al mattino e uno alla sera, non di più. Ti scrivo anche della tua serie. Prometto di non bruciare niente."
+  },
+  "ulisse": {
+    "name": "Ulisse",
+    "archetype": "Gufo bibliotecario",
+    "appearance": "Piume marroni e crema, occhialini tondi dorati, panciotto verde petrolio, sciarpa bordeaux, un libro in un'ala e una lanterna nell'altra.",
+    "voice": "Pacato e un po' assonnato, parla per citazioni e note a margine. Ti chiama «caro lettore» e non ti mette mai fretta.",
+    "titles": {
+      "t1": "Gufetto Curioso",
+      "t2": "Lettore Notturno",
+      "t3": "Custode degli Scaffali",
+      "t4": "Bibliotecario Capo",
+      "t5": "Gran Bibliotecario"
+    },
+    "chapters": {
+      "c1": "Ulisse custodisce la biblioteca più silenziosa del regno, aperta solo di notte. Un giorno ha scoperto che le storie migliori non sono sugli scaffali: sono quelle che si scrivono una riga al giorno. Da allora tiene un registro, e il primo nome sulla pagina è il tuo.",
+      "c2": "Una notte la lanterna di Ulisse si è spenta in mezzo a un capitolo. Lui non si è fatto prendere dal panico: ha riacceso la fiamma, ritrovato la riga e ripreso a leggere. Dice che ricominciare è la parte più dignitosa del leggere.",
+      "c3": "Ulisse ha ricevuto in restituzione un libro prestato cent'anni prima. Invece di arrabbiarsi, ha scritto una nota sulla scheda: «Meglio tardi che mai». Il libro è tornato la mattina dopo, con un fiore tra le pagine.",
+      "c4": "Gli occhialini di Ulisse si sono appannati davanti a un volume antico. A forza di leggere un po' ogni giorno, ormai sapeva già cosa c'era scritto. Ha sorriso e ha chiuso il libro senza aprirlo.",
+      "c5": "Oggi Ulisse è il Gran Bibliotecario, ma continua a prepararsi il tè da solo. Sul registro, in ultima pagina, ha lasciato una riga vuota: serve a ricordare che la storia continua, e che la scrivi tu."
+    },
+    "quests": {
+      "q1": "Leggere venti minuti",
+      "q2": "Spegnere gli schermi un'ora prima di dormire",
+      "q3": "Annotare tre righe sul diario",
+      "q4": "Imparare una cosa nuova"
+    },
+    "lines": {
+      "morning": "Buongiorno, caro lettore. Le missioni di oggi sono un capitolo nuovo: lo apriamo?",
+      "evening": "La lanterna è accesa. Una missione ancora e il capitolo di oggi è completo.",
+      "done": "Tutte le missioni di oggi sono scritte. Chiudo il registro: buona notte, caro lettore."
+    },
+    "permission": "Caro lettore, posso mandarti un biglietto dalla biblioteca? Uno al mattino e uno alla sera, e ogni tanto una nota sulla tua serie. Nessun rimprovero, solo segnalibri."
+  },
+  "cometa": {
+    "name": "Cometa",
+    "archetype": "Giovane astronoma",
+    "appearance": "Capelli viola ondulati con piccole stelle dorate, mantello indaco con le costellazioni, un cannocchiale d'ottone sulla spalla e una sacca con la mappa del cielo.",
+    "voice": "Curiosa ed entusiasta, fa domande e conta le stelle ad alta voce. Trova una scoperta in ogni piccola missione.",
+    "titles": {
+      "t1": "Apprendista Stellare",
+      "t2": "Osservatrice",
+      "t3": "Cartografa del Cielo",
+      "t4": "Astronoma Reale",
+      "t5": "Custode delle Costellazioni"
+    },
+    "chapters": {
+      "c1": "Cometa ha costruito il suo primo telescopio con un tubo di cartone e una lente trovata in soffitta. Ha scoperto che il cielo è fatto di tante piccole luci, come le missioni di una lista: nessuna è inutile, e insieme disegnano una mappa.",
+      "c2": "Una sera di nuvole Cometa non ha visto neanche una stella. Ha disegnato comunque la mappa a memoria, e il giorno dopo la stella che aveva segnato era proprio là. Le piace pensare che la costanza funzioni così.",
+      "c3": "Cometa ha incontrato un vecchio mago distratto che cercava la luna nel posto sbagliato. L'ha accompagnato fino al punto giusto con la mappa. Il mago ha detto grazie e le ha regalato una lente più grande.",
+      "c4": "Durante una notte di stelle cadenti Cometa ne ha contate cento. Poi ha smesso di contare ed è rimasta a guardare. Dice che certe cose si vedono meglio quando non si tiene il conto.",
+      "c5": "Oggi Cometa è Custode delle Costellazioni. Ha dato il tuo nome a una piccola stella appena sopra l'orizzonte: non brilla più delle altre, ma è la sua preferita, perché l'hai accesa tu, un giorno alla volta."
+    },
+    "quests": {
+      "q1": "Cinque minuti guardando il cielo",
+      "q2": "Una passeggiata all'aperto",
+      "q3": "Annotare una curiosità del giorno",
+      "q4": "Imparare il nome di una costellazione"
+    },
+    "lines": {
+      "morning": "Buongiorno! Il cielo si è spento ma le missioni di oggi brillano ancora. Cominciamo?",
+      "evening": "Le stelle stanno uscendo! Prima di guardarle, una missione ancora?",
+      "done": "Missioni finite! Ora il cielo è tutto per noi: guardiamo le stelle?"
+    },
+    "permission": "Posso mandarti un messaggio stellato? Uno al mattino e uno alla sera, e a volte un pensiero sulla tua serie. Niente rimproveri, solo luce di stelle."
   }
 }

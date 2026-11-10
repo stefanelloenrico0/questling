@@ -350,5 +350,69 @@
       "done": "All done! A puff of joy, but no burned curtains this time."
     },
     "permission": "May I send you a smoky message? One in the morning and one in the evening, no more. I'll write about your streak too. I promise not to burn anything."
+  },
+  "ulisse": {
+    "name": "Ulisse",
+    "archetype": "Librarian owl",
+    "appearance": "Brown and cream feathers, round golden spectacles, a deep teal waistcoat, a burgundy scarf, a book in one wing and a lantern in the other.",
+    "voice": "Calm and a little sleepy, speaks in quotations and notes in the margin. Calls you \"dear reader\" and never rushes you.",
+    "titles": {
+      "t1": "Curious Owlet",
+      "t2": "Night Reader",
+      "t3": "Keeper of the Shelves",
+      "t4": "Head Librarian",
+      "t5": "Grand Librarian"
+    },
+    "chapters": {
+      "c1": "Ulisse looks after the quietest library in the kingdom, open only at night. One day he discovered that the best stories aren't on the shelves: they're the ones written one line a day. Since then he keeps a register, and the first name on the page is yours.",
+      "c2": "One night Ulisse's lantern went out in the middle of a chapter. He didn't panic: he relit the flame, found his line again and went on reading. He says starting over is the most dignified part of reading.",
+      "c3": "Ulisse received back a book lent a hundred years ago. Instead of getting cross, he wrote a note on the card: \"Better late than never.\" The book was back the next morning, with a flower between the pages.",
+      "c4": "Ulisse's spectacles fogged up in front of an ancient volume. From reading a little every day, he already knew what it said. He smiled and closed the book without opening it.",
+      "c5": "Today Ulisse is the Grand Librarian, but he still makes his own tea. On the last page of the register he left one empty line: it's there to remind him that the story goes on, and that you write it."
+    },
+    "quests": {
+      "q1": "Read for twenty minutes",
+      "q2": "Switch off screens an hour before sleep",
+      "q3": "Write three lines in a journal",
+      "q4": "Learn something new"
+    },
+    "lines": {
+      "morning": "Good morning, dear reader. Today's quests are a new chapter. Shall we open it?",
+      "evening": "The lantern is lit. One more quest and today's chapter is complete.",
+      "done": "All of today's quests are written. I'm closing the register: good night, dear reader."
+    },
+    "permission": "Dear reader, may I send you a note from the library? One in the morning and one in the evening, and now and then a remark about your streak. No scolding, only bookmarks."
+  },
+  "cometa": {
+    "name": "Cometa",
+    "archetype": "Young astronomer",
+    "appearance": "Wavy violet hair with little gold stars, an indigo cloak with constellations, a brass telescope on her shoulder and a satchel with the sky map.",
+    "voice": "Curious and enthusiastic, asks questions and counts stars out loud. Finds a discovery in every small quest.",
+    "titles": {
+      "t1": "Star Apprentice",
+      "t2": "Skywatcher",
+      "t3": "Sky Cartographer",
+      "t4": "Royal Astronomer",
+      "t5": "Keeper of Constellations"
+    },
+    "chapters": {
+      "c1": "Cometa built her first telescope from a cardboard tube and a lens found in the attic. She discovered that the sky is made of many small lights, like the quests on a list: none is useless, and together they draw a map.",
+      "c2": "One cloudy evening Cometa couldn't see a single star. She drew the map from memory anyway, and the next day the star she had marked was right there. She likes to think consistency works like that.",
+      "c3": "Cometa met an absent-minded old wizard looking for the moon in the wrong place. She led him to the right spot with her map. The wizard said thank you and gave her a bigger lens.",
+      "c4": "On a night of shooting stars Cometa counted a hundred. Then she stopped counting and just watched. She says some things are seen better when you don't keep score.",
+      "c5": "Today Cometa is Keeper of Constellations. She named a small star just above the horizon after you: it doesn't shine brighter than the others, but it's her favourite, because you lit it yourself, one day at a time."
+    },
+    "quests": {
+      "q1": "Five minutes of sky-watching",
+      "q2": "A walk outdoors",
+      "q3": "Note down one curiosity of the day",
+      "q4": "Learn the name of a constellation"
+    },
+    "lines": {
+      "morning": "Good morning! The sky has gone quiet but today's quests still shine. Shall we start?",
+      "evening": "The stars are coming out! Before we watch them, one more quest?",
+      "done": "Quests finished! Now the sky is all ours: shall we watch the stars?"
+    },
+    "permission": "May I send you a starry message? One in the morning and one in the evening, and sometimes a thought about your streak. No scolding, only starlight."
   }
 }

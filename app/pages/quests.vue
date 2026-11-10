@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { PERIODS, type Period } from '../../core/types'
 import { QUEST_CAPS } from '../../core/xp'
+import emptyQuests from '../assets/ui/empty-quests.webp'
 
 const game = useGameStore()
 const { t } = useI18n()
@@ -41,9 +42,10 @@ function openEdit(id: string): void {
       {{ t('quests.capReached', { max, period: t(`period.${period}Plural`) }) }}
     </p>
 
-    <p v-if="rows.length === 0" class="text-[var(--text-soft)]">
-      {{ t('quests.empty', { period: t(`period.${period}Plural`) }) }}
-    </p>
+    <div v-if="rows.length === 0" class="flex flex-col items-center gap-2 pt-4 text-center">
+      <img :src="emptyQuests" class="empty-art" alt="" draggable="false" />
+      <p class="text-[var(--text-soft)]">{{ t('quests.empty', { period: t(`period.${period}Plural`) }) }}</p>
+    </div>
 
     <UiCard v-for="(row, i) in rows" :key="row.quest.id" tone="row" data-testid="quest-item">
       <div class="flex items-center gap-3">
@@ -80,6 +82,9 @@ function openEdit(id: string): void {
 </template>
 
 <style scoped>
+.empty-art {
+  width: 180px;
+}
 .qctl {
   display: flex;
   flex-direction: column;
@@ -110,7 +115,7 @@ function openEdit(id: string): void {
 }
 .quests-fab {
   position: fixed;
-  inset: auto 0 calc(84px + var(--safe-bottom)) 0;
+  inset: auto 0 calc(96px + var(--safe-bottom)) 0;
   z-index: 15;
   display: flex;
   justify-content: center;

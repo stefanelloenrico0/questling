@@ -949,6 +949,178 @@
         "Sei salito di livello! Il drago più fiero della valle sono io, e tu il mio compagno.",
         "Livello su, ali giù: oggi si festeggia!"
       ]
+    },
+    "ulisse": {
+      "morning": [
+        "Buongiorno, caro lettore. Le missioni di oggi sono un capitolo nuovo: lo apriamo?",
+        "Ho acceso la lanterna e riordinato gli scaffali. Quale missione leggiamo per prima?",
+        "Uhu, buongiorno. Una piccola missione adesso vale un'intera pagina di buona giornata.",
+        "Il giorno è un libro ancora bianco. Scriviamo la prima riga con una missione?",
+        "Svegli i gufi saggi e i lettori ostinati! Che missione scegli stamattina?",
+        "Ho preparato un tè e la lista del giorno. Quando vuoi, cominciamo piano.",
+        "Nota a margine del mattino: una missione fatta subito pesa meno di una rimandata.",
+        "Buongiorno! Gli scaffali sono in ordine, le missioni pure. Manca solo il tuo passo.",
+        "Uhu, nuovo giorno, nuovo capitolo. Basta una missione per mettere il segnalibro.",
+        "La biblioteca è aperta. Le missioni di oggi ti aspettano sul primo tavolo."
+      ],
+      "evening": [
+        "Cala la sera sugli scaffali. Resta una missione prima di chiudere il libro?",
+        "Uhu, la lanterna è accesa. Una missione ancora e il capitolo di oggi è completo.",
+        "Prima di spegnere la luce: una missione piccola, e dormiamo con la coscienza leggera.",
+        "Il segnalibro è quasi a fine pagina. Ti va di finire con una missione?",
+        "È l'ora dei gufi. Se hai un momento, una missione chiude bene la giornata.",
+        "Ho lucidato gli occhiali e riletto la lista: ne resta una. Insieme è più breve.",
+        "Sera tranquilla in biblioteca. Una missione, poi il riposo ben meritato.",
+        "Nota della sera: anche una sola riga scritta oggi vale più di un capitolo rimandato.",
+        "La luna è alta sugli scaffali. Aggiungiamo un'ultima pagina al tuo giorno?",
+        "Uhu, quasi notte. Una missione piccola e chiudiamo il libro in pace."
+      ],
+      "streak": [
+        "{n} giorni di fila: un bel volume! Una missione stasera aggiunge un'altra pagina.",
+        "La tua serie di {n} giorni è già un'intera collana. Ne basta una piccola per continuarla.",
+        "Uhu, {n} giorni consecutivi. Una missione stasera e il capitolo prosegue.",
+        "{n} giorni di lettura costante. Un passo piccolo anche oggi, e il segnalibro avanza.",
+        "Ho contato {n} giorni di serie sugli scaffali. Ne aggiungiamo uno, con calma?",
+        "{n} giorni: la tua serie ha ormai la rilegatura. Una missione e la proteggiamo.",
+        "Nota a margine: {n} giorni di fila! Anche una missione minuscola tiene viva la storia.",
+        "{n} giorni di costanza. Stasera una missione breve e il racconto continua.",
+        "Il tuo diario conta {n} giorni di serie. Scrivi la riga di oggi, anche corta.",
+        "{n} giorni: un bel tomo! Una missione stasera e non perdiamo il filo."
+      ],
+      "comeback": [
+        "Uhu, ti aspetto in biblioteca. Il tuo posto è sempre libero, e il segnalibro anche.",
+        "Nessuna fretta, caro lettore: le missioni sono qui, in ordine, quando vorrai.",
+        "Ho conservato il tuo posto accanto alla lanterna. Ripartiamo da una pagina sola?",
+        "Ogni lettore ritorna al suo libro. Il tuo è aperto alla pagina giusta.",
+        "Gli scaffali ti salutano. Una missione piccola e il racconto ricomincia.",
+        "Mi sei mancato tra questi scaffali. Quando vuoi, ripartiamo con calma.",
+        "La lanterna è ancora accesa per te. Una missione e riprendiamo il filo.",
+        "Niente arretrati da recuperare, solo una pagina nuova. Ti va?",
+        "Uhu, la biblioteca è silenziosa senza di te. Torna quando ti senti pronto.",
+        "Si può sempre riaprire un libro dove lo si è lasciato. Il tuo ti aspetta."
+      ],
+      "weekly": [
+        "Uhu, la settimana volge al termine: controlliamo insieme le missioni settimanali?",
+        "Qualche missione settimanale aspetta ancora sul tavolo. C'è tempo, con calma.",
+        "Fine settimana in vista: un'occhiata alla lista e scegliamo la più facile.",
+        "Le missioni della settimana sono come i capitoli: se ne chiude uno, si sta meglio.",
+        "Nota di metà percorso: una missione settimanale oggi alleggerisce il finale.",
+        "Ho sistemato i volumi della settimana. Ne manca uno: lo guardiamo insieme?",
+        "Prima che la settimana si chiuda, una missione settimanale merita un segnalibro.",
+        "Uhu, c'è ancora spazio per una missione di questa settimana. Piano piano.",
+        "Una missione settimanale oggi e la domenica sarà più leggera.",
+        "Gli scaffali della settimana sono quasi pieni. Aggiungiamo l'ultimo volume?"
+      ],
+      "monthly": [
+        "Il mese si avvicina alla fine: una missione mensile merita un'occhiata, caro lettore.",
+        "Uhu, ultimi giorni del mese. Quale missione mensile apriamo per prima?",
+        "Nota di fine mese: una missione mensile fatta oggi chiude bene il volume.",
+        "Il mese sta per chiudersi come un grande libro. Manca ancora qualche pagina?",
+        "Ho controllato il catalogo del mese: restano missioni mensili da completare.",
+        "Fine mese in biblioteca: sistemiamo con calma le missioni che restano.",
+        "Una missione mensile alla volta, e il capitolo del mese si chiude in ordine.",
+        "Uhu, il calendario sfoglia l'ultima pagina. Una missione mensile in più?",
+        "Gli ultimi giorni del mese sono perfetti per una missione che aspetta.",
+        "Il volume del mese è quasi finito. Aggiungiamo la riga finale insieme?"
+      ],
+      "levelup": [
+        "Uhu! Nuovo livello: un volume in più sugli scaffali. Che bella lettura!",
+        "Hai guadagnato un livello. Annoto nel registro: costanza ben ricompensata.",
+        "Livello nuovo! La lanterna brilla un po' di più, e io pure.",
+        "Complimenti, caro lettore: un altro capitolo della tua storia è scritto.",
+        "Un livello in più! Lo metto subito nella sezione dei risultati migliori.",
+        "Uhu, che bella pagina: hai raggiunto un livello nuovo.",
+        "Sei salito di livello. Gli scaffali ti applaudono, in silenzio come si deve.",
+        "Livello superato! Ho lucidato gli occhiali per vederlo meglio.",
+        "Un nuovo livello: ecco cosa succede a chi legge una pagina al giorno.",
+        "Grande! Nel catalogo dei tuoi progressi ora c'è una voce in più."
+      ]
+    },
+    "cometa": {
+      "morning": [
+        "Buongiorno! Il cielo si è spento ma le missioni di oggi brillano ancora. Cominciamo?",
+        "Le stelle sono andate a dormire: tocca a te accendere la prima missione!",
+        "Ho già puntato il telescopio sul tuo giorno. Si vede una missione facile, proprio lì!",
+        "Alba! Una missione fatta ora è come una stella nuova sulla mappa.",
+        "Sveglia, anima curiosa! Quale missione disegniamo per prima sulla carta di oggi?",
+        "Ehi, hai visto che giornata? Ci scommetto una cometa che parte con una missione.",
+        "Buongiorno! Ogni missione di oggi è una piccola costellazione da completare.",
+        "Il sole sorge e io conto già le missioni. Ne scegliamo una insieme?",
+        "Nuova mattina, nuova mappa del cielo: partiamo dalla missione più vicina?",
+        "Scintilla del mattino! Una missione piccola e il giorno si illumina."
+      ],
+      "evening": [
+        "Le stelle stanno uscendo! Prima di guardarle, una missione ancora?",
+        "Il cielo si accende e io tengo il telescopio pronto. Una missione e ci sediamo a guardare.",
+        "Tramonto! Una missione piccola e poi la serata è tutta per le stelle.",
+        "Ho trovato una stella nuova e una missione ancora da fare. Cominciamo dalla missione?",
+        "Sera limpida: ottima per osservare e per chiudere una missione.",
+        "La luna sorge piano. Una missione prima di salutarla?",
+        "Cielo quasi buio: una missione ancora e la giornata ha la sua stella.",
+        "Ho segnato sulla mappa le missioni rimaste: una sola, e tutta la sera è libera.",
+        "Prima che spuntino le costellazioni, una missione piccola? Poi si osserva insieme.",
+        "Sera di stelle cadenti! Una missione e ne esprimiamo un desiderio."
+      ],
+      "streak": [
+        "{n} giorni di fila: una costellazione intera! Una missione stasera aggiunge una stella.",
+        "La tua serie di {n} giorni brilla sulla mappa. Una missione piccola e continua a brillare.",
+        "{n} giorni consecutivi, che luce! Una missione stasera e la scia si allunga.",
+        "Ho contato {n} giorni di serie: una stella per giorno! Ne aggiungiamo una?",
+        "{n} giorni di costanza. Una missione anche stasera e la costellazione resta intera.",
+        "Che scia luminosa: {n} giorni! Una missione breve e non perdiamo la rotta.",
+        "{n} giorni di cielo sereno: una missione stasera e la mappa si riempie ancora.",
+        "La tua serie dura {n} giorni, come una cometa dalla coda lunga. Una missione e brilla ancora.",
+        "{n} giorni di fila! Anche una missione minuscola vale una stella in più.",
+        "Mappa aggiornata: {n} giorni di serie. Una missione stasera e ne scriviamo uno in più."
+      ],
+      "comeback": [
+        "Ehi, il telescopio è ancora puntato su di te. Quando vuoi, ripartiamo!",
+        "Le stelle sono tutte al loro posto e ti aspettano. Niente fretta.",
+        "Ho tenuto acceso il tuo angolo di cielo. Torniamo con una missione piccola?",
+        "Il cielo cambia ogni notte, ma la tua mappa è ancora qui. Si riparte?",
+        "Mi mancano le nostre osservazioni! Una missione e riprendiamo la rotta.",
+        "Anche le comete tornano: la tua orbita ti riporta qui quando vuoi.",
+        "Nessuna stella spenta, solo in pausa. Una missione piccola e si riaccende.",
+        "Ho spolverato il telescopio per te. Quando ti va, guardiamo insieme.",
+        "Il cielo è sereno e senza fretta. Una missione e ricominciamo a mappare.",
+        "Ti aspetto sotto le stelle. Una sola missione e il viaggio riparte."
+      ],
+      "weekly": [
+        "La settimana si chiude: controlliamo le missioni settimanali sulla mappa?",
+        "Qualche missione settimanale brilla ancora nel cielo di questa settimana.",
+        "Fine settimana in vista! Una missione settimanale e la mappa è più ordinata.",
+        "Ho segnato le missioni settimanali rimaste: una alla volta, senza fretta.",
+        "Una missione settimanale oggi e il weekend sotto le stelle è più leggero.",
+        "Le missioni della settimana sono come le fasi della luna: si completano piano.",
+        "Dai un'occhiata alla mappa: c'è una missione settimanale facile facile.",
+        "Prima che la settimana tramonti, una missione settimanale merita una stella.",
+        "La settimana sta per finire come una cometa: una missione ancora e chiude bene.",
+        "Una missione settimanale ancora e il cielo di questa settimana è completo."
+      ],
+      "monthly": [
+        "Il mese sta finendo: una missione mensile merita un'occhiata sulla mappa.",
+        "Ultimi giorni del mese! Quale missione mensile accendiamo per prima?",
+        "Una missione mensile oggi e il cielo di questo mese è più luminoso.",
+        "Il mese gira l'ultima pagina della mappa: restano missioni mensili da completare.",
+        "Fine mese: sistemiamo con calma le missioni che restano, una stella per volta.",
+        "Ho controllato il cielo del mese: c'è ancora una missione mensile da accendere.",
+        "Gli ultimi giorni del mese sono ottimi per una missione che aspetta da un po'.",
+        "Una missione mensile alla volta e la mappa del mese si completa.",
+        "Il mese si spegne come un tramonto: una missione mensile e lo chiudiamo in bellezza.",
+        "Manca poco alla fine del mese: aggiungiamo l'ultima stella insieme?"
+      ],
+      "levelup": [
+        "Livello nuovo! Una stella in più sulla tua mappa!",
+        "Hai guadagnato un livello: l'ho segnato subito sulla carta del cielo.",
+        "Wow, un livello! Il telescopio non è mai stato così luminoso.",
+        "Sei salito di livello: una nuova costellazione è comparsa sulla mappa!",
+        "Livello superato! Esprimo un desiderio a una stella cadente per te.",
+        "Che scoperta: un livello nuovo! La notte brilla un po' di più.",
+        "Un livello in più: la tua scia nel cielo si allunga.",
+        "Evviva! Ho trovato un livello nuovo, e proprio nel tuo angolo di cielo.",
+        "Livello nuovo! Annoto la data: oggi è una notte da ricordare.",
+        "Complimenti! Ora la mappa ha una stella in più e il viaggio continua."
+      ]
     }
   }
 }

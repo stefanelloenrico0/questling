@@ -260,6 +260,8 @@
     }
   },
   "settings": {
+    "accountOn": "Connected",
+    "preferences": "Preferences",
     "title": "Settings",
     "profile": "Profile",
     "name": "Your name",

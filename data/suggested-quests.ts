@@ -78,4 +78,16 @@ export const SUGGESTED_QUESTS: Record<CharacterId, readonly SuggestedQuest[]> = 
     { key: 'q3', icon: 'star', period: 'daily', difficulty: 'easy', target: 1 },
     { key: 'q4', icon: 'coin', period: 'weekly', difficulty: 'medium', target: 1 },
   ],
+  ulisse: [
+    { key: 'q1', icon: 'book', period: 'daily', difficulty: 'medium', target: 1 },
+    { key: 'q2', icon: 'bed', period: 'daily', difficulty: 'easy', target: 1 },
+    { key: 'q3', icon: 'pencil', period: 'daily', difficulty: 'easy', target: 1 },
+    { key: 'q4', icon: 'brain', period: 'weekly', difficulty: 'medium', target: 1 },
+  ],
+  cometa: [
+    { key: 'q1', icon: 'star', period: 'daily', difficulty: 'easy', target: 1 },
+    { key: 'q2', icon: 'shoe', period: 'daily', difficulty: 'easy', target: 1 },
+    { key: 'q3', icon: 'pencil', period: 'daily', difficulty: 'easy', target: 1 },
+    { key: 'q4', icon: 'sun', period: 'weekly', difficulty: 'medium', target: 1 },
+  ],
 }

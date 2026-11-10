@@ -18,6 +18,8 @@ export const CHARACTER_IDS = [
   'salmastro',
   'plin',
   'brace',
+  'ulisse',
+  'cometa',
 ] as const
 
 export type CharacterId = (typeof CHARACTER_IDS)[number]

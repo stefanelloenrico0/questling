@@ -9,7 +9,7 @@
     "level": "Livello",
     "totalXp": "XP totali",
     "heatmapTitle": "Ultime 12 settimane",
-    "heatmapNote": "Ogni quadratino è un giorno: più è acceso, più daily hai completato.",
+    "heatmapNote": "Ogni pallino è un giorno: più è acceso, più daily hai completato.",
     "heatmapSummary": "{total} daily completate in {days} giorni attivi.",
     "legendLess": "Meno",
     "legendMore": "Più",

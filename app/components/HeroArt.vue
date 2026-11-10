@@ -16,7 +16,8 @@ import u404 from '../assets/heroes/u404.svg?raw'
 import valdo from '../assets/heroes/valdo.svg?raw'
 import zeffiro from '../assets/heroes/zeffiro.svg?raw'
 
-const ART: Record<CharacterId, string> = { valdo, kuro, fenna, zeffiro, lumen, rondo, u404, brunilde, salmastro, plin, brace }
+// Gli eroi piu' recenti (Ulisse, Cometa) esistono solo dipinti: senza SVG di ripiego.
+const ART: Partial<Record<CharacterId, string>> = { valdo, kuro, fenna, zeffiro, lumen, rondo, u404, brunilde, salmastro, plin, brace }
 const VIEW = '-4 -24 262 304'
 const RATIO_SVG = 262 / 304
 const RATIO_PAINTED = 3 / 4
@@ -39,7 +40,7 @@ const props = withDefaults(
 // id univoci per istanza: piu' copie dello stesso SVG nella pagina non devono condividere i gradienti
 const uid = useId().replace(/[^a-zA-Z0-9_-]/g, '')
 const svg = computed(() =>
-  ART[props.character]
+  (ART[props.character] ?? '')
     .replace(/ role="img" aria-label="[^"]*"/, '')
     .replace('<svg ', '<svg aria-hidden="true" focusable="false" ')
     .replace(/id="([\w-]+)"/g, `id="${uid}-$1"`)

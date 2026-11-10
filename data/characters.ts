@@ -27,6 +27,8 @@ export const CHARACTERS: readonly CharacterData[] = [
   { id: 'salmastro', accent: '#72cabb', unlock: { kind: 'level', value: 10 } },
   { id: 'plin', accent: '#b9a8f0', unlock: { kind: 'streak', value: 30 } },
   { id: 'brace', accent: '#f08c80', unlock: { kind: 'level', value: 20 } },
+  { id: 'ulisse', accent: '#d9a76a', unlock: { kind: 'level', value: 15 } },
+  { id: 'cometa', accent: '#9aa4f5', unlock: { kind: 'level', value: 30 } },
 ]
 
 /** Gli otto eroi che il quiz puo' assegnare. */

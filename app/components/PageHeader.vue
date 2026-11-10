@@ -19,8 +19,8 @@ defineProps<{ title: string; sub?: string }>()
   margin: 0;
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 30px;
-  line-height: 36px;
+  font-size: 27px;
+  line-height: 34px;
   color: var(--text);
 }
 .ph__sub {

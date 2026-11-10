@@ -61,3 +61,19 @@ Formato 3:2 salvo diversa indicazione, nessun testo, nessun personaggio in primo
 - Le immagini originali restano nella libreria Higgsfield dell'account.
 
 Per cambiare un eroe: rigenera, converti e sostituisci `app/assets/heroes/art/hero_<id>_full.webp`.
+
+## Aggiunte del 10 novembre 2026
+
+Stessi parametri degli eroi (`gpt_image_2_6`, 3:4, 2k, alta qualità, sfondo trasparente, 2,75 crediti ciascuno). Per questi due è stata usata come unico riferimento di stile la striscia «11 Heroes» del PDF: con anche Zeffiro come riferimento il modello copiava il cappello da mago.
+
+- **Ulisse** (`hero_ulisse_full.webp`, sblocco al livello 15): gufo bibliotecario, occhialini tondi dorati, panciotto verde petrolio, sciarpa bordeaux, libro e lanterna. Nel prompt: «NO hat» e «the entire body from head to both feet must be fully visible».
+- **Cometa** (`hero_cometa_full.webp`, sblocco al livello 30): giovane astronoma, capelli viola con stelline, mantello indaco con costellazioni, cannocchiale d'ottone. Nel prompt: «NO hat, NO pointed hat» e piedi interi visibili. Al primo tentativo il modello aveva tagliato le gambe.
+- Entrambi esistono solo dipinti: non hanno un SVG di ripiego (`HeroArt` lo accetta).
+
+Illustrazioni dell'interfaccia in `app/assets/ui/` (1:1, 1k, trasparenti, 1,5 crediti ciascuna, riferimento: la striscia del PDF), 512×512 WebP:
+
+- `empty-quests.webp`: libro di avventure vuoto con lanterna e penna (stato vuoto di Oggi e Missioni).
+- `empty-stats.webp`: telescopio che punta una stella (Statistiche senza attività).
+- `medal-quests|streak|level|special.webp`: quattro medaglie dorate con nastro (blu, arancio, viola, verde acqua) usate nell'intestazione dei gruppi di traguardi.
+
+Sfondo della schermata Account/accesso: `app/assets/scenes/login.webp` (9:16, 2k, 900×1600 WebP): bivio nel bosco con cartello vuoto e lanterna sotto la luna.

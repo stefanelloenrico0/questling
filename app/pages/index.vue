@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { PERIODS, type Period } from '../../core/types'
+import emptyQuests from '../assets/ui/empty-quests.webp'
 
 const game = useGameStore()
 const { t } = useI18n()
@@ -34,8 +35,17 @@ const sections = computed(() =>
     <QuestSection v-for="s in sections" :key="s.period" :title="t(sectionTitle[s.period])" :rows="s.rows" />
 
     <UiCard v-if="sections.length === 0" data-testid="today-empty">
-      <p class="mb-4">{{ t('today.empty') }}</p>
+      <img :src="emptyQuests" class="empty-art" alt="" draggable="false" />
+      <p class="mb-4 text-center">{{ t('today.empty') }}</p>
       <UiButton @click="navigateTo('/quests')">{{ t('today.emptyCta') }}</UiButton>
     </UiCard>
   </div>
 </template>
+
+<style scoped>
+.empty-art {
+  display: block;
+  width: 160px;
+  margin: 0 auto 8px;
+}
+</style>

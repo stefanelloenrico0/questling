@@ -3,8 +3,8 @@ import { CHARACTERS, CHARACTER_BY_ID, QUIZ_CHARACTERS } from '../../data/charact
 import { CHARACTER_IDS } from '../../core/types'
 
 describe('data/characters', () => {
-  it('definisce gli 8 personaggi del quiz e i 3 sbloccabili', () => {
-    expect(CHARACTERS).toHaveLength(11)
+  it('definisce gli 8 personaggi del quiz e i 5 sbloccabili', () => {
+    expect(CHARACTERS).toHaveLength(13)
     expect(QUIZ_CHARACTERS).toHaveLength(8)
     expect(CHARACTERS.map((c) => c.id).sort()).toEqual([...CHARACTER_IDS].sort())
   })
