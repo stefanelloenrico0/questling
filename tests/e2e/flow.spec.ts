@@ -138,7 +138,9 @@ test.describe('MVP: primo avvio -> Oggi, senza account', () => {
     await expect(salmastro).toContainText('Eroe misterioso')
     await expect(salmastro).toContainText('livello 10 (ora 1)')
     await expect(page.getByTestId('hero-card-plin')).toContainText('Streak record di 30 giorni')
-    await expect(page.getByTestId('hero-card-brace')).toContainText('livello 20')
+    await expect(page.getByTestId('hero-card-brace')).toContainText('livello 12')
+    await expect(page.getByTestId('hero-card-ulisse')).toContainText('livello 8')
+    await expect(page.getByTestId('hero-card-cometa')).toContainText('livello 16')
     await page.getByRole('button', { name: 'Annulla' }).click()
 
     await boostXp(page, xpForLevel(10))
@@ -382,12 +384,12 @@ test.describe('MVP: primo avvio -> Oggi, senza account', () => {
     await expect(page.getByTestId('page-settings')).toBeVisible()
   })
 
-  test('l\'informativa privacy e\' pubblica: si apre anche senza profilo, con i segnaposto da completare visibili', async ({ page }) => {
+  test('l\'informativa privacy e\' pubblica: si apre anche senza profilo e non ha segnaposto da completare', async ({ page }) => {
     await page.goto('/#/privacy')
     await expect(page.getByTestId('page-privacy')).toBeVisible()
     await expect(page.getByRole('heading', { name: 'Informativa sulla privacy', level: 1 })).toBeVisible()
     await expect(page.getByText('Non ci sono pubblicità')).toBeVisible()
-    await expect(page.getByText('DA COMPLETARE').first()).toBeVisible()
+    await expect(page.getByText('DA COMPLETARE')).toHaveCount(0)
   })
 
   test('la pagina statica /privacy.html esiste ed e\' generata dalla stessa fonte', async ({ page }) => {

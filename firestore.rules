@@ -47,7 +47,7 @@ service cloud.firestore {
           && request.resource.data.keys().hasOnly(['displayName', 'characterId', 'quizAnswers', 'onboardedAt', 'updatedAt', 'syncedAt'])
           && request.resource.data.keys().hasAll(['displayName', 'characterId', 'onboardedAt', 'updatedAt', 'syncedAt'])
           && str(request.resource.data.displayName, 40)
-          && request.resource.data.characterId in ['valdo', 'kuro', 'fenna', 'zeffiro', 'lumen', 'rondo', 'u404', 'brunilde']
+          && request.resource.data.characterId in ['valdo', 'kuro', 'fenna', 'zeffiro', 'lumen', 'rondo', 'u404', 'brunilde', 'salmastro', 'plin', 'brace', 'ulisse', 'cometa']
           && (!('quizAnswers' in request.resource.data)
               || (request.resource.data.quizAnswers is list && request.resource.data.quizAnswers.size() <= 8))
           && iso(request.resource.data.onboardedAt)

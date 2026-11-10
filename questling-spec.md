@@ -2,6 +2,18 @@
 
 > **Titolo provvisorio.** App mobile (iOS + Android) per darsi obiettivi giornalieri, settimanali e mensili, guidati da un personaggio pixel-art con una storia e una personalità. Quiz iniziale per assegnare il personaggio (cambiabile sempre), livelli, streak, notifiche. **Local-first**: tutto funziona offline senza account; account e sync Firebase sono opzionali (Fase 3).
 
+> ## Aggiornamento di novembre 2026: cosa è cambiato rispetto a questa specifica
+>
+> Questo documento è la specifica originale e **non è stato riscritto**: dove contraddice l'elenco qui sotto, vale l'elenco.
+>
+> - **Grafica**: non più pixel art / Sweetie 16, ma illustrazioni dipinte con direzione "Night-Sky Storybook" (`docs/design-brief.md`). I font sono Cormorant Garamond e Source Sans 3 (non più pixel).
+> - **Eroi**: 13, non 8. Gli otto del quiz più cinque **sbloccabili**: Salmastro (livello 10), Plin (streak record di 30 giorni), Ulisse (livello 8), Brace (livello 12), Cometa (livello 16). Le regole stanno in `data/characters.ts`.
+> - **Onboarding**: splash, 3 intro, quiz di 8 domande (o scelta diretta), rivelazione, nome, aree di interesse, missioni suggerite, ritmo, promemoria, riepilogo.
+> - **Schede**: Oggi, Missioni, Eroe, Statistiche, più Impostazioni (ingranaggio in alto a destra). Barra in basso a pillola di vetro.
+> - **Lingue**: italiano e inglese complete (interfaccia, eroi, notifiche, informativa).
+> - **v1 solo locale**: nessun account nei pacchetti nativi; Firebase e sync restano pronti per la v1.1.
+> - **Stato dei test**: copertura di `core/` e `data/` ≈ 99%, 384 test unitari, 36 e2e, 11 e2e cloud, 19 test delle regole.
+
 Convenzioni di questo documento:
 - **(stima)** = numero ragionato ma non misurato, da validare con playtest.
 - **(da verificare)** = fatto esterno (versioni, policy store, quote di servizi) che può essere cambiato: controllalo prima di appoggiarti.

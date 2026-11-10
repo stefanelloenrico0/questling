@@ -43,9 +43,9 @@ describe('dati degli eroi sbloccabili', () => {
     expect(rules).toEqual([
       ['salmastro', { kind: 'level', value: 10 }],
       ['plin', { kind: 'streak', value: 30 }],
-      ['brace', { kind: 'level', value: 20 }],
-      ['ulisse', { kind: 'level', value: 15 }],
-      ['cometa', { kind: 'level', value: 30 }],
+      ['brace', { kind: 'level', value: 12 }],
+      ['ulisse', { kind: 'level', value: 8 }],
+      ['cometa', { kind: 'level', value: 16 }],
     ])
   })
 
@@ -62,11 +62,15 @@ describe('regole di sblocco', () => {
     expect(ids).not.toContain('salmastro')
   })
 
-  it('livello 10 sblocca Salmastro, livello 20 Brace, streak 30 Plin', () => {
+  it('livello 10 sblocca Salmastro, 12 Brace, 8 Ulisse, 16 Cometa, streak 30 Plin', () => {
     expect(isHeroUnlocked('salmastro', { level: 9, bestStreak: 99 })).toBe(false)
     expect(isHeroUnlocked('salmastro', { level: 10, bestStreak: 0 })).toBe(true)
-    expect(isHeroUnlocked('brace', { level: 19, bestStreak: 0 })).toBe(false)
-    expect(isHeroUnlocked('brace', { level: 20, bestStreak: 0 })).toBe(true)
+    expect(isHeroUnlocked('brace', { level: 11, bestStreak: 0 })).toBe(false)
+    expect(isHeroUnlocked('brace', { level: 12, bestStreak: 0 })).toBe(true)
+    expect(isHeroUnlocked('ulisse', { level: 7, bestStreak: 0 })).toBe(false)
+    expect(isHeroUnlocked('ulisse', { level: 8, bestStreak: 0 })).toBe(true)
+    expect(isHeroUnlocked('cometa', { level: 15, bestStreak: 99 })).toBe(false)
+    expect(isHeroUnlocked('cometa', { level: 16, bestStreak: 0 })).toBe(true)
     expect(isHeroUnlocked('plin', { level: 50, bestStreak: 29 })).toBe(false)
     expect(isHeroUnlocked('plin', { level: 1, bestStreak: 30 })).toBe(true)
     expect(isHeroUnlocked('valdo', { level: 1, bestStreak: 0 })).toBe(true)
@@ -75,7 +79,8 @@ describe('regole di sblocco', () => {
   it('newlyUnlockedHeroes segnala solo i passaggi nuovi', () => {
     expect(newlyUnlockedHeroes({ level: 9, bestStreak: 0 }, { level: 10, bestStreak: 0 })).toEqual(['salmastro'])
     expect(newlyUnlockedHeroes({ level: 10, bestStreak: 0 }, { level: 11, bestStreak: 0 })).toEqual([])
-    expect(newlyUnlockedHeroes({ level: 19, bestStreak: 29 }, { level: 20, bestStreak: 30 })).toEqual(['plin', 'brace'])
+    expect(newlyUnlockedHeroes({ level: 11, bestStreak: 29 }, { level: 12, bestStreak: 30 })).toEqual(['plin', 'brace'])
+    expect(newlyUnlockedHeroes({ level: 7, bestStreak: 0 }, { level: 8, bestStreak: 0 })).toEqual(['ulisse'])
     expect(newlyUnlockedHeroes({ level: 12, bestStreak: 0 }, { level: 5, bestStreak: 0 })).toEqual([])
   })
 

@@ -30,13 +30,13 @@ const html = `<!doctype html>
 <title>${esc(policy.title)} - ${esc(policy.app)}</title>
 <style>
   :root { color-scheme: dark; }
-  body { margin: 0; background: #1a1c2c; color: #f4f4f4; font: 18px/1.6 ui-monospace, "Courier New", monospace; }
+  body { margin: 0; background: #0b1020; color: #f5f0e5; font: 18px/1.6 "Source Sans 3", system-ui, -apple-system, "Segoe UI", sans-serif; }
   main { max-width: 42rem; margin: 0 auto; padding: 24px 16px 64px; }
-  h1 { font-size: 1.4rem; line-height: 1.4; }
-  h2 { font-size: 1.1rem; margin-top: 2rem; color: #ffcd75; }
+  h1 { font: 700 2rem/1.2 "Cormorant Garamond", Georgia, serif; }
+  h2 { font-size: 1.1rem; margin-top: 2rem; color: #e9b85e; }
   p { margin: 0.6rem 0; }
-  .meta { color: #94b0c2; }
-  section { border-top: 4px solid #566c86; margin-top: 1.5rem; }
+  .meta { color: #b6c0d0; }
+  section { border-top: 1px solid #34415b; margin-top: 1.5rem; }
 </style>
 </head>
 <body>

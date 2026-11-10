@@ -17,7 +17,7 @@ import { afterAll, afterEach, beforeEach, describe, expect, it } from 'vitest'
 import { completeOnboarding, progressQuest, totalXp } from '../../core/game'
 import { createInitialState } from '../../core/schema'
 import { emptySyncMeta, runSync, type SyncMeta } from '../../core/sync'
-import type { AppState } from '../../core/types'
+import { CHARACTER_IDS, type AppState } from '../../core/types'
 import { FirestoreRemoteStore, formatCursor, parseCursor } from '../../app/services/firestore-remote'
 import { at, ctxAt, daily } from '../unit/helpers'
 
@@ -124,6 +124,11 @@ describe('regole di sicurezza: validazione dei campi', () => {
     await ok(write(c, ['completions', 'q2_2026-11'], completion({ id: 'q2_2026-11', questId: 'q2', periodKey: '2026-11' })))
     await ok(write(c, ['xpEvents', 'e1'], event()))
     await ok(write(c, ['xpEvents', 'fix:quest:q1:abc:10:20'], event({ id: 'fix:quest:q1:abc:10:20', delta: -10 })))
+  })
+
+  it('ogni eroe del gioco, anche gli sbloccabili, è accettato nel profilo: le regole restano allineate a CHARACTER_IDS', async () => {
+    const c = await client('heroes@example.com')
+    for (const id of CHARACTER_IDS) await ok(write(c, ['profile', 'main'], profile({ characterId: id })))
   })
 
   it('missioni non valide: titolo, enum, target, campi extra, id che non combacia', async () => {

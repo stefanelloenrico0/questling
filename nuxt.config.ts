@@ -1,3 +1,4 @@
+import { fileURLToPath } from 'node:url'
 import { BUNDLED_ICONS } from './data/icons'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
@@ -67,6 +68,20 @@ export default defineNuxtConfig({
         emulatorAuth: '',
         emulatorFirestore: '',
       },
+    },
+  },
+
+  // v1 solo locale: senza NUXT_PUBLIC_FIREBASE_* l'SDK Firebase (circa 1 MB) viene sostituito da uno stub e non entra nel pacchetto
+  vite: {
+    resolve: {
+      alias: process.env.NUXT_PUBLIC_FIREBASE_API_KEY
+        ? {}
+        : {
+            'firebase/app': fileURLToPath(new URL('./app/services/firebase-stub.ts', import.meta.url)),
+            'firebase/auth': fileURLToPath(new URL('./app/services/firebase-stub.ts', import.meta.url)),
+            'firebase/firestore': fileURLToPath(new URL('./app/services/firebase-stub.ts', import.meta.url)),
+            '@capacitor-firebase/authentication': fileURLToPath(new URL('./app/services/firebase-stub.ts', import.meta.url)),
+          },
     },
   },
 
